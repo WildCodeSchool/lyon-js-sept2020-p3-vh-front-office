@@ -2,6 +2,7 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
 import Button from "@material-ui/core/Button";
+import './Register.css';
 
 const wait = function (duration = 1000) {
   return new Promise((resolve) => {
@@ -11,7 +12,7 @@ const wait = function (duration = 1000) {
 
 const Register = () => {
   const { register, handleSubmit, formState, errors } = useForm({
-    mode: 'onBlur'
+    mode: "onBlur",
   });
   const { isSubmitting, isSubmitSuccessful } = formState;
 
@@ -20,54 +21,62 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="container-register-form">
       <form onSubmit={handleSubmit(onSubmit)}>
-        {isSubmitSuccessful && <div>Merci pour votre inscription</div>}
-        <div>
+        <div className="input-register-form">
           <TextField
             className="is-invalid"
             id="outlined-basic"
             label="Prénom"
             variant="outlined"
             inputRef={register({
-              required: "vous devez renseigner votre prénom", pattern: /^[A-Za-z]+$/i
+              required: "vous devez renseigner votre prénom",
+              pattern: /^[A-Za-z]+$/i,
             })}
             name="firstname"
           />
           {errors.firstname && <span>{errors.firstname.message}</span>}
         </div>
-        <div>
+        <div className="input-register-form">
           <TextField
             id="outlined-basic"
             label="Nom"
             variant="outlined"
-            inputRef={register({ required: "vous devez renseigner votre nom", pattern: /^[A-Za-z]+$/i })}
+            inputRef={register({
+              required: "vous devez renseigner votre nom",
+              pattern: /^[A-Za-z]+$/i,
+            })}
             name="lastname"
           />
           {errors.lastname && <span>{errors.lastname.message}</span>}
         </div>
-        <div>
+        <div className="input-register-form">
           <TextField
             id="outlined-basic"
             label="Email"
             variant="outlined"
-            inputRef={register({ required:'invalide email', pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/ })}
+            inputRef={register({
+              required: "invalide email",
+              pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+            })}
             name="email"
             // ref={register({ pattern: /^[A-Za-z]+$/i })}
             // /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
           />
           {errors.email && <span>{errors.email.message}</span>}
         </div>
-        <div>
+        <div className="input-register-form">
           <TextField
             id="outlined-basic"
             label="Téléphone"
             variant="outlined"
-            inputRef={register({pattern: /(\+\d+(\s|-))?0\d(\s|-)?(\d{2}(\s|-)?){4}/})}
+            inputRef={register({
+              pattern: /(\+\d+(\s|-))?0\d(\s|-)?(\d{2}(\s|-)?){4}/,
+            })}
             name="phone"
           />
         </div>
-        <div>
+        <div className="input-register-form">
           <TextField
             type="password"
             id="outlined-basic"
@@ -85,7 +94,7 @@ const Register = () => {
           />
           {errors.password && <span>{errors.password.message}</span>}
         </div>
-        <div>
+        <div className="input-register-form">
           <TextField
             type="password"
             id="outlined-basic"
@@ -103,7 +112,7 @@ const Register = () => {
           />
           {errors.confirm && <span>{errors.confirm.message}</span>}
         </div>
-        <div>
+        <div className="button-register-form">
           <Button
             disableElevation={isSubmitting}
             type="submit"
@@ -113,7 +122,11 @@ const Register = () => {
             S'inscrire
           </Button>
         </div>
+        <div className="button-register-form">
+          {isSubmitSuccessful && <div>Merci pour votre inscription</div>}
+        </div>
       </form>
+
     </div>
   );
 };
