@@ -1,0 +1,26 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  h1 {
+    text-align: center;
+    color: #8c0226;
+  }
+  p {
+    text-align: center;
+    color: #3c434c;
+    
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .banner {
+    h1 {
+      font-size: 2.5vw;
+    }
+    p {
+      font-size: 1.5vw;
+    }
+  }
+}
