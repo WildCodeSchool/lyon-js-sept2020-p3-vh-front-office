@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
 import Button from "@material-ui/core/Button";
-import './Register.css';
+import './Register.scss';
 
 const wait = function (duration = 1000) {
   return new Promise((resolve) => {
@@ -35,7 +35,9 @@ const Register = () => {
             })}
             name="firstname"
           />
+          <div className="errors-message-form">
           {errors.firstname && <span>{errors.firstname.message}</span>}
+          </div>
         </div>
         <div className="input-register-form">
           <TextField
@@ -48,7 +50,9 @@ const Register = () => {
             })}
             name="lastname"
           />
+          <div className="errors-message-form">
           {errors.lastname && <span>{errors.lastname.message}</span>}
+          </div>
         </div>
         <div className="input-register-form">
           <TextField
@@ -63,7 +67,9 @@ const Register = () => {
             // ref={register({ pattern: /^[A-Za-z]+$/i })}
             // /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
           />
+          <div className="errors-message-form">
           {errors.email && <span>{errors.email.message}</span>}
+          </div>
         </div>
         <div className="input-register-form">
           <TextField
@@ -92,7 +98,9 @@ const Register = () => {
             })}
             name="password"
           />
+          <div className="errors-message-form">
           {errors.password && <span>{errors.password.message}</span>}
+          </div>
         </div>
         <div className="input-register-form">
           <TextField
@@ -110,7 +118,9 @@ const Register = () => {
             })}
             name="confirm"
           />
+          <div className="errors-message-form">
           {errors.confirm && <span>{errors.confirm.message}</span>}
+          </div>
         </div>
         <div className="button-register-form">
           <Button
