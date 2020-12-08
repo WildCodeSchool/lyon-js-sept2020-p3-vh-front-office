@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Translation = () => {
-    return(
-    <div>123</div>
-    )
-}
+  return <div>123</div>;
+};
 
 export default Translation;
