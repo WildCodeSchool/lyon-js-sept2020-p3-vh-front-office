@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
 import Button from "@material-ui/core/Button";
-import "./Register.css";
+import "./Register.scss";
 
 const wait = function (duration = 1000) {
   return new Promise((resolve) => {
@@ -62,8 +62,6 @@ const Register = () => {
               pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
             })}
             name="email"
-            // ref={register({ pattern: /^[A-Za-z]+$/i })}
-            // /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
           />
           <div>{errors.email && <span>{errors.email.message}</span>}</div>
         </div>
