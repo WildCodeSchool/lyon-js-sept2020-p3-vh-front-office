@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useRef} from "react";
 import TextField from "@material-ui/core/TextField";
 import { useForm } from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import "./Register.scss";
+import {Link} from "react-router-dom";
+
 
 const wait = function (duration = 1000) {
   return new Promise((resolve) => {
@@ -11,10 +13,12 @@ const wait = function (duration = 1000) {
 };
 
 const Register = () => {
-  const { register, handleSubmit, formState, errors } = useForm({
+  const { register, handleSubmit, formState, errors, watch } = useForm({
     mode: "onBlur",
   });
   const { isSubmitting, isSubmitSuccessful } = formState;
+  const password = useRef({});
+  password.current = watch("password", "");
 
   const onSubmit = async (data) => {
     await wait(1000);
@@ -23,6 +27,7 @@ const Register = () => {
   return (
     <div className="container-register-form">
       <form onSubmit={handleSubmit(onSubmit)}>
+      <h2>Inscription</h2>
         <div className="input-register-form">
           <TextField
             className="is-invalid"
@@ -30,14 +35,14 @@ const Register = () => {
             label="Prénom"
             variant="outlined"
             inputRef={register({
-              required: "vous devez renseigner votre prénom",
+              required: "Veuiller renseigner votre prénom",
               pattern: /^[A-Za-z]+$/i,
             })}
             name="firstname"
           />
-          <div className="errors-message-form">
+        </div>
+        <div className="errors-message-form">
             {errors.firstname && <span>{errors.firstname.message}</span>}
-          </div>
         </div>
         <div className="input-register-form">
           <TextField
@@ -45,32 +50,30 @@ const Register = () => {
             label="Nom"
             variant="outlined"
             inputRef={register({
-              required: "vous devez renseigner votre nom",
+              required: "Veuillez renseigner votre nom",
               pattern: /^[A-Za-z]+$/i,
             })}
             name="lastname"
           />
-          <div className="errors-message-form">
+        </div>
+        <div className="errors-message-form">
             {errors.lastname && <span>{errors.lastname.message}</span>}
           </div>
-        </div>
         <div className="input-register-form">
           <TextField
             id="outlined-basic"
             label="Email"
             variant="outlined"
             inputRef={register({
-              required: "invalide email",
+              required: "Veuillez renseigner votre email",
               pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
             })}
             name="email"
-            // ref={register({ pattern: /^[A-Za-z]+$/i })}
-            // /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
           />
-          <div className="errors-message-form">
+        </div>
+        <div className="errors-message-form">
             {errors.email && <span>{errors.email.message}</span>}
           </div>
-        </div>
         <div className="input-register-form">
           <TextField
             id="outlined-basic"
@@ -89,7 +92,7 @@ const Register = () => {
             label="Mot de passe"
             variant="outlined"
             inputRef={register({
-              required: "vous devez renseigner un mot de passe",
+              required: "Veuillez renseigner un mot de passe",
               minLength: {
                 value: 8,
                 message:
@@ -98,10 +101,10 @@ const Register = () => {
             })}
             name="password"
           />
-          <div className="errors-message-form">
+        </div>
+        <div className="errors-message-form">
             {errors.password && <span>{errors.password.message}</span>}
           </div>
-        </div>
         <div className="input-register-form">
           <TextField
             type="password"
@@ -109,23 +112,26 @@ const Register = () => {
             label="Confirmation mot de passe"
             variant="outlined"
             inputRef={register({
-              required: "vous devez confirmer votre mot de passe",
+              required: "Veuillez confirmer votre mot de passe",
+              validate: value =>
+                  value === password.current || "The passwords do not match",
               minLength: {
                 value: 8,
                 message:
                   "votre mot de passe doit contenir au moins 8 caractères",
+  
               },
             })}
             name="confirm"
           />
-          <div className="errors-message-form">
+        </div>
+        <div className="errors-message-form">
             {errors.confirm && <span>{errors.confirm.message}</span>}
           </div>
-        </div>
         <div className="button-register-form">
           <Button
             disableElevation={isSubmitting}
-            type="submit"
+            type="reset"
             variant="contained"
             color="primary"
           >
@@ -133,11 +139,16 @@ const Register = () => {
           </Button>
         </div>
         <div className="button-register-form">
-          {isSubmitSuccessful && (
+          { isSubmitSuccessful && (
             <div className="message-envoie-form">
               Merci pour votre inscription
             </div>
           )}
+        </div>
+        <div className="link-back-to-login">
+          <Link to="/login">
+          <p>Déjà inscrit ?</p>
+          </Link>
         </div>
       </form>
     </div>
@@ -145,3 +156,7 @@ const Register = () => {
 };
 
 export default Register;
+
+
+
+

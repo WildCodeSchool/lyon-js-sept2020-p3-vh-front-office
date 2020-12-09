@@ -2,20 +2,43 @@
     display: flex;
     justify-content: center;
     height: 100vh;
-    align-items: center;
-    .input-register-form{
-        margin-bottom: 20px;
-    }
-    .button-register-form{
+    form{
         display: flex;
-        justify-content: center; 
-        margin-bottom: 20px;
-    }.errors-message-form{
-        color: red;
-    }.message-envoie-form{
-        background-color: green;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid lightgray;
+        box-shadow: 2px 2px 2px  lightgray;
+        border-radius: 10px;
+        width: 70%;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
+        .input-register-form{
+            margin-bottom: 10px;
+        }
+            .button-register-form{
+                display: flex;
+                justify-content: center;
+                margin-top: 10px; 
+                }.errors-message-form{
+                    color: red;
+                    width: 80%;
+                    text-align: left;
+                    }.message-envoie-form{
+                        background-color: green;
+                    }.link-back-to-login{
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        margin-left: 70px;
+                        a{
+                            color: black;
+                        }
+                    }
 }
+
+
 
 
 
