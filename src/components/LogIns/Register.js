@@ -133,7 +133,11 @@ const Register = () => {
           </Button>
         </div>
         <div className="button-register-form">
-          {isSubmitSuccessful && <div className="message-envoie-form">Merci pour votre inscription</div>}
+          {isSubmitSuccessful && (
+            <div className="message-envoie-form">
+              Merci pour votre inscription
+            </div>
+          )}
         </div>
       </form>
     </div>
