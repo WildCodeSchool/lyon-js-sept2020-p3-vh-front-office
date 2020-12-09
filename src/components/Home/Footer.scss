@@ -1,0 +1,103 @@
+@import '../variablesCSS';
+
+* {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.footerBody {
+  height: 12%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  border-top: 2px solid $primary-color;
+  .footerLogo {
+    width: 25%;
+    max-width: 150px;
+    padding: 0 20px 0 15px;
+  }
+  .footerFacebook {
+    height: 25px;
+    padding: 0 15px 0 20px;
+  }
+}
+
+.footerText {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerLink {
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 12px;
+  a {
+    color: $primary-color;
+  }
+}
+
+.footerCopyright {
+  width: 100%;
+  height: 70px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 40px;
+  font-size: 9px;
+  background-color: $primary-color;
+  color: white;
+  text-align: center;
+}
+
+@media screen and (min-width: 520px) {
+  .footerBody {
+    .footerLogo {
+      padding: 0 20px 0 20px;
+    }
+    .footerFacebook {
+      padding: 0 25px 0 20px;
+    }
+  }
+
+  .footerLink {
+    width: 50%;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footerBody {
+    .footerLogo {
+      padding: 0 20px 0 20px;
+    }
+    .footerFacebook {
+      padding: 0 30px 0 20px;
+    }
+  }
+  .footerLink {
+    width: 45%;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footerBody {
+    .footerLogo {
+      max-width: 200px;
+      padding: 0 20px 0 40px;
+    }
+    .footerFacebook {
+      height: 30px;
+      padding: 0 60px 0 20px;
+    }
+  }
+  .footerLink {
+    width: 30%;
+    font-size: 16px;
+  }
+}
