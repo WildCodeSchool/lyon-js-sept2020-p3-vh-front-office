@@ -51,15 +51,17 @@ const winesList = [
   },
 ];
 
-console.log(slides)
-console.log(winesList.map((wine) => <img src={wine.image} />))
+console.log(slides);
+console.log(winesList.map((wine) => <img src={wine.image} />));
 
 const Wines = () => {
   return (
     <main className="wines">
       <h1>Les vins dégustés</h1>
       <Carousel
-        slides={winesList.map((wine) => <img src={wine.image} alt={wine.image}/>)}
+        slides={winesList.map((wine) => (
+          <img src={wine.image} alt={wine.image} />
+        ))}
         autoplay={false}
       />
     </main>
