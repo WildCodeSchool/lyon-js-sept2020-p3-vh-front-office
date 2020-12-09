@@ -8,10 +8,12 @@
     }
     .button-register-form{
         display: flex;
-        justify-content: center;
+        justify-content: center; 
         margin-bottom: 20px;
     }.errors-message-form{
         color: red;
+    }.message-envoie-form{
+        background-color: green;
     }
 }
 
