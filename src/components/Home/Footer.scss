@@ -11,68 +11,74 @@
   height: 12%;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   bottom: 0;
-  border-top: 2px solid $primary-color;
+  border-top: 2.5px solid $primary-color;
   .footerLogo {
     width: 25%;
+    height: 50%;
     max-width: 150px;
-    padding: 0 20px 0 15px;
+    padding: 10px 0px 0 15px;
   }
   .footerFacebook {
-    height: 25px;
-    padding: 0 15px 0 20px;
+    height: 20px;
+    padding: 0 18px 0 20px;
   }
-}
-
-.footerText {
-  display: flex;
-  flex-direction: column;
 }
 
 .footerLink {
-  width: 55%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   text-align: center;
   font-size: 12px;
+  padding-top: 10px;
   a {
     color: $primary-color;
+    :hover {
+      text-decoration: underline;
+    }
   }
 }
 
 .footerCopyright {
   width: 100%;
-  height: 70px;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 40px;
-  font-size: 9px;
-  background-color: $primary-color;
-  color: white;
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  //border-top: 1px solid $primary-color;
+  border-radius: 2px;
+  font-size: 8px;
+  background-color: white;
+  color: $primary-color;
   text-align: center;
+  p {
+    width: 100%;
+    padding-bottom: 10px;
+  }
 }
 
 @media screen and (min-width: 520px) {
   .footerBody {
     .footerLogo {
+      height: 60%;
       padding: 0 20px 0 20px;
     }
     .footerFacebook {
       padding: 0 25px 0 20px;
     }
   }
-
-  .footerLink {
-    width: 50%;
-    font-size: 14px;
-  }
 }
 
 @media screen and (min-width: 768px) {
   .footerBody {
     .footerLogo {
+      height: 65%;
       padding: 0 20px 0 20px;
     }
     .footerFacebook {
@@ -80,24 +86,33 @@
     }
   }
   .footerLink {
-    width: 45%;
-    font-size: 16px;
+    width: 100%;
+    font-size: 12px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .footerBody {
     .footerLogo {
-      max-width: 200px;
-      padding: 0 20px 0 40px;
+      max-width: 180px;
+      height: 70%;
+      padding: 12px 0px 0 40px;
     }
     .footerFacebook {
-      height: 30px;
+      height: 25px;
       padding: 0 60px 0 20px;
     }
   }
   .footerLink {
-    width: 30%;
-    font-size: 16px;
+    width: 100%;
+    font-size: 14px;
+    p {
+      padding-right: 60px;
+    }
+  }
+
+  .footerCopyright {
+    font-size: 8.5px;
+    font-style: normal;
   }
 }
