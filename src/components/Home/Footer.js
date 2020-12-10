@@ -7,13 +7,7 @@ import facebook from '../pictures/facebook.svg';
 const Footer = () => {
   return (
     <div className="footerBody">
-      <img
-        src={logo}
-        alt="logo"
-        className="footerLogo"
-        // onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        // onKeyDown={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      />
+      <img src={logo} alt="logo" className="footerLogo" />
       <div className="footerText">
         <div className="footerLink">
           <Link to="/contact">
