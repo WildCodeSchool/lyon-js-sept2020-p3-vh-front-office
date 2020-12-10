@@ -1,7 +1,7 @@
-import React from "react";
-import Wines from "./Wines";
+import React from 'react';
+import Wines from './Wines';
 
-export default function Products(props) {
+export default function Products() {
   return (
     <>
       <Wines />

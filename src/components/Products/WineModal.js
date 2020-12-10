@@ -1,32 +1,46 @@
-import { makeStyles } from "@material-ui/core/styles";
-import { Modal, Button } from "react-bootstrap";
-import "./WineModal.scss";
+import { makeStyles } from '@material-ui/core/styles';
+import { Modal, Button } from 'react-bootstrap';
+import './WineModal.scss';
 
 function WineModal(props) {
   const useStyles = makeStyles(() => ({
     button: {
-      width: "50%",
-      marginBottom: "10px",
-      backgroundColor: "#8C0226",
-      color: "white",
-      textTransform: "none",
-      outline: "none",
-      border: "none",
-      "&$button:hover": {
-        backgroundColor: "#8C0226",
-        color: "white",
+      width: '50%',
+      marginBottom: '10px',
+      backgroundColor: '#8C0226',
+      color: 'white',
+      textTransform: 'none',
+      outline: 'none',
+      border: 'none',
+      '&$button:hover': {
+        backgroundColor: '#8C0226',
+        color: 'white',
       },
-      "&$button:focus": {
-        outline: "none",
+      '&$button:focus': {
+        outline: 'none',
       },
     },
   }));
 
-  const wine = props.winedata[0];
+  const {
+    winery,
+    vintage,
+    winemaker,
+    grapeVariety,
+    wineWaiter,
+    aromas,
+    specificities,
+    price,
+    image,
+    producerUrl,
+    onHide,
+    // eslint-disable-next-line react/destructuring-assignment
+  } = props.winedata[0];
 
   return (
     <div>
       <Modal
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -35,33 +49,33 @@ function WineModal(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title>
-            {wine.winery} - Cuvée {wine.vintage}
+            {winery} - Cuvée {vintage}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
-            Vigneron : {wine.winemaker} <br />
-            Cépages(s) : {wine.grape_variety} <br />
-            {wine.wine_waiter && `Sommelier : ${wine.wine_waiter} `}
+            Vigneron : {winemaker} <br />
+            Cépages(s) : {grapeVariety} <br />
+            {wineWaiter && `Sommelier : ${wineWaiter} `}
             <br />
-            Cépages(s) : {wine.grape_variety} <br />
-            Arôme(s) : {wine.aromas} <br />
-            {wine.specificities && (
+            Cépages(s) : {grapeVariety} <br />
+            Arôme(s) : {aromas} <br />
+            {specificities && (
               <>
-                Spécificités : {wine.specificities}
+                Spécificités : {specificities}
                 <br />
               </>
             )}
-            Prix indicatif : {wine.price} € <br />
+            Prix indicatif : {price} € <br />
           </div>
-          <img src={wine.image} alt={wine.winery} />
+          <img src={image} alt={winery} />
         </Modal.Body>
         <Button
           variant="contained"
           className={useStyles().button}
           target="_blank"
-          onClick={props.onHide}
-          href={wine.producer_url}
+          onClick={onHide}
+          href={producerUrl}
         >
           Me rendre sur le site du producteur
         </Button>
