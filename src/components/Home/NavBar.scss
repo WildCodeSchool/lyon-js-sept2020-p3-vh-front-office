@@ -1,0 +1,24 @@
+@import '../variablesCSS';
+
+* {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.navbarBody {
+  height: 12%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  border-bottom: 2.5px solid $primary-color;
+  .navbarLogo {
+    width: 25%;
+    height: 50%;
+    max-width: 150px;
+    padding-left: 10px;
+  }
+}
