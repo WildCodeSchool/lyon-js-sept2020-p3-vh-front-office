@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
-export default function MentionLegale(props) {
+export default function MentionLegale() {
   return <></>;
 }

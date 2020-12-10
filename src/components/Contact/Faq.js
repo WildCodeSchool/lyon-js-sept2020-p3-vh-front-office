@@ -1,4 +1,5 @@
-import React from "react";
-export default function Faq(props) {
+import React from 'react';
+
+export default function Faq() {
   return <></>;
 }
