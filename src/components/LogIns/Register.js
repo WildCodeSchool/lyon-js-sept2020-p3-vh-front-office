@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
-export default function Register(props) {
+export default function Register() {
   return <></>;
 }

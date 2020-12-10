@@ -1,4 +1,5 @@
-import React from "react";
-export default function Events(props) {
+import React from 'react';
+
+export default function Events() {
   return <></>;
 }
