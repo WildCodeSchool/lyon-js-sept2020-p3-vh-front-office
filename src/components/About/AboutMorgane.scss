@@ -1,92 +1,73 @@
+@import '../variablesCSS';
+
 * {
   margin: 0;
   padding: 0;
 }
 
-.titleAbout {
-  text-align: center;
-  padding: 5px;
+.presentationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    text-align: center;
+    margin: 30px;
+  }
 }
 
 .squareAboutGrey {
-  background-color: rgb(208, 208, 208);
-  border-radius: 25px;
-  margin: 20px;
-  padding: 20px;
-}
-
-.icon-bar {
-  list-style-type: none;
-  display: flex;
-}
-
-.aboutImage {
-  margin: 40px;
-}
-
-.aboutTitle {
-  text-align: center;
-}
-
-.list {
-  padding: 20px;
-}
-
-.whoTitle {
-  display: block;
-  align-items: center;
-  margin: 20px;
-}
-
-.autoBio {
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(227, 226, 226);
+  width: 90%;
+  border-radius: 20px;
+  h2 {
+    margin: 30px;
+  }
+  img {
+    margin-bottom: 30px;
+  }
+  p {
+    text-align: justify;
+    margin-bottom: 30px;
+    padding: 0 20px;
+  }
 }
 
 .socialMedia {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.titleAbout {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+  }
 }
 
-.imageMorgan {
+.imageText {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
 @media screen and (min-width: 1024px) {
-}
-
-@media screen and (min-width: 768px) {
-  .autoBio,
-  .aboutImage {
+  .imageText {
     display: flex;
-    text-align: right;
+    flex-direction: row;
     align-items: center;
-  }
-
-  .autoBio {
-    margin-left: 30px;
-  }
-  .squareAboutGrey {
-    position: fixed;
-  }
-
-  .titleAbout {
-    margin-top: 40px;
-    margin-bottom: 45px;
+    justify-content: space-around;
+    p {
+      width: 50%;
+    }
   }
   .socialMedia {
-    position: absolute;
-    bottom: 1%;
-    margin-left: 40px;
-  }
-  .list {
-    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 108px;
+    li {
+      padding: 0 10px;
+    }
   }
 }
