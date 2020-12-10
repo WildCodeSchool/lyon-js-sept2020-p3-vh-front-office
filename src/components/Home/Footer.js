@@ -12,6 +12,7 @@ const Footer = () => {
         alt="logo"
         className="footerLogo"
         // onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        // onKeyDown={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       />
       <div className="footerText">
         <div className="footerLink">
