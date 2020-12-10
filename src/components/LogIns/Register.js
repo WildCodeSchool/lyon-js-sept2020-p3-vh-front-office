@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import "./Register.scss";
 import { Link } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 const wait = function (duration = 1000) {
   return new Promise((resolve) => {
@@ -14,15 +14,15 @@ const wait = function (duration = 1000) {
 
 const useStyles = makeStyles((theme) => ({
   btn: {
-    backgroundColor:'#6d071a',
-    textTransform:'none',
-    '&:hover':{
-      backgroundColor:'#6d071a'
-    }
+    backgroundColor: "#6d071a",
+    textTransform: "none",
+    "&:hover": {
+      backgroundColor: "#6d071a",
+    },
   },
   input: {
-    [theme.breakpoints.up('md')]: {
-      width: '400px',
+    [theme.breakpoints.up("md")]: {
+      width: "400px",
     },
   },
 }));
@@ -36,49 +36,50 @@ const Register = () => {
   const password = useRef({});
   password.current = watch("password", "");
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data,e) => {
     await wait(1000);
+    e.target.reset();
   };
 
   return (
     <div className="container-register-form">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Inscription</h2>
-          <div className="input-register-form">
-            <TextField
-              className={classes.input}
-              id="outlined-basic"
-              label="Prénom*"
-              variant="outlined"
-              inputRef={register({
-                required: "Veuiller renseigner votre prénom",
-                pattern: /^[A-Za-z]+$/i,
-              })}
-              name="firstname"
-            />
-          </div>
-          <div className="errors-message-form">
-            {errors.firstname && <span>{errors.firstname.message}</span>}
-          </div>
-          <div className="input-register-form">
-            <TextField
+        <div className="input-register-form">
+          <TextField
             className={classes.input}
-              id="outlined-basic"
-              label="Nom*"
-              variant="outlined"
-              inputRef={register({
-                required: "Veuillez renseigner votre nom",
-                pattern: /^[A-Za-z]+$/i,
-              })}
-              name="lastname"
-            />
-          </div>
-          <div className="errors-message-form">
+            id="outlined-basic"
+            label="Prénom*"
+            variant="outlined"
+            inputRef={register({
+              required: "Veuiller renseigner votre prénom",
+              pattern: /^[A-Za-z]+$/i,
+            })}
+            name="firstname"
+          />
+        </div>
+        <div className="errors-message-form">
+          {errors.firstname && <span>{errors.firstname.message}</span>}
+        </div>
+        <div className="input-register-form">
+          <TextField
+            className={classes.input}
+            id="outlined-basic"
+            label="Nom*"
+            variant="outlined"
+            inputRef={register({
+              required: "Veuillez renseigner votre nom",
+              pattern: /^[A-Za-z]+$/i,
+            })}
+            name="lastname"
+          />
+        </div>
+        <div className="errors-message-form">
           {errors.lastname && <span>{errors.lastname.message}</span>}
         </div>
         <div className="input-register-form">
           <TextField
-          className={classes.input}
+            className={classes.input}
             id="outlined-basic"
             label="Email*"
             variant="outlined"
@@ -94,7 +95,7 @@ const Register = () => {
         </div>
         <div className="input-register-form">
           <TextField
-          className={classes.input}
+            className={classes.input}
             id="outlined-basic"
             label="Téléphone"
             variant="outlined"
@@ -106,8 +107,8 @@ const Register = () => {
         </div>
         <div className="input-register-form">
           <TextField
-          defaultValue="aaaaaaaa"
-          className={classes.input}
+            defaultValue="aaaaaaaa"
+            className={classes.input}
             type="password"
             id="outlined-basic"
             label="Mot de passe*"
@@ -128,8 +129,8 @@ const Register = () => {
         </div>
         <div className="input-register-form">
           <TextField
-          defaultValue="aaaaaaaa"
-          className={classes.input}
+            defaultValue="aaaaaaaa"
+            className={classes.input}
             type="password"
             id="outlined-basic"
             label="Confirmation mot de passe*"
@@ -137,7 +138,8 @@ const Register = () => {
             inputRef={register({
               required: "Veuillez confirmer votre mot de passe",
               validate: (value) =>
-                value === password.current || "Le mot de passe ne correspond pas",
+                value === password.current ||
+                "Le mot de passe ne correspond pas",
               minLength: {
                 value: 8,
                 message:
@@ -152,9 +154,9 @@ const Register = () => {
         </div>
         <div className="button-register-form">
           <Button
-          className={classes.btn}
+            className={classes.btn}
             disableElevation={isSubmitting}
-            type="reset"
+            type="submit"
             variant="contained"
             color="primary"
           >
