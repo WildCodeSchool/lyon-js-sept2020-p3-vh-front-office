@@ -1,71 +1,92 @@
+import React, { useState, useCallback } from "react";
 import { Carousel } from "3d-react-carousal";
+import WineModal from "./WineModal";
 import "./Wines.scss";
-
-const slides = [
-  <img
-    src="https://medias.nicolas.com/media/sys_master/images/h41/h90/9020507750430.png"
-    alt="1"
-  />,
-  <img
-    src="https://medias.nicolas.com/media/sys_master/images/h41/h90/9020507750430.png"
-    alt="2"
-  />,
-  <img
-    src="https://medias.nicolas.com/media/sys_master/hff/hd4/9224492711966.png"
-    alt="3"
-  />,
-  <img
-    src="https://medias.nicolas.com/media/sys_master/images/hd8/hfc/9080062509086.png"
-    alt="4"
-  />,
-  <img
-    src="https://medias.nicolas.com/media/sys_master/images/hf4/hff/9214340857886.png"
-    alt="5"
-  />,
-];
 
 const winesList = [
   {
+    id: 1,
     image:
       "https://medias.nicolas.com/media/sys_master/images/h41/h90/9020507750430.png",
-    vintage: "Nostrud dolore Lorem magna magna labore.",
-    grape_variety: "Nostrud dolore Lorem magna magna labore.",
-    winemaker: "Nostrud dolore Lorem magna magna labore.",
-    wine_waiter: "Nostrud dolore Lorem magna magna labore.",
-    winery: "Nostrud dolore Lorem magna magna labore.",
-    aromas: "Nostrud dolore Lorem magna magna labore.",
-    specificities: "Nostrud dolore Lorem magna magna labore.",
+    vintage: "Vintage 2014",
+    grape_variety: "Syrah",
+    winemaker: "Pierre",
+    wine_waiter: "John",
+    winery: "Château Patache d’Aux",
+    aromas: "Fruits rouges",
+    specificities: "",
     price: "10",
+    producer_url: "http://www.google.fr",
   },
   {
+    id: 2,
     image:
-      "https://medias.nicolas.com/media/sys_master/images/h41/h90/9020507750430.png",
-    vintage: "Nostrud dolore Lorem magna magna labore.",
-    grape_variety: "Nostrud dolore Lorem magna magna labore.",
-    winemaker: "Nostrud dolore Lorem magna magna labore.",
-    wine_waiter: "Nostrud dolore Lorem magna magna labore.",
-    winery: "Nostrud dolore Lorem magna magna labore.",
-    aromas: "Nostrud dolore Lorem magna magna labore.",
-    specificities: "Nostrud dolore Lorem magna magna labore.",
-    price: "15",
+      "https://medias.nicolas.com/media/sys_master/hff/hd4/9224492711966.png",
+    vintage: "Vintage 2015",
+    grape_variety: "Pinot",
+    winemaker: "Thomas",
+    wine_waiter: "Brieuc",
+    winery: "Château Machin",
+    aromas: "Orange",
+    specificities: "Blablabla",
+    price: "8",
+    producer_url: "http://www.google.fr",
   },
+  {
+    id: 3,
+    image:
+      "https://medias.nicolas.com/media/sys_master/images/h07/h92/9169233117214.png",
+    vintage: "Vintage 2016",
+    grape_variety: "Muscat",
+    winemaker: "Matthieu",
+    wine_waiter: "Aymeric",
+    winery: "Château Truc",
+    aromas: "Cuir",
+    price: "15",
+    producer_url: "http://www.google.fr",
+  }
 ];
 
-console.log(slides);
-console.log(winesList.map((wine) => <img src={wine.image} />));
-
 const Wines = () => {
+  const [wineClicked, setWineClicked] = useState("");
+  const [modalShow, setModalShow] = useState(false);
+
+  const handleClick = useCallback ((wineId) => {
+    setModalShow(true);
+    setWineClicked(wineId);
+  }, []);
+  
+
+
   return (
-    <main className="wines">
-      <h1>Les vins dégustés</h1>
-      <Carousel
-        slides={winesList.map((wine) => (
-          <img src={wine.image} alt={wine.image} />
-        ))}
-        autoplay={false}
-      />
-    </main>
+    <>
+      {wineClicked && (
+        <WineModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          winedata={winesList.filter((wine) => wine.id === wineClicked)}
+        />
+      )}
+      <main className="wines">
+        <h1>Les vins dégustés</h1>
+        < CarrouselWrapper winesList={winesList} handleClick={handleClick}/>
+      </main>
+    </>
   );
 };
+
+const CarrouselWrapper = React.memo(({handleClick, winesList}) => {
+  return (
+    <Carousel
+          slides={winesList.map((wine) => (
+            <>
+            <img src={wine.image} alt={wine.image} onClick={(event) => handleClick(wine.id)}/>
+            <p>{wine.winery}</p>
+            </>
+          ))}
+          autoplay={false}
+        />
+  )
+})
 
 export default Wines;
