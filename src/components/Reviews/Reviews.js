@@ -1,4 +1,5 @@
-import React from "react";
-export default function Reviews(props) {
+import React from 'react';
+
+export default function Reviews() {
   return <></>;
 }
