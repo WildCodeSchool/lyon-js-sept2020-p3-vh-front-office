@@ -15,13 +15,14 @@ import Register from './LogIns/Register';
 import Sponsors from './Sponsors/Sponsors';
 import Basket from './Basket/Basket';
 import Footer from './Home/Footer';
-import NavBar from './Home/NavBar';
+// import NavBar from './Home/NavBar';
+import MentionLegale from './MentionLegale/MentionLegale';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar />
+        {/* <NavBar /> */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/events" component={Events} />
@@ -36,9 +37,8 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/mentions-legales" component={MentionLegale} />
         </Switch>
-      </div>
-      <div>
         <Footer />
       </div>
     </Router>
