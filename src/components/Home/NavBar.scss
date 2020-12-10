@@ -22,7 +22,7 @@
   }
 }
 
-.menu {
+.navbarLink {
   display: none;
 }
 /* Paramétrage du menu burger_______________https://github.com/negomi/react-burger-menu_____________________________________________________________________________________*/
@@ -49,10 +49,6 @@
   background: $primary-color;
   border-radius: 0px;
   max-height: 5px;
-}
-
-/* Color/shape of burger icon bars on hover*/
-.bm-burger-bars-hover {
 }
 
 /* Color/shape of close button cross */
@@ -108,4 +104,62 @@
 .bm-overlay {
   width: 0%;
   background: rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (min-width: 768px) {
+  .bm-burger-button {
+    display: none;
+  }
+
+  .navbarLink {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    ul {
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    a {
+      color: $primary-color;
+      &:hover {
+        background: white;
+        color: $primary-color;
+        padding: 10px;
+        border: solid 2px $primary-color;
+        border-radius: 50px;
+        &:active {
+          background: $primary-color;
+          color: white;
+        }
+      }
+    }
+
+    p {
+      color: $primary-color;
+      &:hover {
+        background: white;
+        color: $primary-color;
+        padding: 10px;
+        border: solid 2px $primary-color;
+        border-radius: 50px;
+        &:active {
+          background: $primary-color;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navbarBody {
+    .navbarLogo {
+      padding-left: 30px;
+    }
+  }
 }

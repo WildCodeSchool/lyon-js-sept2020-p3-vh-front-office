@@ -5,11 +5,15 @@ import './NavBar.scss';
 import { slide as Menu } from 'react-burger-menu';
 import logo from '../pictures/hypnose_vins_logo.png';
 import cross from '../pictures/cross.png';
+import SimpleMenu from './MenuNavBar.js';
+import Button from '@material-ui/core/Button';
+import MenuItem from '@material-ui/core/MenuItem';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { menuOpen: false };
+    this.state = { anchorEl: null };
   }
 
   handleStateChange = (state) => {
@@ -20,6 +24,14 @@ class NavBar extends React.Component {
     this.setState({ menuOpen: false });
   };
 
+  handleClick = (event) => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
+
   render() {
     const { menuOpen } = this.state;
     return (
@@ -27,6 +39,20 @@ class NavBar extends React.Component {
         <Link to="/">
           <img src={logo} alt="logo hypnose and wine" className="navbarLogo" />
         </Link>
+        <div className="navbarLink">
+          <ul>
+            <NavLink exact to="/">
+              Home
+            </NavLink>
+            <SimpleMenu />
+            <NavLink exact to="/aboutme">
+              A propos
+            </NavLink>
+            <NavLink exact to="/contact">
+              Contact
+            </NavLink>
+          </ul>
+        </div>
         <Menu
           className="menuNavbar"
           isOpen={menuOpen}
@@ -46,14 +72,14 @@ class NavBar extends React.Component {
           <Link to="/events" onClick={this.closeMenu}>
             Evenements
           </Link>
-          <Link to="/aboutme" onClick={this.closeMenu}>
-            A Propos
-          </Link>
           <Link to="/animators" onClick={this.closeMenu}>
             Animateurs
           </Link>
           <Link to="/products" onClick={this.closeMenu}>
             Vins & Spiritueux
+          </Link>
+          <Link to="/aboutme" onClick={this.closeMenu}>
+            A Propos
           </Link>
           <Link to="/contact" onClick={this.closeMenu}>
             Contact
