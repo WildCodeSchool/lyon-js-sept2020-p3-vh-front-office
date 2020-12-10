@@ -2,52 +2,65 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
 import "./Login.scss";
-import ReactDOM from 'react-dom';
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
+
+const useStyles = makeStyles((theme) => ({
+  btn: {
+    color: "white",
+    backgroundColor: "#6d071a",
+    textTransform: "none",
+    "&:hover": {
+      backgroundColor: "#6d071a",
+    },
+  },
+  input: {
+    [theme.breakpoints.up("md")]: {
+      width: "400px",
+    },
+  },
+}));
 
 function Login() {
-  const { register, handleSubmit, errors } = useForm({ mode: "onBlur" });
-  
-  const onSubmit = () => {
-    // AXIOS et reset form 
-  }
+  const { register, handleSubmit, errors } = useForm({ 
+    mode: "onBlur"
+});
+
+  const onSubmit = (e) => {
+    e.target.reset()
+  };
 
   return (
     <>
-      <div>
+      <div className="container-login">
         <div>
-          <img src="/src/logo.jpg"/>
-        </div>
-        <div>
-        <h1 className='login'>Login</h1>
+          <h1 className="login">Login</h1>
         </div>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <TextField
-              className="is-invalid"
-              name="email"
-              inputRef={register({
-                required: "Rentrez votre email",
-                pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-              })}
-              id="outlined-basic"
+            className={useStyles().input}
+            name="email"
+            inputRef={register({
+              required: "Rentrez votre email.",
+            })}
+            id="outlined-basic"
               label="Email"
               variant="outlined"
             />
           </div>
-          <div>{errors.email && <span>{errors.email.message}</span>}</div>
-          <div>
-            <TextField
+          <div className='errors-messages'>{errors.email && <span>{errors.email.message}</span>}</div>
+          <div className="password">
+            <TextField 
+            className={useStyles().input}
               name="password"
               inputRef={register({
-                required: "Rentrez votre mot de passe",
+                required: "Rentrez votre mot de passe.",
                 minLength: {
                   value: 8,
                   message:
-                    "Votre mot de passe doit contenir au moins 8 caractères",
+                    "Votre mot de passe doit contenir au moins 8 caractères.",
                 },
               })}
               id="outlined-basic"
@@ -56,30 +69,25 @@ function Login() {
               type="password"
             />
           </div>
-          <div>{errors.password && <span>{errors.password.message}</span>}</div>
-          <p>Mot de passe oublié</p>
-          <Link to='/register'>
-          <p>Inscription</p>
+          <div className='errors-messages'>{errors.password && <span>{errors.password.message}</span>}</div>
+          <div className='register-password'>
+          <p>Mot de passe oublié ?</p>
+          <Link to="/register">
+            <p>Inscription</p>
           </Link>
-    
-          <div>
-            <Button variant="contained" color="primary">
+          </div>
+
+          <div className="submit-login">
+            <Button variant="contained" color="default" type="submit" onClick={handleSubmit} className={useStyles().btn}>
               Login
             </Button>
           </div>
         </form>
         <div className="facebook_login">
-        <FacebookLogin
-    appId="1088597931155576"
-    autoLoad={true}
-    fields="name,email,picture"/>
-        </div>
-        <div className="google">
-        <GoogleLogin
-    clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-    buttonText="Login"
-    cookiePolicy={'single_host_origin'}
-  />
+          <button type="button">Se connecter avec Facebook</button>
+          <div className='google'>
+          <button type="button">Se connecter avec Google</button>
+          </div>
         </div>
       </div>
     </>
