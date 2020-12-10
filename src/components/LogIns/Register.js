@@ -60,7 +60,7 @@ const Register = () => {
         </div>
         <div className="errors-message-form">
           {errors.firstname && <span>{errors.firstname.message}</span>}
-          </div>
+        </div>
 
         <div className="input-register-form">
           <TextField
@@ -77,7 +77,7 @@ const Register = () => {
         </div>
         <div className="errors-message-form">
           {errors.lastname && <span>{errors.lastname.message}</span>}
-          </div>
+        </div>
 
         <div className="input-register-form">
           <TextField
@@ -94,7 +94,7 @@ const Register = () => {
         </div>
         <div className="errors-message-form">
           {errors.email && <span>{errors.email.message}</span>}
-          </div>
+        </div>
 
         <div className="input-register-form">
           <TextField
@@ -129,7 +129,7 @@ const Register = () => {
         </div>
         <div className="errors-message-form">
           {errors.password && <span>{errors.password.message}</span>}
-          </div>
+        </div>
 
         <div className="input-register-form">
           <TextField
@@ -155,7 +155,7 @@ const Register = () => {
         </div>
         <div className="errors-message-form">
           {errors.confirm && <span>{errors.confirm.message}</span>}
-          </div>
+        </div>
 
         <div className="button-register-form">
           <Button
