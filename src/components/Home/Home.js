@@ -1,4 +1,12 @@
 import React from "react";
-export default function Home(props) {
-  return <></>;
-}
+import Translation from "./Translation";
+
+const Home = () => {
+  return (
+    <div>
+      <Translation />
+    </div>
+  );
+};
+
+export default Home;
