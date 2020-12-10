@@ -1,17 +1,17 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import "./Translation.scss";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import './Translation.scss';
+import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   btn: {
-    backgroundColor: "#6d071a",
-    textTransform: "none",
-    width: "40px",
-    "&:hover": {
-      backgroundColor: "#6d071a",
+    backgroundColor: '#6d071a',
+    textTransform: 'none',
+    width: '40px',
+    '&:hover': {
+      backgroundColor: '#6d071a',
     },
   },
 }));
@@ -35,19 +35,19 @@ const Translation = () => {
         >
           <Button
             className={classes.btn}
-            onClick={() => handleClickLanguages("fr")}
+            onClick={() => handleClickLanguages('fr')}
           >
             fr
           </Button>
           <Button
             className={classes.btn}
-            onClick={() => handleClickLanguages("en")}
+            onClick={() => handleClickLanguages('en')}
           >
             en
           </Button>
         </ButtonGroup>
       </div>
-      <h1 className="title-test-trad">{t("content.title")}</h1>
+      <h1 className="title-test-trad">{t('content.title')}</h1>
     </div>
   );
 };

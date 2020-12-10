@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
-import TextField from "@material-ui/core/TextField";
-import { useForm } from "react-hook-form";
-import Button from "@material-ui/core/Button";
-import "./Register.scss";
-import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useRef } from 'react';
+import TextField from '@material-ui/core/TextField';
+import { useForm } from 'react-hook-form';
+import Button from '@material-ui/core/Button';
+import './Register.scss';
+import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 
 const wait = function (duration = 1000) {
   return new Promise((resolve) => {
@@ -14,15 +14,15 @@ const wait = function (duration = 1000) {
 
 const useStyles = makeStyles((theme) => ({
   btn: {
-    backgroundColor: "#6d071a",
-    textTransform: "none",
-    "&:hover": {
-      backgroundColor: "#6d071a",
+    backgroundColor: '#6d071a',
+    textTransform: 'none',
+    '&:hover': {
+      backgroundColor: '#6d071a',
     },
   },
   input: {
-    [theme.breakpoints.up("md")]: {
-      width: "400px",
+    [theme.breakpoints.up('md')]: {
+      width: '400px',
     },
   },
 }));
@@ -30,11 +30,11 @@ const useStyles = makeStyles((theme) => ({
 const Register = () => {
   const classes = useStyles();
   const { register, handleSubmit, formState, errors, watch } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
   });
   const { isSubmitting, isSubmitSuccessful } = formState;
   const password = useRef({});
-  password.current = watch("password", "");
+  password.current = watch('password', '');
 
   const onSubmit = async (data, e) => {
     await wait(1000);
@@ -52,7 +52,7 @@ const Register = () => {
             label="Prénom*"
             variant="outlined"
             inputRef={register({
-              required: "Veuiller renseigner votre prénom",
+              required: 'Veuiller renseigner votre prénom',
               pattern: /^[A-Za-z]+$/i,
             })}
             name="firstname"
@@ -69,7 +69,7 @@ const Register = () => {
             label="Nom*"
             variant="outlined"
             inputRef={register({
-              required: "Veuillez renseigner votre nom",
+              required: 'Veuillez renseigner votre nom',
               pattern: /^[A-Za-z]+$/i,
             })}
             name="lastname"
@@ -86,7 +86,7 @@ const Register = () => {
             label="Email*"
             variant="outlined"
             inputRef={register({
-              required: "Veuillez renseigner votre email",
+              required: 'Veuillez renseigner votre email',
               pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
             })}
             name="email"
@@ -117,11 +117,11 @@ const Register = () => {
             label="Mot de passe*"
             variant="outlined"
             inputRef={register({
-              required: "Veuillez renseigner un mot de passe",
+              required: 'Veuillez renseigner un mot de passe',
               minLength: {
                 value: 8,
                 message:
-                  "votre mot de passe doit contenir au moins 8 caractères",
+                  'votre mot de passe doit contenir au moins 8 caractères',
               },
             })}
             name="password"
@@ -140,14 +140,14 @@ const Register = () => {
             label="Confirmation mot de passe*"
             variant="outlined"
             inputRef={register({
-              required: "Veuillez confirmer votre mot de passe",
+              required: 'Veuillez confirmer votre mot de passe',
               validate: (value) =>
                 value === password.current ||
-                "Le mot de passe ne correspond pas",
+                'Le mot de passe ne correspond pas',
               minLength: {
                 value: 8,
                 message:
-                  "votre mot de passe doit contenir au moins 8 caractères",
+                  'votre mot de passe doit contenir au moins 8 caractères',
               },
             })}
             name="confirm"

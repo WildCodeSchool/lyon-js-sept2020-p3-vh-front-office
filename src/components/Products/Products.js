@@ -1,4 +1,5 @@
-import React from "react";
-export default function Products(props) {
+import React from 'react';
+
+export default function Products() {
   return <></>;
 }
