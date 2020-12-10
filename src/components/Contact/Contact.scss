@@ -1,25 +1,61 @@
-* {
-  padding: 0;
-  margin: 0;
-}
+.container-register-form {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-.contactContainer {
-  height: 100%;
-  width: 100%;
-  h1 {
-    margin: 120px 0 50px;
+    width: 70%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .input-register-form {
+    margin-bottom: 10px;
     text-align: center;
+  }
+  .button-register-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .contactErrorMessage {
+    color: #6d071a;
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+  span {
+    text-align: left;
+  }
+  .message-envoie-form {
+    background-color: transparent;
+    color: #3c434c;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 
-.contactForm {
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  .contactButton {
+@media screen and (min-width: 1024px) {
+  .container-register-form {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .input-firstname-name {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+  }
+  .container-register-form .contactErrorMessage {
+    color: #6d071a;
+    text-align: left;
   }
 }

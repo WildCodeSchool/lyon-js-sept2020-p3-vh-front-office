@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import TextareaAutosize from 'react-textarea-autosize';
 import './Contact.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -8,21 +7,26 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
+import Button from '@material-ui/core/Button';
+
 import _ from 'lodash/fp';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     '& > *': {
-      margin: theme.spacing(1),
       width: '25ch',
     },
   },
   formControl: {
-    margin: theme.spacing(1),
-    width: 215,
+    width: 200,
   },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
+
+  btn: {
+    backgroundColor: '#6d071a',
+    textTransform: 'none',
+    '&:hover': {
+      backgroundColor: '#6d071a',
+    },
   },
 }));
 
@@ -41,99 +45,128 @@ const Contact = () => {
 
   const { isSubmitting, isSubmitSuccessful } = formState;
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data, e) => {
     await wait(1000);
+    e.target.reset();
     console.log(data);
   };
 
   return (
-    <div className='contactContainer'>
-      <h1>Contactez Nous</h1>
-
+    <div className='container-register-form'>
       <form className='contactForm' onSubmit={handleSubmit(onSubmit)}>
-        <TextField
-          id='outlined-basic'
-          label='Nom'
-          name='lastname'
-          variant='outlined'
-          inputRef={register({
-            required: 'Champ obligatoire',
-          })}
-        />
-        <div className='contactErrorMessage'>
-          {errors.lastname && <span>{errors.lastname.message}</span>}
-        </div>
-        <TextField
-          id='outlined-basic'
-          label='Prénom'
-          name='firstname'
-          variant='outlined'
-          inputRef={register({
-            required: 'Champ obligatoire',
-            maxLength: {
-              value: 20,
-              message: 'Maximum 20 caractères',
-            },
-          })}
-        />
-        <div className='contactErrorMessage'>
-          {errors.firstname && <span>{errors.firstname.message}</span>}
-        </div>
-        <TextField
-          id='outlined-basic'
-          label='Email'
-          name='email'
-          variant='outlined'
-          inputRef={register({
-            required: 'Champ obligatoire',
-            pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-            message: 'Email invalide',
-          })}
-        />
-        {_.get('email.type', errors) === 'required' && (
-          <span>{errors.email.message}</span>
-        )}
-        {_.get('email.type', errors) === 'pattern' && <p>Email invalide</p>}
-        <FormControl className={classes.formControl}>
-          <InputLabel id='demo-simple-select-label'>
-            Motif de Contact
-          </InputLabel>
-          <Select
-            labelId='demo-simple-select-label'
-            id='demo-simple-select'
-            inputRef={register}
-          >
-            <MenuItem value={'client'}>
-              Question/Participation Evènement
-            </MenuItem>
-            <MenuItem value={'partenaire'}>Partenariat</MenuItem>
-            <MenuItem value={'animateur'}>Animer un Evènement</MenuItem>
-          </Select>
-        </FormControl>
+        <h1>Contactez Nous</h1>
 
-        <TextareaAutosize
-          aria-label='minimum height'
-          rowsMin={4}
-          placeholder='Message'
-        />
-        {/* <TextField
-          id='outlined-basic'
-          label='Message'
-          name='message'
-          variant='outlined'
-          inputRef={register({
-            required: 'Champ obligatoire',
-          })}
-        />
-        <div className='contactErrorMessage'>
-          {errors.message && <span>{errors.message.message}</span>}
-        </div> */}
-        <div className='footerButton'>
-          <input type='button' value='Retour' />
-          <input type='submit' value='Envoyer' />
+        <div className='input-register-form'>
+          <div className='contactErrorMessage'>
+            {errors.lastname && <span>{errors.lastname.message}</span>}
+          </div>
+          <TextField
+            className={classes.input}
+            id='outlined-basic'
+            label='Nom'
+            name='lastname'
+            variant='outlined'
+            inputRef={register({
+              required: 'Champ obligatoire',
+            })}
+          />
         </div>
-        <div className=''>
-          {isSubmitSuccessful && <div className=''>Biatch</div>}
+
+        <div className='input-register-form'>
+          <div className='contactErrorMessage'>
+            {errors.firstname && <span>{errors.firstname.message}</span>}
+          </div>
+          <TextField
+            className={classes.input}
+            id='outlined-basic'
+            label='Prénom'
+            name='firstname'
+            variant='outlined'
+            inputRef={register({
+              required: 'Champ obligatoire',
+              maxLength: {
+                value: 20,
+                message: 'Maximum 20 caractères',
+              },
+            })}
+          />
+        </div>
+
+        <div className='input-register-form'>
+          <div className='contactErrorMessage'>
+            {errors.email && <span>{errors.email.message}</span>}
+          </div>
+          <TextField
+            className={classes.input}
+            id='outlined-basic'
+            label='Email'
+            name='email'
+            variant='outlined'
+            inputRef={register({
+              required: 'Champ obligatoire',
+              pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+              message: 'Email invalide',
+            })}
+          />
+        </div>
+
+        <div className='input-register-form'>
+          <FormControl className={classes.formControl}>
+            <InputLabel id='demo-simple-select-label'>
+              Motif de Contact
+            </InputLabel>
+            <Select
+              className={classes.input}
+              labelId='demo-simple-select-label'
+              id='demo-simple-select'
+              inputRef={register({
+                required: 'Champ obligatoire',
+                message: 'Email invalide',
+              })}
+            >
+              <MenuItem value={'client'}>
+                Question/Participation Evènement
+              </MenuItem>
+              <MenuItem value={'partenaire'}>Partenariat</MenuItem>
+              <MenuItem value={'animateur'}>Animer un Evènement</MenuItem>
+            </Select>
+          </FormControl>
+        </div>
+        <div className='input-register-form'>
+          <div className='contactErrorMessage'>
+            {errors.message && <span>{errors.message.message}</span>}
+          </div>
+          <TextField
+            id='outlined-basic'
+            className={classes.input}
+            label='Message'
+            multiline
+            rows={4}
+            name='message'
+            variant='outlined'
+            inputRef={register({
+              required: 'Champ obligatoire',
+            })}
+          />
+        </div>
+
+        <div className='button-register-form'>
+          <Button
+            className={classes.btn}
+            disableElevation={isSubmitting}
+            type='submit'
+            variant='contained'
+            color='primary'
+          >
+            Envoyer
+          </Button>
+        </div>
+        <div className='button-register-form'>
+          {isSubmitSuccessful && (
+            <div className='message-envoie-form'>
+              <p>Merci pour votre inscription</p>
+            </div>
+          )}
         </div>
       </form>
     </div>
