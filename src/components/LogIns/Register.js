@@ -36,7 +36,7 @@ const Register = () => {
   const password = useRef({});
   password.current = watch("password", "");
 
-  const onSubmit = async (data,e) => {
+  const onSubmit = async (data, e) => {
     await wait(1000);
     e.target.reset();
   };
