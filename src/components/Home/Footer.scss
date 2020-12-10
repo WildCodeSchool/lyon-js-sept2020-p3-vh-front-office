@@ -18,8 +18,7 @@
   bottom: 0;
   border-top: 2.5px solid $primary-color;
   .footerLogo {
-    width: 25%;
-    height: 50%;
+    width: 50px;
     max-width: 150px;
     padding: 10px 0px 0 15px;
     cursor: pointer;
@@ -56,7 +55,7 @@
 }
 
 .footerIcon {
-  width: 25%;
+  width: 50px;
 }
 
 .footerCopyright {
@@ -80,17 +79,16 @@
 @media screen and (min-width: 520px) {
   .footerBody {
     .footerLogo {
-      height: 60%;
       padding: 0 20px 0 20px;
     }
     .footerFacebook {
-      padding: 0 25px 0 20px;
+      padding: 0 20px 0 20px;
     }
   }
 
   .footerCopyright {
     p {
-      padding: 0 18% 8px 0;
+      padding: 0 4% 8px 0;
     }
   }
 }
@@ -98,24 +96,25 @@
 @media screen and (min-width: 768px) {
   .footerBody {
     .footerLogo {
-      height: 65%;
       padding: 0 20px 0 20px;
     }
     .footerFacebook {
-      padding: 0 30px 0 20px;
+      padding: 0 40px 0 20px;
     }
   }
   .footerLink {
     width: 100%;
     font-size: 12px;
   }
+  .footerIcon {
+    padding-right: 20px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .footerBody {
     .footerLogo {
-      height: 55%;
-      width: 30%;
+      width: 60px;
       padding-left: 40px;
     }
     .footerFacebook {
@@ -134,9 +133,15 @@
       padding-right: 60px;
     }
   }
+  .footerIcon {
+    padding-right: 50px;
+  }
 
   .footerCopyright {
-    font-size: 8.5px;
+    font-size: 9px;
     font-style: normal;
+    p {
+      padding: 0 10% 8px 0;
+    }
   }
 }
