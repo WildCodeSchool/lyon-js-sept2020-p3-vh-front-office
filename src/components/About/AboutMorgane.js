@@ -1,4 +1,5 @@
-import React from "react";
-export default function AboutMorgane(props) {
+import React from 'react';
+
+export default function AboutMorgane() {
   return <></>;
 }

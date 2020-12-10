@@ -1,4 +1,5 @@
-import React from "react";
-export default function Login(props) {
+import React from 'react';
+
+export default function Login() {
   return <></>;
 }

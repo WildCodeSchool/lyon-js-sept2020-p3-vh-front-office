@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Footer.scss";
-import logo from "../pictures/hypnose_vins_logo.png";
-import facebook from "../pictures/facebook.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Footer.scss';
+import logo from '../pictures/hypnose_vins_logo.png';
+import facebook from '../pictures/facebook.svg';
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
         src={logo}
         alt="logo"
         className="footerLogo"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        //onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       />
       <div className="footerText">
         <div className="footerLink">
@@ -22,7 +22,7 @@ const Footer = () => {
             <p>FAQ</p>
           </Link>
           <Link to="mentions-legales">
-            {" "}
+            {' '}
             <p>Mentions légales</p>
           </Link>
         </div>
