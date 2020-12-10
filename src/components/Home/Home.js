@@ -1,5 +1,12 @@
-import React from 'react';
+import React from "react";
+import WelcomeCarousel from "./WelcomeCarousel";
+import Banner from "./Banner";
 
 export default function Home() {
-  return <></>;
+  return (
+    <>
+      <Banner />
+      <WelcomeCarousel />
+    </>
+  );
 }
