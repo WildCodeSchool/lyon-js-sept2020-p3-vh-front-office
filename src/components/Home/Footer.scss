@@ -18,6 +18,7 @@
   bottom: 0;
   border-top: 2.5px solid $primary-color;
   .footerLogo {
+    box-sizing: content-box;
     width: 25%;
     height: 50%;
     max-width: 150px;
