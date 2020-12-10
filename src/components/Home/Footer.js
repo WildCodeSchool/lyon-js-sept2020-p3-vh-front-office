@@ -11,7 +11,7 @@ const Footer = () => {
         src={logo}
         alt="logo"
         className="footerLogo"
-        //onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        // onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       />
       <div className="footerText">
         <div className="footerLink">
