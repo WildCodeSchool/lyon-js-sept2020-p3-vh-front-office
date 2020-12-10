@@ -1,3 +1,6 @@
+
+
+
 .container-register-form{
     display: flex;
     justify-content: center;
@@ -7,26 +10,37 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        border: 1px solid lightgray;
+/*         border: 1px solid lightgray;
         box-shadow: 2px 2px 2px  lightgray;
-        border-radius: 10px;
+        border-radius: 10px; */
         width: 70%;
         margin-top: 50px;
         margin-bottom: 50px;
     }
         .input-register-form{
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
             .button-register-form{
                 display: flex;
                 justify-content: center;
                 margin-top: 10px; 
-                }.errors-message-form{
-                    color: red;
-                    width: 80%;
-                    text-align: left;
-                    }.message-envoie-form{
-                        background-color: green;
+                } .errors-message-form{
+                    display: flex;
+                    color: #6d071a;
+                    width: 80%; 
+                    }span{
+                        text-align: left;
+                    }
+                     .message-envoie-form{
+                        background-color: #008000;
+                        width: 100%;
+                        height: 50px;
+                        display:flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius:5px;
+                        padding-left: 5px;
+                        padding-right: 5px;
                     }.link-back-to-login{
                         width: 100%;
                         display: flex;
@@ -36,6 +50,24 @@
                             color: black;
                         }
                     }
+}
+
+
+
+@media screen and (min-width:1024px){
+    .container-register-form form{
+        width: 50%;
+    }.container-register-form .link-back-to-login{
+        width: 400px;
+        margin-left: 0;
+    } .input-firstname-name{
+        display: flex;
+        flex-direction: row;
+    }.container-register-form .errors-message-form {
+        color: #6d071a;
+        width: 400px;
+        text-align: left;
+    }
 }
 
 
