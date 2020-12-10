@@ -44,19 +44,17 @@ const winesList = [
     aromas: "Cuir",
     price: "15",
     producer_url: "http://www.google.fr",
-  }
+  },
 ];
 
 const Wines = () => {
   const [wineClicked, setWineClicked] = useState("");
   const [modalShow, setModalShow] = useState(false);
 
-  const handleClick = useCallback ((wineId) => {
+  const handleClick = useCallback((wineId) => {
     setModalShow(true);
     setWineClicked(wineId);
   }, []);
-  
-
 
   return (
     <>
@@ -69,24 +67,28 @@ const Wines = () => {
       )}
       <main className="wines">
         <h1>Les vins dégustés</h1>
-        < CarrouselWrapper winesList={winesList} handleClick={handleClick}/>
+        <CarrouselWrapper winesList={winesList} handleClick={handleClick} />
       </main>
     </>
   );
 };
 
-const CarrouselWrapper = React.memo(({handleClick, winesList}) => {
+const CarrouselWrapper = React.memo(({ handleClick, winesList }) => {
   return (
     <Carousel
-          slides={winesList.map((wine) => (
-            <>
-            <img src={wine.image} alt={wine.image} onClick={(event) => handleClick(wine.id)}/>
-            <p>{wine.winery}</p>
-            </>
-          ))}
-          autoplay={false}
-        />
-  )
-})
+      slides={winesList.map((wine) => (
+        <>
+          <img
+            src={wine.image}
+            alt={wine.image}
+            onClick={(event) => handleClick(wine.id)}
+          />
+          <p>{wine.winery}</p>
+        </>
+      ))}
+      autoplay={false}
+    />
+  );
+});
 
 export default Wines;
