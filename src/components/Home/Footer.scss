@@ -8,11 +8,11 @@
 }
 
 .footerBody {
-  height: 12%;
+  height: 10%;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
   position: fixed;
   bottom: 0;
@@ -21,6 +21,7 @@
     width: 25%;
     height: 50%;
     max-width: 150px;
+    padding-left: 5px;
     padding: 10px 0px 0 15px;
   }
   .footerFacebook {
@@ -29,15 +30,23 @@
   }
 }
 
+.footerText {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .footerLink {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   font-size: 12px;
-  padding-top: 10px;
+  padding: 13px 0 0 10px;
   a {
     color: $primary-color;
     :hover {
@@ -46,10 +55,15 @@
   }
 }
 
+.footerIcon {
+  width: 25%;
+}
+
 .footerCopyright {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-top: 5px;
   //border-top: 1px solid $primary-color;
   border-radius: 2px;
@@ -59,7 +73,7 @@
   text-align: center;
   p {
     width: 100%;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
   }
 }
 
@@ -71,6 +85,12 @@
     }
     .footerFacebook {
       padding: 0 25px 0 20px;
+    }
+  }
+
+  .footerCopyright {
+    p {
+      padding: 0 18% 8px 0;
     }
   }
 }
@@ -94,15 +114,19 @@
 @media screen and (min-width: 1024px) {
   .footerBody {
     .footerLogo {
-      max-width: 180px;
-      height: 70%;
-      padding: 12px 0px 0 40px;
+      height: 55%;
+      width: 30%;
+      padding-left: 40px;
     }
     .footerFacebook {
       height: 25px;
       padding: 0 60px 0 20px;
     }
   }
+  .footerText {
+    padding: 0 150px;
+  }
+
   .footerLink {
     width: 100%;
     font-size: 14px;
