@@ -38,7 +38,7 @@ class NavBar extends React.Component {
           disableAutoFocus
         >
           <Link to="/" onClick={this.closeMenu}>
-            <img className="navbarLogo" src={logo} alt="logo burger" />
+            <img className="burgerLogo" src={logo} alt="logo burger" />
           </Link>
           <Link to="/" onClick={this.closeMenu}>
             Home
