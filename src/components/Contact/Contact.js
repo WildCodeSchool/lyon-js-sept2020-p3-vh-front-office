@@ -1,20 +1,20 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import "./Contact.scss";
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Button from "@material-ui/core/Button";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import './Contact.scss';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Button from '@material-ui/core/Button';
 
-import _ from "lodash/fp";
+// import _ from 'lodash/fp';
 
 const useStyles = makeStyles(() => ({
   root: {
-    "& > *": {
-      width: "25ch",
+    '& > *': {
+      width: '25ch',
     },
   },
   formControl: {
@@ -22,10 +22,10 @@ const useStyles = makeStyles(() => ({
   },
 
   btn: {
-    backgroundColor: "#6d071a",
-    textTransform: "none",
-    "&:hover": {
-      backgroundColor: "#6d071a",
+    backgroundColor: '#6d071a',
+    textTransform: 'none',
+    '&:hover': {
+      backgroundColor: '#6d071a',
     },
   },
 }));
@@ -40,7 +40,7 @@ const Contact = () => {
   const classes = useStyles();
 
   const { register, handleSubmit, formState, errors } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
   });
 
   const { isSubmitting, isSubmitSuccessful } = formState;
@@ -67,7 +67,7 @@ const Contact = () => {
             name="lastname"
             variant="outlined"
             inputRef={register({
-              required: "Champ obligatoire",
+              required: 'Champ obligatoire',
             })}
           />
         </div>
@@ -83,10 +83,10 @@ const Contact = () => {
             name="firstname"
             variant="outlined"
             inputRef={register({
-              required: "Champ obligatoire",
+              required: 'Champ obligatoire',
               maxLength: {
                 value: 20,
-                message: "Maximum 20 caractères",
+                message: 'Maximum 20 caractères',
               },
             })}
           />
@@ -103,9 +103,9 @@ const Contact = () => {
             name="email"
             variant="outlined"
             inputRef={register({
-              required: "Champ obligatoire",
+              required: 'Champ obligatoire',
               pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-              message: "Email invalide",
+              message: 'Email invalide',
             })}
           />
         </div>
@@ -120,15 +120,15 @@ const Contact = () => {
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               inputRef={register({
-                required: "Champ obligatoire",
-                message: "Email invalide",
+                required: 'Champ obligatoire',
+                message: 'Email invalide',
               })}
             >
-              <MenuItem value={"client"}>
+              <MenuItem value="client">
                 Question/Participation Evènement
               </MenuItem>
-              <MenuItem value={"partenaire"}>Partenariat</MenuItem>
-              <MenuItem value={"animateur"}>Animer un Evènement</MenuItem>
+              <MenuItem value="partenaire">Partenariat</MenuItem>
+              <MenuItem value="animateur">Animer un Evènement</MenuItem>
             </Select>
           </FormControl>
         </div>
@@ -145,7 +145,7 @@ const Contact = () => {
             name="message"
             variant="outlined"
             inputRef={register({
-              required: "Champ obligatoire",
+              required: 'Champ obligatoire',
             })}
           />
         </div>
