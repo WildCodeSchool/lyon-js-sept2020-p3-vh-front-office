@@ -1,15 +1,15 @@
-.container-btn-trad{
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    .btn-trad{
-        margin-right: 50px;
-    }
+.container-btn-trad {
+  width: 100%;
+  height: 100px;
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+  .btn-trad {
+    margin-right: 50px;
+  }
 }
 
-.title-test-trad{
-    display: flex;
-    justify-content: center;
+.title-test-trad {
+  display: none;
+  justify-content: center;
 }
