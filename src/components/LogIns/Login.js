@@ -1,30 +1,30 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
-import "./Login.scss";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import './Login.scss';
 
 const useStyles = makeStyles((theme) => ({
   btn: {
-    color: "white",
-    backgroundColor: "#6d071a",
-    textTransform: "none",
-    "&:hover": {
-      backgroundColor: "#6d071a",
+    color: 'white',
+    backgroundColor: '#6d071a',
+    textTransform: 'none',
+    '&:hover': {
+      backgroundColor: '#6d071a',
     },
   },
   input: {
-    [theme.breakpoints.up("md")]: {
-      width: "400px",
+    [theme.breakpoints.up('md')]: {
+      width: '400px',
     },
   },
 }));
 
 function Login() {
   const { register, handleSubmit, errors } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
   });
 
   const onSubmit = (e) => {
@@ -43,7 +43,7 @@ function Login() {
               className={useStyles().input}
               name="email"
               inputRef={register({
-                required: "Rentrez votre email.",
+                required: 'Rentrez votre email.',
               })}
               id="outlined-basic"
               label="Email"
@@ -58,11 +58,11 @@ function Login() {
               className={useStyles().input}
               name="password"
               inputRef={register({
-                required: "Rentrez votre mot de passe.",
+                required: 'Rentrez votre mot de passe.',
                 minLength: {
                   value: 8,
                   message:
-                    "Votre mot de passe doit contenir au moins 8 caractères.",
+                    'Votre mot de passe doit contenir au moins 8 caractères.',
                 },
               })}
               id="outlined-basic"

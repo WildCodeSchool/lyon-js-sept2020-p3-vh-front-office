@@ -1,7 +1,7 @@
-import React from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-import "./WelcomeCarrousel.scss";
+import React from 'react';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
+import './WelcomeCarrousel.scss';
 
 const WelcomeCarousel = () => {
   return (
@@ -9,7 +9,7 @@ const WelcomeCarousel = () => {
       <Carousel
         showThumbs={false}
         showStatus={false}
-        autoPlay={true}
+        autoPlay
         interval={6000}
         transitionTime={600}
         showArrows={false}
