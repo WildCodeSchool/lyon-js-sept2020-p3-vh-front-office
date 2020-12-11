@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.scss';
-import logo from '../pictures/hypnose_vins_logo.png';
+import logo from '../pictures/hypnose_vins_logo_icone.png';
 import facebook from '../pictures/facebook.svg';
 
 const Footer = () => {
   return (
     <div className="footerBody">
-      <img src={logo} alt="logo" className="footerLogo" />
+      <Link to="/">
+        <img src={logo} alt="logo" className="footerLogo" />
+      </Link>
       <div className="footerText">
         <div className="footerLink">
           <Link to="/contact">

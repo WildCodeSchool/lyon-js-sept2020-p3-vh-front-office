@@ -1,5 +1,7 @@
 import React from 'react';
 
-export default function MentionLegale() {
+const MentionLegale = () => {
   return <></>;
-}
+};
+
+export default MentionLegale;
