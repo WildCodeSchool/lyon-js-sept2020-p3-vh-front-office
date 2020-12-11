@@ -9,7 +9,7 @@ const WelcomeCarousel = () => {
       <Carousel
         showThumbs={false}
         showStatus={false}
-        autoPlay={true}
+        autoPlay
         interval={6000}
         transitionTime={600}
         showArrows={false}
