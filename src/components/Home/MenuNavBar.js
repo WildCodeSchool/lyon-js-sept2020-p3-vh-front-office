@@ -2,10 +2,18 @@
 
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
+const useStyles = makeStyles((theme) => ({
+  simpleMenu: {
+    color: '#8c0226',
+  },
+}));
+
 const SimpleMenu = () => {
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -29,13 +37,19 @@ const SimpleMenu = () => {
         onClose={handleClose}
       >
         <NavLink exact to="/events">
-          <MenuItem onClick={handleClose}>Evènements</MenuItem>
+          <MenuItem onClick={handleClose} className={classes.simpleMenu}>
+            Evènements
+          </MenuItem>
         </NavLink>
         <NavLink exact to="/animators">
-          <MenuItem onClick={handleClose}>Animateurs</MenuItem>
+          <MenuItem onClick={handleClose} className={classes.simpleMenu}>
+            Animateurs
+          </MenuItem>
         </NavLink>
         <NavLink exact to="/products">
-          <MenuItem onClick={handleClose}>Vins & Spiritueux</MenuItem>
+          <MenuItem onClick={handleClose} className={classes.simpleMenu}>
+            Vins & Spiritueux
+          </MenuItem>
         </NavLink>
       </Menu>
     </div>

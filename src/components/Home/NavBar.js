@@ -5,9 +5,9 @@ import './NavBar.scss';
 import { slide as Menu } from 'react-burger-menu';
 import logo from '../pictures/hypnose_vins_logo.png';
 import cross from '../pictures/cross.png';
+import basket from '../pictures/basket.svg';
+import login from '../pictures/login.png';
 import SimpleMenu from './MenuNavBar.js';
-import Button from '@material-ui/core/Button';
-import MenuItem from '@material-ui/core/MenuItem';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -84,7 +84,15 @@ class NavBar extends React.Component {
           <Link to="/contact" onClick={this.closeMenu}>
             Contact
           </Link>
+          <Link to="/contact" onClick={this.closeMenu}>
+            Login
+          </Link>
         </Menu>
+        <div className="navbarIcon">
+          <img src={basket} alt="basket" />
+          <p>FR | EN</p>
+          <img src={login} alt="login" />
+        </div>
       </div>
     );
   }
