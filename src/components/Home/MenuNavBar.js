@@ -1,12 +1,11 @@
 /*eslint-disable */
-
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   simpleMenu: {
     color: '#8c0226',
   },
