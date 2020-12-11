@@ -17,15 +17,36 @@ const useStyles = makeStyles(() => ({
       width: '25ch',
     },
   },
-  formControl: {
-    width: 200,
-  },
 
   btn: {
     backgroundColor: '#6d071a',
     textTransform: 'none',
     '&:hover': {
       backgroundColor: '#6d071a',
+    },
+  },
+  input: {
+    '& .MuiOutlinedInput-input': {
+      padding: '18.5px 30px',
+    },
+    '& .MuiInputLabel-outlined': {
+      color: '#3c434c',
+    },
+
+    '& .MuiInputLabel-outlined.Mui-focused': {
+      color: '#3c434c',
+    },
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#3c434c',
+    },
+  },
+  formControl: {
+    width: 200,
+    '& .MuiSelect-select:focused': {
+      borderColor: '#3c434c',
+    },
+    '.MuiSelect-select': {
+      borderColor: '#3c434c',
     },
   },
 }));
@@ -53,7 +74,7 @@ const Contact = () => {
 
   return (
     <div className="container-register-form">
-      <form className="contactForm" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <h1>Contactez Nous</h1>
 
         <div className="input-register-form">
@@ -125,10 +146,10 @@ const Contact = () => {
               })}
             >
               <MenuItem value="client">
-                Question/Participation Evènement
+                Question/Participation évènements
               </MenuItem>
               <MenuItem value="partenaire">Partenariat</MenuItem>
-              <MenuItem value="animateur">Animer un Evènement</MenuItem>
+              <MenuItem value="animateur">Animer un évènement</MenuItem>
             </Select>
           </FormControl>
         </div>
