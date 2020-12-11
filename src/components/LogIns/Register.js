@@ -6,7 +6,7 @@ import './Register.scss';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
-const wait = function (duration = 1000) {
+const wait = (duration = 1000) => {
   return new Promise((resolve) => {
     window.setTimeout(resolve, duration);
   });
