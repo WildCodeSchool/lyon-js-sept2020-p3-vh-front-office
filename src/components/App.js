@@ -13,7 +13,7 @@ import Login from './LogIns/Login';
 import Register from './LogIns/Register';
 import Sponsors from './Sponsors/Sponsors';
 import Basket from './Basket/Basket';
-import Footer from './Home/Footer';
+// import Footer from './Home/Footer';
 import NavBar from './Home/NavBar';
 import MentionLegale from './MentionLegale/MentionLegale';
 
@@ -38,7 +38,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/mentions-legales" component={MentionLegale} />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
