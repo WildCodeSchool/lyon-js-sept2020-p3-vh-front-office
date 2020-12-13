@@ -1,4 +1,3 @@
-import './bootstrap.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home/Home';
 import AboutMorgane from './About/AboutMorgane';
@@ -15,6 +14,7 @@ import Sponsors from './Sponsors/Sponsors';
 import Basket from './Basket/Basket';
 import Footer from './Home/Footer';
 import MentionLegale from './MentionLegale/MentionLegale';
+import './App.scss';
 
 function App() {
   return (
