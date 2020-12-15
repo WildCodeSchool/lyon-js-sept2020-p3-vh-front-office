@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import './Login.scss';
+import API from '../../services/API';
 
 const useStyles = makeStyles((theme) => ({
   btn: {
@@ -27,8 +28,9 @@ function Login() {
     mode: 'onBlur',
   });
 
-  const onSubmit = (e) => {
-    e.target.reset();
+  const onSubmit = async (data) => {
+    // e.target.reset();
+    await API.post('http://localhost:5000/auth/login', data);
   };
 
   return (
