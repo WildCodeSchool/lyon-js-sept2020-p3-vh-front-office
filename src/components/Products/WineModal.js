@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   paper: {
+    lineHeight: 1.5,
     outline: 0,
     textAlign: 'center',
     display: 'flex',
