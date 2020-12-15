@@ -8,6 +8,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 // import _ from 'lodash/fp';
 
@@ -47,6 +48,14 @@ const Contact = () => {
 
   const onSubmit = async (data, e) => {
     await wait(1000);
+    axios
+      .post('http://localhost:5000/contact', data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     e.target.reset();
     console.log(data);
   };
