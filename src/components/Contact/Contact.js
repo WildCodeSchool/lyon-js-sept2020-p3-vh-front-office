@@ -49,7 +49,7 @@ const Contact = () => {
   const onSubmit = async (data, e) => {
     await wait(1000);
     axios
-      .post('http://localhost:5000/contact', data)
+      .post(`http://localhost:5000/contact`, data)
       .then((response) => {
         console.log(response);
       })
@@ -57,7 +57,6 @@ const Contact = () => {
         console.log(err);
       });
     e.target.reset();
-    console.log(data);
   };
 
   return (
