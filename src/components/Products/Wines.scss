@@ -4,10 +4,17 @@
     margin-bottom: 50px;
     text-align: center;
   }
+  h2{
+    margin-top: 70px;
+    text-align:center;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
   img {
     cursor: pointer;
   }
   .react-3d-carousel {
+    margin-top: 22vh;
     .slider-container {
       .slider-left{
         div {
@@ -50,6 +57,9 @@
 
 @media screen and (min-width: 1024px){
   .wines {
+    h1{
+      font-size: 3vw;
+    }
     .react-3d-carousel {
       .slider-container {
         .slider-single-content{
