@@ -1,5 +1,4 @@
-import './App.css';
-
+import './bootstrap.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home/Home';
 import AboutMorgane from './About/AboutMorgane';
@@ -15,14 +14,12 @@ import Register from './LogIns/Register';
 import Sponsors from './Sponsors/Sponsors';
 import Basket from './Basket/Basket';
 import Footer from './Home/Footer';
-// import NavBar from './Home/NavBar';
 import MentionLegale from './MentionLegale/MentionLegale';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        {/* <NavBar /> */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/events" component={Events} />
