@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const wait = function name(duration = 1000) {
+const wait = function (duration = 1000) {
   return new Promise((resolve) => {
     window.setTimeout(resolve, duration);
   });
@@ -48,6 +48,7 @@ const Contact = () => {
   const onSubmit = async (data, e) => {
     await wait(1000);
     e.target.reset();
+    console.log(data);
   };
 
   return (
