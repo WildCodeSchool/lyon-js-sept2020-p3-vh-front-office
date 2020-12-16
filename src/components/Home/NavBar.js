@@ -35,7 +35,7 @@ class NavBar extends React.Component {
     const { menuOpen } = this.state;
     const { isLogged } = this.state;
     return (
-      <div className="navbarBody">
+      <nav className="navbarBody">
         <Link to="/">
           <img src={logo} alt="logo hypnose and wine" className="navbarLogo" />
         </Link>
@@ -89,7 +89,7 @@ class NavBar extends React.Component {
             Contact
           </Link>
         </Menu>
-      </div>
+      </nav>
     );
   }
 }
