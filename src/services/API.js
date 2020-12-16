@@ -1,5 +1,6 @@
 import axios, { CancelToken } from 'axios';
 import queryString from 'query-string';
+import qs from 'qs';
 
 import * as Promise from 'bluebird';
 
@@ -11,6 +12,11 @@ Promise.config({
 // REACT_APP_API_BASE_URL variable in .env file at the root of the project
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
+  paramsSerializer: (params) => {
+    const serializedParams = qs.stringify(params, { arrayFormat: 'repeat' });
+    return `${serializedParams}&APPID=${process.env.API_KEY}`;
+  },
+  withCredentials: true,
 });
 
 const makeCancellable = (method, url, data, config) => {

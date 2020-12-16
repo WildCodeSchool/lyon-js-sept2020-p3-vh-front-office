@@ -2,9 +2,10 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import './Login.scss';
+import { useToasts } from 'react-toast-notifications';
 import API from '../../services/API';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,13 +25,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Login() {
+  const { addToast } = useToasts();
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
   });
-
+  const history = useHistory();
   const onSubmit = async (data) => {
-    // e.target.reset();
-    await API.post('http://localhost:5000/auth/login', data);
+    try {
+      await API.post('auth/login', data);
+      history.push('/profile');
+      addToast('Vous êtes désormais connecté', {
+        appearance: 'success',
+        autoDismiss: true,
+      });
+    } catch (err) {
+      addToast('Identifiants non reconnus', {
+        appearance: 'error',
+        autoDismiss: true,
+      });
+    }
   };
 
   return (
