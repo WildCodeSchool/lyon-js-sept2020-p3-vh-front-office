@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useCallback } from 'react';
 import { Carousel } from '3d-react-carousal';
 import WineModal from './WineModal';
@@ -63,24 +62,25 @@ const Wines = () => {
         <WineModal
           show={modalShow}
           onHide={() => setModalShow(false)}
-          winedata={winesList.filter((wine) => wine.id === wineClicked)}
+          winedata={winesList.filter((wine) => wine.id === wineClicked)[0]}
         />
       )}
       <main className="wines">
         <h1>Les vins dégustés</h1>
         <CarrouselWrapper winesList={winesList} handleClick={handleClick} />
+        <h2>Retrouvez les vins dégustés lors des événements !</h2>
       </main>
     </>
   );
 };
 
-// eslint-disable-next-line no-shadow
-const CarrouselWrapper = React.memo(({ handleClick, winesList }) => {
+const CarrouselWrapper = React.memo(({ handleClick }) => {
   return (
     <Carousel
       slides={winesList.map((wine) => (
         <>
           <img
+            role="presentation"
             src={wine.image}
             alt={wine.image}
             onClick={() => handleClick(wine.id)}
