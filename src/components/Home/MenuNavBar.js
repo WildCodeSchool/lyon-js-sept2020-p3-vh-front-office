@@ -34,6 +34,7 @@ const SimpleMenu = () => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        className={classes.simpleMenuContainer}
       >
         <NavLink exact to="/events">
           <MenuItem onClick={handleClose} className={classes.simpleMenu}>

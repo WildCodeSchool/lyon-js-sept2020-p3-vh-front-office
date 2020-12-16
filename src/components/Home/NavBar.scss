@@ -93,7 +93,9 @@
   background-color: white;
   padding: 3em;
   height: 72% !important;
+  width: 70vw;
   align-items: center;
+  position: absolute;
 }
 
 /* Individual item */
@@ -117,9 +119,10 @@
   }
 
   .navbarLink {
-    width: 70%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     text-align: center;
     font-size: 15px;
     cursor: pointer;
@@ -131,33 +134,34 @@
     }
     a {
       color: $primary-color;
-      &:hover {
-        background: white;
-        color: $primary-color;
-        padding: 10px;
-        border: solid 2px $primary-color;
-        border-radius: 50px;
-        &:active {
-          background: $primary-color;
-          color: white;
-        }
-      }
+      text-decoration: none;
+      // &:hover {
+      //   background: white;
+      //   color: $primary-color;
+      //   padding: 10px;
+      //   border: solid 2px $primary-color;
+      //   border-radius: 50px;
+      //   &:active {
+      //     background: $primary-color;
+      //     color: white;
+      //   }
+      // }
     }
 
     p {
       color: $primary-color;
       margin-bottom: 0;
-      &:hover {
-        background: white;
-        color: $primary-color;
-        padding: 10px;
-        border: solid 2px $primary-color;
-        border-radius: 50px;
-        &:active {
-          background: $primary-color;
-          color: white;
-        }
-      }
+      // &:hover {
+      //   background: white;
+      //   color: $primary-color;
+      //   padding: 10px;
+      //   border: solid 2px $primary-color;
+      //   border-radius: 50px;
+      //   &:active {
+      //     background: $primary-color;
+      //     color: white;
+      //   }
+      // }
     }
   }
 

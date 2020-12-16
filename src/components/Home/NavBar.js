@@ -5,9 +5,8 @@ import './NavBar.scss';
 import { slide as Menu } from 'react-burger-menu';
 import logo from '../pictures/hypnose_vins_logo.png';
 import cross from '../pictures/cross.png';
-import basket from '../pictures/basket.svg';
-import login from '../pictures/login.png';
 import SimpleMenu from './MenuNavBar.js';
+import Translation from './Translation.js';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -34,6 +33,7 @@ class NavBar extends React.Component {
 
   render() {
     const { menuOpen } = this.state;
+    const { isLogged } = this.state;
     return (
       <div className="navbarBody">
         <Link to="/">
@@ -51,6 +51,10 @@ class NavBar extends React.Component {
             <NavLink exact to="/contact">
               Contact
             </NavLink>
+            <NavLink exact to="/login">
+              Se connecter|S'inscrire
+            </NavLink>
+            <Translation />
           </ul>
         </div>
         <Menu
@@ -70,7 +74,7 @@ class NavBar extends React.Component {
             Home
           </Link>
           <Link to="/events" onClick={this.closeMenu}>
-            Evenements
+            Evènements
           </Link>
           <Link to="/animators" onClick={this.closeMenu}>
             Animateurs
@@ -84,15 +88,7 @@ class NavBar extends React.Component {
           <Link to="/contact" onClick={this.closeMenu}>
             Contact
           </Link>
-          <Link to="/contact" onClick={this.closeMenu}>
-            Login
-          </Link>
         </Menu>
-        <div className="navbarIcon">
-          <img src={basket} alt="basket" />
-          <p>FR | EN</p>
-          <img src={login} alt="login" />
-        </div>
       </div>
     );
   }
