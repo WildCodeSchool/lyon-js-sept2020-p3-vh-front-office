@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import './Contact.scss';
+import { useToasts } from 'react-toast-notifications';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
@@ -8,9 +9,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
-import axios from 'axios';
-
-// import _ from 'lodash/fp';
+import API from '../../services/API';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -31,12 +30,6 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const wait = function (duration = 1000) {
-  return new Promise((resolve) => {
-    window.setTimeout(resolve, duration);
-  });
-};
-
 const Contact = () => {
   const classes = useStyles();
 
@@ -44,18 +37,19 @@ const Contact = () => {
     mode: 'onBlur',
   });
 
-  const { isSubmitting, isSubmitSuccessful } = formState;
+  const { isSubmitting } = formState;
+  const { addToast } = useToasts();
 
   const onSubmit = async (data, e) => {
-    await wait(1000);
-    axios
-      .post(`http://localhost:5000/contact`, data)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
+    try {
+      await API.post('/contact', data);
+      addToast('Votre message a bien été envoyé', {
+        appearance: 'success',
+        autoDismiss: true,
       });
+    } catch (err) {
+      console.error(err);
+    }
     e.target.reset();
   };
 
@@ -168,13 +162,6 @@ const Contact = () => {
           >
             Envoyer
           </Button>
-        </div>
-        <div className="button-register-form">
-          {isSubmitSuccessful && (
-            <div className="message-envoie-form">
-              <p>Merci pour votre inscription</p>
-            </div>
-          )}
         </div>
       </form>
     </div>
