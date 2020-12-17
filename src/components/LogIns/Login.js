@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -6,6 +6,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import './Login.scss';
 import { useToasts } from 'react-toast-notifications';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import API from '../../services/API';
 
 const useStyles = makeStyles((theme) => ({
@@ -46,6 +48,18 @@ function Login() {
     }
   };
 
+  useEffect(() => {
+    if (errors) {
+      const arrayErrors = Object.values(errors);
+      arrayErrors.map((error) =>
+        addToast(error.message, {
+          appearance: 'error',
+          autoDismiss: true,
+        })
+      );
+    }
+  }, [errors]);
+
   return (
     <>
       <div className="container-login">
@@ -58,22 +72,19 @@ function Login() {
               className={useStyles().input}
               name="email"
               inputRef={register({
-                required: 'Rentrez votre email.',
+                required: 'Veuillez renseigner votre email',
               })}
               id="outlined-basic"
               label="Email"
               variant="outlined"
             />
           </div>
-          <div className="errors-messages">
-            {errors.email && <span>{errors.email.message}</span>}
-          </div>
           <div className="password">
             <TextField
               className={useStyles().input}
               name="password"
               inputRef={register({
-                required: 'Rentrez votre mot de passe.',
+                required: 'Veuillez renseigner votre mot de passe',
                 minLength: {
                   value: 8,
                   message:
@@ -86,9 +97,17 @@ function Login() {
               type="password"
             />
           </div>
-          <div className="errors-messages">
-            {errors.password && <span>{errors.password.message}</span>}
-          </div>
+          <FormControlLabel
+            control={
+              // eslint-disable-next-line react/jsx-wrap-multilines
+              <Checkbox
+                name="stayConnected"
+                color="primary"
+                inputRef={register}
+              />
+            }
+            label="Rester connecté ?"
+          />
           <div className="register-password">
             <p>Mot de passe oublié ?</p>
             <Link to="/register">

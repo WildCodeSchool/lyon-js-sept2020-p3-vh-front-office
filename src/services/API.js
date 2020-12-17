@@ -1,7 +1,5 @@
 import axios, { CancelToken } from 'axios';
 import queryString from 'query-string';
-import qs from 'qs';
-
 import * as Promise from 'bluebird';
 
 Promise.config({
@@ -12,10 +10,6 @@ Promise.config({
 // REACT_APP_API_BASE_URL variable in .env file at the root of the project
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
-  paramsSerializer: (params) => {
-    const serializedParams = qs.stringify(params, { arrayFormat: 'repeat' });
-    return `${serializedParams}&APPID=${process.env.API_KEY}`;
-  },
   withCredentials: true,
 });
 
@@ -77,5 +71,15 @@ export const makeEntityUpdater = (collectionName) => (id, attributes) =>
   makeCancellable('patch', `/${collectionName}/${id}`, attributes).then(
     extractData
   );
+
+instance.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    if (err.response.status === 401 && window.location.pathname !== '/login') {
+      window.location = '/login';
+    }
+    return Promise.reject(err);
+  }
+);
 
 export default instance;

@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 import API from '../../services/API';
+import { LoginContext } from '../Contexts/LoginContext';
 
 export default function Profile() {
-  const [userDatas, setUserDatas] = useState();
+  const { userLogged, setUserLogged } = useContext(LoginContext);
+
   useEffect(() => {
-    API.get('/me').then((res) => setUserDatas(res.data));
+    API.get('/me').then((res) => setUserLogged(res.data));
   }, []);
+
   const history = useHistory();
   const { addToast } = useToasts();
 
@@ -28,13 +31,17 @@ export default function Profile() {
     }
   };
 
-  return (
+  return userLogged.length !== 0 ? (
     <>
-      <h1>Profile Page</h1>
-      <p>{JSON.stringify(userDatas)}</p>
+      <h1>Bienvenue {userLogged.firstname}</h1>
+      <p>Prénom : {userLogged.firstname}</p>
+      <p>Prénom : {userLogged.lastname}</p>
+      <p>Téléphone: {userLogged.phone_number}</p>
       <button type="button" onClick={logout}>
-        Logout
+        Déconnexion
       </button>
     </>
+  ) : (
+    'Chargement ...'
   );
 }
