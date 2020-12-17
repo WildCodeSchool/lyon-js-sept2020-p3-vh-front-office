@@ -22,6 +22,18 @@
     }
   }
 }
+
+@media screen and (min-width: 769px) {
+  .App {
+    .main-div {
+      padding-bottom: 20rem;
+    }
+    footer {
+      height: 20rem;
+    }
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .App {
     .main-div {
