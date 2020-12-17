@@ -60,10 +60,10 @@ const Footer = () => {
         <div className="footerMainLink">
           {' '}
           <Link to="/contact">
-            <p>Contact</p>
+            <p>CONTACT</p>
           </Link>
           <Link to="/aboutme">
-            <p>A Propos</p>
+            <p>A PROPOS</p>
           </Link>
           <Link to="/faq">
             <p>FAQ</p>

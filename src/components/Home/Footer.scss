@@ -50,6 +50,9 @@
       text-decoration: none;
       color: $secondary-color;
       font-weight: bolder;
+      :hover {
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -78,6 +81,9 @@
         color: $secondary-color;
         font-weight: lighter;
         padding-bottom: 10px;
+        :hover {
+          text-decoration: underline;
+        }
       }
     }
     .footerLink {
@@ -86,6 +92,9 @@
         font-size: 12px;
         text-decoration: none;
         color: $secondary-color;
+        :hover {
+          text-decoration: underline;
+        }
       }
       p {
         font-weight: lighter;
@@ -177,10 +186,8 @@
       }
     }
     .footerMainLink {
-      width: 50%;
-      flex-direction: row;
+      width: 20%;
       font-size: 20px;
-      padding-right: 50px;
       a {
         padding: 9px 0;
       }
@@ -229,8 +236,10 @@
       margin-left: 150px;
     }
     .footerMainLink {
-      width: 40%;
-      padding-right: 150px;
+      width: 15%;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-right: 0px;
     }
   }
 
