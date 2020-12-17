@@ -4,9 +4,9 @@
     margin-bottom: 50px;
     text-align: center;
   }
-  h2{
+  h2 {
     margin-top: 70px;
-    text-align:center;
+    text-align: center;
     margin-right: 10px;
     margin-left: 10px;
   }
@@ -16,7 +16,7 @@
   .react-3d-carousel {
     margin-top: 22vh;
     .slider-container {
-      .slider-left{
+      .slider-left {
         div {
           color: #3c434c;
           border: none;
@@ -28,11 +28,11 @@
           border: none;
         }
       }
-      .slider-single-content{
-        p{
+      .slider-single-content {
+        p {
           font-size: 3.8vw;
           font-weight: 900;
-          color: #8C0226;
+          color: #8c0226;
           position: absolute;
           top: 210px;
         }
@@ -41,12 +41,12 @@
   }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
   .wines {
     .react-3d-carousel {
       .slider-container {
-        .slider-single-content{
-          p{
+        .slider-single-content {
+          p {
             font-size: 2vw;
           }
         }
@@ -55,15 +55,15 @@
   }
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
   .wines {
-    h1{
+    h1 {
       font-size: 3vw;
     }
     .react-3d-carousel {
       .slider-container {
-        .slider-single-content{
-          p{
+        .slider-single-content {
+          p {
             font-size: 1.5vw;
           }
         }
