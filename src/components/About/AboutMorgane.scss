@@ -1,0 +1,73 @@
+@import '../variablesCSS';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.presentationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    text-align: center;
+    margin: 30px;
+  }
+}
+
+.squareAboutGrey {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(227, 226, 226);
+  width: 90%;
+  border-radius: 20px;
+  h2 {
+    margin: 30px;
+  }
+  img {
+    margin-bottom: 30px;
+  }
+  p {
+    text-align: justify;
+    margin-bottom: 30px;
+    padding: 0 20px;
+  }
+}
+
+.socialMedia {
+  width: 100%;
+  margin-bottom: 20px;
+  ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+  }
+}
+
+.imageText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .imageText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    p {
+      width: 50%;
+    }
+  }
+  .socialMedia {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 108px;
+    li {
+      padding: 0 10px;
+    }
+  }
+}

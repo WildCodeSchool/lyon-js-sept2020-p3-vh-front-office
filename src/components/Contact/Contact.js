@@ -30,12 +30,6 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const wait = function (duration = 1000) {
-  return new Promise((resolve) => {
-    window.setTimeout(resolve, duration);
-  });
-};
-
 const Contact = () => {
   const classes = useStyles();
 
@@ -46,9 +40,7 @@ const Contact = () => {
   const { isSubmitting, isSubmitSuccessful } = formState;
 
   const onSubmit = async (data, e) => {
-    await wait(1000);
     e.target.reset();
-    console.log(data);
   };
 
   return (
