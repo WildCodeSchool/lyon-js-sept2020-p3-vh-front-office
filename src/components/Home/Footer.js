@@ -32,7 +32,7 @@ const Footer = () => {
     <footer className="footerBody">
       <div className="footerTop">
         <div className="footerSignUp">
-          <h2>Sign up for upcoming events</h2>
+          <h2>Inscrivez-vous aux évènements à venir</h2>
           <form className="footerForm">
             <TextField
               className={classes.input}
