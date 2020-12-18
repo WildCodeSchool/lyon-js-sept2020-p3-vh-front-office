@@ -15,6 +15,7 @@ import Register from './LogIns/Register';
 import Sponsors from './Sponsors/Sponsors';
 import Basket from './Basket/Basket';
 import Footer from './Home/Footer';
+import NavBar from './Home/NavBar';
 import MentionLegale from './MentionLegale/MentionLegale';
 // import { SponsorsContextProvider } from '../contexts/sponsorContext';
 
@@ -23,6 +24,7 @@ function App() {
     <ToastProvider placement="bottom-center">
       <Router>
         <div className="App">
+          <NavBar />
           <div className="main-div">
             <Switch>
               <Route exact path="/" component={Home} />
@@ -40,8 +42,8 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/mentions-legales" component={MentionLegale} />
             </Switch>
-            <Footer />
           </div>
+          <Footer />
         </div>
       </Router>
     </ToastProvider>
