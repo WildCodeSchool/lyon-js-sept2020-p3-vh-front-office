@@ -52,9 +52,8 @@ class NavBar extends React.Component {
               Contact
             </NavLink>
             <NavLink exact to="/login">
-              Se connecter|S'inscrire
+              Se Connecter | S'Inscrire
             </NavLink>
-            <Translation />
           </ul>
         </div>
         <Menu

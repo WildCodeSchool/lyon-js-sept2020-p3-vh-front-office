@@ -1,10 +1,8 @@
 @import '../variablesCSS';
 
 * {
-  font-weight: bold;
   margin: 0;
   padding: 0;
-  text-decoration: none;
 }
 
 .navbarBody {
@@ -131,37 +129,22 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
+      margin-bottom: 0;
     }
     a {
       color: $primary-color;
       text-decoration: none;
-      // &:hover {
-      //   background: white;
-      //   color: $primary-color;
-      //   padding: 10px;
-      //   border: solid 2px $primary-color;
-      //   border-radius: 50px;
-      //   &:active {
-      //     background: $primary-color;
-      //     color: white;
-      //   }
-      // }
+      :hover {
+        text-decoration: underline;
+      }
     }
 
     p {
       color: $primary-color;
       margin-bottom: 0;
-      // &:hover {
-      //   background: white;
-      //   color: $primary-color;
-      //   padding: 10px;
-      //   border: solid 2px $primary-color;
-      //   border-radius: 50px;
-      //   &:active {
-      //     background: $primary-color;
-      //     color: white;
-      //   }
-      // }
+      :hover {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -184,6 +167,9 @@
 
 @media screen and (min-width: 1024px) {
   .navbarBody {
+    .navbarLink {
+      font-size: 17px;
+    }
     .navbarLogo {
       padding-left: 30px;
     }
