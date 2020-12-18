@@ -15,10 +15,12 @@ import Sponsors from './Sponsors/Sponsors';
 import Basket from './Basket/Basket';
 import Footer from './Home/Footer';
 import MentionLegale from './MentionLegale/MentionLegale';
+// import { SponsorsContextProvider } from '../contexts/sponsorContext';
 
 function App() {
   return (
     <Router>
+      {/* <SponsorsContextProvider> */}
       <div className="App">
         <div className="main-div">
           <Switch>
@@ -40,6 +42,7 @@ function App() {
         </div>
         <Footer />
       </div>
+      {/* </SponsorsContextProvider> */}
     </Router>
   );
 }
