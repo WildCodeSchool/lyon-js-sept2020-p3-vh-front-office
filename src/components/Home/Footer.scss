@@ -4,144 +4,264 @@
   font-weight: bold;
   margin: 0;
   padding: 0;
-  text-decoration: none;
 }
 
 .footerBody {
-  height: 10%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  border-top: 2.5px solid $primary-color;
-  .footerLogo {
-    width: 50px;
-    max-width: 150px;
-    padding: 10px 0px 0 15px;
-    cursor: pointer;
-  }
-  .footerFacebook {
-    height: 20px;
-    padding: 0 18px 0 20px;
-  }
-}
-
-.footerText {
-  width: 100%;
-  height: 100%;
+  border-top: solid 2px $primary-color;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-.footerLink {
+.footerTop {
   width: 100%;
-  height: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-  font-size: 12px;
-  padding: 13px 0 0 10px;
-  a {
-    color: $primary-color;
-    :hover {
-      text-decoration: underline;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  .footerSignUp {
+    h2 {
+      font-size: 12px;
+      color: $secondary-color;
+      font-weight: bolder;
+      padding: 10px 15px 0;
+    }
+    .footerForm {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-left: 15px;
+      padding-top: 10px;
+    }
+  }
+  .footerMainLink {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    font-size: 16px;
+    padding-top: 15px;
+    a {
+      padding: 3px 0;
+      text-decoration: none;
+      color: $secondary-color;
+      font-weight: bolder;
+      :hover {
+        text-decoration: underline;
+      }
     }
   }
 }
 
-.footerIcon {
-  width: 50px;
-}
-
-.footerCopyright {
+.footerBottom {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 5px;
-  //border-top: 1px solid $primary-color;
-  border-radius: 2px;
-  font-size: 8px;
-  background-color: white;
-  color: $primary-color;
-  text-align: center;
-  p {
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  .footerSmallLink {
     width: 100%;
-    padding-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex start;
+    h2 {
+      font-size: 15px;
+      color: $secondary-color;
+      font-weight: bolder;
+      padding: 10px 0 15px;
+    }
+    .footerSocialMedia {
+      margin: 0 25px;
+      p {
+        font-size: 12px;
+        color: $secondary-color;
+        font-weight: lighter;
+        padding-bottom: 10px;
+        :hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .footerLink {
+      margin: 0 25px;
+      a {
+        font-size: 12px;
+        text-decoration: none;
+        color: $secondary-color;
+        :hover {
+          text-decoration: underline;
+        }
+      }
+      p {
+        font-weight: lighter;
+        padding-bottom: 10px;
+      }
+    }
   }
 }
 
-@media screen and (min-width: 520px) {
-  .footerBody {
-    .footerLogo {
-      padding: 0 20px 0 20px;
-    }
-    .footerFacebook {
-      padding: 0 20px 0 20px;
+.footerLanguage {
+  padding-top: 20px;
+  margin-left: 25px;
+  h2 {
+    font-size: 15px;
+    color: $secondary-color;
+    font-weight: bolder;
+    padding: 10px 0 15px;
+  }
+  .langue {
+    display: flex;
+    p {
+      font-size: 12px;
+      font-weight: lighter;
+      color: $secondary-color;
+      cursor: pointer;
     }
   }
+}
 
-  .footerCopyright {
-    p {
-      padding: 0 4% 8px 0;
+.footerLogo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  img {
+    width: 180px;
+  }
+}
+
+.MuiFormControl-root {
+  padding-bottom: 10px !important;
+}
+
+.MuiInputBase-input {
+  height: 0.05em !important;
+  padding-right: 10px !important;
+}
+
+.MuiInputLabel-formControl {
+  top: -7px !important;
+}
+
+@media screen and (min-width: 456px) {
+  .footerTop {
+    .footerSignUp {
+      width: 80%;
+      .footerForm {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+      }
     }
+  }
+  .footerLanguage {
+    padding-top: 0;
+    margin: 0 25px;
+  }
+
+  .MuiFormControl-root {
+    margin-right: 20px !important;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .footerBody {
-    .footerLogo {
-      padding: 0 20px 0 20px;
+  .footerTop .footerSignUp h2 {
+    padding: 10px 0 0;
+  }
+  .footerTop {
+    padding: 20px 0;
+    .footerSignUp {
+      width: 55%;
+      margin-left: 25px;
+      h2 {
+        font-size: 17px;
+      }
+      .footerForm {
+        padding-left: 0;
+      }
     }
-    .footerFacebook {
-      padding: 0 40px 0 20px;
+    .footerMainLink {
+      width: 20%;
+      font-size: 20px;
+      a {
+        padding: 9px 0;
+      }
     }
   }
-  .footerLink {
-    width: 100%;
-    font-size: 12px;
+
+  .footerBottom {
+    padding-bottom: 20px;
+    .footerSmallLink {
+      h2 {
+        font-size: 17px;
+      }
+      .footerSocialMedia {
+        p {
+          font-size: 13px;
+        }
+      }
+      p {
+        font-size: 13px;
+      }
+    }
   }
-  .footerIcon {
-    padding-right: 20px;
+
+  .MuiInputBase-input {
+    width: 300px !important;
+    height: 1.05em !important;
+  }
+
+  .MuiInputLabel-formControl {
+    top: 0 !important;
+  }
+
+  .footerLogo {
+    width: 30%;
+    display: block;
+    position: absolute;
+    left: 72%;
+    bottom: 20%;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .footerBody {
-    .footerLogo {
-      width: 60px;
-      padding-left: 40px;
+  .footerTop {
+    padding-top: 20px;
+    .footerSignUp {
+      margin-left: 150px;
     }
-    .footerFacebook {
-      height: 25px;
-      padding: 0 60px 0 20px;
+    .footerMainLink {
+      width: 20%;
+      flex-direction: row;
+      padding-right: 250px;
+      padding-top: 20px;
     }
-  }
-  .footerText {
-    padding: 0 150px;
   }
 
-  .footerLink {
-    width: 100%;
-    font-size: 14px;
-    p {
-      padding-right: 60px;
+  .footerBottom {
+    .footerSmallLink {
+      padding-bottom: 0;
+      .footerSocialMedia {
+        margin-left: 150px;
+        margin-right: 50px;
+      }
+      .footerLink {
+        margin-right: 50px;
+      }
     }
   }
-  .footerIcon {
-    padding-right: 50px;
-  }
 
-  .footerCopyright {
-    font-size: 9px;
-    font-style: normal;
-    p {
-      padding: 0 10% 8px 0;
+  .footerLogo {
+    width: 30%;
+    left: 65%;
+    bottom: 20%;
+    img {
+      width: 250px;
     }
   }
 }

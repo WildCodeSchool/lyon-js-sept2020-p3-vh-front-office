@@ -1,5 +1,3 @@
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable no-restricted-syntax */
 import React, { useEffect, useRef } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { useForm } from 'react-hook-form';
