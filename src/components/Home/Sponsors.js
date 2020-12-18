@@ -43,7 +43,7 @@ const Sponsors = () => {
       {sponsors &&
         sponsors.map((sponsor) => {
           return (
-            <Card className={classes.root}>
+            <Card key={sponsor.id} className={classes.root}>
               <CardHeader title="One of the best software ever" />
               <CardMedia
                 className={classes.media}
