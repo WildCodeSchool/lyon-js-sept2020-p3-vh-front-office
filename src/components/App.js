@@ -17,6 +17,7 @@ import Basket from './Basket/Basket';
 import Footer from './Home/Footer';
 import NavBar from './Home/NavBar';
 import MentionLegale from './MentionLegale/MentionLegale';
+// import { SponsorsContextProvider } from '../contexts/sponsorContext';
 
 function App() {
   return (

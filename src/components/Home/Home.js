@@ -1,12 +1,15 @@
 import React from 'react';
 import WelcomeCarousel from './WelcomeCarousel';
 import Banner from './Banner';
+// import Translation from './Translation';
+import Sponsors from './Sponsors';
 
 const Home = () => {
   return (
     <div>
       <Banner />
       <WelcomeCarousel />
+      <Sponsors />
     </div>
   );
 };
