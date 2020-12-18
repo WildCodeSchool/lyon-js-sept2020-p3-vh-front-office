@@ -6,12 +6,6 @@ import './Register.scss';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
-const wait = (duration = 1000) => {
-  return new Promise((resolve) => {
-    window.setTimeout(resolve, duration);
-  });
-};
-
 const useStyles = makeStyles((theme) => ({
   btn: {
     backgroundColor: '#6d071a',
@@ -37,7 +31,6 @@ const Register = () => {
   password.current = watch('password', '');
 
   const onSubmit = async (data, e) => {
-    await wait(1000);
     e.target.reset();
   };
 
