@@ -5,7 +5,7 @@ import { User } from 'react-feather';
 export default function Reviews() {
   return (
     <>
-      <h1>Ratings</h1>
+      <h1>Témoignages</h1>
 
       <div className="stars">&#9733; &#9733; &#9733; &#9733;&#9733;</div>
       <div className="cards">
