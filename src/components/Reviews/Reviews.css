@@ -1,0 +1,37 @@
+h1 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #eee;
+  margin-top: 10px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #eee;
+  padding: 30px;
+  margin: 10px 20px 20px 20px;
+}
+.avatar-text {
+  display: flex;
+  align-items: center;
+}
+.text {
+  text-align: justify;
+  margin-bottom: 10px;
+  color: #3c434c;
+}
+
+@media screen and (min-width: 1024px) {
+  .cards {
+    display: flex;
+    justify-content: center;
+  }
+}
