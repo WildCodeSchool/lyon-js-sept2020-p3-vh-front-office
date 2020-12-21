@@ -22,41 +22,45 @@ const AboutAnimators = () => {
         animators.map((animator) => {
           return (
             <div className="cards-animators">
-              <div className="nom-image-animator">
-                <h2>
-                  {animator.firstname}
-                  {animator.lastname}
-                </h2>
-                <img src={animator.image} alt={animator.firstname} />
+              <div className="nom-image-paragraph-animator">
+                <div className="nom-image-animator">
+                  <h2>
+                    {animator.firstname}
+                    {animator.lastname}
+                  </h2>
+                  <img src={animator.image} alt={animator.firstname} />
+                </div>
+                <div className="biography-animators">
+                  <p>{animator.biographie}</p>
+                </div>
               </div>
-              <p>{animator.biographie}</p>
-              <div className="socialMedia">
-                <ul className="icon-bar">
+              <div className="socialMedia-animators">
+                <ul className="icon-bar-animators">
                   <div>
                     <li className="list">
                       <a href="http://www.google.com">
-                        <AiOutlineMail size={32} color="black" />
+                        <AiOutlineMail size={26} color="white" />
                       </a>
                     </li>
                   </div>
                   <div>
                     <li className="list">
                       <a href="http://www.google.com">
-                        <AiFillFacebook size={32} color="black" />
+                        <AiFillFacebook size={26} color="white" />
                       </a>
                     </li>
                   </div>
                   <div>
                     <li className="list">
                       <a href="http://www.google.com">
-                        <AiOutlineTwitter size={32} color="black" />
+                        <AiOutlineTwitter size={26} color="white" />
                       </a>
                     </li>
                   </div>
                   <div>
                     <li className="list">
                       <a href="http://www.google.com">
-                        <AiOutlineInstagram size={32} color="black" />
+                        <AiOutlineInstagram size={26} color="white" />
                       </a>
                     </li>
                   </div>
