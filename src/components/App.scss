@@ -2,7 +2,13 @@
   position: relative;
   min-height: 100vh;
   .main-div {
-    padding-bottom: 30rem; /* Footer height */
+    padding: 6rem 0 30rem; /* Footer height */
+  }
+  nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 6rem;
   }
   footer {
     position: absolute;

@@ -16,6 +16,7 @@ import Sponsors from './Sponsors/Sponsors';
 import Basket from './Basket/Basket';
 import Footer from './Home/Footer';
 import Profile from './LogIns/Profile';
+import NavBar from './Home/NavBar';
 import MentionLegale from './MentionLegale/MentionLegale';
 import LoginProvider from './Contexts/LoginContext';
 
@@ -25,6 +26,7 @@ function App() {
       <LoginProvider>
         <Router>
           <div className="App">
+            <NavBar />
             <div className="main-div">
               <Switch>
                 <Route exact path="/" component={Home} />
@@ -41,7 +43,6 @@ function App() {
                 <Route exact path="/contact" component={Contact} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/profile" component={Profile} />
-                <Route exact path="/" component={Home} />
                 <Route
                   exact
                   path="/mentions-legales"

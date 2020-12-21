@@ -1,10 +1,8 @@
 @import '../variablesCSS';
 
 * {
-  font-weight: bold;
   margin: 0;
   padding: 0;
-  text-decoration: none;
 }
 
 .navbarBody {
@@ -16,8 +14,164 @@
   top: 0;
   border-bottom: 2.5px solid $primary-color;
   .navbarLogo {
-    width: 25%;
+    width: 150px;
     height: 50%;
-    max-width: 150px;
+    padding: 10px 0px 0 20px;
+  }
+}
+
+.navbarLink {
+  display: none;
+}
+
+.navbarIcon {
+  display: none;
+}
+/* Paramétrage du menu burger_______________https://github.com/negomi/react-burger-menu_____________________________________________________________________________________*/
+
+.burgerLogo {
+  position: absolute;
+  width: 150px;
+  top: 23px;
+  left: 0;
+  padding: 10px 0px 0 20px;
+}
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  right: 0;
+  width: 36px;
+  height: 30px;
+  margin-right: 30px;
+  top: 30px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: $primary-color;
+  border-radius: 0px;
+  max-height: 5px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  position: absolute;
+  background: white;
+  height: 50px;
+  width: 50px;
+  top: -25px;
+  right: 15px;
+}
+/*
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
+.bm-menu-wrap {
+  position: absolute;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  position: relative;
+  top: -48px;
+  background: white;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: $primary-color;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 72% !important;
+  width: 70vw;
+  align-items: center;
+  position: absolute;
+  padding-top: 90px;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  color: $primary-color;
+  text-decoration: none;
+  padding: 1em;
+  text-align: center;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  width: 0%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (min-width: 768px) {
+  .bm-burger-button {
+    display: none;
+  }
+
+  .navbarLink {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    ul {
+      width: 95%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-bottom: 0;
+    }
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      :hover {
+        text-decoration: underline;
+      }
+    }
+
+    p {
+      color: $primary-color;
+      margin-bottom: 0;
+      :hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .navbarIcon {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img:first-of-type {
+      width: 50px;
+    }
+    p {
+      color: $primary-color;
+    }
+    img:nth-child(3n) {
+      width: 90px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navbarBody {
+    .navbarLink {
+      font-size: 17px;
+    }
+    .navbarLogo {
+      padding-left: 30px;
+    }
   }
 }
