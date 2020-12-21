@@ -19,6 +19,15 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       width: '400px',
     },
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#6d071a',
+    },
+    '& .MuiOutlinedInput-input': {
+      color: '#6d071a',
+    },
+    '& .MuiInputLabel-outlined.Mui-focused': {
+      color: '#6d071a',
+    },
   },
 }));
 

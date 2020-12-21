@@ -18,6 +18,15 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       width: '400px',
     },
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#6d071a',
+    },
+    '& .MuiOutlinedInput-input': {
+      color: '#6d071a',
+    },
+    '& .MuiInputLabel-outlined.Mui-focused': {
+      color: '#6d071a',
+    },
   },
 }));
 
@@ -103,7 +112,6 @@ const Register = () => {
         </div>
         <div className="input-register-form">
           <TextField
-            defaultValue="aaaaaaaa"
             className={classes.input}
             type="password"
             id="outlined-basic"
@@ -126,7 +134,6 @@ const Register = () => {
 
         <div className="input-register-form">
           <TextField
-            defaultValue="aaaaaaaa"
             className={classes.input}
             type="password"
             id="outlined-basic"
