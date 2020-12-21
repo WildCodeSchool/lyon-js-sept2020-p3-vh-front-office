@@ -1,0 +1,29 @@
+.container-all-cards-animators{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1{
+        margin-top: 50px;
+    }
+    .cards-animators{
+        display: flex;
+        width: 90%;
+        height: 200px;
+        background-color: lightgray;
+        border-radius: 20px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        .nom-image-animator{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 40%;
+        }
+    } img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
