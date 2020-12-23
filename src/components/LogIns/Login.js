@@ -12,6 +12,7 @@ import API from '../../services/API';
 
 const useStyles = makeStyles((theme) => ({
   btn: {
+    marginBottom: '50px',
     color: 'white',
     backgroundColor: '#6d071a',
     textTransform: 'none',
@@ -127,12 +128,12 @@ function Login() {
             </Button>
           </div>
         </form>
-        <div className="facebook_login">
+        {/* <div className="facebook_login">
           <button type="button">Se connecter avec Facebook</button>
           <div className="google">
             <button type="button">Se connecter avec Google</button>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
