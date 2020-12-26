@@ -90,37 +90,52 @@ export default function Profile() {
       {value === 0 ? (
         <>
           <h1>Bienvenue {userLogged.firstname} !</h1>
-          {userLogged.photo_url && (
-            <img src={userLogged.photo_url} alt={userLogged.lastname} />
-          )}
-          {userLogged.firstname && <p>Prénom : {userLogged.firstname}</p>}
-          {userLogged.lastname && <p>Nom : {userLogged.lastname}</p>}
-          {userLogged.phone_number && (
-            <p>Mon numéro de téléphone : {userLogged.phone_number}</p>
-          )}
-          {userLogged.email && <p>Mon adresse mail : {userLogged.email}</p>}
-          {userLogged.bio && (
-            <p className="bio">
-              Ma présentation <br /> {userLogged.bio}
-            </p>
-          )}
-          <section className="social-networks">
-            {userLogged.instagram_url && (
-              <a href={userLogged.instagram_url} target="blank">
-                <img src={InstagramIcon} alt="Instagram" />
-              </a>
+          <div className="photo-fields">
+            {userLogged.photo_url && (
+              <img
+                className="profile-image"
+                src={userLogged.photo_url}
+                alt={userLogged.lastname}
+              />
             )}
-            {userLogged.twitter_url && (
-              <a href={userLogged.twitter_url} target="blank">
-                <img src={TwitterIcon} alt="Twitter" />
-              </a>
-            )}
-            {userLogged.facebook_url && (
-              <a href={userLogged.facebook_url} target="blank">
-                <img src={FacebookIcon} alt="Facebook" />
-              </a>
-            )}
-          </section>
+            <div className="main-fields">
+              {userLogged.firstname && <p>Prénom : {userLogged.firstname}</p>}
+              {userLogged.lastname && <p>Nom : {userLogged.lastname}</p>}
+              {userLogged.phone_number && (
+                <p>Mon numéro de téléphone : {userLogged.phone_number}</p>
+              )}
+              {userLogged.email && <p>Mon adresse mail : {userLogged.email}</p>}
+              {userLogged.bio && (
+                <p className="bio">
+                  Ma présentation <br /> {userLogged.bio}
+                </p>
+              )}
+            </div>
+          </div>
+          {userLogged.instagram_url ||
+          userLogged.twitter_url ||
+          userLogged.facebook_url
+            ? userLogged.facebook_url && (
+                // eslint-disable-next-line react/jsx-indent
+                <section className="social-networks">
+                  {userLogged.instagram_url && (
+                    <a href={userLogged.instagram_url} target="blank">
+                      <img src={InstagramIcon} alt="Instagram" />
+                    </a>
+                  )}
+                  {userLogged.twitter_url && (
+                    <a href={userLogged.twitter_url} target="blank">
+                      <img src={TwitterIcon} alt="Twitter" />
+                    </a>
+                  )}
+                  {userLogged.facebook_url && (
+                    <a href={userLogged.facebook_url} target="blank">
+                      <img src={FacebookIcon} alt="Facebook" />
+                    </a>
+                  )}
+                </section>
+              )
+            : null}
         </>
       ) : (
         <h1>Mes événements</h1>
