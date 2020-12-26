@@ -13,24 +13,29 @@ const WelcomeCarousel = () => {
 
   return (
     <div className="carrousel">
-      <Carousel
-        showThumbs={false}
-        showStatus={false}
-        autoPlay
-        interval={6000}
-        transitionTime={600}
-        showArrows={false}
-      >
-        {slides
-          ? slides.map((slide) => (
-              // eslint-disable-next-line react/jsx-indent
-              <div>
-                <img src={slide.image} alt={slide.description} />
-                <p className="legend">{slide.description}</p>
-              </div>
-            ))
-          : 'prout'}
-      </Carousel>
+      {slides ? (
+        <Carousel
+          showThumbs={false}
+          showStatus={false}
+          autoPlay
+          interval={6000}
+          transitionTime={600}
+          showArrows={false}
+        >
+          {slides.map((slide) => (
+            <div>
+              <img src={slide.image} alt={slide.description} />
+              <p className="legend">{slide.description}</p>
+            </div>
+          ))}
+        </Carousel>
+      ) : (
+        <Carousel showThumbs={false} showStatus={false} showArrows={false}>
+          <div>
+            <p className="legend">Aucun contenu disponible !</p>
+          </div>
+        </Carousel>
+      )}
     </div>
   );
 };
