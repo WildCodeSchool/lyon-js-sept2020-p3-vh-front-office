@@ -1,6 +1,44 @@
-.main-title {
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.title {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 30px 50px 30px;
+    border: solid;
+    .left_part {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 10px;
+        padding: 5px 5px 5px 5px;
+    } 
+    img {
+        height: 100px;
+    }
+    .right_part {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 10px 10px 10px 10px;
+    }
+    button {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
