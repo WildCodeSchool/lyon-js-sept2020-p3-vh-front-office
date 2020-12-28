@@ -23,7 +23,7 @@ const WelcomeCarousel = () => {
           showArrows={false}
         >
           {slides.map((slide) => (
-            <div>
+            <div key={slide.image}>
               <img src={slide.image} alt={slide.description} />
               <p className="legend">{slide.description}</p>
             </div>
