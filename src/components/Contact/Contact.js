@@ -1,5 +1,5 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useEffect } from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import './Contact.scss';
 import { useToasts } from 'react-toast-notifications';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,7 +7,6 @@ import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import API from '../../services/API';
 
@@ -33,12 +32,24 @@ const useStyles = makeStyles(() => ({
 const Contact = () => {
   const classes = useStyles();
 
-  const { register, handleSubmit, formState, errors } = useForm({
+  const { register, handleSubmit, formState, errors, control } = useForm({
     mode: 'onBlur',
   });
 
   const { isSubmitting } = formState;
   const { addToast } = useToasts();
+
+  useEffect(() => {
+    if (errors) {
+      const arrayErrors = Object.values(errors);
+      arrayErrors.map((error) =>
+        addToast(error.message, {
+          appearance: 'error',
+          autoDismiss: true,
+        })
+      );
+    }
+  }, [errors]);
 
   const onSubmit = async (data, e) => {
     try {
@@ -48,7 +59,10 @@ const Contact = () => {
         autoDismiss: true,
       });
     } catch (err) {
-      console.error(err);
+      addToast("Votre message n'a pu être envoyé", {
+        appearance: 'error',
+        autoDismiss: true,
+      });
     }
     e.target.reset();
   };
@@ -56,12 +70,9 @@ const Contact = () => {
   return (
     <div className="container-register-form">
       <form className="contactForm" onSubmit={handleSubmit(onSubmit)}>
-        <h1>Contactez Nous</h1>
+        <h1>Contactez-nous</h1>
 
         <div className="input-register-form">
-          <div className="contactErrorMessage">
-            {errors.lastname && <span>{errors.lastname.message}</span>}
-          </div>
           <TextField
             className={classes.input}
             id="outlined-basic"
@@ -69,15 +80,12 @@ const Contact = () => {
             name="lastname"
             variant="outlined"
             inputRef={register({
-              required: 'Champ obligatoire',
+              required: "Merci d'indiquer votre nom",
             })}
           />
         </div>
 
         <div className="input-register-form">
-          <div className="contactErrorMessage">
-            {errors.firstname && <span>{errors.firstname.message}</span>}
-          </div>
           <TextField
             className={classes.input}
             id="outlined-basic"
@@ -85,19 +93,12 @@ const Contact = () => {
             name="firstname"
             variant="outlined"
             inputRef={register({
-              required: 'Champ obligatoire',
-              maxLength: {
-                value: 20,
-                message: 'Maximum 20 caractères',
-              },
+              required: "Merci d'indiquer votre prénom",
             })}
           />
         </div>
 
         <div className="input-register-form">
-          <div className="contactErrorMessage">
-            {errors.email && <span>{errors.email.message}</span>}
-          </div>
           <TextField
             className={classes.input}
             id="outlined-basic"
@@ -105,39 +106,41 @@ const Contact = () => {
             name="email"
             variant="outlined"
             inputRef={register({
-              required: 'Champ obligatoire',
+              required: "Merci d'indiquer votre adresse mail",
               pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-              message: 'Email invalide',
+              message: 'Votre adresse mail est invalide',
             })}
           />
         </div>
 
         <div className="input-register-form">
-          <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">
-              Motif de Contact
-            </InputLabel>
-            <Select
-              className={classes.input}
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              inputRef={register({
-                required: 'Champ obligatoire',
-                message: 'Email invalide',
-              })}
-            >
-              <MenuItem value="client">
-                Question/Participation Evènement
-              </MenuItem>
-              <MenuItem value="partenaire">Partenariat</MenuItem>
-              <MenuItem value="animateur">Animer un Evènement</MenuItem>
-            </Select>
-          </FormControl>
+          <InputLabel>Choisissez un sujet</InputLabel>
+          <Controller
+            as={
+              // eslint-disable-next-line react/jsx-wrap-multilines
+              <Select
+                ref={register({
+                  required: 'select one option',
+                })}
+              >
+                <MenuItem value="J'ai une question">
+                  Question/Participation Evènement
+                </MenuItem>
+                <MenuItem value="Je souhaite devenir partenaire">
+                  Devenir partenaire
+                </MenuItem>
+                <MenuItem value="Je souhaite devenir animateur">
+                  Animer un événement
+                </MenuItem>
+              </Select>
+            }
+            control={control}
+            name="purpose"
+            defaultValue=""
+            rules={{ required: 'Merci de choisir un sujet' }}
+          />
         </div>
         <div className="input-register-form">
-          <div className="contactErrorMessage">
-            {errors.message && <span>{errors.message.message}</span>}
-          </div>
           <TextField
             id="outlined-basic"
             className={classes.input}
@@ -147,7 +150,7 @@ const Contact = () => {
             name="message"
             variant="outlined"
             inputRef={register({
-              required: 'Champ obligatoire',
+              required: 'Merci de saisir un message',
             })}
           />
         </div>
