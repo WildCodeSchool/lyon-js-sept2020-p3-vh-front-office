@@ -12,6 +12,7 @@ import API from '../../services/API';
 
 const useStyles = makeStyles(() => ({
   root: {
+    width: '100%',
     '& > *': {
       width: '25ch',
     },
@@ -19,7 +20,9 @@ const useStyles = makeStyles(() => ({
   formControl: {
     width: 200,
   },
-
+  input: {
+    width: '100%',
+  },
   btn: {
     backgroundColor: '#6d071a',
     textTransform: 'none',
@@ -58,21 +61,31 @@ const Contact = () => {
         appearance: 'success',
         autoDismiss: true,
       });
+      e.target.reset();
     } catch (err) {
-      addToast("Votre message n'a pu être envoyé", {
-        appearance: 'error',
-        autoDismiss: true,
-      });
+      if (err.response.status === 500) {
+        addToast(
+          'Erreur lors de votre inscription, veuillez rééssayer plus tard',
+          {
+            appearance: 'error',
+            autoDismiss: true,
+          }
+        );
+      } else
+        err.response.data.errorsByField[0].message.map((things) => {
+          return addToast(things, {
+            appearance: 'error',
+            autoDismiss: true,
+          });
+        });
     }
-    e.target.reset();
   };
 
   return (
-    <div className="container-register-form">
+    <div className="container-contact-form">
       <form className="contactForm" onSubmit={handleSubmit(onSubmit)}>
         <h1>Contactez-nous</h1>
-
-        <div className="input-register-form">
+        <div className="input-contact-form">
           <TextField
             className={classes.input}
             id="outlined-basic"
@@ -85,7 +98,7 @@ const Contact = () => {
           />
         </div>
 
-        <div className="input-register-form">
+        <div className="input-contact-form">
           <TextField
             className={classes.input}
             id="outlined-basic"
@@ -98,7 +111,7 @@ const Contact = () => {
           />
         </div>
 
-        <div className="input-register-form">
+        <div className="input-contact-form">
           <TextField
             className={classes.input}
             id="outlined-basic"
@@ -107,13 +120,11 @@ const Contact = () => {
             variant="outlined"
             inputRef={register({
               required: "Merci d'indiquer votre adresse mail",
-              pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-              message: 'Votre adresse mail est invalide',
             })}
           />
         </div>
 
-        <div className="input-register-form">
+        <div className="input-contact-form">
           <InputLabel>Choisissez un sujet</InputLabel>
           <Controller
             as={
@@ -138,15 +149,17 @@ const Contact = () => {
             name="purpose"
             defaultValue=""
             rules={{ required: 'Merci de choisir un sujet' }}
+            className={classes.input}
           />
         </div>
-        <div className="input-register-form">
+        <div className="input-contact-form">
           <TextField
-            id="outlined-basic"
+            id="outlined-multiline-static"
             className={classes.input}
             label="Message"
+            placeholder="Message"
             multiline
-            rows={4}
+            rows={10}
             name="message"
             variant="outlined"
             inputRef={register({
@@ -155,7 +168,7 @@ const Contact = () => {
           />
         </div>
 
-        <div className="button-register-form">
+        <div className="button-contact-form">
           <Button
             className={classes.btn}
             disableElevation={isSubmitting}
