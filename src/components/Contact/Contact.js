@@ -63,21 +63,22 @@ const Contact = () => {
       });
       e.target.reset();
     } catch (err) {
-      if (err.response.status === 500) {
-        addToast(
-          'Erreur lors de votre inscription, veuillez rééssayer plus tard',
-          {
-            appearance: 'error',
-            autoDismiss: true,
-          }
-        );
-      } else
+      if (err.response) {
         err.response.data.errorsByField[0].message.map((things) => {
           return addToast(things, {
             appearance: 'error',
             autoDismiss: true,
           });
         });
+      } else {
+        addToast(
+          "Erreur lors de l'envoi de votre message, veuillez rééssayer plus tard",
+          {
+            appearance: 'error',
+            autoDismiss: true,
+          }
+        );
+      }
     }
   };
 
