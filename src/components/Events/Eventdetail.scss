@@ -1,9 +1,6 @@
 .map {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 50px 20px 50px 20px;
+    align-content: center;
 }
 
 .title {
@@ -25,7 +22,9 @@
         justify-content: space-between;
         align-items: center;
         margin-right: 10px;
+        margin-left: 5px;
         padding: 5px 5px 5px 5px;
+        height: 350px;
     } 
     img {
         height: 100px;
@@ -33,12 +32,19 @@
     .right_part {
         margin-top: 20px;
         margin-bottom: 20px;
-        padding: 10px 10px 10px 10px;
-    }
-    button {
-        margin-top: 20px;
+        padding: 5px 5px 5px 5px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+        flex-direction: column;
+        height: 350px;
     }
+    
+}
+
+@media screen and (min-width: 768px) {
+    .description {
+        display: flex;
+        justify-content: space-around;
+}
 }
