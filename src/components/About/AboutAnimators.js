@@ -7,12 +7,13 @@ import {
 } from 'react-icons/ai';
 import API from '../../services/API';
 import './AboutAnimators.scss';
+import photo from '../pictures/login.png';
 
 const AboutAnimators = () => {
   const [animators, setAnimators] = useState();
 
   useEffect(() => {
-    API.get('/animators').then((res) => setAnimators(res.data));
+    API.get('/users/animators').then((res) => setAnimators(res.data));
   }, [animators]);
 
   return (
@@ -25,13 +26,13 @@ const AboutAnimators = () => {
               <div className="nom-image-paragraph-animator">
                 <div className="nom-image-animator">
                   <h2>
-                    {animator.firstname}
-                    {animator.lastname}
+                    {animator.firstname} {animator.lastname}
                   </h2>
-                  <img src={animator.image} alt={animator.firstname} />
+                  <img src={photo} alt={animator.firstname} />
+                  {/* src={animator.photo_url} */}
                 </div>
                 <div className="biography-animators">
-                  <p>{animator.biographie}</p>
+                  <p>{animator.bio}</p>
                 </div>
               </div>
               <div className="socialMedia-animators">
