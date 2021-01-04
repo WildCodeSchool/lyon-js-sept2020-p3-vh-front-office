@@ -66,16 +66,16 @@ export default function WineModal(props) {
   const { show, onHide } = props;
   const { winedata } = props;
   const {
-    winery,
-    vintage,
-    winemaker,
-    grapeVariety,
-    wineWaiter,
-    aromas,
+    producteur,
+    name,
+    vigneron,
+    cepage,
+    sommelier,
+    arome,
     specificities,
     price,
     image,
-    producerUrl,
+    website,
   } = winedata;
 
   return (
@@ -96,19 +96,19 @@ export default function WineModal(props) {
           <div className={classes.paper}>
             <div className={classes.modalHeader}>
               <h1 id="transition-modal-title" className={classes.title}>
-                {winery} - Cuvée {vintage}
+                {producteur} - Cuvée {name}
               </h1>
               <CloseIcon className={classes.closeIcon} onClick={onHide} />
             </div>
 
             <div className={classes.modalBody}>
               <p id="transition-modal-description">
-                Vigneron : {winemaker} <br />
-                Cépages(s) : {grapeVariety} <br />
-                {wineWaiter && `Sommelier : ${wineWaiter} `}
+                Vigneron : {vigneron} <br />
+                Cépages(s) : {cepage} <br />
+                {sommelier && `Sommelier : ${sommelier} `}
                 <br />
-                Cépages(s) : {grapeVariety} <br />
-                Arôme(s) : {aromas} <br />
+                Cépages(s) : {cepage} <br />
+                Arôme(s) : {arome} <br />
                 {specificities && (
                   <>
                     Spécificités : {specificities}
@@ -117,14 +117,14 @@ export default function WineModal(props) {
                 )}
                 Prix indicatif : {price} € <br />
               </p>
-              <img src={image} alt={winery} />
+              <img src={image} alt={producteur} />
             </div>
             <Button
               variant="contained"
               className={classes.button}
               target="_blank"
               onClick={onHide}
-              href={producerUrl}
+              href={website}
             >
               Me rendre sur le site du producteur
             </Button>

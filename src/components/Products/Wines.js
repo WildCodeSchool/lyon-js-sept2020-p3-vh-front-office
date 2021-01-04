@@ -1,55 +1,16 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Carousel } from '3d-react-carousal';
 import WineModal from './WineModal';
 import './Wines.scss';
-
-const winesList = [
-  {
-    id: 1,
-    image:
-      'https://medias.nicolas.com/media/sys_master/images/h41/h90/9020507750430.png',
-    vintage: 'Vintage 2014',
-    grapeVariety: 'Syrah',
-    winemaker: 'Pierre',
-    wineWaiter: 'John',
-    winery: 'Château Patache d’Aux',
-    aromas: 'Fruits rouges',
-    specificities: '',
-    price: '10',
-    producerUrl: 'http://www.google.fr',
-  },
-  {
-    id: 2,
-    image:
-      'https://medias.nicolas.com/media/sys_master/hff/hd4/9224492711966.png',
-    vintage: 'Vintage 2015',
-    grapeVariety: 'Pinot',
-    winemaker: 'Thomas',
-    wineWaiter: 'Brieuc',
-    winery: 'Château Machin',
-    aromas: 'Orange',
-    specificities: 'Blablabla',
-    price: '8',
-    producerUrl: 'http://www.google.fr',
-  },
-  {
-    id: 3,
-    image:
-      'https://medias.nicolas.com/media/sys_master/images/h07/h92/9169233117214.png',
-    vintage: 'Vintage 2016',
-    grapeVariety: 'Muscat',
-    winemaker: 'Matthieu',
-    wineWaiter: 'Aymeric',
-    winery: 'Château Truc',
-    aromas: 'Cuir',
-    price: '15',
-    producerUrl: 'http://www.google.fr',
-  },
-];
+import API from '../../services/API';
 
 const Wines = () => {
   const [wineClicked, setWineClicked] = useState('');
   const [modalShow, setModalShow] = useState(false);
+  const [winesCollection, setWinesCollection] = useState([]);
+  useEffect(() => {
+    API.get('/products').then((res) => setWinesCollection(res.data));
+  }, []);
 
   const handleClick = useCallback((wineId) => {
     setModalShow(true);
@@ -62,19 +23,32 @@ const Wines = () => {
         <WineModal
           show={modalShow}
           onHide={() => setModalShow(false)}
-          winedata={winesList.filter((wine) => wine.id === wineClicked)[0]}
+          winedata={
+            winesCollection.filter((wine) => wine.id === wineClicked)[0]
+          }
         />
       )}
       <main className="wines">
-        <h1>Les vins dégustés</h1>
-        <CarrouselWrapper winesList={winesList} handleClick={handleClick} />
-        <h2>Retrouvez les vins dégustés lors des événements !</h2>
+        {winesCollection.length !== 0 ? (
+          <>
+            <h1>Les vins dégustés</h1>
+
+            <CarrouselWrapper
+              winesList={winesCollection}
+              handleClick={handleClick}
+            />
+
+            <h2>Retrouvez les vins dégustés lors des événements !</h2>
+          </>
+        ) : (
+          <h2 className="empty-wines-array">Aucun vin disponible</h2>
+        )}
       </main>
     </>
   );
 };
 
-const CarrouselWrapper = React.memo(({ handleClick }) => {
+const CarrouselWrapper = React.memo(({ handleClick, winesList }) => {
   return (
     <Carousel
       slides={winesList.map((wine) => (
