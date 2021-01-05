@@ -28,17 +28,15 @@ const bookedEvents = [
 localStorage.setItem('events', JSON.stringify(bookedEvents));
 
 export default function Basket(props) {
-  const [basket, setBasket] = useState([]);
+  const [basketDetails, setBasketDetails] = useState([]);
 
   useEffect(() => {
     JSON.parse(localStorage.getItem('events')).forEach((event) =>
       API.get(`events/${event.id}`).then((res) => {
-        setBasket((oldArray) => [...oldArray, res.data]);
+        setBasketDetails((oldArray) => [...oldArray, res.data]);
       })
     );
   }, []);
-
-  console.log(basket);
 
   const useStyles = makeStyles(() => ({
     button: {
@@ -55,19 +53,22 @@ export default function Basket(props) {
   }));
 
   const deleteEvent = () => {
-    localStorage.removeItem('events');
+    ///
   };
 
   const deleteBasket = () => {
-    axios.delete(`https://ouestcovid-back.herokuapp.com/api/basket`);
+    localStorage.removeItem('events');
   };
 
   const sendOrder = () => {
     axios.post(
       `https://new-app-form.herokuapp.com/order?apiKey=${window.apiKey}`,
-      basket
+      basketDetails
     );
-    axios.put(`https://ouestcovid-back.herokuapp.com/api/events/`, basket);
+    axios.put(
+      `https://ouestcovid-back.herokuapp.com/api/events/`,
+      basketDetails
+    );
     axios.delete(`https://ouestcovid-back.herokuapp.com/api/basket`);
     // setIsLoading(true);
     setTimeout(() => {
@@ -76,8 +77,12 @@ export default function Basket(props) {
   };
 
   const setQuantity = (quantity, id) => {
-    console.log(quantity);
-    console.log(id);
+    JSON.parse(localStorage.events).find(
+      (thing) => thing.id === id
+    ).quantity = quantity;
+
+    console.log(quantity, id);
+    console.log(JSON.parse(localStorage.events));
   };
 
   return (
@@ -101,11 +106,11 @@ export default function Basket(props) {
                 <TableCell align="center">Places réservées</TableCell>
                 <TableCell align="center">Prix unitaire</TableCell>
                 <TableCell align="center">Prix total</TableCell>
-                <TableCell align="center">Supprimer le produit</TableCell>
+                <TableCell align="center">Supprimer l'événément</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {basket.map((event) => (
+              {basketDetails.map((event) => (
                 <TableRow key={event.id}>
                   <TableCell component="th" scope="row" align="center">
                     {event.title}
@@ -117,7 +122,11 @@ export default function Basket(props) {
                     <TextField
                       id="standard-number"
                       type="number"
-                      value={event.quantity}
+                      value={
+                        JSON.parse(localStorage.events).find(
+                          (thing) => thing.id === 1
+                        ).quantity
+                      }
                       InputProps={{
                         inputProps: { min: 1 },
                       }}
@@ -134,7 +143,10 @@ export default function Basket(props) {
                     {parseInt(event.price, 10)}€
                   </TableCell>
                   <TableCell align="center">
-                    {parseInt(event.quantity, 10) * parseInt(event.price, 10)}€
+                    {JSON.parse(localStorage.events).find(
+                      (thing) => thing.id === 1
+                    ).quantity * event.price}
+                    €
                   </TableCell>
                   <TableCell align="center">
                     <Button
@@ -168,7 +180,7 @@ export default function Basket(props) {
             }}
             variant="contained"
             type="button"
-            disabled={basket.length === 0}
+            disabled={basketDetails.length === 0}
           >
             Réserver
           </Button>
