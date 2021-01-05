@@ -22,18 +22,21 @@ const useStyles = makeStyles(() => ({
 const Footer = () => {
   const classes = useStyles();
 
-  const { register, formState } = useForm({
+  const { register, handleSubmit, errors, formState } = useForm({
     mode: 'onBlur',
   });
 
   const { isSubmitting } = formState;
+  const onSubmit = async (data, e) => {
+    e.target.reset();
+  };
 
   return (
     <footer className="footerBody">
       <div className="footerTop">
         <div className="footerSignUp">
           <h2>Inscrivez-vous aux évènements à venir</h2>
-          <form className="footerForm">
+          <form className="footerForm" onSubmit={handleSubmit(onSubmit)}>
             <TextField
               className={classes.input}
               id="outlined-basic"
@@ -46,6 +49,7 @@ const Footer = () => {
                 message: 'Email invalide',
               })}
             />
+            <div>{errors.email && <span>{errors.email.message}</span>}</div>
             <Button
               className={classes.btn}
               disableElevation={isSubmitting}
