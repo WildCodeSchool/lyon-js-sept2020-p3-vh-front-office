@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
 import './Basket.scss';
+import moment from 'moment';
 import API from '../../services/API';
 
 const bookedEvents = [
@@ -53,8 +54,8 @@ export default function Basket(props) {
     },
   }));
 
-  const deleteEvent = (id) => {
-    axios.delete(`https://ouestcovid-back.herokuapp.com/api/basket/${id}`);
+  const deleteEvent = () => {
+    localStorage.removeItem('events');
   };
 
   const deleteBasket = () => {
@@ -89,7 +90,7 @@ export default function Basket(props) {
           variant="contained"
           type="button"
         >
-          Retour à la boutique
+          Retour aux événéments
         </Button>
         <TableContainer component={Paper}>
           <Table aria-label="simple table">
@@ -109,7 +110,9 @@ export default function Basket(props) {
                   <TableCell component="th" scope="row" align="center">
                     {event.title}
                   </TableCell>
-                  <TableCell align="center">{event.date}</TableCell>
+                  <TableCell align="center">
+                    {moment(event.date).format('DD-MM-YYYY')}
+                  </TableCell>
                   <TableCell align="center">
                     <TextField
                       id="standard-number"
@@ -167,7 +170,7 @@ export default function Basket(props) {
             type="button"
             disabled={basket.length === 0}
           >
-            Envoyer ma commande
+            Réserver
           </Button>
           <Button
             className={`button-empty-basket ${useStyles().button}`}
