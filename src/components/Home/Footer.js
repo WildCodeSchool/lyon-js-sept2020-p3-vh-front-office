@@ -102,12 +102,12 @@ const Footer = () => {
               <p>EN</p>
             </div>
           </div>
+          <div className="footerLogo">
+            <Link to="/">
+              <img src={logo} alt="logo Hypnose & Vins" />
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="footerLogo">
-        <Link to="/">
-          <img src={logo} alt="logo Hypnose & Vins" />
-        </Link>
       </div>
     </footer>
   );
