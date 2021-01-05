@@ -20,40 +20,43 @@ import Profile from './LogIns/Profile';
 import NavBar from './Home/NavBar';
 import MentionLegale from './MentionLegale/MentionLegale';
 import LoginProvider from './Contexts/LoginContext';
+import BasketProvider from './Contexts/BasketContext';
 
 function App() {
   return (
     <ToastProvider placement="top-right">
       <LoginProvider>
-        <Router>
-          <div className="App">
-            <NavBar />
-            <div className="main-div">
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/events" component={Events} />
-                <Route exact path="/events/:id" component={EventDetails} />
-                <Route exact path="/aboutme" component={AboutMorgane} />
-                <Route exact path="/animators" component={AboutAnimators} />
-                <Route exact path="/faq" component={Faq} />
-                <Route exact path="/reviews" component={Reviews} />
-                <Route exact path="/basket" component={Basket} />
-                <Route exact path="/products" component={Products} />
-                <Route exact path="/sponsors" component={Sponsors} />
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/contact" component={Contact} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/profile" component={Profile} />
-                <Route
-                  exact
-                  path="/mentions-legales"
-                  component={MentionLegale}
-                />
-              </Switch>
+        <BasketProvider>
+          <Router>
+            <div className="App">
+              <NavBar />
+              <div className="main-div">
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/events" component={Events} />
+                  <Route exact path="/events/:id" component={EventDetails} />
+                  <Route exact path="/aboutme" component={AboutMorgane} />
+                  <Route exact path="/animators" component={AboutAnimators} />
+                  <Route exact path="/faq" component={Faq} />
+                  <Route exact path="/reviews" component={Reviews} />
+                  <Route exact path="/basket" component={Basket} />
+                  <Route exact path="/products" component={Products} />
+                  <Route exact path="/sponsors" component={Sponsors} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/contact" component={Contact} />
+                  <Route exact path="/login" component={Login} />
+                  <Route exact path="/profile" component={Profile} />
+                  <Route
+                    exact
+                    path="/mentions-legales"
+                    component={MentionLegale}
+                  />
+                </Switch>
+              </div>
+              <Footer />
             </div>
-            <Footer />
-          </div>
-        </Router>
+          </Router>
+        </BasketProvider>
       </LoginProvider>
     </ToastProvider>
   );

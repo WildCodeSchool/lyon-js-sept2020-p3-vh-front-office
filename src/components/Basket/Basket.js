@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import Button from '@material-ui/core/Button';
@@ -13,25 +13,14 @@ import axios from 'axios';
 import './Basket.scss';
 import moment from 'moment';
 import API from '../../services/API';
-
-const bookedEvents = [
-  {
-    id: 1,
-    quantity: 1,
-  },
-  {
-    id: 2,
-    quantity: 1,
-  },
-];
-
-localStorage.setItem('events', JSON.stringify(bookedEvents));
+import { BasketContext } from '../Contexts/BasketContext';
 
 export default function Basket(props) {
+  const { basket, setBasket } = useContext(BasketContext);
   const [basketDetails, setBasketDetails] = useState([]);
 
   useEffect(() => {
-    JSON.parse(localStorage.getItem('events')).forEach((event) =>
+    basket.forEach((event) =>
       API.get(`events/${event.id}`).then((res) => {
         setBasketDetails((oldArray) => [...oldArray, res.data]);
       })
@@ -76,14 +65,9 @@ export default function Basket(props) {
     }, 5000);
   };
 
-  const setQuantity = (quantity, id) => {
-    JSON.parse(localStorage.events).find(
-      (thing) => thing.id === id
-    ).quantity = quantity;
-
-    console.log(quantity, id);
-    console.log(JSON.parse(localStorage.events));
-  };
+  // const setQuantity = (quantity, id) => {
+  // ///
+  // };
 
   return (
     <>
@@ -123,9 +107,7 @@ export default function Basket(props) {
                       id="standard-number"
                       type="number"
                       value={
-                        JSON.parse(localStorage.events).find(
-                          (thing) => thing.id === 1
-                        ).quantity
+                        basket.find((thing) => thing.id === event.id).quantity
                       }
                       InputProps={{
                         inputProps: { min: 1 },
@@ -134,7 +116,11 @@ export default function Basket(props) {
                         shrink: true,
                       }}
                       onChange={(e) => {
-                        setQuantity(parseInt(e.target.value, 10), event.id);
+                        console.log(event.id);
+                        setBasket(
+                          basket.find((thingh) => thingh.id === event.id)
+                            .quantity === e.target.value
+                        );
                         // setIsLoading(true);
                       }}
                     />
