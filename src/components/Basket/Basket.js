@@ -126,7 +126,10 @@ export default function Basket(props) {
                   <TableCell align="center">
                     {parseInt(event.price, 10)}€
                   </TableCell>
-                  <TableCell align="center">{1000}</TableCell>
+                  <TableCell align="center">
+                    {event.price *
+                      basket.find((item) => item.id === event.id).quantity}€
+                  </TableCell>
                   <TableCell align="center">
                     <Button
                       onClick={() => {
