@@ -31,31 +31,31 @@ export default function AboutMorgane() {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </div>
-        <div>
-          <ul>
+        <div className="socialMedia">
+          <ul className="icon-bar">
             <div>
-              <li>
+              <li className="list">
                 <a href="http://www.google.com">
                   <AiOutlineMail size={32} color="black" />
                 </a>
               </li>
             </div>
             <div>
-              <li>
+              <li className="list">
                 <a href="http://www.google.com">
                   <AiFillFacebook size={32} color="black" />
                 </a>
               </li>
             </div>
             <div>
-              <li>
+              <li className="list">
                 <a href="http://www.google.com">
                   <AiOutlineTwitter size={32} color="black" />
                 </a>
               </li>
             </div>
             <div>
-              <li>
+              <li className="list">
                 <a href="http://www.google.com">
                   <AiOutlineInstagram size={32} color="black" />
                 </a>
