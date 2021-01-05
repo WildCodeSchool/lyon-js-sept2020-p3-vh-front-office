@@ -20,9 +20,6 @@ const useStyles = makeStyles(() => ({
   formControl: {
     width: 200,
   },
-  input: {
-    width: '100%',
-  },
   btn: {
     backgroundColor: '#6d071a',
     textTransform: 'none',
@@ -31,6 +28,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   input: {
+    width: '100%',
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: '#6d071a',
     },
