@@ -22,6 +22,15 @@ const useStyles = makeStyles(() => ({
   },
   input: {
     width: '100%',
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#6d071a',
+    },
+    '& .MuiOutlinedInput-input': {
+      color: '#6d071a',
+    },
+    '& .MuiInputLabel-outlined.Mui-focused': {
+      color: '#6d071a',
+    },
   },
   btn: {
     backgroundColor: '#6d071a',

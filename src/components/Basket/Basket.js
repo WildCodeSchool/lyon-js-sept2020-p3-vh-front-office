@@ -9,7 +9,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-import axios from 'axios';
 import './Basket.scss';
 import moment from 'moment';
 import API from '../../services/API';
@@ -41,6 +40,23 @@ export default function Basket(props) {
     },
   }));
 
+  const changeQuantity = (e, event) => {
+    const basketToUpdate = [...basket];
+    const indexOfEventToUpdate = basketToUpdate.findIndex(
+      (item) => item.id === event.id
+    );
+    basketToUpdate[indexOfEventToUpdate].quantity = parseInt(
+      e.target.value,
+      10
+    );
+    setBasket(basketToUpdate);
+  };
+
+  const findQuantity = (event) => {
+    const valueToUpdate = basket.find((item) => item.id === event.id).quantity;
+    return valueToUpdate;
+  };
+
   const deleteEvent = () => {
     ///
   };
@@ -50,23 +66,11 @@ export default function Basket(props) {
   };
 
   const sendOrder = () => {
-    axios.post(
-      `https://new-app-form.herokuapp.com/order?apiKey=${window.apiKey}`,
-      basketDetails
-    );
-    axios.put(
-      `https://ouestcovid-back.herokuapp.com/api/events/`,
-      basketDetails
-    );
-    axios.delete(`https://ouestcovid-back.herokuapp.com/api/basket`);
-    // setIsLoading(true);
-    setTimeout(() => {
-      props.history.push('/store');
-    }, 5000);
+    ///
   };
 
-  // const setQuantity = (quantity, id) => {
-  // ///
+  // const setQuantity = () => {
+
   // };
 
   return (
@@ -75,7 +79,7 @@ export default function Basket(props) {
         <h1>Votre panier</h1>{' '}
         <Button
           className={`button-empty-basket ${useStyles().button}`}
-          onClick={() => props.history.push('/store')}
+          onClick={() => props.history.push('/events')}
           variant="contained"
           type="button"
         >
@@ -106,9 +110,7 @@ export default function Basket(props) {
                     <TextField
                       id="standard-number"
                       type="number"
-                      value={
-                        basket.find((thing) => thing.id === event.id).quantity
-                      }
+                      value={findQuantity(event)}
                       InputProps={{
                         inputProps: { min: 1 },
                       }}
@@ -116,11 +118,7 @@ export default function Basket(props) {
                         shrink: true,
                       }}
                       onChange={(e) => {
-                        console.log(event.id);
-                        setBasket(
-                          basket.find((thingh) => thingh.id === event.id)
-                            .quantity === e.target.value
-                        );
+                        changeQuantity(e, event);
                         // setIsLoading(true);
                       }}
                     />
@@ -128,12 +126,7 @@ export default function Basket(props) {
                   <TableCell align="center">
                     {parseInt(event.price, 10)}€
                   </TableCell>
-                  <TableCell align="center">
-                    {JSON.parse(localStorage.events).find(
-                      (thing) => thing.id === 1
-                    ).quantity * event.price}
-                    €
-                  </TableCell>
+                  <TableCell align="center">{1000}</TableCell>
                   <TableCell align="center">
                     <Button
                       onClick={() => {
