@@ -5,16 +5,21 @@ import {
   AiOutlineTwitter,
   AiOutlineInstagram,
 } from 'react-icons/ai';
-import API from '../../services/API';
 import './AboutAnimators.scss';
 import photo from '../pictures/login.png';
+import { getCollection } from '../../services/API';
 
 const AboutAnimators = () => {
   const [animators, setAnimators] = useState();
 
   useEffect(() => {
-    API.get('/users/animators').then((res) => setAnimators(res.data));
-  }, [animators]);
+    const request = getCollection('users/animators').then((data) =>
+      setAnimators(data)
+    );
+    return () => {
+      request.cancel();
+    };
+  }, []);
 
   return (
     <div className="container-all-cards-animators">
@@ -22,7 +27,7 @@ const AboutAnimators = () => {
       {animators &&
         animators.map((animator) => {
           return (
-            <div className="cards-animators">
+            <div key={animator.id} className="cards-animators">
               <div className="nom-image-paragraph-animator">
                 <div className="nom-image-animator">
                   <h2>
