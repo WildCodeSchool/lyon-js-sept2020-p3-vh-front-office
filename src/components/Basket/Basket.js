@@ -28,6 +28,7 @@ export default function Basket(props) {
 
   const useStyles = makeStyles(() => ({
     button: {
+      marginBottom: '30px',
       backgroundColor: '#6d071a',
       color: 'white',
       textTransform: 'none',
@@ -38,12 +39,26 @@ export default function Basket(props) {
         outline: 'none',
       },
     },
+    input: {
+      width: '10%',
+    },
   }));
 
-  const changeQuantity = (e, event) => {
+  const classes = useStyles();
+
+  const findQuantity = (event) => {
+    if (basket.length !== 0) {
+      const valueToUpdate = basket.find((item) => item.id === event.id)
+        .quantity;
+      return valueToUpdate;
+    }
+    return null;
+  };
+
+  const changeQuantity = (e, id) => {
     const basketToUpdate = [...basket];
     const indexOfEventToUpdate = basketToUpdate.findIndex(
-      (item) => item.id === event.id
+      (item) => item.id === id
     );
     basketToUpdate[indexOfEventToUpdate].quantity = parseInt(
       e.target.value,
@@ -52,33 +67,33 @@ export default function Basket(props) {
     setBasket(basketToUpdate);
   };
 
-  const findQuantity = (event) => {
-    const valueToUpdate = basket.find((item) => item.id === event.id).quantity;
-    return valueToUpdate;
-  };
-
-  const deleteEvent = () => {
-    ///
+  const deleteEvent = (id) => {
+    const basketToUpdate = [...basket];
+    const filteredBasket = basketToUpdate.filter((item) => item.id !== id);
+    setBasket(filteredBasket);
+    const basketDetailsToUpdate = [...basketDetails];
+    const filteredBasketDetails = basketDetailsToUpdate.filter(
+      (item) => item.id !== id
+    );
+    setBasketDetails(filteredBasketDetails);
   };
 
   const deleteBasket = () => {
     localStorage.removeItem('events');
+    setBasket([]);
+    setBasketDetails([]);
   };
 
   const sendOrder = () => {
     ///
   };
 
-  // const setQuantity = () => {
-
-  // };
-
   return (
     <>
       <div className="basket">
         <h1>Votre panier</h1>{' '}
         <Button
-          className={`button-empty-basket ${useStyles().button}`}
+          className={`button ${classes.button}`}
           onClick={() => props.history.push('/events')}
           variant="contained"
           type="button"
@@ -98,65 +113,64 @@ export default function Basket(props) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {basketDetails.map((event) => (
-                <TableRow key={event.id}>
-                  <TableCell component="th" scope="row" align="center">
-                    {event.title}
-                  </TableCell>
-                  <TableCell align="center">
-                    {moment(event.date).format('DD-MM-YYYY')}
-                  </TableCell>
-                  <TableCell align="center">
-                    <TextField
-                      id="standard-number"
-                      type="number"
-                      value={findQuantity(event)}
-                      InputProps={{
-                        inputProps: { min: 1 },
-                      }}
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                      onChange={(e) => {
-                        changeQuantity(e, event);
-                        // setIsLoading(true);
-                      }}
-                    />
-                  </TableCell>
-                  <TableCell align="center">
-                    {parseInt(event.price, 10)}€
-                  </TableCell>
-                  <TableCell align="center">
-                    {event.price *
-                      basket.find((item) => item.id === event.id).quantity}
-                    €
-                  </TableCell>
-                  <TableCell align="center">
-                    <Button
-                      onClick={() => {
-                        deleteEvent(event.id);
-                        // setIsLoading(true);
-                      }}
-                      variant="contained"
-                      style={{
-                        backgroundColor: '#6d071a',
-                        color: 'white',
-                        textTransform: 'none',
-                        outline: 'none',
-                      }}
-                      type="button"
-                    >
-                      Supprimer
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {basketDetails &&
+                basketDetails.map((event) => (
+                  <TableRow key={event.id}>
+                    <TableCell component="th" scope="row" align="center">
+                      {event.title}
+                    </TableCell>
+                    <TableCell align="center">
+                      {moment(event.date).format('DD-MM-YYYY')}
+                    </TableCell>
+                    <TableCell align="center">
+                      <TextField
+                        className={classes.input}
+                        id="standard-number"
+                        type="number"
+                        value={
+                          basket.find((item) => item.id === event.id) &&
+                          findQuantity(event)
+                        }
+                        InputProps={{
+                          inputProps: { min: 1 },
+                        }}
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        onChange={(e) => {
+                          changeQuantity(e, event.id);
+                        }}
+                      />
+                    </TableCell>
+                    <TableCell align="center">
+                      {parseInt(event.price, 10)}€
+                    </TableCell>
+                    <TableCell align="center">
+                      {basket.find((item) => item.id === event.id) &&
+                        event.price *
+                          basket.find((item) => item.id === event.id).quantity}
+                      €
+                    </TableCell>
+                    <TableCell align="center">
+                      <Button
+                        className={classes.button}
+                        onClick={() => {
+                          deleteEvent(event.id);
+                        }}
+                        variant="contained"
+                        type="button"
+                      >
+                        Supprimer
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
           </Table>
         </TableContainer>
-        <div className="basket-button">
+        <div className="basket-button-container">
           <Button
-            className={useStyles().button}
+            className={classes.button}
             style={{ outline: 'none' }}
             onClick={() => {
               sendOrder();
@@ -168,13 +182,13 @@ export default function Basket(props) {
             Réserver
           </Button>
           <Button
-            className={`button-empty-basket ${useStyles().button}`}
+            className={classes.button}
             onClick={() => {
               deleteBasket();
-              // setIsLoading(true);
             }}
             variant="contained"
             type="button"
+            disabled={basketDetails.length === 0}
           >
             Vider mon panier
           </Button>

@@ -25,7 +25,11 @@ export default function BasketProvider({ children }) {
   // );
 
   useEffect(() => {
-    localStorage.setItem('events', JSON.stringify(basket));
+    if (basket.length === 0) {
+      localStorage.removeItem('events');
+    } else {
+      localStorage.setItem('events', JSON.stringify(basket));
+    }
   }, [basket]);
 
   return (
