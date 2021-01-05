@@ -128,7 +128,8 @@ export default function Basket(props) {
                   </TableCell>
                   <TableCell align="center">
                     {event.price *
-                      basket.find((item) => item.id === event.id).quantity}€
+                      basket.find((item) => item.id === event.id).quantity}
+                    €
                   </TableCell>
                   <TableCell align="center">
                     <Button
