@@ -77,7 +77,7 @@ class NavBar extends React.Component {
             <img className="burgerLogo" src={logo} alt="logo burger" />
           </Link>
           <Link to="/" onClick={this.closeMenu}>
-            Home
+            Accueil
           </Link>
           <Link to="/events" onClick={this.closeMenu}>
             Evènements
@@ -94,6 +94,10 @@ class NavBar extends React.Component {
           <Link to="/contact" onClick={this.closeMenu}>
             Contact
           </Link>
+          <Link to="/contact" onClick={this.closeMenu}>
+            S'inscire | Se Connecter
+          </Link>
+          <Translation />
         </Menu>
       </nav>
     );
