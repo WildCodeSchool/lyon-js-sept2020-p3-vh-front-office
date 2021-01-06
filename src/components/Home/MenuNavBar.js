@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 const useStyles = makeStyles(() => ({
   simpleMenu: {
     color: '#8c0226',
+    textDecoration: 'none',
   },
 }));
 
@@ -28,6 +29,7 @@ const SimpleMenu = () => {
       <p aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         Concept
       </p>
+
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
