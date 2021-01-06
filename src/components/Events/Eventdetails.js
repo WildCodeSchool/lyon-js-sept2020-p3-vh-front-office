@@ -5,6 +5,8 @@ import { MdShare } from 'react-icons/md';
 import './Eventdetail.scss';
 import { IconContext } from 'react-icons/lib';
 import 'leaflet/dist/leaflet.css';
+import markerIconPng from 'leaflet/dist/images/marker-icon.png';
+import { Icon } from 'leaflet';
 
 /* eslint-disable global-require */
 const L = require('leaflet');
@@ -75,7 +77,10 @@ const EventDetails = () => {
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[51.505, -0.09]}>
+          <Marker
+            position={[51.505, -0.09]}
+            icon={new Icon({ iconUrl: markerIconPng })}
+          >
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
