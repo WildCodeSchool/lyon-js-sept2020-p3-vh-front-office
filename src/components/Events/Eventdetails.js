@@ -1,27 +1,26 @@
 /* eslint no-underscore-dangle: 0 */
 import * as React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 import { MdShare } from 'react-icons/md';
 import './Eventdetail.scss';
 import { IconContext } from 'react-icons/lib';
+import 'leaflet/dist/leaflet.css';
 
+/* eslint-disable global-require */
+const L = require('leaflet');
+
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.imagePath = 'node_modules/leaflet';
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+});
 /* eslint-disable global-require */
 
 const EventDetails = () => {
-  React.useEffect(() => {
-    const L = require('leaflet');
-
-    delete L.Icon.Default.prototype._getIconUrl;
-
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-      iconUrl: require('leaflet/dist/images/marker-icon.png'),
-      shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-    });
-  }, []);
-  /* eslint-disable global-require */
-
   return (
     <>
       <div>
