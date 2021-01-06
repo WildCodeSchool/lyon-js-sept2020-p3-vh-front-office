@@ -37,13 +37,13 @@ const Translation = () => {
             className={classes.btn}
             onClick={() => handleClickLanguages('fr')}
           >
-            fr
+            FR
           </Button>
           <Button
             className={classes.btn}
             onClick={() => handleClickLanguages('en')}
           >
-            en
+            EN
           </Button>
         </ButtonGroup>
       </div>
