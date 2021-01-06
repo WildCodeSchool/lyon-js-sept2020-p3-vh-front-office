@@ -40,7 +40,7 @@ export default function Basket(props) {
       },
     },
     input: {
-      width: '10%',
+      width: '15%',
     },
   }));
 
@@ -132,7 +132,7 @@ export default function Basket(props) {
                           findQuantity(event)
                         }
                         InputProps={{
-                          inputProps: { min: 1 },
+                          inputProps: { min: 1, max: event.availabilities },
                         }}
                         InputLabelProps={{
                           shrink: true,
