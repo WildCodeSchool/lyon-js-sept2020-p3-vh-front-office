@@ -13,6 +13,9 @@
     text-align: center;
     margin: 30px;
   }
+  h2 {
+    color: $primary-color;
+  }
 }
 
 .squareAboutGrey {
@@ -71,9 +74,9 @@
     }
   }
   .socialMedia {
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 90px;
+    display: block;
+    margin-left: 70px;
+    margin-top: 30px;
     margin-bottom: 30px;
     li {
       padding: 0 30px;

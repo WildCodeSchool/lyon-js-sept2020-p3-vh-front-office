@@ -63,33 +63,36 @@ export default function AboutMorgane() {
             votre propre lumière.
           </p>
         </div>
+        <div>
+          <h2>Rejoinez-moi !</h2>
+        </div>
         <div className="socialMedia">
           <ul className="icon-bar">
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiOutlineMail size={32} color="black" />
+                  <AiOutlineMail size={40} color="black" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiFillFacebook size={32} color="black" />
+                  <AiFillFacebook size={40} color="black" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiOutlineTwitter size={32} color="black" />
+                  <AiOutlineTwitter size={40} color="black" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiOutlineInstagram size={32} color="black" />
+                  <AiOutlineInstagram size={40} color="black" />
                 </a>
               </li>
             </div>
