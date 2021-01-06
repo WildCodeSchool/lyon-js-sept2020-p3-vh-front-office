@@ -10,13 +10,6 @@ const Events = () => {
     API.get('/events').then((res) => setEvents(res.data));
   }, []);
 
-  const getModerator = (id) => {
-    const result = API.get(`/users/${id}`).then((res) => res.data);
-    return result.firstname;
-  };
-
-  console.log(getModerator(1));
-
   return (
     <div className="eventBody">
       {events &&
