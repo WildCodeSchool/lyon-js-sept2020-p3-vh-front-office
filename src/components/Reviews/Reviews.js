@@ -1,13 +1,32 @@
 import React from 'react';
 import './Reviews.css';
 import { User } from 'react-feather';
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
 
 export default function Reviews() {
+  const [value, setValue] = React.useState(0);
   return (
     <>
       <h1>Témoignages</h1>
 
-      <div className="stars">&#9733; &#9733; &#9733; &#9733;&#9733;</div>
+      <Box
+        className="box"
+        component="fieldset"
+        mb={3}
+        borderColor="transparent"
+      >
+        {' '}
+        <Rating
+          name="read-only"
+          value={value}
+          readOnly
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+        />
+      </Box>
+
       <div className="cards">
         <div className="avatar-text">
           <div className="avatar">
@@ -18,7 +37,17 @@ export default function Reviews() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </div>
         </div>
-        <div className="stars">&#9733; &#9733; &#9733; &#9733;&#9733;</div>
+        <Box component="fieldset" mb={3} borderColor="transparent">
+          {' '}
+          <Rating
+            name="read-only"
+            value={value}
+            readOnly
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+          />
+        </Box>
       </div>
     </>
   );

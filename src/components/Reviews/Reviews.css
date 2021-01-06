@@ -3,11 +3,9 @@ h1 {
   text-align: center;
 }
 
-.stars {
+.box {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
-  color: #eee;
   margin-top: 10px;
 }
 
