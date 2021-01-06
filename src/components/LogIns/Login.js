@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import './Login.scss';
+import { useToasts } from 'react-toast-notifications';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import API from '../../services/API';
 
 const useStyles = makeStyles((theme) => ({
   btn: {
+    marginBottom: '50px',
     color: 'white',
     backgroundColor: '#6d071a',
     textTransform: 'none',
@@ -19,17 +24,51 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       width: '400px',
     },
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#6d071a',
+    },
+    '& .MuiOutlinedInput-input': {
+      color: '#6d071a',
+    },
+    '& .MuiInputLabel-outlined.Mui-focused': {
+      color: '#6d071a',
+    },
   },
 }));
 
 function Login() {
+  const { addToast } = useToasts();
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
   });
-
-  const onSubmit = (e) => {
-    e.target.reset();
+  const history = useHistory();
+  const onSubmit = async (data) => {
+    try {
+      await API.post('auth/login', data);
+      history.push('/profile');
+      addToast('Vous êtes désormais connecté', {
+        appearance: 'success',
+        autoDismiss: true,
+      });
+    } catch (err) {
+      addToast('Identifiants non reconnus', {
+        appearance: 'error',
+        autoDismiss: true,
+      });
+    }
   };
+
+  useEffect(() => {
+    if (errors) {
+      const arrayErrors = Object.values(errors);
+      arrayErrors.map((error) =>
+        addToast(error.message, {
+          appearance: 'error',
+          autoDismiss: true,
+        })
+      );
+    }
+  }, [errors]);
 
   return (
     <>
@@ -43,22 +82,19 @@ function Login() {
               className={useStyles().input}
               name="email"
               inputRef={register({
-                required: 'Rentrez votre email.',
+                required: 'Veuillez renseigner votre email',
               })}
               id="outlined-basic"
               label="Email"
               variant="outlined"
             />
           </div>
-          <div className="errors-messages">
-            {errors.email && <span>{errors.email.message}</span>}
-          </div>
           <div className="password">
             <TextField
               className={useStyles().input}
               name="password"
               inputRef={register({
-                required: 'Rentrez votre mot de passe.',
+                required: 'Veuillez renseigner votre mot de passe',
                 minLength: {
                   value: 8,
                   message:
@@ -71,9 +107,17 @@ function Login() {
               type="password"
             />
           </div>
-          <div className="errors-messages">
-            {errors.password && <span>{errors.password.message}</span>}
-          </div>
+          <FormControlLabel
+            control={
+              // eslint-disable-next-line react/jsx-wrap-multilines
+              <Checkbox
+                name="stayConnected"
+                color="primary"
+                inputRef={register}
+              />
+            }
+            label="Rester connecté ?"
+          />
           <div className="register-password">
             <p>Mot de passe oublié ?</p>
             <Link to="/register">
@@ -93,12 +137,12 @@ function Login() {
             </Button>
           </div>
         </form>
-        <div className="facebook_login">
+        {/* <div className="facebook_login">
           <button type="button">Se connecter avec Facebook</button>
           <div className="google">
             <button type="button">Se connecter avec Google</button>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
