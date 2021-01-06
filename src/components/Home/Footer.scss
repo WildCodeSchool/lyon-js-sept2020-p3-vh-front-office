@@ -1,7 +1,7 @@
 @import '../variablesCSS';
 
 * {
-  font-weight: bold;
+/*   font-weight: bold; */
   margin: 0;
   padding: 0;
 }
@@ -12,6 +12,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+    .MuiFormControl-root {
+    padding-bottom: 10px !important;
+    }
+
+    .MuiInputBase-input {
+      height: 0.05em !important;
+      padding-right: 10px !important;
+    }
+
+    .MuiInputLabel-formControl {
+      top: -7px !important;
+    }
 }
 
 .footerTop {
@@ -133,19 +145,6 @@
   }
 }
 
-.MuiFormControl-root {
-  padding-bottom: 10px !important;
-}
-
-.MuiInputBase-input {
-  height: 0.05em !important;
-  padding-right: 10px !important;
-}
-
-.MuiInputLabel-formControl {
-  top: -7px !important;
-}
-
 @media screen and (min-width: 456px) {
   .footerTop {
     .footerSignUp {
@@ -211,15 +210,6 @@
     }
   }
 
-  .MuiInputBase-input {
-    width: 300px !important;
-    height: 1.05em !important;
-  }
-
-  .MuiInputLabel-formControl {
-    top: 0 !important;
-  }
-
   .footerLogo {
     width: 30%;
     display: block;
@@ -230,6 +220,17 @@
 }
 
 @media screen and (min-width: 1024px) {
+
+  .footerBody{
+    .MuiInputBase-input {
+      width: 300px !important;
+      height: 1.05em !important;
+    }
+
+    .MuiInputLabel-formControl {
+      top: 0 !important;
+    }
+  }
   .footerTop {
     padding-top: 20px;
     .footerSignUp {

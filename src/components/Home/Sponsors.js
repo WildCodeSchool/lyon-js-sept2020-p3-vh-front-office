@@ -5,7 +5,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import API from '../../services/API';
+import { getCollection } from '../../services/API';
 import './Sponsors.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,8 +35,11 @@ const Sponsors = () => {
   const [sponsors, setSponsors] = useState();
 
   useEffect(() => {
-    API.get('/sponsors').then((res) => setSponsors(res.data));
-  }, [sponsors]);
+    const request = getCollection('sponsors').then((data) => setSponsors(data));
+    return () => {
+      request.cancel();
+    };
+  }, []);
 
   return (
     <div className="cards">
