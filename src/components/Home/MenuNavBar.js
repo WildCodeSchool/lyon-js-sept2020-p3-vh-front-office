@@ -29,7 +29,6 @@ const SimpleMenu = () => {
       <p aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         Concept
       </p>
-
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}

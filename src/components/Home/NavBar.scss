@@ -65,6 +65,11 @@
   top: -25px;
   right: 15px;
 }
+#react-burger-cross-btn {
+  position: absolute !important;
+  top: -25px !important;
+  right: 15px !important;
+}
 /*
   Sidebar wrapper styles
   Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
@@ -144,7 +149,7 @@
       justify-content: center;
       align-items: center;
       height: 35px;
-      width: 73px;
+      width: 74px;
       color: $primary-color;
       text-decoration: none;
       &:hover {
@@ -162,12 +167,15 @@
       justify-content: center;
       align-items: center;
       height: 35px;
-      width: 73px;
+      width: 74px;
       color: $primary-color;
       margin-bottom: 0;
       &:hover {
         border-bottom: 2px solid $primary-color;
         font-size: 17px;
+        .MuiPaper-root {
+          display: flex;
+        }
       }
       &:active {
         font-size: 17px;
@@ -197,10 +205,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 20px;
+    padding-right: 30px;
     img {
       height: 35px;
-      width: 73px;
+      width: 74px;
       cursor: pointer;
     }
     a.active {
@@ -212,7 +220,7 @@
       justify-content: center;
       align-items: center;
       height: 35px;
-      width: 73px;
+      width: 74px;
       color: $primary-color;
       text-decoration: none;
       cursor: pointer;
