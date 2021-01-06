@@ -71,7 +71,7 @@ const EventDetails = () => {
         <MapContainer
           center={[51.505, -0.09]}
           zoom={13}
-          style={{ height: '350px', width: '100%', zIndex: '0' }}
+          style={{ height: '351px', width: '100%', zIndex: '0' }}
         >
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
