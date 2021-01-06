@@ -10,12 +10,12 @@ const Events = () => {
     API.get('/events').then((res) => setEvents(res.data));
   }, []);
 
-  // const getModerator = (id) => {
-  //   const result = API.get(`/users/${id}`).then((res) => res.data);
-  //   return result.firstname;
-  // };
+  const getModerator = (id) => {
+    const result = API.get(`/users/${id}`).then((res) => res.data);
+    return result.firstname;
+  };
 
-  // console.log(getModerator(1));
+  console.log(getModerator(1));
 
   return (
     <div className="eventBody">
@@ -34,22 +34,9 @@ const Events = () => {
                 </div>
               </div>
               <div className="underCard">
-                <p>
-                  {/* {API.get(`/users/${event.address_id}`).then(
-                    (res) => res.data.city
-                  )} */}
-                  City
-                </p>
-                <p>
-                  {/* {getModerator(event.moderator_id)} */}
-                  Animator
-                </p>
-                <p>
-                  {/* {API.get(`/products/${event.wine_id}`).then(
-                    (res) => res.data.name
-                  )} */}
-                  Wine
-                </p>
+                <p>City</p>
+                <p>Animator</p>
+                <p>Wine</p>
               </div>
             </div>
           );
