@@ -31,5 +31,8 @@ h1 {
   .cards {
     display: flex;
     justify-content: center;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 50%;
   }
 }

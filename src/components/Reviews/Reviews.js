@@ -16,7 +16,6 @@ export default function Reviews() {
         mb={3}
         borderColor="transparent"
       >
-        {' '}
         <Rating
           name="read-only"
           value={value}
@@ -33,8 +32,8 @@ export default function Reviews() {
             <User width="80" />
           </div>
           <div className="text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </div>
         </div>
         <Box component="fieldset" mb={3} borderColor="transparent">
