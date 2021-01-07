@@ -9,11 +9,13 @@ import API from '../../services/API';
 export default function Reviews() {
   // const [value, setValue] = useState();
 
-  const [review, setReview] = useState();
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    API.get('/reviews').then((res) => setReview(res.data));
-  }, [review]);
+    API.get('/reviews').then((res) => {
+      setReviews(res.data);
+    });
+  }, []);
 
   return (
     <>
@@ -35,16 +37,23 @@ export default function Reviews() {
         />
       </Box> */}
 
-      <div className="cards">
-        <div className="avatar-text">
-          <div className="avatar">
-            <User width="80" />
-          </div>
-          <div className="text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </div>
-        </div>
+      <div>
+        {reviews.map((review) => {
+          return (
+            <div className="cards">
+              <div className="avatar-text">
+                <div className="avatar">
+                  <User width="80" />
+                </div>
+                <div key={review.id}>
+                  <p className="text">{review.comment}</p>
+                  <p className="test">{review.rating}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+
         {/* <Box component="fieldset" mb={3} borderColor="transparent">
           <Rating
             name="read-only"
@@ -55,14 +64,6 @@ export default function Reviews() {
             }}
           />
         </Box> */}
-        {review &&
-          review.map((rev) => {
-            return (
-              <div className="test" key={rev.id}>
-                {rev.comment} {rev.rating}
-              </div>
-            );
-          })}
       </div>
     </>
   );

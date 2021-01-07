@@ -27,7 +27,7 @@ h1 {
   color: #3c434c;
 }
 .test {
-  color: blue;
+  color: #3c434c;
 }
 
 @media screen and (min-width: 1024px) {
