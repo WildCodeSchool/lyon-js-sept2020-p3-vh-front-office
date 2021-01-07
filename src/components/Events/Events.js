@@ -27,9 +27,11 @@ const Events = () => {
                 </div>
               </div>
               <div className="underCard">
-                <p>City</p>
-                <p>Animator</p>
-                <p>Wine</p>
+                <p>{event.city}</p>
+                <p>
+                  {event.firstname} {event.lastname}
+                </p>
+                <p>{event.name}</p>
               </div>
             </div>
           );
