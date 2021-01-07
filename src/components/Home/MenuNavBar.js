@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 const useStyles = makeStyles(() => ({
   simpleMenu: {
     color: '#8c0226',
+    textDecoration: 'none',
   },
 }));
 

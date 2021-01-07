@@ -17,47 +17,76 @@ export default function AboutMorgane() {
           <img
             className="imageMorgane"
             alt=""
-            src="https://www.pngfind.com/pngs/m/5-52768_girl-avatar-download-transparent-png-image-png-download.png"
-            width="200"
-            height="200"
+            src="https://lirp-cdn.multiscreensite.com/82a74c83/dms3rep/multi/opt/morgane_pardo-400w.jpg"
+            width="290"
+            height="290"
           />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          <p className="first-sentence">
+            Originaire de Lyon, dans un premier temps je suis des études de
+            médecine, puis de biologie moléculaire, ayant à cœur de percer les
+            mystères cellulaires de l’être humain. Après des soucis de santé qui
+            m’obligent à reconsidérer mes choix de carrière, j’effectue des
+            études de droit et de management des ressources humaines. J’occupe
+            alors divers métiers aux seins de PME et de Grands Comptes.
+            Cependant, je réalise rapidement que ce métier me met en conflit
+            avec certaines de mes valeurs. En recherche d’une voie plus
+            authentique et plus en accord avec mon identité, je me tourne
+            naturellement vers les médecines non conventionnelles, la
+            psychologie et l’hypnose ericksonienne. Rêveuse lucide et
+            hypersensible depuis l’enfance, j’ai longtemps cherché des réponses
+            dans les livres afin de canaliser ma sensibilité et mon empathie. En
+            revanche, ce n’est qu’en rencontrant l’hypnose que j’ai pu mettre
+            des mots sur mon état de conscience modifié nocturne. Et puis il y
+            avait aussi mes mains, ces mains qui soignent lorsque je les appose
+            sur une zone sensible du corps de l’autre. Prenant conscience du
+            sens de mon existence, je me forme alors à diverses médecines douces
+            corporelles : magnétisme, Reiki et Tui Na, par exemple. Mais
+            également en psychologie sociale, en psychopathologie, au niveau
+            praticien en hypnose éricksonienne avec Kévin FINEL, en PNL
+            (Programmation Neuro – Linguistique) et en RITMO® (combinaison de
+            l’hypnose et de l’EMDR) avec Lili RUGGIERI. Ma curiosité de l’être
+            humain me pousse à me former en continu afin de toujours mieux
+            appréhender et comprendre l’autre pour mieux l’accompagner dans sa
+            quête de sens, de bonheur, de mieux-être. Le tout dans une volonté
+            constante d’amélioration et d’évolution de mon approche. J’adhère
+            également au Syndicat Des Métiers de l’Hypnose dans le but de
+            garantir à mes clients un cadre déontologique, éthique et
+            professionnel sûr. Ayant été chahutée par la vie, d’autre m’ont
+            accompagnée afin que je trouve ma voie, c’est à mon tour de vous
+            éclairer le chemin pendant quelques temps afin que vous trouviez
+            votre propre lumière.
           </p>
+        </div>
+        <div>
+          <h2>Rejoignez-moi !</h2>
         </div>
         <div className="socialMedia">
           <ul className="icon-bar">
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiOutlineMail size={32} color="black" />
+                  <AiOutlineMail size={40} color="black" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiFillFacebook size={32} color="black" />
+                  <AiFillFacebook size={40} color="black" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiOutlineTwitter size={32} color="black" />
+                  <AiOutlineTwitter size={40} color="black" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiOutlineInstagram size={32} color="black" />
+                  <AiOutlineInstagram size={40} color="black" />
                 </a>
               </li>
             </div>
