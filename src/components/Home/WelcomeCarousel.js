@@ -20,7 +20,7 @@ const WelcomeCarousel = () => {
           autoPlay
           interval={6000}
           transitionTime={600}
-          showArrows={false}
+          showArrows
         >
           {slides.map((slide) => (
             <div key={slide.image}>
