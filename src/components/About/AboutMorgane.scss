@@ -13,6 +13,9 @@
     text-align: center;
     margin: 30px;
   }
+  h2 {
+    color: $primary-color;
+  }
 }
 
 .squareAboutGrey {
@@ -23,16 +26,24 @@
   background-color: rgb(227, 226, 226);
   width: 90%;
   border-radius: 20px;
+  margin-bottom: 30px;
   h2 {
     margin: 30px;
   }
+  h3 {
+    text-indent: 50px;
+    color: $secondary-color;
+  }
   img {
     margin-bottom: 30px;
+    border-radius: 150px;
   }
   p {
     text-align: justify;
     margin-bottom: 30px;
     padding: 0 20px;
+    font-size: 16px;
+    line-height: 25px;
   }
 }
 
@@ -63,11 +74,12 @@
     }
   }
   .socialMedia {
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 108px;
+    display: block;
+    margin-left: 70px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     li {
-      padding: 0 10px;
+      padding: 0 30px;
     }
   }
 }
