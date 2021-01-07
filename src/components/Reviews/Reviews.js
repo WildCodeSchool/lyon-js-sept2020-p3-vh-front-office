@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import './Reviews.css';
 import { User } from 'react-feather';
-import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
+// import Rating from '@material-ui/lab/Rating';
+// import Box from '@material-ui/core/Box';
+import API from '../../services/API';
 
 export default function Reviews() {
-  const [value, setValue] = React.useState(0);
+  // const [value, setValue] = useState();
+
+  const [review, setReview] = useState();
+
+  useEffect(() => {
+    API.get('/reviews').then((res) => setReview(res.data));
+  }, [review]);
+
   return (
     <>
       <h1>Témoignages</h1>
 
-      <Box
+      {/* <Box
         className="box"
         component="fieldset"
         mb={3}
@@ -24,7 +33,7 @@ export default function Reviews() {
             setValue(newValue);
           }}
         />
-      </Box>
+      </Box> */}
 
       <div className="cards">
         <div className="avatar-text">
@@ -36,8 +45,7 @@ export default function Reviews() {
             Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </div>
         </div>
-        <Box component="fieldset" mb={3} borderColor="transparent">
-          {' '}
+        {/* <Box component="fieldset" mb={3} borderColor="transparent">
           <Rating
             name="read-only"
             value={value}
@@ -46,7 +54,15 @@ export default function Reviews() {
               setValue(newValue);
             }}
           />
-        </Box>
+        </Box> */}
+        {review &&
+          review.map((rev) => {
+            return (
+              <div className="test" key={rev.id}>
+                {rev.comment} {rev.rating}
+              </div>
+            );
+          })}
       </div>
     </>
   );
