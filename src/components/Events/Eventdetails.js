@@ -1,5 +1,5 @@
 /* eslint no-underscore-dangle: 0 */
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { MdShare } from 'react-icons/md';
@@ -8,6 +8,7 @@ import { IconContext } from 'react-icons/lib';
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { Icon } from 'leaflet';
+import API from '../../services/API';
 
 /* eslint-disable global-require */
 const L = require('leaflet');
@@ -23,14 +24,38 @@ L.Icon.Default.mergeOptions({
 });
 /* eslint-disable global-require */
 
-const EventDetails = () => {
-  const apiUrl =
-    'https://api-adresse.data.gouv.fr/search/?q=8+bd+du+port&postcode=44380';
-  axios.get({ apiUrl }).then(() => {
-    console.log(apiUrl);
-  });
+const EventDetails = (props) => {
+  const [eventsData, setEventsData] = useState();
+  const [eventsCoordinate, setEventsCoordinate] = useState();
 
-  return (
+  const { match } = props;
+  const eventId = match.params.id;
+
+  useEffect(() => {
+    API.get(`/events/${eventId}`).then((res) => setEventsData(res.data));
+  }, []);
+
+  useEffect(() => {
+    if (eventsData) {
+      const apiUrl = `https://api-adresse.data.gouv.fr/search/?q=${eventsData.street.replace(
+        / /g,
+        '+'
+      )}&postcode=${eventsData.zipcode}`;
+      console.log(apiUrl);
+      axios
+        .get(apiUrl)
+        .then((res) =>
+          setEventsCoordinate([
+            res.data.features[0].geometry.coordinates[1],
+            res.data.features[0].geometry.coordinates[0],
+          ])
+        );
+    }
+  }, [eventsData]);
+
+  console.log(eventsCoordinate);
+
+  return eventsCoordinate ? (
     <>
       <div>
         <h1 className="title">Réserver un évènement</h1>
@@ -76,7 +101,7 @@ const EventDetails = () => {
       </div>
       <div className="map">
         <MapContainer
-          center={[51.505, -0.09]}
+          center={eventsCoordinate}
           zoom={13}
           style={{ height: '351px', width: '100%', zIndex: '0' }}
         >
@@ -85,7 +110,7 @@ const EventDetails = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <Marker
-            position={[51.505, -0.09]}
+            position={eventsCoordinate}
             icon={new Icon({ iconUrl: markerIconPng })}
           >
             <Popup>
@@ -95,6 +120,8 @@ const EventDetails = () => {
         </MapContainer>
       </div>
     </>
+  ) : (
+    <div>Loading...</div>
   );
 };
 
