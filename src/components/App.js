@@ -14,6 +14,7 @@ import Login from './LogIns/Login';
 import Register from './LogIns/Register';
 import Sponsors from './Sponsors/Sponsors';
 import Basket from './Basket/Basket';
+import Disclaimer from './Basket/Disclaimer';
 import Footer from './Home/Footer';
 import Profile from './LogIns/Profile';
 import NavBar from './Home/NavBar';
@@ -38,6 +39,7 @@ function App() {
                   <Route exact path="/faq" component={Faq} />
                   <Route exact path="/reviews" component={Reviews} />
                   <Route exact path="/basket" component={Basket} />
+                  <Route exact path="/disclaimer" component={Disclaimer} />
                   <Route exact path="/products" component={Products} />
                   <Route exact path="/sponsors" component={Sponsors} />
                   <Route exact path="/register" component={Register} />
