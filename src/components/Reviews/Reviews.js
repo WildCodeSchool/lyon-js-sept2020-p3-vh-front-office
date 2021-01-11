@@ -20,9 +20,9 @@ export default function Reviews() {
       <div>
         {reviews.map((review) => {
           return (
-            <div className="cards">
-              <div key={review.id} className="ratings-comments">
-                <p className="comments"> {review.comment}</p>
+            <div className="cards" key={review.id}>
+              <div className="ratings-comments">
+                <p className="comments">{review.comment}</p>
                 <div className="ratings">
                   {review.rating === 5 ? (
                     <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
