@@ -1,7 +1,7 @@
 @import '../variablesCSS';
 
 * {
-  font-weight: bold;
+/*   font-weight: bold; */
   margin: 0;
   padding: 0;
 }
@@ -12,18 +12,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-    .MuiFormControl-root {
+  .MuiFormControl-root {
     padding-bottom: 10px !important;
-    }
+  }
 
-    .MuiInputBase-input {
-      height: 0.05em !important;
-      padding-right: 10px !important;
-    }
+  .MuiInputBase-input {
+    height: 0.05em !important;
+    padding-right: 10px !important;
+  }
 
-    .MuiInputLabel-formControl {
-      top: -7px !important;
-    }
+  .MuiInputLabel-formControl {
+    top: -7px !important;
+  }
 }
 
 .footerTop {
@@ -220,8 +220,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-
-  .footerBody{
+  .footerBody {
     .MuiInputBase-input {
       width: 300px !important;
       height: 1.05em !important;

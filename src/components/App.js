@@ -8,7 +8,6 @@ import AboutAnimators from './About/AboutAnimators';
 import Contact from './Contact/Contact';
 import Faq from './Contact/Faq';
 import Events from './Events/Events';
-import EventDetails from './Events/Eventdetails';
 import Products from './Products/Products';
 import Reviews from './Reviews/Reviews';
 import Login from './LogIns/Login';
@@ -34,7 +33,6 @@ function App() {
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/events" component={Events} />
-                  <Route exact path="/events/:id" component={EventDetails} />
                   <Route exact path="/aboutme" component={AboutMorgane} />
                   <Route exact path="/animators" component={AboutAnimators} />
                   <Route exact path="/faq" component={Faq} />
