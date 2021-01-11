@@ -7,7 +7,7 @@ import './Eventdetail.scss';
 import { IconContext } from 'react-icons/lib';
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
-import { Icon } from 'leaflet';;
+import { Icon } from 'leaflet';
 
 /* eslint-disable global-require */
 const L = require('leaflet');
