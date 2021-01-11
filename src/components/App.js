@@ -14,6 +14,7 @@ import Login from './LogIns/Login';
 import Register from './LogIns/Register';
 import Sponsors from './Sponsors/Sponsors';
 import Basket from './Basket/Basket';
+import OrderConfirmation from './Basket/OrderConfirmation';
 import Disclaimer from './Basket/Disclaimer';
 import Footer from './Home/Footer';
 import Profile from './LogIns/Profile';
@@ -39,6 +40,11 @@ function App() {
                   <Route exact path="/faq" component={Faq} />
                   <Route exact path="/reviews" component={Reviews} />
                   <Route exact path="/basket" component={Basket} />
+                  <Route
+                    exact
+                    path="/order-confirmation"
+                    component={OrderConfirmation}
+                  />
                   <Route exact path="/disclaimer" component={Disclaimer} />
                   <Route exact path="/products" component={Products} />
                   <Route exact path="/sponsors" component={Sponsors} />

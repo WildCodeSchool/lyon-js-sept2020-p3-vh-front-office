@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './Disclaimer.scss';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router-dom';
 
 const Disclaimer = () => {
   const [isChecked, setIsChecked] = useState(false);
+  const history = useHistory();
 
   const handleChange = (value) => {
     setIsChecked(value);
@@ -39,18 +40,19 @@ const Disclaimer = () => {
     // eslint-disable-next-line react/jsx-props-no-spreading
   })((props) => <Checkbox color="default" {...props} />);
 
-  const redirectToConfirmation = () => {};
+  const redirectToConfirmation = () => {
+    history.push('/order-confirmation');
+  };
 
   const classes = useStyles();
 
   return (
     <div className="disclaimer-wrapper">
       <div className="h1-hr">
-        <h1 className="titre-mentions-legales">Engagements</h1>
+        <h1>Engagements</h1>
         <p>_______</p>
       </div>
-
-      <p className="paragraphes-mentions-légales">
+      <p>
         Elit do id commodo reprehenderit duis adipisicing voluptate sit velit
         nisi. Nostrud et enim dolor ipsum laboris veniam cupidatat consequat
         Lorem cillum irure amet proident reprehenderit. Ullamco incididunt in in
@@ -65,20 +67,14 @@ const Disclaimer = () => {
         consequat dolor amet deserunt sunt. In non ea esse dolore magna aliquip.
         Ad nostrud sunt laboris fugiat ex minim proident adipisicing amet do.
       </p>
-
-      <FormControlLabel
-        className={classes.root}
-        color="green"
-        control={
-          // eslint-disable-next-line react/jsx-wrap-multilines
-          <CustomizedCheckbox
-            checked={isChecked}
-            onChange={(event) => handleChange(event.target.checked)}
-            name="validDisclaimer"
-          />
-        }
-        label="Je m'engage à honorer ma réservation"
-      />
+      <div className="confirm-section">
+        <CustomizedCheckbox
+          checked={isChecked}
+          onChange={(event) => handleChange(event.target.checked)}
+          name="validDisclaimer"
+        />
+        <p>Je m'engage à honorer ma réservation</p>
+      </div>
       <Button
         className={classes.button}
         onClick={() => {
