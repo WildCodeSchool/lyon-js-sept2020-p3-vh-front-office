@@ -8,6 +8,7 @@ export default function LoginProvider({ children }) {
   const [userLogged, setUserLogged] = useLocalStorage('user');
 
   useEffect(() => {
+    localStorage.removeItem('user');
     API.get('/me').then((res) => setUserLogged(JSON.stringify(res.data)));
   }, []);
 

@@ -1,5 +1,5 @@
 /*eslint-disable */
-import React, { useContext } from 'react';
+import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './NavBar.scss';
 import { slide as Menu } from 'react-burger-menu';
