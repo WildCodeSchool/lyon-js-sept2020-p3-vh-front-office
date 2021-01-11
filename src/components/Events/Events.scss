@@ -115,16 +115,19 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .eventBody {
-    width: 100%;
+  .eventBody .calendar-container {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .eventCard {
+  .eventCard .calendar-container {
     width: 95%;
     margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
   }
 
   .eventDetail {
