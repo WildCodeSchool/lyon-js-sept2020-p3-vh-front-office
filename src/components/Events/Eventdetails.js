@@ -1,12 +1,13 @@
 /* eslint no-underscore-dangle: 0 */
 import * as React from 'react';
+import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { MdShare } from 'react-icons/md';
 import './Eventdetail.scss';
 import { IconContext } from 'react-icons/lib';
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
-import { Icon } from 'leaflet';
+import { Icon } from 'leaflet';;
 
 /* eslint-disable global-require */
 const L = require('leaflet');
@@ -23,6 +24,12 @@ L.Icon.Default.mergeOptions({
 /* eslint-disable global-require */
 
 const EventDetails = () => {
+  const apiUrl =
+    'https://api-adresse.data.gouv.fr/search/?q=8+bd+du+port&postcode=44380';
+  axios.get({ apiUrl }).then(() => {
+    console.log(apiUrl);
+  });
+
   return (
     <>
       <div>
