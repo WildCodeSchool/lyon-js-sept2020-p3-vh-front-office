@@ -12,7 +12,6 @@
   align-items: center;
   position: fixed;
   top: 0;
-  border-bottom: 2.5px solid $primary-color;
   .navbarLogo {
     width: 150px;
     height: 50%;
@@ -21,6 +20,10 @@
 }
 
 .navbarLink {
+  display: none;
+}
+
+.userLink {
   display: none;
 }
 
@@ -62,13 +65,18 @@
   top: -25px;
   right: 15px;
 }
+#react-burger-cross-btn {
+  position: absolute !important;
+  top: -25px !important;
+  right: 15px !important;
+}
 /*
   Sidebar wrapper styles
   Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
   */
 .bm-menu-wrap {
   position: absolute;
-  height: 100%;
+  height: 80%;
 }
 
 /* General sidebar styles */
@@ -117,7 +125,7 @@
   }
 
   .navbarLink {
-    width: 100%;
+    width: 60%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -129,49 +137,149 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
+      align-items: center;
       margin-bottom: 0;
     }
+    a.active {
+      border-bottom: 2px solid $primary-color;
+      font-size: 17px;
+    }
     a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 35px;
+      width: 74px;
       color: $primary-color;
       text-decoration: none;
-      :hover {
-        text-decoration: underline;
+      &:hover {
+        border-bottom: 2px solid $primary-color;
+        font-size: 17px;
+      }
+      &:active {
+        border-bottom: 2px solid $primary-color;
+        font-size: 17px;
       }
     }
 
     p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 35px;
+      width: 74px;
       color: $primary-color;
       margin-bottom: 0;
-      :hover {
-        text-decoration: underline;
+      &:hover {
+        border-bottom: 2px solid $primary-color;
+        font-size: 17px;
+        .MuiPaper-root {
+          display: flex;
+        }
+      }
+      &:active {
+        font-size: 17px;
       }
     }
   }
 
-  .navbarIcon {
-    width: 30%;
+  #simple-menu {
+    .MuiPaper-rounded {
+      height: 150px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 23px;
+      a {
+        text-decoration: none;
+        :hover {
+          font-weight: bolder;
+          font-size: 17px;
+        }
+      }
+    }
+  }
+
+  .userLink {
+    width: 35%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
-    img:first-of-type {
-      width: 50px;
+    padding-right: 30px;
+    img {
+      height: 35px;
+      width: 74px;
+      cursor: pointer;
     }
-    p {
+    a.active {
+      border-bottom: 2px solid $primary-color;
+      font-size: 19px;
+    }
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 35px;
+      width: 74px;
       color: $primary-color;
-    }
-    img:nth-child(3n) {
-      width: 90px;
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        border-bottom: 2px solid $primary-color;
+        font-size: 17px;
+      }
+      &:active {
+        border-bottom: 2px solid $primary-color;
+        font-size: 17px;
+      }
     }
   }
 }
 
 @media screen and (min-width: 1024px) {
   .navbarBody {
-    .navbarLink {
-      font-size: 17px;
-    }
     .navbarLogo {
       padding-left: 30px;
+    }
+    .navbarLink {
+      width: 50%;
+      font-size: 17px;
+      a.active {
+        font-size: 19px;
+      }
+      a {
+        width: 90px;
+      }
+      a:hover {
+        font-size: 19px;
+      }
+      a:active {
+        font-size: 19px;
+      }
+      p {
+        width: 90px;
+      }
+      p:hover {
+        font-size: 19px;
+      }
+      p.active {
+        font-size: 19px;
+      }
+    }
+    .userLink {
+      width: 40%;
+      padding-right: 30px;
+      img {
+        width: 90px;
+      }
+      a:hover {
+        font-size: 19px;
+      }
+      a:active {
+        font-size: 19px;
+      }
     }
   }
 }

@@ -1,11 +1,9 @@
 .container-btn-trad {
-  width: 100%;
+  width: 100px;
   height: 100px;
+  display: flex;
   justify-content: flex-end;
   align-items: center;
-  .btn-trad {
-    margin-right: 50px;
-  }
 }
 
 .title-test-trad {
