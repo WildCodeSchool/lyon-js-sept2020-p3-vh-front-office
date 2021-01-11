@@ -11,12 +11,16 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import './Basket.scss';
 import moment from 'moment';
+import { useHistory } from 'react-router-dom';
+import { useToasts } from 'react-toast-notifications';
 import API from '../../services/API';
 import { BasketContext } from '../Contexts/BasketContext';
+import { LoginContext } from '../Contexts/LoginContext';
 
 export default function Basket(props) {
   const { basket, setBasket } = useContext(BasketContext);
   const [basketDetails, setBasketDetails] = useState([]);
+  const { userLogged } = useContext(LoginContext);
 
   useEffect(() => {
     basket.forEach((event) =>
@@ -84,8 +88,20 @@ export default function Basket(props) {
     setBasketDetails([]);
   };
 
+  const history = useHistory();
+  const { addToast } = useToasts();
+
   const sendOrder = () => {
-    ///
+    console.log(userLogged);
+    if (userLogged.length !== 0) {
+      history.push('/disclaimer');
+    } else {
+      history.push('/login');
+      addToast('Merci de vous connecter pour passer commande.', {
+        appearance: 'info',
+        autoDismiss: true,
+      });
+    }
   };
 
   return (

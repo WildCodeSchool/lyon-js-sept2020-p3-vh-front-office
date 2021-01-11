@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 import './Profile.scss';
@@ -15,6 +15,7 @@ import TwitterIcon from '../../files/twitter.png';
 import InstagramIcon from '../../files/instagram.png';
 
 export default function Profile() {
+  const [fetchedUser, setFetchedUser] = useState([]);
   const { userLogged, setUserLogged } = useContext(LoginContext);
   const history = useHistory();
   const { addToast } = useToasts();
@@ -40,6 +41,7 @@ export default function Profile() {
         autoDismiss: true,
       });
       history.push('/login');
+      localStorage.removeItem('user');
     } catch (err) {
       addToast("Vous n'avez pas été déconnecté", {
         appearance: 'error',
@@ -49,14 +51,17 @@ export default function Profile() {
   };
 
   useEffect(() => {
-    API.get('/me').then((res) => setUserLogged(res.data));
-  }, []);
-
-  useEffect(() => {
     if (value === 2) {
       logout();
     }
   }, [value]);
+
+  useEffect(() => {
+    API.get('/me').then((res) => {
+      setUserLogged(JSON.stringify(res.data));
+      setFetchedUser(res.data);
+    });
+  }, []);
 
   const buttonStyle = {
     width: '4vw',
@@ -64,7 +69,7 @@ export default function Profile() {
     fill: '#8c0226',
   };
 
-  return userLogged.length !== 0 ? (
+  return fetchedUser.length !== 0 ? (
     <main className="profile">
       <BottomNavigation
         value={value}
@@ -91,45 +96,47 @@ export default function Profile() {
         <>
           <h1>Bienvenue {userLogged.firstname} !</h1>
           <div className="photo-fields">
-            {userLogged.photo_url && (
+            {fetchedUser.photo_url && (
               <img
                 className="profile-image"
-                src={userLogged.photo_url}
-                alt={userLogged.lastname}
+                src={fetchedUser.photo_url}
+                alt={fetchedUser.lastname}
               />
             )}
             <div className="main-fields">
-              {userLogged.firstname && <p>Prénom : {userLogged.firstname}</p>}
-              {userLogged.lastname && <p>Nom : {userLogged.lastname}</p>}
-              {userLogged.phone_number && (
-                <p>Mon numéro de téléphone : {userLogged.phone_number}</p>
+              {fetchedUser.firstname && <p>Prénom : {fetchedUser.firstname}</p>}
+              {fetchedUser.lastname && <p>Nom : {fetchedUser.lastname}</p>}
+              {fetchedUser.phone_number && (
+                <p>Mon numéro de téléphone : {fetchedUser.phone_number}</p>
               )}
-              {userLogged.email && <p>Mon adresse mail : {userLogged.email}</p>}
-              {userLogged.bio && (
+              {fetchedUser.email && (
+                <p>Mon adresse mail : {fetchedUser.email}</p>
+              )}
+              {fetchedUser.bio && (
                 <p className="bio">
-                  Ma présentation <br /> {userLogged.bio}
+                  Ma présentation <br /> {fetchedUser.bio}
                 </p>
               )}
             </div>
           </div>
-          {userLogged.instagram_url ||
-          userLogged.twitter_url ||
-          userLogged.facebook_url
-            ? userLogged.facebook_url && (
+          {fetchedUser.instagram_url ||
+          fetchedUser.twitter_url ||
+          fetchedUser.facebook_url
+            ? fetchedUser.facebook_url && (
                 // eslint-disable-next-line react/jsx-indent
                 <section className="social-networks">
-                  {userLogged.instagram_url && (
-                    <a href={userLogged.instagram_url} target="blank">
+                  {fetchedUser.instagram_url && (
+                    <a href={fetchedUser.instagram_url} target="blank">
                       <img src={InstagramIcon} alt="Instagram" />
                     </a>
                   )}
-                  {userLogged.twitter_url && (
-                    <a href={userLogged.twitter_url} target="blank">
+                  {fetchedUser.twitter_url && (
+                    <a href={fetchedUser.twitter_url} target="blank">
                       <img src={TwitterIcon} alt="Twitter" />
                     </a>
                   )}
-                  {userLogged.facebook_url && (
-                    <a href={userLogged.facebook_url} target="blank">
+                  {fetchedUser.facebook_url && (
+                    <a href={fetchedUser.facebook_url} target="blank">
                       <img src={FacebookIcon} alt="Facebook" />
                     </a>
                   )}

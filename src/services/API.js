@@ -72,19 +72,19 @@ export const makeEntityUpdater = (collectionName) => (id, attributes) =>
     extractData
   );
 
-instance.interceptors.response.use(
-  (res) => res,
-  (err) => {
-    if (err.response) {
-      if (
-        err.response.status === 401 &&
-        window.location.pathname !== '/login'
-      ) {
-        window.location = '/login';
-      }
-    }
-    return Promise.reject(err);
-  }
-);
+// instance.interceptors.response.use(
+//   (res) => res,
+//   (err) => {
+//     if (err.response) {
+//       if (
+//         err.response.status === 401 &&
+//         window.location.pathname !== '/login'
+//       ) {
+//         window.location = '/login';
+//       }
+//     }
+//     return Promise.reject(err);
+//   }
+// );
 
 export default instance;
