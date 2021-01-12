@@ -92,7 +92,6 @@ export default function Basket(props) {
   const { addToast } = useToasts();
 
   const sendOrder = () => {
-    console.log(userLogged);
     if (userLogged.length !== 0) {
       history.push('/disclaimer');
     } else {
