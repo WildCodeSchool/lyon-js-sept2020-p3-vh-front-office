@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import './OrderConfirmation.scss';
 import { useHistory } from 'react-router-dom';
+import API from '../../services/API';
+import { BasketContext } from '../Contexts/BasketContext';
 
 const OrderConfirmation = () => {
   const history = useHistory();
+  // eslint-disable-next-line no-unused-vars
+  const { basket, setBasket } = useContext(BasketContext);
 
   useEffect(() => {
-    ///
+    API.post('users/', basket);
   });
 
   useEffect(() => {
