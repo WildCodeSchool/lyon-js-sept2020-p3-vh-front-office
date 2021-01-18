@@ -22,7 +22,9 @@ export default function Reviews() {
           return (
             <div className="cards" key={review.id}>
               <div className="ratings-comments">
-                <p className="comments">{review.comment}</p>
+                <p className="comments">{review.title} </p>
+                <p className="comments">{review.comment} </p>
+
                 <div className="ratings">
                   {review.rating === 5 ? (
                     <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
@@ -39,6 +41,7 @@ export default function Reviews() {
                   )}
                 </div>
               </div>
+              <div className="comments">{review.firstname} </div>
             </div>
           );
         })}
