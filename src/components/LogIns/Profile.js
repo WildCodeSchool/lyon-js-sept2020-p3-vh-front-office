@@ -58,7 +58,7 @@ export default function Profile() {
 
   useEffect(() => {
     API.get('/me').then((res) => {
-      setUserLogged(JSON.stringify(res.data));
+      setUserLogged(res.data);
       setFetchedUser(res.data);
     });
   }, []);

@@ -9,7 +9,7 @@ export default function LoginProvider({ children }) {
 
   useEffect(() => {
     localStorage.removeItem('user');
-    API.get('/me').then((res) => setUserLogged(JSON.stringify(res.data)));
+    API.get('/me').then((res) => setUserLogged(res.data));
   }, []);
 
   return (
