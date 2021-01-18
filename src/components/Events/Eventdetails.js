@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint no-underscore-dangle: 0 */
-import React, { useState, useEffect } from 'react';
+/* eslint-disable global-require */
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { MdShare } from 'react-icons/md';
@@ -10,9 +12,11 @@ import 'leaflet/dist/leaflet.css';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { Icon } from 'leaflet';
 import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import { useToasts } from 'react-toast-notifications';
+import { BasketContext } from '../Contexts/BasketContext';
 import API from '../../services/API';
 
-/* eslint-disable global-require */
 const L = require('leaflet');
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -24,58 +28,40 @@ L.Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
-/* eslint-disable global-require */
 
 const EventDetails = (props) => {
-  const [eventsData, setEventsData] = useState();
-  const [eventsCoordinate, setEventsCoordinate] = useState();
+  const [eventData, setEventData] = useState();
+  const [eventCoordinate, setEventCoordinate] = useState();
+  const [quantity, setQuantity] = useState(1);
+  const { addToast } = useToasts();
+  // eslint-disable-next-line no-unused-vars
+  const { basket, setBasket } = useContext(BasketContext);
 
   const { match } = props;
   const eventId = match.params.id;
 
   useEffect(() => {
-    API.get(`/events/${eventId}`).then((res) => setEventsData(res.data));
+    API.get(`/events/${eventId}`).then((res) => setEventData(res.data));
   }, []);
 
   useEffect(() => {
-    if (eventsData) {
-      const apiUrl = `https://api-adresse.data.gouv.fr/search/?q=${eventsData.street.replace(
+    if (eventData) {
+      const apiUrl = `https://api-adresse.data.gouv.fr/search/?q=${eventData.street.replace(
         / /g,
         '+'
-      )}&postcode=${eventsData.zipcode}`;
+      )}&postcode=${eventData.zipcode}`;
       axios
         .get(apiUrl)
         .then((res) =>
-          setEventsCoordinate([
+          setEventCoordinate([
             res.data.features[0].geometry.coordinates[1],
             res.data.features[0].geometry.coordinates[0],
           ])
         );
     }
-  }, [eventsData]);
+  }, [eventData]);
 
   const useStyles = makeStyles(() => ({
-    root: {
-      width: '100%',
-      '& > *': {
-        width: '25ch',
-      },
-    },
-    formControl: {
-      width: 200,
-    },
-    input: {
-      width: '100%',
-      '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-        borderColor: '#6d071a',
-      },
-      '& .MuiOutlinedInput-input': {
-        color: '#6d071a',
-      },
-      '& .MuiInputLabel-outlined.Mui-focused': {
-        color: '#6d071a',
-      },
-    },
     btn: {
       backgroundColor: '#6d071a',
       textTransform: 'none',
@@ -87,7 +73,43 @@ const EventDetails = (props) => {
 
   const classes = useStyles();
 
-  return eventsCoordinate ? (
+  const handleClick = () => {
+    const currentBasket = basket;
+    const isEventExistingInBasket = currentBasket.findIndex(
+      (event) => event.id === parseInt(eventId, 10)
+    );
+    if (isEventExistingInBasket !== -1) {
+      if (
+        currentBasket[isEventExistingInBasket].quantity +
+          parseInt(quantity, 10) <=
+        eventData.availabilities
+      ) {
+        currentBasket[isEventExistingInBasket].quantity += parseInt(
+          quantity,
+          10
+        );
+        setBasket(currentBasket);
+      } else {
+        addToast(
+          `Votre réservation dépasse le nombre de places disponibles (déjà ${currentBasket[isEventExistingInBasket].quantity} places dans votre panier)`,
+          {
+            appearance: 'error',
+            autoDismiss: true,
+          }
+        );
+      }
+      setBasket(currentBasket);
+    } else {
+      const newEvent = {
+        id: parseInt(eventId, 10),
+        quantity: parseInt(quantity, 10),
+      };
+      const newBasket = [newEvent, ...currentBasket];
+      setBasket(newBasket);
+    }
+  };
+
+  return eventCoordinate ? (
     <>
       <div>
         <h1 className="title">Réserver un évènement</h1>
@@ -96,7 +118,7 @@ const EventDetails = (props) => {
         <div className="left_part">
           <img
             className="image_event"
-            src={eventsData.main_picture_url}
+            src={eventData.main_picture_url}
             alt="secondTest"
           />
           <IconContext.Provider value={{ size: 40 }}>
@@ -127,8 +149,10 @@ const EventDetails = (props) => {
             libero, gravida fringilla mi. Praesent pretium venenatis tellus,
             vitae feugiat metus venenatis ut.
           </p>
-          <div className="button">
+          <p>{eventData.availabilities} places disponibles</p>
+          <div className="quantity-book">
             <Button
+              onClick={(event) => handleClick(event)}
               className={classes.btn}
               type="button"
               variant="contained"
@@ -136,12 +160,25 @@ const EventDetails = (props) => {
             >
               Réserver
             </Button>
+            <TextField
+              className={classes.input}
+              id="standard-number"
+              type="number"
+              label="Places"
+              value={quantity}
+              InputProps={{
+                inputProps: { min: 1, max: eventData.availabilities },
+              }}
+              onChange={(e) => {
+                setQuantity(e.target.value);
+              }}
+            />
           </div>
         </div>
       </div>
       <div className="map">
         <MapContainer
-          center={eventsCoordinate}
+          center={eventCoordinate}
           zoom={13}
           style={{ height: '351px', width: '100%', zIndex: '0' }}
         >
@@ -150,7 +187,7 @@ const EventDetails = (props) => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <Marker
-            position={eventsCoordinate}
+            position={eventCoordinate}
             icon={new Icon({ iconUrl: markerIconPng })}
           >
             <Popup>

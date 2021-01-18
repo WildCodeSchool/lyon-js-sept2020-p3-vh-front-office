@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useContext } from 'react';
 import './OrderConfirmation.scss';
 import { useHistory } from 'react-router-dom';
@@ -6,11 +7,11 @@ import { BasketContext } from '../Contexts/BasketContext';
 
 const OrderConfirmation = () => {
   const history = useHistory();
-  // eslint-disable-next-line no-unused-vars
   const { basket, setBasket } = useContext(BasketContext);
 
   useEffect(() => {
-    API.post('users/', basket);
+    setBasket([]);
+    // basket.map((event) => API.post('order', {event.id, quantity}))
   });
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import React, { createContext, useEffect } from 'react';
-import useLocalStorage from 'react-use-localstorage';
+import useLocalStorage from '../../services/useLocalStorage';
 import API from '../../services/API';
 
 export const LoginContext = createContext();
