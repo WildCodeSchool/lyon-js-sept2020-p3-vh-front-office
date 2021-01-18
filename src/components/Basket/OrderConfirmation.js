@@ -10,9 +10,9 @@ const OrderConfirmation = () => {
   const { basket, setBasket } = useContext(BasketContext);
 
   useEffect(() => {
+    API.post('/order', basket);
     setBasket([]);
-    // basket.map((event) => API.post('order', {event.id, quantity}))
-  });
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
