@@ -1,0 +1,147 @@
+@import '../variablesCSS';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.eventBody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    color: white;
+    margin-bottom: 0;
+  }
+}
+
+.eventCard {
+  width: 85%;
+}
+
+.eventCard:first-child {
+  margin-top: 100px;
+}
+
+.eventDetail {
+  height: 170px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $primary-color;
+  color: white;
+  border-radius: 10px;
+  img {
+    width: 70px;
+    height: 95px;
+  }
+}
+
+.eventDescription {
+  width: 60%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  p {
+    font-size: 12px;
+  }
+  button {
+    height: 35px;
+    background-color: $secondary-color;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .button {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.underCard {
+  margin: 15px 0 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  p {
+    display: flex;
+    width: 25%;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 515px) {
+}
+
+@media screen and (min-width: 768px) {
+  .eventCard {
+    width: 75%;
+  }
+  .eventDetail {
+    height: 200px;
+    img {
+      width: 100px;
+      height: 120px;
+    }
+  }
+
+  .eventDescription {
+    h3 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .underCard {
+    margin: 15px 0 130px;
+    p {
+      height: 30px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .eventBody {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .eventCard {
+    width: 95%;
+    margin-left: 5%;
+  }
+
+  .eventDetail {
+    width: 60%;
+    img {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  .eventDescription {
+    .reserver {
+      height: 40px;
+      width: 85px;
+    }
+  }
+
+  .underCard {
+    width: 60%;
+  }
+}
