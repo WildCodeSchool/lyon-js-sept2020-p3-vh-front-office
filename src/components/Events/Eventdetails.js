@@ -55,7 +55,7 @@ const EventDetails = (props) => {
   return eventsCoordinate ? (
     <>
       <div>
-        <h1 className="title">Réserver un évènement</h1>
+        <h1 className="title">{eventsData.title}</h1>
       </div>
       <div className="description">
         <div className="left_part">
