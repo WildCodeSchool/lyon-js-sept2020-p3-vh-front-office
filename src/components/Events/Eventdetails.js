@@ -69,29 +69,7 @@ const EventDetails = (props) => {
           </IconContext.Provider>
         </div>
         <div className="right_part">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            accumsan nec metus sit amet sollicitudin. Sed blandit eros non nunc
-            bibendum, sit amet molestie erat sollicitudin. Nulla facilisi. Sed
-            blandit, eros vel tincidunt hendrerit, odio nisi ornare sem, id
-            vestibulum ipsum sem non ante. Curabitur et aliquet leo, sed gravida
-            erat. Quisque ultrices risus eu velit pharetra hendrerit. Cras
-            fermentum sapien sollicitudin, rutrum orci eu, venenatis lorem.
-            Vivamus vitae turpis et sapien viverra mattis. Praesent et nisl
-            suscipit, porta arcu sed, suscipit lacus. Ut sed arcu vel eros
-            sollicitudin tincidunt. Fusce at enim finibus, auctor nunc et,
-            laoreet mi. Morbi dolor nunc, consectetur non leo nec, aliquam
-            condimentum metus. Donec dignissim sapien sit amet feugiat
-            fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et
-            ultrices posuere cubilia curae; In nec orci felis. Vivamus sed justo
-            consequat, rhoncus dolor sed, aliquet urna. Mauris ornare
-            condimentum mollis. In ultricies mauris id ligula molestie
-            tincidunt. Integer viverra, quam ac blandit egestas, nisl risus
-            interdum neque, vel elementum mauris tellus ac urna. Proin sit amet
-            ex lobortis, lobortis magna sed, dictum nibh. Duis nec scelerisque
-            libero, gravida fringilla mi. Praesent pretium venenatis tellus,
-            vitae feugiat metus venenatis ut.
-          </p>
+          <p>{eventsData.description}</p>
           <div className="button">
             <button type="button">Reserver</button>
           </div>
