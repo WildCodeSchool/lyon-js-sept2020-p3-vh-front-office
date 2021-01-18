@@ -56,7 +56,9 @@ const NavBar = () => {
         <div className="navbarTranslation">
           <Translation />
         </div>
-        <img src={calendar} alt="calendar basket" />
+        <NavLink exact to="/basket">
+          <img src={calendar} alt="calendar basket" />
+        </NavLink>
         {userLogged ? (
           <NavLink
             exact

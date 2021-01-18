@@ -149,31 +149,40 @@ const EventDetails = (props) => {
             libero, gravida fringilla mi. Praesent pretium venenatis tellus,
             vitae feugiat metus venenatis ut.
           </p>
-          <p>{eventData.availabilities} places disponibles</p>
-          <div className="quantity-book">
-            <Button
-              onClick={(event) => handleClick(event)}
-              className={classes.btn}
-              type="button"
-              variant="contained"
-              color="primary"
-            >
-              Réserver
-            </Button>
-            <TextField
-              className={classes.input}
-              id="standard-number"
-              type="number"
-              label="Places"
-              value={quantity}
-              InputProps={{
-                inputProps: { min: 1, max: eventData.availabilities },
-              }}
-              onChange={(e) => {
-                setQuantity(e.target.value);
-              }}
-            />
-          </div>
+          {eventData.availabilities ? (
+            <p>{eventData.availabilities} places disponibles</p>
+          ) : (
+            <p style={{ color: 'red' }}>
+              Malheureusement, l'évènement n'est plus disponible
+            </p>
+          )}
+          {!!eventData.availabilities && ( // need to use this expression, because React return a 0 with eventData.availabilities &&
+            <div className="quantity-book">
+              <Button
+                // eslint-disable-next-line react/jsx-boolean-value
+                onClick={(event) => handleClick(event)}
+                className={classes.btn}
+                type="button"
+                variant="contained"
+                color="primary"
+              >
+                Réserver
+              </Button>
+              <TextField
+                className={classes.input}
+                id="standard-number"
+                type="number"
+                label="Places"
+                value={quantity}
+                InputProps={{
+                  inputProps: { min: 0, max: eventData.availabilities },
+                }}
+                onChange={(e) => {
+                  setQuantity(e.target.value);
+                }}
+              />
+            </div>
+          )}
         </div>
       </div>
       <div className="map">

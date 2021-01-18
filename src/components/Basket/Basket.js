@@ -92,7 +92,7 @@ export default function Basket(props) {
   const { addToast } = useToasts();
 
   const sendOrder = () => {
-    if (userLogged.length !== 0) {
+    if (userLogged) {
       history.push('/disclaimer');
     } else {
       history.push('/login');
