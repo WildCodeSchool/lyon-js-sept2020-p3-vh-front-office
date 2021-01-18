@@ -41,7 +41,7 @@ export default function Profile() {
         autoDismiss: true,
       });
       history.push('/login');
-      localStorage.removeItem('user');
+      setUserLogged(null);
     } catch (err) {
       addToast("Vous n'avez pas été déconnecté", {
         appearance: 'error',

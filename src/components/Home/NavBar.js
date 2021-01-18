@@ -1,5 +1,5 @@
 /*eslint-disable */
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './NavBar.scss';
 import { slide as Menu } from 'react-burger-menu';
@@ -8,100 +8,113 @@ import cross from '../pictures/cross.png';
 import calendar from '../pictures/calendar.svg';
 import SimpleMenu from './MenuNavBar.js';
 import Translation from './Translation.js';
+import useLocalStorage from '../../services/useLocalStorage';
+import { LoginContext } from '../Contexts/LoginContext';
 
-class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { menuOpen: false };
-    this.state = { anchorEl: null };
-  }
+const NavBar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
 
-  handleStateChange = (state) => {
-    this.setState({ menuOpen: state.isOpen });
+  const handleStateChange = (state) => {
+    setMenuOpen(state.isOpen);
   };
 
-  closeMenu = () => {
-    this.setState({ menuOpen: false });
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
 
-  handleClick = (event) => {
-    this.setState({ anchorEl: event.currentTarget });
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  handleClose = () => {
-    this.setState({ anchorEl: null });
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
-  render() {
-    const { menuOpen } = this.state;
-    const { isLogged } = this.state;
-    return (
-      <nav className="navbarBody">
-        <Link to="/">
-          <img src={logo} alt="logo hypnose and wine" className="navbarLogo" />
-        </Link>
-        <div className="navbarLink">
-          <ul>
-            <NavLink exact to="/">
-              Accueil
-            </NavLink>
-            <SimpleMenu />
-            <NavLink exact to="/aboutme">
-              A Propos
-            </NavLink>
-            <NavLink exact to="/contact">
-              Contact
-            </NavLink>
-          </ul>
+  const { userLogged } = useContext(LoginContext);
+
+  return (
+    <nav className="navbarBody">
+      <Link to="/">
+        <img src={logo} alt="logo hypnose and wine" className="navbarLogo" />
+      </Link>
+      <div className="navbarLink">
+        <ul>
+          <NavLink exact to="/">
+            Accueil
+          </NavLink>
+          <SimpleMenu />
+          <NavLink exact to="/aboutme">
+            A Propos
+          </NavLink>
+          <NavLink exact to="/contact">
+            Contact
+          </NavLink>
+        </ul>
+      </div>
+      <div className="userLink">
+        <div className="navbarTranslation">
+          <Translation />
         </div>
-        <div className="userLink">
-          <div className="navbarTranslation">
-            <Translation />
-          </div>
-          <img src={calendar} alt="calendar basket" />
+        <img src={calendar} alt="calendar basket" />
+        {userLogged ? (
+          <NavLink
+            exact
+            to="/profile"
+            style={{ fontSize: '18px', width: '150px' }}
+          >
+            Bienvenue {userLogged.firstname}
+          </NavLink>
+        ) : (
           <NavLink exact to="/register">
             S'inscrire
           </NavLink>
-        </div>
-        <Menu
-          className="menuNavbar"
-          isOpen={menuOpen}
-          onStateChange={(state) => this.handleStateChange(state)}
-          noOverlay
-          right
-          width="100%"
-          customCrossIcon={<img src={cross} alt="cross icon" />}
-          disableAutoFocus
-        >
-          <Link to="/" onClick={this.closeMenu}>
-            <img className="burgerLogo" src={logo} alt="logo burger" />
+        )}
+      </div>
+      <Menu
+        className="menuNavbar"
+        isOpen={menuOpen}
+        onStateChange={(state) => handleStateChange(state)}
+        noOverlay
+        right
+        width="100%"
+        customCrossIcon={<img src={cross} alt="cross icon" />}
+        disableAutoFocus
+      >
+        <Link to="/" onClick={closeMenu}>
+          <img className="burgerLogo" src={logo} alt="logo burger" />
+        </Link>
+        <Link to="/" onClick={closeMenu}>
+          Accueil
+        </Link>
+        <Link to="/events" onClick={closeMenu}>
+          Evènements
+        </Link>
+        <Link to="/animators" onClick={closeMenu}>
+          Animateurs
+        </Link>
+        <Link to="/products" onClick={closeMenu}>
+          Vins & Spiritueux
+        </Link>
+        <Link to="/aboutme" onClick={closeMenu}>
+          A Propos
+        </Link>
+        <Link to="/contact" onClick={closeMenu}>
+          Contact
+        </Link>
+        {userLogged ? (
+          <Link to="/profile" onClick={closeMenu}>
+            Bienvenue {userLogged.firstname} !
           </Link>
-          <Link to="/" onClick={this.closeMenu}>
-            Accueil
+        ) : (
+          <Link to="/contact" onClick={closeMenu}>
+            S'inscrire | Se Connecter
           </Link>
-          <Link to="/events" onClick={this.closeMenu}>
-            Evènements
-          </Link>
-          <Link to="/animators" onClick={this.closeMenu}>
-            Animateurs
-          </Link>
-          <Link to="/products" onClick={this.closeMenu}>
-            Vins & Spiritueux
-          </Link>
-          <Link to="/aboutme" onClick={this.closeMenu}>
-            A Propos
-          </Link>
-          <Link to="/contact" onClick={this.closeMenu}>
-            Contact
-          </Link>
-          <Link to="/contact" onClick={this.closeMenu}>
-            S'inscire | Se Connecter
-          </Link>
-          <Translation />
-        </Menu>
-      </nav>
-    );
-  }
-}
+        )}
+        <Translation />
+      </Menu>
+    </nav>
+  );
+};
 
 export default NavBar;
