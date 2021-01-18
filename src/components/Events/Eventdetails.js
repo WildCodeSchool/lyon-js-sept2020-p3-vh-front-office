@@ -4,10 +4,12 @@ import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { MdShare } from 'react-icons/md';
 import './Eventdetail.scss';
+import Button from '@material-ui/core/Button';
 import { IconContext } from 'react-icons/lib';
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { Icon } from 'leaflet';
+import { makeStyles } from '@material-ui/core/styles';
 import API from '../../services/API';
 
 /* eslint-disable global-require */
@@ -52,6 +54,39 @@ const EventDetails = (props) => {
     }
   }, [eventsData]);
 
+  const useStyles = makeStyles(() => ({
+    root: {
+      width: '100%',
+      '& > *': {
+        width: '25ch',
+      },
+    },
+    formControl: {
+      width: 200,
+    },
+    input: {
+      width: '100%',
+      '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+        borderColor: '#6d071a',
+      },
+      '& .MuiOutlinedInput-input': {
+        color: '#6d071a',
+      },
+      '& .MuiInputLabel-outlined.Mui-focused': {
+        color: '#6d071a',
+      },
+    },
+    btn: {
+      backgroundColor: '#6d071a',
+      textTransform: 'none',
+      '&:hover': {
+        backgroundColor: '#6d071a',
+      },
+    },
+  }));
+
+  const classes = useStyles();
+
   return eventsCoordinate ? (
     <>
       <div>
@@ -93,7 +128,14 @@ const EventDetails = (props) => {
             vitae feugiat metus venenatis ut.
           </p>
           <div className="button">
-            <button type="button">Reserver</button>
+            <Button
+              className={classes.btn}
+              type="button"
+              variant="contained"
+              color="primary"
+            >
+              Réserver
+            </Button>
           </div>
         </div>
       </div>
