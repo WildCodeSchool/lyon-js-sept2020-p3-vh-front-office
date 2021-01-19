@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  TwitterIcon,
+} from 'react-share';
 import './Events.scss';
 import API from '../../services/API';
 
@@ -12,6 +19,9 @@ const Events = () => {
 
   return (
     <div className="eventBody">
+      <Helmet>
+        <title>Événements</title>
+      </Helmet>
       {events &&
         events.map((event) => {
           return (
@@ -21,9 +31,32 @@ const Events = () => {
                 <div className="eventDescription">
                   <h3>{event.title}</h3>
                   <p>{event.description}</p>
-                  <Link to={`/events/${event.id}`}>
-                    <button type="button">Réserver</button>
-                  </Link>
+                  <div className="button">
+                    <div className="share">
+                      <FacebookShareButton
+                        className="facebook"
+                        url="https://www.youtube.com/"
+                      >
+                        <FacebookIcon size={30} borderRadius={50}>
+                          Facebook
+                        </FacebookIcon>
+                      </FacebookShareButton>
+
+                      <TwitterShareButton
+                        className="twitter"
+                        url="https://twitter.com/"
+                      >
+                        <TwitterIcon size={30} borderRadius={50}>
+                          Twitter
+                        </TwitterIcon>
+                      </TwitterShareButton>
+                    </div>
+                    <Link to={`/events/${event.id}`}>
+                      <button className="reserver" type="button">
+                        Réserver
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
               <div className="underCard">

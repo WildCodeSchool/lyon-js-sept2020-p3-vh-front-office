@@ -51,12 +51,14 @@
   }
   button {
     height: 35px;
-    width: 80px;
     background-color: $secondary-color;
     color: white;
-    margin-left: 50%;
     border-radius: 5px;
     cursor: pointer;
+  }
+  .button {
+    display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -79,9 +81,6 @@
 }
 
 @media screen and (min-width: 515px) {
-  .eventDescription button {
-    margin-left: 70%;
-  }
 }
 
 @media screen and (min-width: 768px) {
@@ -136,7 +135,7 @@
   }
 
   .eventDescription {
-    button {
+    .reserver {
       height: 40px;
       width: 85px;
     }

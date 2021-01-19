@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import Faq from 'react-faq-component';
 import './Faq.css';
 
@@ -66,6 +67,9 @@ const config = {
 export default function FaqPage() {
   return (
     <div className="faq-container">
+      <Helmet>
+        <title>FAQ</title>
+      </Helmet>
       <h1 className="faq-title">Foire aux questions</h1>
       <Faq data={data} styles={styles} config={config} />
     </div>

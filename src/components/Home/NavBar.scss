@@ -183,19 +183,21 @@
     }
   }
 
-  .MuiPaper-root {
-    top: 60px !important;
-    height: 150px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    a {
-      text-decoration: none;
-      :hover {
-        font-weight: bolder;
-        font-size: 17px;
+  #simple-menu {
+    .MuiPaper-rounded {
+      height: 150px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 23px;
+      a {
+        text-decoration: none;
+        :hover {
+          font-weight: bolder;
+          font-size: 17px;
+        }
       }
     }
   }

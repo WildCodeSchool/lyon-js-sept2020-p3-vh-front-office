@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import {
   AiOutlineMail,
   AiFillFacebook,
@@ -23,6 +24,9 @@ const AboutAnimators = () => {
 
   return (
     <div className="container-all-cards-animators">
+      <Helmet>
+        <title>Animateurs</title>
+      </Helmet>
       <h1>Animateurs</h1>
       {animators &&
         animators.map((animator) => {
