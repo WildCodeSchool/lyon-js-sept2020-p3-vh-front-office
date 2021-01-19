@@ -1,5 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 
 import './Reviews.css';
 import API from '../../services/API';
@@ -15,6 +16,9 @@ export default function Reviews() {
 
   return (
     <>
+      <Helmet>
+        <title>Témoignages</title>
+      </Helmet>
       <h1>Témoignages</h1>
 
       <div>

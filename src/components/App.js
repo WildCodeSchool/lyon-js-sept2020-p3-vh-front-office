@@ -31,7 +31,6 @@ function App() {
             <Helmet>
               <meta charSet="utf-8" />
               <title>Hypnose & Vins</title>
-              <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
             <NavBar />
             <div className="main-div">

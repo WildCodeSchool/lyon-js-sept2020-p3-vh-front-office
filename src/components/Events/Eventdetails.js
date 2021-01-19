@@ -1,5 +1,6 @@
 /* eslint no-underscore-dangle: 0 */
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { MdShare } from 'react-icons/md';
@@ -54,6 +55,9 @@ const EventDetails = (props) => {
 
   return eventsCoordinate ? (
     <>
+      <Helmet>
+        <title>{eventsData.title}</title>
+      </Helmet>
       <div>
         <h1 className="title">{eventsData.title}</h1>
       </div>

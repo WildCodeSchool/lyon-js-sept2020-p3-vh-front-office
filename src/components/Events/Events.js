@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import {
   FacebookShareButton,
@@ -18,6 +19,9 @@ const Events = () => {
 
   return (
     <div className="eventBody">
+      <Helmet>
+        <title>Événements</title>
+      </Helmet>
       {events &&
         events.map((event) => {
           return (

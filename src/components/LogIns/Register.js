@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet';
 import TextField from '@material-ui/core/TextField';
 import { useForm } from 'react-hook-form';
 import Button from '@material-ui/core/Button';
@@ -85,6 +86,9 @@ const Register = () => {
 
   return (
     <div className="container-register-form">
+      <Helmet>
+        <title>Inscription</title>
+      </Helmet>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Inscription</h2>
         <div className="input-register-form">
