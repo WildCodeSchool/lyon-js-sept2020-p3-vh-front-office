@@ -1,7 +1,8 @@
+/* eslint-disable global-require */
 /* eslint-disable no-unused-vars */
 /* eslint no-underscore-dangle: 0 */
-/* eslint-disable global-require */
 import React, { useState, useEffect, useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { MdShare } from 'react-icons/md';
@@ -111,6 +112,9 @@ const EventDetails = (props) => {
 
   return eventCoordinate ? (
     <>
+      <Helmet>
+        <title>{eventData.title}</title>
+      </Helmet>
       <div>
         <h1 className="title">{eventData.title}</h1>
       </div>

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import './App.scss';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications';
 import Home from './Home/Home';
@@ -32,6 +33,10 @@ function App() {
         <BasketProvider>
           <Router>
             <div className="App">
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>Hypnose & Vins</title>
+              </Helmet>
               <NavBar />
               <div className="main-div">
                 <Switch>

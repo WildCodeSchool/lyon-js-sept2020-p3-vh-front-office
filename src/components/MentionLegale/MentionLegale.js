@@ -1,9 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import './MentionsLegale.scss';
 
 const MentionLegale = () => {
   return (
     <div className="page-mentions-légales">
+      <Helmet>
+        <title>Mentions Légales</title>
+      </Helmet>
       <div className="container-mentions-legales">
         <div className="h1-hr">
           <h1 className="titre-mentions-legales">Mentions légales</h1>
