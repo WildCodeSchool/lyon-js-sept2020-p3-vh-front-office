@@ -21,13 +21,6 @@ const useStyles = makeStyles(() => ({
   formControl: {
     width: 200,
   },
-  btn: {
-    backgroundColor: '#6d071a',
-    textTransform: 'none',
-    '&:hover': {
-      backgroundColor: '#6d071a',
-    },
-  },
   input: {
     width: '100%',
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
@@ -38,6 +31,13 @@ const useStyles = makeStyles(() => ({
     },
     '& .MuiInputLabel-outlined.Mui-focused': {
       color: '#6d071a',
+    },
+  },
+  btn: {
+    backgroundColor: '#6d071a',
+    textTransform: 'none',
+    '&:hover': {
+      backgroundColor: '#6d071a',
     },
   },
 }));
