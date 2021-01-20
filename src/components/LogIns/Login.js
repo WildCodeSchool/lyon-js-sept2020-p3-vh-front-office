@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -73,6 +74,9 @@ function Login() {
   return (
     <>
       <div className="container-login">
+        <Helmet>
+          <title>Login</title>
+        </Helmet>
         <div>
           <h1 className="login">Login</h1>
         </div>

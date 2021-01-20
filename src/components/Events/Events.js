@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import './Calendar.scss';
 import Calendar from 'react-calendar';
@@ -94,6 +95,9 @@ const Events = () => {
           Réinitialiser
         </Button>
       </div>
+      <Helmet>
+        <title>Événements</title>
+      </Helmet>
       {events &&
         events.map((event) => {
           return (

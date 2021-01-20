@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import {
   AiOutlineMail,
   AiFillFacebook,
@@ -10,6 +11,9 @@ import './AboutMorgane.scss';
 export default function AboutMorgane() {
   return (
     <div className="presentationContainer">
+      <Helmet>
+        <title>Qui suis-je</title>
+      </Helmet>
       <h1 className="titleAbout"> Presentation Morgane</h1>
       <div className="squareAboutGrey">
         <h2 className="whoTitle">Qui suis je?</h2>
