@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
@@ -8,6 +10,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { makeStyles } from '@material-ui/core/styles';
+import { Check, Edit } from 'react-feather';
 import { LoginContext } from '../Contexts/LoginContext';
 import API from '../../services/API';
 import FacebookIcon from '../../files/facebook.png';
@@ -19,6 +22,16 @@ export default function Profile() {
   const { userLogged, setUserLogged } = useContext(LoginContext);
   const history = useHistory();
   const { addToast } = useToasts();
+  const [isClicked, setIsClicked] = useState(false);
+
+  const changeToInput = () => {
+    setIsClicked(true);
+  };
+
+  const stopInput = () => {
+    setIsClicked(false);
+  };
+
   const useStyles = makeStyles({
     root: {
       justifyContent: 'space-around',
@@ -71,6 +84,7 @@ export default function Profile() {
 
   return fetchedUser.length !== 0 ? (
     <main className="profile">
+      <h1>Bienvenue {userLogged.firstname} !</h1>
       <BottomNavigation
         value={value}
         onChange={(event, newValue) => {
@@ -94,29 +108,40 @@ export default function Profile() {
       </BottomNavigation>
       {value === 0 ? (
         <>
-          <h1>Bienvenue {userLogged.firstname} !</h1>
           <div className="photo-fields">
-            {fetchedUser.photo_url && (
+            {/* {fetchedUser.photo_url && (
               <img
                 className="profile-image"
                 src={fetchedUser.photo_url}
                 alt={fetchedUser.lastname}
               />
-            )}
+            )} */}
             <div className="main-fields">
-              {fetchedUser.firstname && <p>Prénom : {fetchedUser.firstname}</p>}
+              <div>
+                {fetchedUser.firstname && (
+                  <div className="firstnameSection">
+                    <Edit className="editButton" onClick={changeToInput} />
+                    {isClicked ? (
+                      <div>
+                        <input />
+                        <Check className="editButton" onClick={stopInput} />
+                      </div>
+                    ) : (
+                      <p>Prénom: {fetchedUser.firstname}</p>
+                    )}
+                  </div>
+                )}
+              </div>
               {fetchedUser.lastname && <p>Nom : {fetchedUser.lastname}</p>}
               {fetchedUser.phone_number && (
-                <p>Mon numéro de téléphone : {fetchedUser.phone_number}</p>
+                <p>Téléphone : {fetchedUser.phone_number}</p>
               )}
-              {fetchedUser.email && (
-                <p>Mon adresse mail : {fetchedUser.email}</p>
-              )}
-              {fetchedUser.bio && (
+              {fetchedUser.email && <p>Email : {fetchedUser.email}</p>}
+              {/* {fetchedUser.bio && (
                 <p className="bio">
                   Ma présentation <br /> {fetchedUser.bio}
                 </p>
-              )}
+              )} */}
             </div>
           </div>
           {fetchedUser.instagram_url ||
