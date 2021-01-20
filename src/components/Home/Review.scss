@@ -1,22 +1,37 @@
-.slider {
-  border: 1px solid black;
-  width: 50%;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.container-carousel-reviews {
   display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
+  justify-content: center;
+  .slider {
+    border: 1px solid black;
+    width: 50%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    .slide-reviews {
+      position: relative;
+      min-width: 100%;
+      border: 1px solid black;
+      transition: 0.5s;
+      overflow: hidden;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #goLeft {
+      left: 0;
+      @extend %btn-styles;
+    }
 
-.slide-reviews {
-  position: relative;
-  min-width: 100%;
-  border: 1px solid black;
-  transition: 0.5s;
-  overflow: hidden;
-  height: 200px;
+    #goRight {
+      right: 0;
+      @extend %btn-styles;
+    }
+  }
 }
 
 %btn-styles {
@@ -30,21 +45,10 @@
   outline: none;
 }
 
-#goLeft {
-  left: 0;
-  @extend %btn-styles;
-}
-
-#goRight {
-  right: 0;
-  @extend %btn-styles;
-}
-
 .img-slide {
   position: relative;
   min-width: 100%;
   border: 1px solid black;
-  /*   height: 80vh; */
   transition: 0.5s;
   overflow: hidden;
 }
