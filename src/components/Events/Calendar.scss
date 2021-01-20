@@ -2,4 +2,20 @@
 
 .calendar-container {
   margin-bottom: 50px;
+  .highlight {
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1024px) {
+  .calendar-container {
+    display: flex;
+    justify-content: space-between;
+  }
 }
