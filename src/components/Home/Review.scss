@@ -1,0 +1,50 @@
+.slider {
+  border: 1px solid black;
+  width: 50%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-reviews {
+  position: relative;
+  min-width: 100%;
+  border: 1px solid black;
+  transition: 0.5s;
+  overflow: hidden;
+  height: 200px;
+}
+
+%btn-styles {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10%;
+  height: 80%;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#goLeft {
+  left: 0;
+  @extend %btn-styles;
+}
+
+#goRight {
+  right: 0;
+  @extend %btn-styles;
+}
+
+.img-slide {
+  position: relative;
+  min-width: 100%;
+  border: 1px solid black;
+  /*   height: 80vh; */
+  transition: 0.5s;
+  overflow: hidden;
+}
