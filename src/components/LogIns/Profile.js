@@ -24,8 +24,11 @@ export default function Profile() {
   const history = useHistory();
   const { addToast } = useToasts();
   const [isClicked, setIsClicked] = useState(false);
-  const [putChangeName, setPutChangeName] = useState([]);
-  const [changeFirstName, setChangeFirstName] = useState('');
+  const [putChangeInfo, setPutChangeInfo] = useState([]); // change value to DB
+  const [changeFirstname, setChangeFirstname] = useState(''); // change fname in input fields
+  const [changeLastname, setChangeLastname] = useState('');
+  const [changePhoneNumber, setChangePhoneNumber] = useState('');
+  const [changeEmail, setChangeEmail] = useState('');
 
   const useStyles = makeStyles({
     root: {
@@ -65,26 +68,58 @@ export default function Profile() {
   }, [value]);
 
   useEffect(() => {
+    if (fetchedUser.length !== 0) {
+      setChangeFirstname(fetchedUser.firstname);
+      setChangeLastname(fetchedUser.lastname);
+      setChangePhoneNumber(fetchedUser.phone_number);
+      setChangeEmail(fetchedUser.email);
+    }
+  }, [fetchedUser]);
+
+  useEffect(() => {
     API.get('/me').then((res) => {
       setUserLogged(res.data);
       setFetchedUser(res.data);
     });
   }, []);
 
-  const changeToInput = () => {
+  const clickToEdit = () => {
     setIsClicked(true);
   };
 
-  const stopInput = () => {
+  const clickToSave = () => {
     setIsClicked(false);
   };
 
-  const handleSelectInput = (e) => {
-    setPutChangeName(e.target.value);
-    API.put('/users', {
-      firstname: putChangeName,
+  const changeFirstNameInput = (e) => {
+    setChangeFirstname(e.target.value);
+  };
+
+  const changeLastNameInput = (e) => {
+    setChangeLastname(e.target.value);
+  };
+
+  const changePhoneNumberInput = (e) => {
+    setChangePhoneNumber(e.target.value);
+  };
+
+  const changeEmailInput = (e) => {
+    setChangeEmail(e.target.value);
+  };
+
+  const handleUpdatedInformation = () => {
+    API.put('/me', {
+      firstname: changeFirstname,
+      lastname: changeLastname,
+      phone_number: changePhoneNumber,
+      email: changeEmail,
     }).then((res) => {
-      setChangeFirstName(res.data.firstname);
+      setPutChangeInfo(res.data);
+
+      API.get('/me').then((response) => {
+        setUserLogged(response.data);
+        setFetchedUser(response.data);
+      });
     });
   };
 
@@ -128,40 +163,88 @@ export default function Profile() {
                 alt={fetchedUser.lastname}
               />
             )} */}
-            <div className="main-fields">
-              <div>
-                {fetchedUser.firstname && (
-                  <div className="firstnameSection">
-                    <Edit className="editButton" onClick={changeToInput} />
+            <div>
+              {isClicked ? (
+                <div>
+                  <div className="main-fields">
+                    <div>
+                      Prénom:
+                      <input
+                        name="firstname"
+                        value={changeFirstname}
+                        onChange={changeFirstNameInput}
+                      />
+                    </div>
 
-                    {isClicked ? (
-                      <div>
-                        Prénom:
-                        <input
-                          name="firstname"
-                          value={putChangeName}
-                          onChange={handleSelectInput}
-                        />
-                        <Check className="editButton" onClick={stopInput} />
-                      </div>
-                    ) : (
-                      <p>Prénom: {putChangeName}</p>
-                    )}
-                  </div>
-                )}
-              </div>
-              {fetchedUser.lastname && <p>Nom : {fetchedUser.lastname}</p>}
-              {fetchedUser.phone_number && (
-                <p>Téléphone : {fetchedUser.phone_number}</p>
-              )}
-              {fetchedUser.email && <p>Email : {fetchedUser.email}</p>}
-              {/* {fetchedUser.bio && (
+                    <div>
+                      Nom:
+                      <input
+                        name="lastname"
+                        value={changeLastname}
+                        onChange={changeLastNameInput}
+                      />
+                    </div>
+
+                    <div>
+                      Teléphone:
+                      <input
+                        name="phone_number"
+                        value={changePhoneNumber}
+                        onChange={changePhoneNumberInput}
+                      />
+                    </div>
+
+                    <div>
+                      Email:
+                      <input
+                        name="email"
+                        value={changeEmail}
+                        onChange={changeEmailInput}
+                      />
+                    </div>
+
+                    {/* {fetchedUser.bio && (
                 <p className="bio">
                   Ma présentation <br /> {fetchedUser.bio}
                 </p>
               )} */}
+                  </div>
+                  <div>
+                    <button
+                      className="button"
+                      type="submit"
+                      onClick={clickToSave}
+                      onSubmit={handleUpdatedInformation()}
+                    >
+                      Sauvegarder mes données
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div className="main-fields">
+                    <p>Prénom : {changeFirstname}</p>
+                    <p>Nom : {changeLastname}</p>
+                    <p>Téléphone : {changePhoneNumber}</p>
+                    <p>Email : {changeEmail}</p>
+                    {/* {fetchedUser.bio && (
+                <p className="bio">
+                  Ma présentation <br /> {fetchedUser.bio}
+                </p>
+              )} */}
+                  </div>
+                  <button
+                    className="button"
+                    type="submit"
+                    onClick={clickToEdit}
+                  >
+                    Modifier mes données
+                  </button>
+                </div>
+              )}
             </div>
           </div>
+
           {fetchedUser.instagram_url ||
           fetchedUser.twitter_url ||
           fetchedUser.facebook_url
