@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useContext, useState } from 'react';
@@ -23,14 +24,8 @@ export default function Profile() {
   const history = useHistory();
   const { addToast } = useToasts();
   const [isClicked, setIsClicked] = useState(false);
-
-  const changeToInput = () => {
-    setIsClicked(true);
-  };
-
-  const stopInput = () => {
-    setIsClicked(false);
-  };
+  const [putChangeName, setPutChangeName] = useState([]);
+  const [changeFirstName, setChangeFirstName] = useState('');
 
   const useStyles = makeStyles({
     root: {
@@ -75,6 +70,23 @@ export default function Profile() {
       setFetchedUser(res.data);
     });
   }, []);
+
+  const changeToInput = () => {
+    setIsClicked(true);
+  };
+
+  const stopInput = () => {
+    setIsClicked(false);
+  };
+
+  const handleSelectInput = (e) => {
+    setPutChangeName(e.target.value);
+    API.put('/users', {
+      firstname: putChangeName,
+    }).then((res) => {
+      setChangeFirstName(res.data.firstname);
+    });
+  };
 
   const buttonStyle = {
     width: '4vw',
@@ -121,13 +133,19 @@ export default function Profile() {
                 {fetchedUser.firstname && (
                   <div className="firstnameSection">
                     <Edit className="editButton" onClick={changeToInput} />
+
                     {isClicked ? (
                       <div>
-                        <input />
+                        Prénom:
+                        <input
+                          name="firstname"
+                          value={putChangeName}
+                          onChange={handleSelectInput}
+                        />
                         <Check className="editButton" onClick={stopInput} />
                       </div>
                     ) : (
-                      <p>Prénom: {fetchedUser.firstname}</p>
+                      <p>Prénom: {putChangeName}</p>
                     )}
                   </div>
                 )}
