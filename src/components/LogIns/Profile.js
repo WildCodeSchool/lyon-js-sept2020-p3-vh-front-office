@@ -24,8 +24,7 @@ export default function Profile() {
   const history = useHistory();
   const { addToast } = useToasts();
   const [isClicked, setIsClicked] = useState(false);
-  const [putChangeInfo, setPutChangeInfo] = useState([]); // change value to DB
-  const [changeFirstname, setChangeFirstname] = useState(''); // change fname in input fields
+  const [changeFirstname, setChangeFirstname] = useState('');
   const [changeLastname, setChangeLastname] = useState('');
   const [changePhoneNumber, setChangePhoneNumber] = useState('');
   const [changeEmail, setChangeEmail] = useState('');
@@ -70,6 +69,7 @@ export default function Profile() {
   useEffect(() => {
     if (fetchedUser.length !== 0) {
       setChangeFirstname(fetchedUser.firstname);
+
       setChangeLastname(fetchedUser.lastname);
       setChangePhoneNumber(fetchedUser.phone_number);
       setChangeEmail(fetchedUser.email);
@@ -85,10 +85,6 @@ export default function Profile() {
 
   const clickToEdit = () => {
     setIsClicked(true);
-  };
-
-  const clickToSave = () => {
-    setIsClicked(false);
   };
 
   const changeFirstNameInput = (e) => {
@@ -108,19 +104,19 @@ export default function Profile() {
   };
 
   const handleUpdatedInformation = () => {
-    API.put('/me', {
+    API.put(`/users/${fetchedUser.id}`, {
       firstname: changeFirstname,
       lastname: changeLastname,
       phone_number: changePhoneNumber,
       email: changeEmail,
     }).then((res) => {
-      setPutChangeInfo(res.data);
-
-      API.get('/me').then((response) => {
-        setUserLogged(response.data);
-        setFetchedUser(response.data);
-      });
+      setFetchedUser(res.data);
     });
+  };
+
+  const clickToSave = () => {
+    setIsClicked(false);
+    handleUpdatedInformation();
   };
 
   const buttonStyle = {
@@ -213,8 +209,9 @@ export default function Profile() {
                     <button
                       className="button"
                       type="submit"
+                      method="put"
+                      action="/me"
                       onClick={clickToSave}
-                      onSubmit={handleUpdatedInformation()}
                     >
                       Sauvegarder mes données
                     </button>
