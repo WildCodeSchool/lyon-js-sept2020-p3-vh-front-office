@@ -12,9 +12,10 @@
   h1 {
     text-align: center;
     margin: 30px;
+    color: $primary-color;
   }
   h2 {
-    color: $primary-color;
+    color: black;
   }
 }
 
@@ -41,10 +42,18 @@
   p {
     text-align: justify;
     margin-bottom: 30px;
-    padding: 0 20px;
+
     font-size: 16px;
     line-height: 25px;
   }
+}
+
+.second-picture {
+  display: none;
+}
+
+.third-picture {
+  display: flex;
 }
 
 .socialMedia {
@@ -69,8 +78,15 @@
     flex-direction: row;
     align-items: center;
     p {
-      width: 50%;
+      width: 95%;
     }
+  }
+  .second-picture {
+    display: flex;
+  }
+
+  .third-picture {
+    display: none;
   }
   .socialMedia {
     display: block;
