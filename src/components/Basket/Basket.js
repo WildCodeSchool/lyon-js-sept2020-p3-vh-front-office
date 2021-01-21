@@ -1,4 +1,4 @@
-/* import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import Button from '@material-ui/core/Button';
@@ -212,4 +212,3 @@ export default function Basket(props) {
     </>
   );
 }
- */

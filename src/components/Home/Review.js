@@ -1,29 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import './Review.scss';
+import React, { useEffect, useState } from 'react';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import { makeStyles } from '@material-ui/core/styles';
 import { getCollection } from '../../services/API';
+import './Review.scss';
 
-function Review() {
-  // eslint-disable-next-line no-unused-vars
+const useStyles = makeStyles(() => ({
+  rating: {
+    marginBottom: 0,
+  },
+}));
+
+const Review = () => {
+  const classes = useStyles();
   const [reviews, setReviews] = useState([]);
-  // eslint-disable-next-line no-unused-vars
-  const [rating, setRating] = useState(2);
-  /*   const sliderArr = [1, 2, 3, 4, 5]; */
-  const [changeSlide, setChangeSlide] = useState(0);
-  const handleClicLeft = () => {
-    // eslint-disable-next-line no-unused-expressions
-    changeSlide === 0
-      ? setChangeSlide(-100 * (reviews.length - 1))
-      : setChangeSlide(changeSlide + 100);
-  };
-  const handleClicRight = () => {
-    // eslint-disable-next-line no-unused-expressions
-    changeSlide === -100 * (reviews.length - 1)
-      ? setChangeSlide(0)
-      : setChangeSlide(changeSlide - 100);
-  };
 
   useEffect(() => {
     const request = getCollection('reviews').then((data) => setReviews(data));
@@ -33,31 +26,56 @@ function Review() {
   }, []);
 
   return (
-    <div className="container-carousel-reviews">
-      <div className="slider">
-        {reviews.map((review) => {
-          return (
-            <div
-              className="slide-reviews"
-              style={{ transform: `translateX(${changeSlide}%)` }}
-            >
-              <p>{review.comment}</p>
-              <Box component="fieldset" mb={3} borderColor="transparent">
-                <Typography component="legend" />
-                <Rating name="read-only" value={review.rating} readOnly />
-              </Box>
+    <div className="container-carousel">
+      <div className="carrousel-reviews">
+        {reviews ? (
+          <Carousel
+            showThumbs={false}
+            showStatus={false}
+            autoPlay
+            interval={6000}
+            transitionTime={600}
+            showArrows={false}
+          >
+            {reviews.map((review) => (
+              <div key={review.id} className="container-slide-reviews">
+                <div className="slider-reviews">
+                  <div className="slide-reviews">
+                    <h3>{review.title}</h3>
+                    <p style={{ marginTop: '20px', marginBottom: '10px' }}>
+                      {review.comment}
+                    </p>
+                    <div className="rating-and-name">
+                      <Box
+                        className={classes.rating}
+                        component="fieldset"
+                        mb={3}
+                        borderColor="transparent"
+                      >
+                        <Typography component="legend" />
+                        <Rating
+                          name="read-only"
+                          value={review.rating}
+                          readOnly
+                        />
+                      </Box>
+                      <p>par {review.firstname}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Carousel>
+        ) : (
+          <Carousel showThumbs={false} showStatus={false} showArrows={false}>
+            <div>
+              <p className="legend">Aucun contenu disponible !</p>
             </div>
-          );
-        })}
-        <button type="button" id="goLeft" onClick={handleClicLeft}>
-          <i className="fa fa-chevron-left" aria-hidden="true" />
-        </button>
-        <button type="button" id="goRight" onClick={handleClicRight}>
-          <i className="fa fa-chevron-right" aria-hidden="true" />
-        </button>
+          </Carousel>
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default Review;
