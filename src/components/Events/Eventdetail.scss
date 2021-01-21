@@ -1,80 +1,84 @@
 .map {
-    margin: 50px 20px 50px 20px;
-    align-content: center;
+  margin: 50px 20px 50px 20px;
+  align-content: center;
 }
 
 .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
 }
 
 .description {
+  display: flex;
+  justify-content: center;
+  margin: 50px 30px 50px 30px;
+  border: solid;
+  .left_part {
     display: flex;
     justify-content: center;
     margin: 50px 30px 50px 30px;
     border: solid;
     .left_part {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        margin-right: 10px;
-        margin-left: 5px;
-        padding: 5px 5px 5px 5px;
-    } 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      margin-right: 10px;
+      margin-left: 5px;
+      padding: 5px 5px 5px 5px;
+    }
     img {
-        height: 100px;
+      height: 120px;
+      width: 100px;
     }
     .right_part {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        padding: 5px 5px 5px 5px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 5px 5px 5px 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
     }
     p {
-        font-size: smaller;
+      font-size: smaller;
     }
     button {
-        margin-top: 20px;
+      margin-top: 20px;
     }
-    
+  }
 }
-
 @media screen and (min-width: 768px) {
-    .description {
-        display: flex;
-        justify-content: space-around;
-}
-.right_part {
+  .description {
+    display: flex;
+    justify-content: space-around;
+  }
+  .right_part {
     display: flex;
     justify-content: space-around;
     width: 50%;
     margin-top: 20px;
     margin-bottom: 20px;
     p {
-        font-size: large;
+      font-size: large;
     }
 
     button {
-        align-items: center;
-        height: 40px;
-        width: 150px;
+      align-items: center;
+      height: 40px;
+      width: 150px;
     }
-    .button {
-    }
-}
-.left_part {
+  }
+  .left_part {
     width: 30%;
     height: 400px;
     margin-top: 20px;
     margin-bottom: 20px;
     img {
-        height: 120px;
+      height: 200px;
+      width: 150px;
     }
-}
+  }
 }

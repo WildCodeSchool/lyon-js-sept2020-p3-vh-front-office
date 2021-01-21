@@ -1,0 +1,17 @@
+.basket{
+  margin-top: 30px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  h1{
+    margin-bottom: 30px;
+  }
+  .basket-button-container{
+    display:flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  #standard-number{
+    text-align:center;
+  }
+}

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import Faq from 'react-faq-component';
 import { getCollection } from '../../services/API';
 import './Faq.css';
@@ -38,6 +39,9 @@ export default function FaqPage() {
 
   return (
     <div className="faq-container">
+      <Helmet>
+        <title>FAQ</title>
+      </Helmet>
       <h1 className="faq-title">Foire aux questions</h1>
       <Faq data={questions} styles={styles} config={config} />
     </div>

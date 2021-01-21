@@ -1,0 +1,42 @@
+.container-carousel {
+  display: flex;
+  justify-content: center;
+  .carrousel-reviews {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    .slide-reviews {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      background-color: white;
+    }
+    li.slide.selected {
+      height: 200px;
+      width: 100%;
+    }
+    .slider-wrapper.axis-horizontal {
+      height: 200px;
+      width: 100%;
+    }
+  }
+}
+
+.carousel-root {
+  width: 100%;
+}
+
+.carousel.carousel-slider {
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  .container-carousel {
+    .carrousel-reviews {
+      width: 40%;
+    }
+  }
+}

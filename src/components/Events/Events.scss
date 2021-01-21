@@ -18,7 +18,7 @@
 }
 
 .eventCard {
-  width: 85%;
+  width: 100%;
 }
 
 .eventCard:first-child {
@@ -42,7 +42,7 @@
 
 .eventDescription {
   width: 60%;
-  height: 90%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -51,12 +51,19 @@
   }
   button {
     height: 35px;
-    width: 80px;
     background-color: $secondary-color;
     color: white;
-    margin-left: 50%;
     border-radius: 5px;
     cursor: pointer;
+  }
+  .button {
+    display: flex;
+    justify-content: space-between;
+    .share {
+      .facebook {
+        margin-right: 10px;
+      }
+    }
   }
 }
 
@@ -79,56 +86,39 @@
 }
 
 @media screen and (min-width: 515px) {
-  .eventDescription button {
-    margin-left: 70%;
-  }
 }
 
 @media screen and (min-width: 768px) {
-  .eventCard {
-    width: 75%;
-  }
-  .eventDetail {
-    height: 200px;
-    img {
-      width: 100px;
-      height: 120px;
-    }
-  }
-
-  .eventDescription {
-    h3 {
-      font-size: 18px;
-    }
-    p {
-      font-size: 14px;
-    }
-  }
-
-  .underCard {
-    margin: 15px 0 130px;
-    p {
-      height: 30px;
-      font-size: 14px;
-    }
-  }
 }
 
 @media screen and (min-width: 1024px) {
-  .eventBody {
-    width: 100%;
+  .cardOfEvents {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .eventBody {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .calendar-container {
+    align-self: flex-start;
+    padding: 40px;
+    z-index: 1000;
+    margin-top: 35px;
   }
 
   .eventCard {
-    width: 95%;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
     margin-left: 5%;
   }
 
   .eventDetail {
-    width: 60%;
+    width: 100%;
+    padding: 7px;
     img {
       width: 140px;
       height: 140px;
@@ -136,13 +126,12 @@
   }
 
   .eventDescription {
-    button {
-      height: 40px;
-      width: 85px;
+    .reserver {
+      width: 100%;
     }
   }
 
   .underCard {
-    width: 60%;
+    width: 100%;
   }
 }
