@@ -89,33 +89,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .eventCard {
-    width: 100%;
-  }
-  .eventDetail {
-    height: 200px;
-    img {
-      width: 100px;
-      height: 120px;
-    }
-  }
-
-  .eventDescription {
-    h3 {
-      font-size: 18px;
-    }
-    p {
-      font-size: 14px;
-    }
-  }
-
-  .underCard {
-    margin: 15px 0 130px;
-    p {
-      height: 30px;
-      font-size: 14px;
-    }
-  }
 }
 
 @media screen and (min-width: 1024px) {
