@@ -1,5 +1,53 @@
-.cards {
+.sponsors-main {
+  h1 {
+    text-align: center;
+    color: #8c0226;
+  }
+  .cards {
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    .sponsor {
+      margin-top: 50px;
+      text-align: center;
+      img {
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sponsors-main {
+    h1 {
+      font-size: 3vw;
+    }
+    .cards {
+      flex-wrap: nowrap;
+      margin-bottom: 50px;
+      .sponsor {
+        img {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .sponsors-main {
+      h1 {
+        font-size: 2.5vw;
+      }
+      .cards {
+        flex-wrap: none;
+        margin-bottom: 50px;
+        .sponsor {
+          img {
+            width: 40%;
+          }
+        }
+      }
+    }
+  }
 }
