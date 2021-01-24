@@ -282,7 +282,7 @@ export default function Profile() {
           <h1>Mes événements</h1>
           {fetchEvents &&
             fetchEvents.map((fetchEvent) => {
-              return <p>{fetchEvent.title}</p>;
+              return <p key={fetchEvent.order_id}>{fetchEvent.title}</p>;
             })}
         </div>
       )}
