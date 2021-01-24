@@ -14,7 +14,8 @@ const Sponsors = () => {
 
   return (
     <div className="sponsors-main">
-      <h1>Nos partenaires :</h1>
+      <h1>Nos partenaires</h1>
+      <p>________________________</p>
       <div className="cards">
         {sponsors && sponsors.length !== 0 ? (
           sponsors.map((sponsor) => {

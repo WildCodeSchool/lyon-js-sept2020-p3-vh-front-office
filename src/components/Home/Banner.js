@@ -5,6 +5,7 @@ const Banner = () => {
   return (
     <div className="banner">
       <h1>Bienvenue sur Hypnose & Vins</h1>
+      <p>________________________</p>
       <p>
         Consectetur culpa duis labore dolore fugiat nostrud excepteur amet ad
         sunt ex nostrud. Nulla commodo elit do proident ea minim voluptate

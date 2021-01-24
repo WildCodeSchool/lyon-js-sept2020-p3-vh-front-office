@@ -8,6 +8,9 @@
   h1 {
     text-align: center;
     color: $primary-color;
+  }
+  p:nth-of-type(1) {
+    color: $primary-color;
     margin-bottom: 50px;
   }
   p {

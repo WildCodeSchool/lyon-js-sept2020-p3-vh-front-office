@@ -26,7 +26,8 @@ const Review = () => {
   }, []);
   return (
     <section className="reviews-carousel-wrapper">
-      <h1>Ils ont tenté l'expérience :</h1>
+      <h1>Ils ont tenté l'expérience</h1>
+      <p>________________________</p>
       <div className="carrousel-reviews">
         {reviews && reviews.length !== 0 ? (
           <Carousel
