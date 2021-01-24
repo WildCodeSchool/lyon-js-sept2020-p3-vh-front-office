@@ -63,8 +63,8 @@ const Review = () => {
           </Carousel>
         ) : (
           <Carousel showThumbs={false} showStatus={false} showArrows={false}>
-            <div>
-              <p className="legend">Aucun contenu disponible !</p>
+            <div className="slide-reviews">
+              <h3>Pas d'avis disponible</h3>
             </div>
           </Carousel>
         )}

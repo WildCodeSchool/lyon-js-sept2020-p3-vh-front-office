@@ -32,7 +32,7 @@ const WelcomeCarousel = () => {
       ) : (
         <Carousel showThumbs={false} showStatus={false} showArrows={false}>
           <div>
-            <p className="legend">Aucun contenu disponible !</p>
+            <p className="legend">Pas d'actualité disponible</p>
           </div>
         </Carousel>
       )}
