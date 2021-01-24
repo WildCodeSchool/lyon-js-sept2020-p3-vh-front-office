@@ -15,6 +15,7 @@ import { Icon } from 'leaflet';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { useToasts } from 'react-toast-notifications';
+import SpinnerLoader from '../../services/Loader';
 import { BasketContext } from '../Contexts/BasketContext';
 import API from '../../services/API';
 
@@ -188,7 +189,7 @@ const EventDetails = (props) => {
       </div>
     </section>
   ) : (
-    <div>Loading...</div>
+    <SpinnerLoader />
   );
 };
 

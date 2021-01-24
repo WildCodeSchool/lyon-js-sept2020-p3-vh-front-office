@@ -26,7 +26,6 @@
     "leaflet": "^1.7.1",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
-    "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
     "qs": "^6.9.4",
     "query-string": "^6.13.7",
@@ -47,6 +46,7 @@
     "react-icons": "^4.1.0",
     "react-items-carousel": "^2.8.0",
     "react-leaflet": "^3.0.5",
+    "react-loader-spinner": "^3.1.14",
     "react-query": "^3.3.0",
     "react-responsive": "^8.2.0",
     "react-responsive-carousel": "^3.2.11",
@@ -90,6 +90,7 @@
   "devDependencies": {
     "@types/leaflet": "^1.5.19",
     "babel-eslint": "^10.1.0",
+    "css-loader": "^5.0.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-import": "^2.22.1",
@@ -98,6 +99,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.0",
+    "node-sass": "^4.14.1",
     "prettier": "^2.1.2",
     "typescript": "^4.1.2"
   },

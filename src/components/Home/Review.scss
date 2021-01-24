@@ -7,11 +7,11 @@
   align-items: center;
   padding-top: 50px;
   padding-bottom: 150px;
-  h1 {
-    text-align: center;
+  p {
     color: white;
   }
-  p {
+  h1 {
+    text-align: center;
     color: white;
   }
   .carrousel-reviews {
@@ -30,6 +30,10 @@
       align-items: center;
       height: 200px;
       background-color: white;
+      p,
+      h3 {
+        color: $secondary-color;
+      }
     }
     li.slide.selected {
       height: 200px;
