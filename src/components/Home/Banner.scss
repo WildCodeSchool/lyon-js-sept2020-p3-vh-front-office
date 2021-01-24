@@ -1,3 +1,5 @@
+@import '../variablesCSS';
+
 .banner {
   display: flex;
   flex-direction: column;
@@ -5,12 +7,13 @@
   padding: 30px;
   h1 {
     text-align: center;
-    color: #8c0226;
+    color: $primary-color;
     margin-bottom: 50px;
   }
   p {
+    line-height: 2;
     text-align: center;
-    color: #3c434c;
+    color: $secondary-color;
   }
 }
 

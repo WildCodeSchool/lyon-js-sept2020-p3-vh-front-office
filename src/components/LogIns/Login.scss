@@ -1,85 +1,57 @@
+@import '../variablesCSS';
+
 .container-login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    h1 {
-        margin-top: 50px;
-        margin-bottom: 50px;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 }
 .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  .register-password {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
     width: 100%;
-    flex-direction: column; 
-    .register-password {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    p {
-      margin-top: 20px;
-        margin-right: 5px;
-    }
-    a {
-        margin-left: 5px;
-    }
+    margin-bottom: 20px;
+  }
+  p {
+    margin-top: 20px;
+    margin-right: 5px;
+  }
+  a {
+    margin-left: 5px;
+  }
 }
 
 .password {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px 50px;
-}
-
-.facebook_login {
-    margin-top: 50px;
-    width: 229px;
-    button {
-        background-color: #4267B2;
-        color: white;
-        height: 40px;
-        border: 3px solid lightgray;
-        border-radius: 10px;
-        width: 100%;
-
-    }
-
-}
-
-.google {
-    margin-top: 30px;
-    width: 229px;
-    button {
-        background-color: #db3236;
-        color: white;
-        height: 40px;
-        border: 3px solid lightgray;
-        border-radius: 10px;
-        width: 100%;
-        
-    }
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px 50px;
 }
 
 @media screen and (min-width: 960px) {
-    .facebook_login {
-        width: 400px;
-    }
-    .google {
-        width: 400px;
-    }
-    .form .errors-messages {
-        width: 400px;
-        display: flex;
-    }
+  .facebook_login {
+    width: 400px;
+  }
+  .google {
+    width: 400px;
+  }
+  .form .errors-messages {
+    width: 400px;
+    display: flex;
+  }
 }

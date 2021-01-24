@@ -1,7 +1,9 @@
+@import '../variablesCSS';
+
 .sponsors-main {
   h1 {
     text-align: center;
-    color: #8c0226;
+    color: $primary-color;
   }
   .cards {
     flex-wrap: wrap;

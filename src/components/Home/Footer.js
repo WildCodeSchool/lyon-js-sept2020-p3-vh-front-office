@@ -9,6 +9,7 @@ import logo from '../pictures/hypnose_vins_logo_web.png';
 
 const useStyles = makeStyles(() => ({
   btn: {
+    marginLeft: '20px',
     width: '50px',
     height: '30px',
     backgroundColor: '#6d071a',
@@ -94,7 +95,7 @@ const Footer = () => {
             <h2>Langue</h2>
             <div className="langue">
               {' '}
-              <p>FR | </p>
+              <p>FR|</p>
               <p>EN</p>
             </div>
           </div>

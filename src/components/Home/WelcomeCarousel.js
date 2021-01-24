@@ -12,7 +12,7 @@ const WelcomeCarousel = () => {
   }, []);
 
   return (
-    <div className="carrousel">
+    <div className="welcome-carrousel-wrapper">
       {slides && slides.length !== 0 ? (
         <Carousel
           showThumbs={false}
