@@ -13,7 +13,7 @@ const WelcomeCarousel = () => {
 
   return (
     <div className="carrousel">
-      {slides ? (
+      {slides && slides.length !== 0 ? (
         <Carousel
           showThumbs={false}
           showStatus={false}

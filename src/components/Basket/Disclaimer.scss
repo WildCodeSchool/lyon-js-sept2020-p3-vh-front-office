@@ -1,3 +1,5 @@
+@import '../variablesCSS';
+
 .disclaimer-wrapper {
   width: 70%;
   text-align: center;
@@ -7,15 +9,15 @@
   align-items: center;
   margin-bottom: 80px;
   h1 {
-    color: #8c0226;
+    color: $primary-color;
     margin-top: 80px;
   }
   h3 {
-    color: #8c0226;
+    color: $primary-color;
     margin-bottom: 20px;
   }
   p {
-    color: #3c434c;
+    color: $secondary-color;
     margin-bottom: 20px;
   }
   .confirm-section{

@@ -1,6 +1,5 @@
 .carrousel {
   margin: auto;
-  margin-bottom: 50px;
   .slide {
     img {
       opacity: 0.5;
@@ -25,7 +24,6 @@
 @media screen and (min-width: 1024px) {
   .carousel {
     .slide {
-      height: 60vh;
       .legend {
         font-size: 30px;
       }
@@ -35,5 +33,3 @@
     }
   }
 }
-
-

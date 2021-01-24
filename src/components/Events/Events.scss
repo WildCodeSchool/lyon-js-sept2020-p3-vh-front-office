@@ -1,137 +1,126 @@
 @import '../variablesCSS';
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .eventBody {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  h3 {
-    color: white;
-    margin-bottom: 0;
-  }
-}
-
-.eventCard {
-  width: 100%;
-}
-
-.eventCard:first-child {
-  margin-top: 100px;
-}
-
-.eventDetail {
-  height: 170px;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: $primary-color;
-  color: white;
-  border-radius: 10px;
-  img {
-    width: 70px;
-    height: 95px;
-  }
-}
-
-.eventDescription {
-  width: 60%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  p {
-    font-size: 12px;
-  }
-  button {
-    height: 35px;
-    background-color: $secondary-color;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .button {
+  .calendar-container {
     display: flex;
-    justify-content: space-between;
-    .share {
-      .facebook {
-        margin-right: 10px;
+    flex-direction: column;
+    .highlight {
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+  .cardOfEvents {
+    .eventCard:first-child {
+      margin-top: 100px;
+    }
+    .eventCard {
+      width: 100%;
+      .eventDetail {
+        height: 170px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: $primary-color;
+        color: white;
+        border-radius: 10px;
+        img {
+          width: 70px;
+          height: 95px;
+        }
+        .eventDescription {
+          width: 60%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          h3 {
+            color: white;
+            margin-bottom: 0;
+          }
+          p {
+            font-size: 12px;
+          }
+          button {
+            height: 35px;
+            background-color: $secondary-color;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          .button {
+            display: flex;
+            justify-content: space-between;
+            .share {
+              .facebook {
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+      }
+      .underCard {
+        margin: 15px 0 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        p {
+          display: flex;
+          width: 25%;
+          height: 25px;
+          justify-content: center;
+          align-items: center;
+          background-color: $primary-color;
+          color: white;
+          border-radius: 20px;
+          font-size: 12px;
+        }
       }
     }
   }
 }
 
-.underCard {
-  margin: 15px 0 100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  p {
-    display: flex;
-    width: 25%;
-    height: 25px;
-    justify-content: center;
-    align-items: center;
-    background-color: $primary-color;
-    color: white;
-    border-radius: 20px;
-    font-size: 12px;
-  }
-}
-
-@media screen and (min-width: 515px) {
-}
-
-@media screen and (min-width: 768px) {
-}
-
 @media screen and (min-width: 1024px) {
-  .cardOfEvents {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
   .eventBody {
     display: flex;
     flex-direction: row-reverse;
-  }
-
-  .calendar-container {
-    align-self: flex-start;
-    padding: 40px;
-    z-index: 1000;
-    margin-top: 35px;
-  }
-
-  .eventCard {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin-left: 5%;
-  }
-
-  .eventDetail {
-    width: 100%;
-    padding: 7px;
-    img {
-      width: 140px;
-      height: 140px;
+    .calendar-container {
+      display: flex;
+      align-self: flex-start;
+      padding: 40px;
+      margin-top: 35px;
     }
-  }
-
-  .eventDescription {
-    .reserver {
+    .cardOfEvents {
+      display: flex;
+      flex-direction: column;
       width: 100%;
+      .eventCard {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-left: 5%;
+        .eventDetail {
+          width: 100%;
+          padding: 7px;
+          img {
+            width: 140px;
+            height: 140px;
+          }
+          .eventDescription {
+            .reserver {
+              width: 100%;
+            }
+          }
+        }
+        .underCard {
+          width: 100%;
+        }
+      }
     }
-  }
-
-  .underCard {
-    width: 100%;
   }
 }

@@ -1,21 +1,15 @@
-.map {
-  margin: 50px 20px 50px 20px;
-  align-content: center;
-}
+@import '../variablesCSS';
 
-.title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.description {
-  display: flex;
-  justify-content: center;
-  margin: 50px 30px 50px 30px;
-  border: solid;
-  .left_part {
+.event-details-container {
+  .map {
+    margin: 50px 20px 50px 20px;
+    align-content: center;
+  }
+  .title {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .description {
     display: flex;
     justify-content: center;
     margin: 50px 30px 50px 30px;
@@ -28,10 +22,10 @@
       margin-right: 10px;
       margin-left: 5px;
       padding: 5px 5px 5px 5px;
-    }
-    img {
-      height: 120px;
-      width: 100px;
+      img {
+        height: 120px;
+        width: 100px;
+      }
     }
     .right_part {
       margin-top: 20px;
@@ -45,40 +39,44 @@
     p {
       font-size: smaller;
     }
-    button {
+    .quantity-book {
       margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        margin-right: 30px;
+      }
     }
   }
 }
-@media screen and (min-width: 768px) {
-  .description {
-    display: flex;
-    justify-content: space-around;
-  }
-  .right_part {
-    display: flex;
-    justify-content: space-around;
-    width: 50%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    p {
-      font-size: large;
-    }
 
-    button {
-      align-items: center;
-      height: 40px;
-      width: 150px;
+@media screen and (min-width: 768px) {
+  .event-details-container {
+    .description {
+      justify-content: space-around;
     }
-  }
-  .left_part {
-    width: 30%;
-    height: 400px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    img {
-      height: 200px;
-      width: 150px;
+    .right_part {
+      justify-content: space-around;
+      width: 50%;
+      p {
+        font-size: large;
+      }
+      button {
+        align-items: center;
+        height: 40px;
+        width: 150px;
+      }
+    }
+    .left_part {
+      width: 30%;
+      height: 400px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      img {
+        height: 200px;
+        width: 150px;
+      }
     }
   }
 }

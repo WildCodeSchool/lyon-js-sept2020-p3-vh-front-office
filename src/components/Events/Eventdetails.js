@@ -111,13 +111,12 @@ const EventDetails = (props) => {
   };
 
   return eventCoordinate ? (
-    <>
+    <section className="event-details-container">
       <Helmet>
         <title>{eventData.title}</title>
       </Helmet>
-      <div>
-        <h1 className="title">{eventData.title}</h1>
-      </div>
+
+      <h1 className="title">{eventData.title}</h1>
       <div className="description">
         <div className="left_part">
           <img
@@ -187,7 +186,7 @@ const EventDetails = (props) => {
           </Marker>
         </MapContainer>
       </div>
-    </>
+    </section>
   ) : (
     <div>Loading...</div>
   );

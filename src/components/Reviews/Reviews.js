@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 
-import './Reviews.css';
+import './Reviews.scss';
 import API from '../../services/API';
 
 export default function Reviews() {
@@ -15,7 +15,7 @@ export default function Reviews() {
   }, []);
 
   return (
-    <>
+    <section className="reviews">
       <Helmet>
         <title>Témoignages</title>
       </Helmet>
@@ -52,6 +52,6 @@ export default function Reviews() {
           );
         })}
       </div>
-    </>
+    </section>
   );
 }

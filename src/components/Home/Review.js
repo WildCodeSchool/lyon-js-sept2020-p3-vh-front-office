@@ -24,11 +24,11 @@ const Review = () => {
       request.cancel();
     };
   }, []);
-
   return (
-    <div className="container-carousel">
+    <section className="reviews-carousel-wrapper">
+      <h1>Ils ont tenté l'expérience :</h1>
       <div className="carrousel-reviews">
-        {reviews ? (
+        {reviews && reviews.length !== 0 ? (
           <Carousel
             showThumbs={false}
             showStatus={false}
@@ -39,28 +39,22 @@ const Review = () => {
           >
             {reviews.map((review) => (
               <div key={review.id} className="container-slide-reviews">
-                <div className="slider-reviews">
-                  <div className="slide-reviews">
-                    <h3>{review.title}</h3>
-                    <p style={{ marginTop: '20px', marginBottom: '10px' }}>
-                      {review.comment}
-                    </p>
-                    <div className="rating-and-name">
-                      <Box
-                        className={classes.rating}
-                        component="fieldset"
-                        mb={3}
-                        borderColor="transparent"
-                      >
-                        <Typography component="legend" />
-                        <Rating
-                          name="read-only"
-                          value={review.rating}
-                          readOnly
-                        />
-                      </Box>
-                      <p>par {review.firstname}</p>
-                    </div>
+                <div className="slide-reviews">
+                  <h3>{review.title}</h3>
+                  <p style={{ marginTop: '20px', marginBottom: '10px' }}>
+                    {review.comment}
+                  </p>
+                  <div className="rating-and-name">
+                    <Box
+                      className={classes.rating}
+                      component="fieldset"
+                      mb={3}
+                      borderColor="transparent"
+                    >
+                      <Typography component="legend" />
+                      <Rating name="read-only" value={review.rating} readOnly />
+                    </Box>
+                    <p>par {review.firstname}</p>
                   </div>
                 </div>
               </div>
@@ -74,7 +68,7 @@ const Review = () => {
           </Carousel>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 
