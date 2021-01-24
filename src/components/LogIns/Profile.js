@@ -28,6 +28,8 @@ export default function Profile() {
   const [changeLastname, setChangeLastname] = useState('');
   const [changePhoneNumber, setChangePhoneNumber] = useState('');
   const [changeEmail, setChangeEmail] = useState('');
+  const [fetchEvents, setFetchEvents] = useState([]);
+  const [orders, setOrders] = useState();
 
   const useStyles = makeStyles({
     root: {
@@ -114,6 +116,12 @@ export default function Profile() {
     });
   };
 
+  useEffect(() => {
+    API.get(`/order/user/${userLogged.id}`).then((res) => {
+      setFetchEvents(res.data);
+    });
+  }, []);
+
   const clickToSave = () => {
     setIsClicked(false);
     handleUpdatedInformation();
@@ -128,6 +136,7 @@ export default function Profile() {
   return fetchedUser.length !== 0 ? (
     <main className="profile">
       <h1>Bienvenue {userLogged.firstname} !</h1>
+
       <BottomNavigation
         value={value}
         onChange={(event, newValue) => {
@@ -152,13 +161,6 @@ export default function Profile() {
       {value === 0 ? (
         <>
           <div className="photo-fields">
-            {/* {fetchedUser.photo_url && (
-              <img
-                className="profile-image"
-                src={fetchedUser.photo_url}
-                alt={fetchedUser.lastname}
-              />
-            )} */}
             <div>
               {isClicked ? (
                 <div>
@@ -229,6 +231,14 @@ export default function Profile() {
                   Ma présentation <br /> {fetchedUser.bio}
                 </p>
               )} */}
+                    {/* {userLogged.photo_url && (
+          <img
+            className="profile-image"
+            src={userLogged.photo_url}
+            alt={userLogged.lastname}
+            style={{ width: 'auto' }}
+          />
+        )} */}
                   </div>
                   <button
                     className="button"
@@ -268,7 +278,13 @@ export default function Profile() {
             : null}
         </>
       ) : (
-        <h1>Mes événements</h1>
+        <div>
+          <h1>Mes événements</h1>
+          {fetchEvents &&
+            fetchEvents.map((fetchEvent) => {
+              return <p>{fetchEvent.title}</p>;
+            })}
+        </div>
       )}
     </main>
   ) : (

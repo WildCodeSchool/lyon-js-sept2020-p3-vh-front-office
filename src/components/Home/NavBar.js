@@ -59,13 +59,14 @@ const NavBar = () => {
         <NavLink exact to="/basket">
           <img src={calendar} alt="calendar basket" />
         </NavLink>
+
         {userLogged ? (
           <NavLink
             exact
             to="/profile"
             style={{ fontSize: '18px', width: '150px' }}
           >
-            Bienvenue {userLogged.firstname}
+            Bienvenue {userLogged.firstname}{' '}
           </NavLink>
         ) : (
           <NavLink exact to="/register">

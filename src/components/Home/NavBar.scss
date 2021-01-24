@@ -144,6 +144,7 @@
       border-bottom: 2px solid $primary-color;
       font-size: 17px;
     }
+
     a {
       display: flex;
       justify-content: center;
@@ -269,12 +270,14 @@
         font-size: 19px;
       }
     }
+
     .userLink {
       width: 40%;
       padding-right: 30px;
       img {
         width: 90px;
       }
+
       a:hover {
         font-size: 19px;
       }
