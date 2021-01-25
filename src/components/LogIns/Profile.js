@@ -116,11 +116,18 @@ export default function Profile() {
     });
   };
 
-  useEffect(() => {
-    API.get(`/order/user/${userLogged.id}`).then((res) => {
-      setFetchEvents(res.data);
-    });
-  }, []);
+  API.get(`/order/user/${fetchedUser.id}`).then((res) => {
+    setFetchEvents(res.data);
+  });
+
+  const filterPastEvents = () => {
+    const currentDate = new Date();
+    if (fetchEvents.date < currentDate) {
+      setFetchEvents.map((pastDates) => {
+        return pastDates;
+      });
+    }
+  };
 
   const clickToSave = () => {
     setIsClicked(false);
@@ -279,13 +286,27 @@ export default function Profile() {
         </>
       ) : (
         <div>
-          <h1>Mes événements</h1>
           {fetchEvents &&
             fetchEvents.map((fetchEvent) => {
-              return <p key={fetchEvent.order_id}>{fetchEvent.title}</p>;
+              return (
+                <div className="event-columns">
+                  <div className="upcoming-events">
+                    Evénements à venir
+                    <p key={fetchEvent.order_id}>{fetchEvent.title}</p>
+                    <p>{fetchEvent.date}</p>
+                  </div>
+                </div>
+              );
             })}
         </div>
       )}
+      <span className="vertical-line" />
+
+      <div className="past-events">
+        Evénements passés
+        <p key={fetchEvents.order_id}>{fetchEvents.title}</p>
+        <p>{fetchEvents.date}</p>
+      </div>
     </main>
   ) : (
     'Chargement ...'

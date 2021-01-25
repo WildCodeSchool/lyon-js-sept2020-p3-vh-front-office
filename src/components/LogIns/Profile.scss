@@ -57,9 +57,28 @@
     margin-bottom: 10px;
   }
 
-  // .MuiSvgIcon-root {
-  //   width: 20px;
-  // }
+  .event-columns {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-evenly;
+  }
+
+  .upcoming-events {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .past-events {
+    display: flex;
+    flex-direction: column;
+  }
+  .vertical-line {
+    display: inline-block;
+    border-left: 1px solid #ccc;
+    margin: 0 10px;
+    height: 125px;
+  }
 }
 
 @media screen and (min-width: 768px) {
