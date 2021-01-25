@@ -5,6 +5,7 @@ import './Contact.scss';
 import { useToasts } from 'react-toast-notifications';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { useTranslation } from 'react-i18next';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -43,6 +44,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Contact = () => {
+  const { t } = useTranslation();
   const classes = useStyles();
 
   const { register, handleSubmit, formState, errors, control } = useForm({
@@ -98,7 +100,7 @@ const Contact = () => {
         <title>Contact</title>
       </Helmet>
       <form className="contactForm" onSubmit={handleSubmit(onSubmit)}>
-        <h1>Contactez-nous</h1>
+        <h1>{t('Contact.h1')}</h1>
         <div className="input-contact-form">
           <TextField
             className={classes.input}
@@ -190,7 +192,7 @@ const Contact = () => {
             variant="contained"
             color="primary"
           >
-            Envoyer
+            {t('Contact.button')}
           </Button>
         </div>
       </form>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import Faq from 'react-faq-component';
+import { useTranslation } from 'react-i18next';
 import { getCollection } from '../../services/API';
 import './Faq.scss';
 
@@ -21,6 +22,7 @@ const config = {
 
 export default function FaqPage() {
   const [questions, setQuestions] = useState({});
+  const { t } = useTranslation();
 
   useEffect(() => {
     const request = getCollection('faq').then((datas) =>
@@ -42,7 +44,7 @@ export default function FaqPage() {
       <Helmet>
         <title>FAQ</title>
       </Helmet>
-      <h1 className="faq-title">Foire aux questions</h1>
+      <h1 className="faq-title">{t('FAQ.h1')}</h1>
       <Faq data={questions} styles={styles} config={config} />
     </div>
   );

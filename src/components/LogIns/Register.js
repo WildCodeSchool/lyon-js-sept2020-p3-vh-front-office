@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import TextField from '@material-ui/core/TextField';
 import { useForm } from 'react-hook-form';
 import Button from '@material-ui/core/Button';
+import { useTranslation } from 'react-i18next';
 import './Register.scss';
 import { Link, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Register = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
   const { register, handleSubmit, errors, watch } = useForm({
     mode: 'onSubmit',
   });
@@ -90,7 +92,7 @@ const Register = () => {
         <title>Inscription</title>
       </Helmet>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h2>Inscription</h2>
+        <h2> {t('Inscription.h1')}</h2>
         <div className="input-register-form">
           <TextField
             className={classes.input}
@@ -178,12 +180,12 @@ const Register = () => {
             variant="contained"
             color="primary"
           >
-            S'inscrire
+            {t('Inscription.button')}
           </Button>
         </div>
         <div className="link-back-to-login">
           <Link to="/login">
-            <p>Déjà inscrit ?</p>
+            <p>{t('Inscription.link')}</p>
           </Link>
         </div>
       </form>

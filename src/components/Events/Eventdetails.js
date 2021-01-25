@@ -15,6 +15,7 @@ import { Icon } from 'leaflet';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { useToasts } from 'react-toast-notifications';
+import { useTranslation } from 'react-i18next';
 import SpinnerLoader from '../../services/Loader';
 import { BasketContext } from '../Contexts/BasketContext';
 import API from '../../services/API';
@@ -36,6 +37,7 @@ const EventDetails = (props) => {
   const [eventCoordinate, setEventCoordinate] = useState();
   const [quantity, setQuantity] = useState(1);
   const { addToast } = useToasts();
+  const { t } = useTranslation();
   // eslint-disable-next-line no-unused-vars
   const { basket, setBasket } = useContext(BasketContext);
 
@@ -132,11 +134,11 @@ const EventDetails = (props) => {
         <div className="right_part">
           <p>{eventData.description}</p>
           {eventData.availabilities ? (
-            <p>{eventData.availabilities} places disponibles</p>
-          ) : (
-            <p style={{ color: 'red' }}>
-              Malheureusement, l'évènement n'est plus disponible
+            <p>
+              {eventData.availabilities} {t('EventsDetails.p')}
             </p>
+          ) : (
+            <p style={{ color: 'red' }}>{t('EventsDetails.pWithoutPlace')}</p>
           )}
           {!!eventData.availabilities && ( // need to use this expression, because React return a 0 with eventData.availabilities &&
             <div className="quantity-book">
@@ -148,7 +150,7 @@ const EventDetails = (props) => {
                 variant="contained"
                 color="primary"
               >
-                Réserver
+                {t('EventsDetails.button')}
               </Button>
               <TextField
                 className={classes.input}
