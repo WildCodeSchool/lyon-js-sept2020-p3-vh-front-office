@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import './Calendar.scss';
 import Calendar from 'react-calendar';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';

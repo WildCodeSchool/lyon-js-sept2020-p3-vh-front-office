@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import Faq from 'react-faq-component';
 import { getCollection } from '../../services/API';
-import './Faq.css';
+import './Faq.scss';
 
 const styles = {
   bgColor: 'white',

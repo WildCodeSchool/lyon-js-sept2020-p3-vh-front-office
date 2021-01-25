@@ -141,12 +141,6 @@ function Login() {
             </Button>
           </div>
         </form>
-        {/* <div className="facebook_login">
-          <button type="button">Se connecter avec Facebook</button>
-          <div className="google">
-            <button type="button">Se connecter avec Google</button>
-          </div>
-        </div> */}
       </div>
     </>
   );

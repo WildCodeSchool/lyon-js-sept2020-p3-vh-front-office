@@ -1,11 +1,5 @@
 @import '../variablesCSS';
 
-* {
-/*   font-weight: bold; */
-  margin: 0;
-  padding: 0;
-}
-
 .footerBody {
   border-top: solid 2px $primary-color;
   display: flex;
@@ -163,9 +157,6 @@
     margin: 0 25px;
   }
 
-  .MuiFormControl-root {
-    margin-right: 20px !important;
-  }
 }
 
 @media screen and (min-width: 768px) {

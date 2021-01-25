@@ -1,3 +1,5 @@
+@import '../variablesCSS';
+
 .profile {
   line-height: 6vw;
   display: flex;
@@ -9,7 +11,7 @@
     margin: 3vw;
   }
   .profile-image {
-    clip-path:circle(37%);
+    clip-path: circle(37%);
     width: 30vw;
     margin-bottom: 3vw;
   }
@@ -34,9 +36,9 @@
   }
   @media screen and (min-width: 1024px) {
     .profile {
-      .photo-fields{
+      .photo-fields {
         width: 100%;
-        display:flex;
+        display: flex;
         justify-content: space-around;
         align-items: center;
       }

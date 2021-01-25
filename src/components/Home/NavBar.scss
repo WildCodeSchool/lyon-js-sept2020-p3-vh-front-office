@@ -1,10 +1,5 @@
 @import '../variablesCSS';
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .navbarBody {
   height: 12%;
   width: 100%;
@@ -12,23 +7,19 @@
   align-items: center;
   position: fixed;
   top: 0;
-  .navbarLogo {
-    width: 150px;
-    height: 50%;
-    padding: 10px 0px 0 20px;
+  .navbarLink {
+    display: none;
   }
-}
-
-.navbarLink {
-  display: none;
-}
-
-.userLink {
-  display: none;
-}
-
-.navbarIcon {
-  display: none;
+  .userLink {
+    display: none;
+  }
+  a {
+    .navbarLogo {
+      width: 150px;
+      height: 50%;
+      padding: 10px 0px 0 20px;
+    }
+  }
 }
 /* Paramétrage du menu burger_______________https://github.com/negomi/react-burger-menu_____________________________________________________________________________________*/
 
@@ -245,6 +236,7 @@
       padding-left: 30px;
     }
     .navbarLink {
+      display: block;
       width: 50%;
       font-size: 17px;
       a.active {
@@ -270,6 +262,7 @@
       }
     }
     .userLink {
+      display: flex;
       width: 40%;
       padding-right: 30px;
       img {
