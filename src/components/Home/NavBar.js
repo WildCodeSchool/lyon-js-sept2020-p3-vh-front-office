@@ -10,10 +10,25 @@ import SimpleMenu from './MenuNavBar.js';
 import Translation from './Translation.js';
 import useLocalStorage from '../../services/useLocalStorage';
 import { LoginContext } from '../Contexts/LoginContext';
+import Badge from '@material-ui/core/Badge';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { BasketContext } from '../Contexts/BasketContext';
+
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}))(Badge);
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const { basket, changeQuantity } = useContext(BasketContext);
 
   const handleStateChange = (state) => {
     setMenuOpen(state.isOpen);
@@ -56,8 +71,15 @@ const NavBar = () => {
         <div className="navbarTranslation">
           <Translation />
         </div>
-        <NavLink exact to="/basket">
+        {/*         <NavLink exact to="/basket">
           <img src={calendar} alt="calendar basket" />
+        </NavLink> */}
+        <NavLink exact to="/basket">
+          <IconButton aria-label="cart">
+            <StyledBadge badgeContent={basket.length} color="secondary">
+              <ShoppingCartIcon />
+            </StyledBadge>
+          </IconButton>
         </NavLink>
         {userLogged ? (
           <NavLink
