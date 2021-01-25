@@ -1,52 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import Faq from 'react-faq-component';
-import './Faq.css';
-
-const data = {
-  title: 'FAQ ',
-  rows: [
-    {
-      title: 'Lorem ipsum dolor sit amet?',
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-              ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-              In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-              Fusce sed commodo purus, at tempus turpis.`,
-    },
-    {
-      title: 'Nunc maximus, magna at ultricies elementum?',
-      content:
-        'Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam, vitae convallis ex tortor sed dolor.',
-    },
-    {
-      title: 'Lorem ipsum dolor sit amet?',
-      content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-            Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-            Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-            Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. `,
-    },
-    {
-      title: 'Curabitur laoreet, mauris vel blandit fringilla?',
-      content:
-        'Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam, vitae convallis ex tortor sed dolor.',
-    },
-
-    {
-      title: 'Nunc maximus, magna at ultricies elementum?',
-      content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-            Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-            Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-            Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. `,
-    },
-
-    {
-      title: 'Lorem ipsum dolor sit amet?',
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-      ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-      In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-      Fusce sed commodo purus, at tempus turpis.`,
-    },
-  ],
-};
+import { getCollection } from '../../services/API';
+import './Faq.scss';
 
 const styles = {
   bgColor: 'white',
@@ -64,10 +20,30 @@ const config = {
 };
 
 export default function FaqPage() {
+  const [questions, setQuestions] = useState({});
+
+  useEffect(() => {
+    const request = getCollection('faq').then((datas) =>
+      setQuestions({
+        title: 'FAQ',
+        rows: datas.map((item) => ({
+          title: item.faq_title,
+          content: item.faq_content,
+        })),
+      })
+    );
+    return () => {
+      request.cancel();
+    };
+  }, []);
+
   return (
     <div className="faq-container">
+      <Helmet>
+        <title>FAQ</title>
+      </Helmet>
       <h1 className="faq-title">Foire aux questions</h1>
-      <Faq data={data} styles={styles} config={config} />
+      <Faq data={questions} styles={styles} config={config} />
     </div>
   );
 }

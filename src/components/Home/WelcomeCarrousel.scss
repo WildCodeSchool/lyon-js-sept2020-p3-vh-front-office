@@ -1,6 +1,8 @@
-.carrousel {
-  height: 650px;
+@import '../variablesCSS';
+
+.welcome-carrousel-wrapper {
   margin: auto;
+
   .slide {
     img {
       opacity: 0.5;
@@ -15,7 +17,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .carousel {
+  .welcome-carrousel-wrapper {
     .slide {
       height: 50vh;
     }
@@ -23,9 +25,8 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .carousel {
+  .welcome-carrousel-wrapper {
     .slide {
-      height: 60vh;
       .legend {
         font-size: 30px;
       }
