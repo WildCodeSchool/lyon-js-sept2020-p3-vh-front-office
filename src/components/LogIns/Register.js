@@ -97,7 +97,7 @@ const Register = () => {
           <TextField
             className={classes.input}
             id="outlined-basic"
-            label="Prénom*"
+            label={t('Inscription.label1')}
             variant="outlined"
             inputRef={register({
               required: 'Veuiller renseigner votre prénom.',
@@ -109,7 +109,7 @@ const Register = () => {
           <TextField
             className={classes.input}
             id="outlined-basic"
-            label="Nom"
+            label={t('Inscription.label2')}
             variant="outlined"
             inputRef={register({
               required: 'Veuillez renseigner votre nom',
@@ -122,7 +122,7 @@ const Register = () => {
           <TextField
             className={classes.input}
             id="outlined-basic"
-            label="Email"
+            label={t('Inscription.label3')}
             variant="outlined"
             inputRef={register({
               required: 'Veuillez renseigner votre email',
@@ -134,7 +134,7 @@ const Register = () => {
           <TextField
             className={classes.input}
             id="outlined-basic"
-            label="Téléphone"
+            label={t('Inscription.label4')}
             variant="outlined"
             inputRef={register({
               message: 'Votre numéro de téléphone doit contenir 10 caractères',
@@ -147,7 +147,7 @@ const Register = () => {
             className={classes.input}
             type="password"
             id="outlined-basic"
-            label="Mot de passe*"
+            label={t('Inscription.label5')}
             variant="outlined"
             inputRef={register({
               required: 'Veuillez renseigner un mot de passe',
@@ -161,7 +161,7 @@ const Register = () => {
             className={classes.input}
             type="password"
             id="outlined-basic"
-            label="Confirmation mot de passe*"
+            label={t('Inscription.label6')}
             variant="outlined"
             inputRef={register({
               required: 'Veuillez confirmer votre mot de passe',

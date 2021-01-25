@@ -108,7 +108,7 @@ function Login() {
                 },
               })}
               id="outlined-basic"
-              label="Password"
+              label={t('Connection.label2')}
               variant="outlined"
               type="password"
             />
