@@ -1,5 +1,15 @@
 {
-  "content": {
-    "title": "vins et hypnose"
+  "Accueil": {
+    "titre": "Bienvenue sur Hypnose & Vins"
+  },
+  "Navbar":{
+    "lien1":"Accueil",
+    "lien2":"Concept",
+    "souslien1":"Evénements",
+    "souslien2":"Animateurs",
+    "souslien3":"Vins & Spiritueux",
+    "lien3":"A propos",
+    "lien4":"Contact",
+    "lien5":"S'inscrire / Se connecter"
   }
 }

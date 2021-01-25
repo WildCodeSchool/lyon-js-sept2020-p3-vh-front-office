@@ -1,5 +1,15 @@
 {
-  "content": {
-    "title": "wines and hypnosis"
+  "Accueil": {
+    "titre": "Welcome to Hypnosis & Wines"
+  },
+  "Navbar":{
+    "lien1":"Home",
+    "lien2":"Concept",
+    "souslien1":"Events",
+    "souslien2":"Facilitators",
+    "souslien3":"Wines & Spirits",
+    "lien3":"About",
+    "lien4":"Contact",
+    "lien5":"Signup / SignIn"
   }
 }
