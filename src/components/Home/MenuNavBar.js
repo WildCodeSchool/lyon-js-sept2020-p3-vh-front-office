@@ -40,7 +40,7 @@ const SimpleMenu = () => {
       >
         <NavLink exact to="/events">
           <MenuItem onClick={handleClose} className={classes.simpleMenu}>
-          {t('Navbar.souslien1')}
+            {t('Navbar.souslien1')}
           </MenuItem>
         </NavLink>
         <NavLink exact to="/animators">

@@ -1,15 +1,29 @@
 {
   "Accueil": {
-    "titre": "Bienvenue sur Hypnose & Vins"
+    "titre": "Bienvenue sur Hypnose & Vins",
+    "reviews":"Ils ont tenté l'expérience",
+    "partenaires":"Nos partenaires"
   },
-  "Navbar":{
-    "lien1":"Accueil",
-    "lien2":"Concept",
-    "souslien1":"Evénements",
-    "souslien2":"Animateurs",
-    "souslien3":"Vins & Spiritueux",
-    "lien3":"A propos",
-    "lien4":"Contact",
-    "lien5":"S'inscrire / Se connecter"
+  "Navbar": {
+    "lien1": "Accueil",
+    "lien2": "Concept",
+    "souslien1": "Evénements",
+    "souslien2": "Animateurs",
+    "souslien3": "Vins & Spiritueux",
+    "lien3": "A propos",
+    "lien4": "Contact",
+    "lien5": "S'inscrire / Se connecter"
+  },
+  "Footer":{
+    "email":"Inscrivez-vous aux évènements à venir",
+    "bouton":"Envoyer",
+    "link1":"Nos animateurs",
+    "link2":"Ils ont tenté l'expérience",
+    "link3":"Mentions Légales",
+    "link4":"A PROPOS",
+    "titre":"Hypnose & Vins"
   }
 }
+
+
+

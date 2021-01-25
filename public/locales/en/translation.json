@@ -1,15 +1,26 @@
 {
   "Accueil": {
-    "titre": "Welcome to Hypnosis & Wines"
+    "titre": "Welcome to Hypnosis & Wines",
+    "reviews":"They tried the experience",
+    "partenaires":"Our Suppliers"
   },
-  "Navbar":{
-    "lien1":"Home",
-    "lien2":"Concept",
-    "souslien1":"Events",
-    "souslien2":"Facilitators",
-    "souslien3":"Wines & Spirits",
-    "lien3":"About",
-    "lien4":"Contact",
-    "lien5":"Signup / SignIn"
+  "Navbar": {
+    "lien1": "Home",
+    "lien2": "Concept",
+    "souslien1": "Events",
+    "souslien2": "Facilitators",
+    "souslien3": "Wines & Spirits",
+    "lien3": "About",
+    "lien4": "Contact",
+    "lien5": "Signup / SignIn"
+  },
+  "Footer":{
+    "email":"Sign up to our comming events",
+    "bouton":"Send",
+    "link1":"Our facilitators",
+    "link2":"Reviews",
+    "link3":"Legal Mentions",
+    "link4":"ABOUT",
+    "titre":"Hypnosis & Wines"
   }
 }

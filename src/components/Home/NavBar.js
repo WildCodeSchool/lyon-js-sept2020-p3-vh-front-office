@@ -43,7 +43,7 @@ const NavBar = () => {
       <div className="navbarLink">
         <ul>
           <NavLink exact to="/">
-          {t('Navbar.lien1')}
+            {t('Navbar.lien1')}
           </NavLink>
           <SimpleMenu />
           <NavLink exact to="/aboutme">

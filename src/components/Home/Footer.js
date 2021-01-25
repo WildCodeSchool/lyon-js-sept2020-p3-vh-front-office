@@ -5,6 +5,7 @@ import './Footer.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { useTranslation } from 'react-i18next';
 import logo from '../pictures/hypnose_vins_logo_web.png';
 
 const useStyles = makeStyles(() => ({
@@ -22,6 +23,7 @@ const useStyles = makeStyles(() => ({
 
 const Footer = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   const { register, formState } = useForm({
     mode: 'onBlur',
@@ -33,7 +35,7 @@ const Footer = () => {
     <footer className="footerBody">
       <div className="footerTop">
         <div className="footerSignUp">
-          <h2>Inscrivez-vous aux évènements à venir</h2>
+          <h2>{t('Footer.email')}</h2>
           <form className="footerForm">
             <TextField
               className={classes.input}
@@ -54,7 +56,7 @@ const Footer = () => {
               variant="contained"
               color="primary"
             >
-              Envoyer
+              {t('Footer.bouton')}
             </Button>
           </form>
         </div>
@@ -64,7 +66,7 @@ const Footer = () => {
             <p>CONTACT</p>
           </Link>
           <Link to="/aboutme">
-            <p>A PROPOS</p>
+            <p>{t('Footer.link4')}</p>
           </Link>
           <Link to="/faq">
             <p>FAQ</p>
@@ -80,15 +82,15 @@ const Footer = () => {
             <p>Morgane Pardo Hypnose</p>
           </div>
           <div className="footerLink">
-            <h2>Hypnose & Vins</h2>
+            <h2>{t('Footer.titre')}</h2>
             <Link to="/animators">
-              <p>Nos animateurs</p>
+              <p>{t('Footer.link1')}</p>
             </Link>
             <Link to="/reviews">
-              <p>Ils ont tenté l'expérience</p>
+              <p>{t('Footer.link2')}</p>
             </Link>
             <Link to="/mentions-legales">
-              <p>Mentions Légales</p>
+              <p>{t('Footer.link3')}</p>
             </Link>
           </div>
           <div className="footerLanguage">
