@@ -60,8 +60,8 @@
   .event-columns {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: 10px;
-    justify-content: space-evenly;
   }
 
   .upcoming-events {
@@ -72,6 +72,12 @@
   .past-events {
     display: flex;
     flex-direction: column;
+  }
+
+  .upcoming-events-cards {
+    border: 1px solid #eee;
+    padding: 10px;
+    margin: 10px 20px 20px 20px;
   }
   .vertical-line {
     display: inline-block;

@@ -29,6 +29,7 @@ export default function Profile() {
   const [changePhoneNumber, setChangePhoneNumber] = useState('');
   const [changeEmail, setChangeEmail] = useState('');
   const [fetchEvents, setFetchEvents] = useState([]);
+  const [goToRatings, setGoToRatings] = useState(false);
 
   const useStyles = makeStyles({
     root: {
@@ -121,6 +122,10 @@ export default function Profile() {
       console.log(res);
     });
   }, []);
+
+  const selectToRate = () => {
+    setGoToRatings(true);
+  };
 
   const clickToSave = () => {
     setIsClicked(false);
@@ -280,37 +285,44 @@ export default function Profile() {
       ) : (
         <div>
           <div className="event-columns">
-            Evénements à venir
-            {fetchEvents
-              .filter(
-                (fetchEvent) =>
-                  Date.parse(fetchEvent.date) > Date.parse(new Date())
-              )
-              .map((futureOrder) => {
-                return (
-                  <div className="upcoming-events">
-                    <p key={futureOrder.order_id}>{futureOrder.title}</p>
-                    <p>{futureOrder.date}</p>
-                  </div>
-                );
-              })}
+            <div className="upcoming-events">
+              <h3>Événements à venir</h3>
+              {fetchEvents
+                .filter(
+                  (fetchEvent) =>
+                    Date.parse(fetchEvent.date) > Date.parse(new Date())
+                )
+                .map((futureOrder) => {
+                  return (
+                    <div className="upcoming-events-cards">
+                      <p key={futureOrder.order_id}>{futureOrder.title}</p>
+                      <p>{futureOrder.date}</p>
+                      <div onClick={selectToRate}>Évaluez cet événement</div>
+                      {goToRatings ? <div>hey</div> : ''}
+                    </div>
+                  );
+                })}
+            </div>
             <div>
               <span className="vertical-line" />
             </div>
-            Evénements passés
-            {fetchEvents
-              .filter(
-                (fetchEvent) =>
-                  Date.parse(fetchEvent.date) < Date.parse(new Date())
-              )
-              .map((futureOrder) => {
-                return (
-                  <div className="upcoming-events">
-                    <p key={futureOrder.order_id}>{futureOrder.title}</p>
-                    <p>{futureOrder.date}</p>
-                  </div>
-                );
-              })}
+
+            <div className="past-events">
+              <h3>Événements passés</h3>
+              {fetchEvents
+                .filter(
+                  (fetchEvent) =>
+                    Date.parse(fetchEvent.date) < Date.parse(new Date())
+                )
+                .map((futureOrder) => {
+                  return (
+                    <div>
+                      <p key={futureOrder.order_id}>{futureOrder.title}</p>
+                      <p>{futureOrder.date}</p>
+                    </div>
+                  );
+                })}
+            </div>
           </div>
         </div>
       )}
