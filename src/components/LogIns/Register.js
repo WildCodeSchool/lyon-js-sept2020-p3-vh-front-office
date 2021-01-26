@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import TextField from '@material-ui/core/TextField';
 import { useForm } from 'react-hook-form';
 import Button from '@material-ui/core/Button';
+import { useTranslation } from 'react-i18next';
 import './Register.scss';
 import { Link, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Register = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
   const { register, handleSubmit, errors, watch } = useForm({
     mode: 'onSubmit',
   });
@@ -90,12 +92,12 @@ const Register = () => {
         <title>Inscription</title>
       </Helmet>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h2>Inscription</h2>
+        <h2> {t('Inscription.h1')}</h2>
         <div className="input-register-form">
           <TextField
             className={classes.input}
             id="outlined-basic"
-            label="Prénom*"
+            label={t('Inscription.label1')}
             variant="outlined"
             inputRef={register({
               required: 'Veuiller renseigner votre prénom.',
@@ -107,7 +109,7 @@ const Register = () => {
           <TextField
             className={classes.input}
             id="outlined-basic"
-            label="Nom"
+            label={t('Inscription.label2')}
             variant="outlined"
             inputRef={register({
               required: 'Veuillez renseigner votre nom',
@@ -120,7 +122,7 @@ const Register = () => {
           <TextField
             className={classes.input}
             id="outlined-basic"
-            label="Email"
+            label={t('Inscription.label3')}
             variant="outlined"
             inputRef={register({
               required: 'Veuillez renseigner votre email',
@@ -132,7 +134,7 @@ const Register = () => {
           <TextField
             className={classes.input}
             id="outlined-basic"
-            label="Téléphone"
+            label={t('Inscription.label4')}
             variant="outlined"
             inputRef={register({
               message: 'Votre numéro de téléphone doit contenir 10 caractères',
@@ -145,7 +147,7 @@ const Register = () => {
             className={classes.input}
             type="password"
             id="outlined-basic"
-            label="Mot de passe*"
+            label={t('Inscription.label5')}
             variant="outlined"
             inputRef={register({
               required: 'Veuillez renseigner un mot de passe',
@@ -159,7 +161,7 @@ const Register = () => {
             className={classes.input}
             type="password"
             id="outlined-basic"
-            label="Confirmation mot de passe*"
+            label={t('Inscription.label6')}
             variant="outlined"
             inputRef={register({
               required: 'Veuillez confirmer votre mot de passe',
@@ -178,12 +180,12 @@ const Register = () => {
             variant="contained"
             color="primary"
           >
-            S'inscrire
+            {t('Inscription.button')}
           </Button>
         </div>
         <div className="link-back-to-login">
           <Link to="/login">
-            <p>Déjà inscrit ?</p>
+            <p>{t('Inscription.link')}</p>
           </Link>
         </div>
       </form>

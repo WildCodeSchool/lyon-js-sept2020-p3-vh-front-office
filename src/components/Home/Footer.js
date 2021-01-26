@@ -5,11 +5,13 @@ import './Footer.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { useTranslation } from 'react-i18next';
 import logo from '../pictures/hypnose_vins_logo_web.png';
 import Translation from './Translation';
 
 const useStyles = makeStyles(() => ({
   btn: {
+    marginLeft: '20px',
     width: '50px',
     height: '30px',
     backgroundColor: '#6d071a',
@@ -22,6 +24,7 @@ const useStyles = makeStyles(() => ({
 
 const Footer = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   const { register, handleSubmit, errors, formState } = useForm({
     mode: 'onBlur',
@@ -58,7 +61,7 @@ const Footer = () => {
               variant="contained"
               color="primary"
             >
-              Envoyer
+              {t('Footer.bouton')}
             </Button>
           </form>
         </div>
@@ -68,7 +71,7 @@ const Footer = () => {
             <p>CONTACT</p>
           </Link>
           <Link to="/aboutme">
-            <p>A PROPOS</p>
+            <p>{t('Footer.link4')}</p>
           </Link>
           <Link to="/faq">
             <p>FAQ</p>
@@ -102,12 +105,12 @@ const Footer = () => {
             </a>
           </div>
           <div className="footerLink">
-            <h2>Hypnose & Vins</h2>
+            <h2>{t('Footer.titre')}</h2>
             <Link to="/animators">
-              <p>Nos animateurs</p>
+              <p>{t('Footer.link1')}</p>
             </Link>
             <Link to="/reviews">
-              <p>Ils ont tenté l'expérience</p>
+              <p>{t('Footer.link2')}</p>
             </Link>
             <Link to="/mentions-legales">
               <p>Mentions Légales CGV</p>

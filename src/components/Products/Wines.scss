@@ -1,3 +1,5 @@
+@import '../variablesCSS';
+
 .wines {
   min-height: 70vh;
   display:flex;
@@ -26,13 +28,13 @@
     .slider-container {
       .slider-left {
         div {
-          color: #3c434c;
+          color: $secondary-color;
           border: none;
         }
       }
       .slider-right {
         div {
-          color: #3c434c;
+          color: $secondary-color;
           border: none;
         }
       }
@@ -40,7 +42,7 @@
         p {
           font-size: 3.8vw;
           font-weight: 900;
-          color: #8c0226;
+          color: $primary-color;
           position: absolute;
           top: 210px;
         }

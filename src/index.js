@@ -4,9 +4,10 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
+import SpinnerLoader from './services/Loader';
 
 ReactDOM.render(
-  <Suspense fallback={<div>Loading...</div>}>
+  <Suspense fallback={<SpinnerLoader />}>
     <React.StrictMode>
       <App />
     </React.StrictMode>

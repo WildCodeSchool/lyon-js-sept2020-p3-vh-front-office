@@ -78,7 +78,7 @@ instance.interceptors.response.use(
     if (err.response) {
       if (
         err.response.status === 401 &&
-        window.location.pathname !== '/login'
+        window.location.pathname === '/profile'
       ) {
         window.location = '/login';
       }
