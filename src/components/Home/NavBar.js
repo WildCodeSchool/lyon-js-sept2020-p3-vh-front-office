@@ -27,10 +27,9 @@ const StyledBadge = withStyles((theme) => ({
 
 const useStyles = makeStyles({
   basket: {
-    color:'#8c0226',
+    color: '#8c0226',
   },
 });
-
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -81,7 +80,11 @@ const NavBar = () => {
         </div>
         <NavLink exact to="/basket">
           <IconButton aria-label="cart">
-            <StyledBadge className={classes.basket} badgeContent={basket.length} color="secondary">
+            <StyledBadge
+              className={classes.basket}
+              badgeContent={basket.length}
+              color="secondary"
+            >
               <ShoppingCartIcon className={classes.basket} />
             </StyledBadge>
           </IconButton>
@@ -95,8 +98,8 @@ const NavBar = () => {
             Bienvenue {userLogged.firstname}
           </NavLink>
         ) : (
-          <NavLink exact to="/register">
-            S'inscrire
+          <NavLink exact to="/login">
+            Se connecter
           </NavLink>
         )}
       </div>
