@@ -12,9 +12,9 @@ import ProfileEvents from './ProfileEvents';
 import { LoginContext } from '../Contexts/LoginContext';
 
 import API from '../../services/API';
-import FacebookIcon from '../../files/facebook.png';
-import TwitterIcon from '../../files/twitter.png';
-import InstagramIcon from '../../files/instagram.png';
+// import FacebookIcon from '../../files/facebook.png';
+// import TwitterIcon from '../../files/twitter.png';
+// import InstagramIcon from '../../files/instagram.png';
 
 export default function Profile() {
   const [fetchedUser, setFetchedUser] = useState([]);
@@ -102,8 +102,10 @@ export default function Profile() {
           </div>
         )}
         <hr />
-        <div onClick={logout}>Log out</div>
-        {fetchedUser.instagram_url ||
+        <div className="logout" onClick={logout}>
+          Log out
+        </div>
+        {/* {fetchedUser.instagram_url ||
         fetchedUser.twitter_url ||
         fetchedUser.facebook_url
           ? fetchedUser.facebook_url && (
@@ -126,7 +128,7 @@ export default function Profile() {
                 )}
               </section>
             )
-          : null}
+          : null} */}
       </div>
     </main>
   ) : (

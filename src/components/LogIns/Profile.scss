@@ -50,12 +50,6 @@
     }
   }
 
-  // .MuiBottomNavigation-root {
-  //   display: flex;
-  //   margin-top: 10px;
-  //   margin-bottom: 10px;
-  // }
-
   // .vertical-line {
   //   display: inline-block;
   //   border-left: 1px solid #ccc;
@@ -66,32 +60,23 @@
   .profile-navigation {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 
     cursor: pointer;
     border: 1px solid #eee;
-    padding: 50px;
-    margin: 10px;
-    .social-networks {
-      img {
-        display: flex;
-        justify-content: center;
-        border-radius: 0;
-        width: 10px;
-      }
+    width: 80%;
+    margin: 20px;
+
+    hr {
+      width: 70%;
+    }
+
+    svg {
+      margin-right: 10px;
     }
   }
-
-  .profile-section {
-    display: flex;
-    flex-direction: row;
-    margin: 15px;
-  }
-
-  hr {
-    width: 100%;
-  }
 }
+
 .myEvents {
   display: flex;
   justify-content: center;
@@ -155,14 +140,36 @@
 
 @media screen and (min-width: 768px) {
   .profile {
-    line-height: 4vw;
-    .profile-image {
-      width: 30vw;
+    h1 {
+      margin-bottom: 20px;
+    }
+    .profile-navigation {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      cursor: pointer;
+      border: 1px solid #eee;
+      padding: 30px;
+      hr {
+        width: 100%;
+      }
+
+      .profile-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .logout {
+      margin-top: 50px;
     }
   }
   .myinfo-section {
     h2 {
       text-align: center;
+      margin-top: 10px;
+      margin-bottom: 25px;
     }
 
     .main-fields {
@@ -171,6 +178,7 @@
       align-items: center;
 
       margin: 10px;
+
       text-align: center;
 
       p {
@@ -209,13 +217,15 @@
         cursor: pointer;
         border: 1px solid #eee;
         padding: 100px;
-        margin: 10px 20px 20px 20px;
-      }
+        hr {
+          width: 100%;
+        }
 
-      .profile-section {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        .profile-section {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
       }
     }
     .myinfo-section {
