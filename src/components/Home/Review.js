@@ -3,6 +3,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
+import { useTranslation } from 'react-i18next';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import { getCollection } from '../../services/API';
@@ -17,6 +18,7 @@ const useStyles = makeStyles(() => ({
 const Review = () => {
   const classes = useStyles();
   const [reviews, setReviews] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const request = getCollection('reviews').then((data) => setReviews(data));
@@ -26,7 +28,7 @@ const Review = () => {
   }, []);
   return (
     <section className="reviews-carousel-wrapper">
-      <h1>Ils ont tenté l'expérience</h1>
+      <h1>{t('Accueil.reviews')}</h1>
       <p>________________________</p>
       <div className="carrousel-reviews">
         {reviews && reviews.length !== 0 ? (

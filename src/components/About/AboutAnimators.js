@@ -7,11 +7,13 @@ import {
   AiOutlineInstagram,
 } from 'react-icons/ai';
 import './AboutAnimators.scss';
+import { useTranslation } from 'react-i18next';
 import photo from '../pictures/login.png';
 import { getCollection } from '../../services/API';
 
 const AboutAnimators = () => {
   const [animators, setAnimators] = useState();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const request = getCollection('users/animators').then((data) =>
@@ -27,7 +29,7 @@ const AboutAnimators = () => {
       <Helmet>
         <title>Animateurs</title>
       </Helmet>
-      <h1>Animateurs</h1>
+      <h1> {t('Animators.titre')}</h1>
       {animators &&
         animators.map((animator) => {
           return (

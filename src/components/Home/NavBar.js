@@ -10,10 +10,12 @@ import SimpleMenu from './MenuNavBar.js';
 import Translation from './Translation.js';
 import useLocalStorage from '../../services/useLocalStorage';
 import { LoginContext } from '../Contexts/LoginContext';
+import { useTranslation } from 'react-i18next';
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const { t } = useTranslation();
 
   const handleStateChange = (state) => {
     setMenuOpen(state.isOpen);
@@ -41,14 +43,14 @@ const NavBar = () => {
       <div className="navbarLink">
         <ul>
           <NavLink exact to="/">
-            Accueil
+            {t('Navbar.lien1')}
           </NavLink>
           <SimpleMenu />
           <NavLink exact to="/aboutme">
-            A Propos
+            {t('Navbar.lien3')}
           </NavLink>
           <NavLink exact to="/contact">
-            Contact
+            {t('Navbar.lien4')}
           </NavLink>
         </ul>
       </div>
@@ -69,7 +71,7 @@ const NavBar = () => {
           </NavLink>
         ) : (
           <NavLink exact to="/register">
-            S'inscrire
+            {t('Navbar.lien5')}
           </NavLink>
         )}
       </div>

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
   simpleMenu: {
@@ -13,6 +14,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const SimpleMenu = () => {
+  const { t } = useTranslation();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -38,17 +40,17 @@ const SimpleMenu = () => {
       >
         <NavLink exact to="/events">
           <MenuItem onClick={handleClose} className={classes.simpleMenu}>
-            Evènements
+            {t('Navbar.souslien1')}
           </MenuItem>
         </NavLink>
         <NavLink exact to="/animators">
           <MenuItem onClick={handleClose} className={classes.simpleMenu}>
-            Animateurs
+            {t('Navbar.souslien2')}
           </MenuItem>
         </NavLink>
         <NavLink exact to="/products">
           <MenuItem onClick={handleClose} className={classes.simpleMenu}>
-            Vins & Spiritueux
+            {t('Navbar.souslien3')}
           </MenuItem>
         </NavLink>
       </Menu>
