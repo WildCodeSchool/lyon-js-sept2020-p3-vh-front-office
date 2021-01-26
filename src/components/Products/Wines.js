@@ -1,10 +1,12 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Carousel } from '3d-react-carousal';
+import { useTranslation } from 'react-i18next';
 import WineModal from './WineModal';
 import './Wines.scss';
 import API from '../../services/API';
 
 const Wines = () => {
+  const { t } = useTranslation();
   const [wineClicked, setWineClicked] = useState('');
   const [modalShow, setModalShow] = useState(false);
   const [winesCollection, setWinesCollection] = useState([]);
@@ -31,14 +33,14 @@ const Wines = () => {
       <main className="wines">
         {winesCollection.length !== 0 ? (
           <>
-            <h1>Les vins dégustés</h1>
+            <h1> {t('Wines.h1')}</h1>
 
             <CarrouselWrapper
               winesList={winesCollection}
               handleClick={handleClick}
             />
 
-            <h2>Retrouvez les vins dégustés lors des événements !</h2>
+            <h2>{t('Wines.h2')}</h2>
           </>
         ) : (
           <h2 className="empty-wines-array">Aucun vin disponible</h2>

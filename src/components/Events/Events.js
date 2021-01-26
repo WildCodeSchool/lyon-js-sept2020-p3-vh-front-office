@@ -17,6 +17,7 @@ import { GoLocation, GoPerson } from 'react-icons/go';
 import { GiWineGlass } from 'react-icons/gi';
 import { BsPerson } from 'react-icons/bs';
 import './Events.scss';
+import { useTranslation } from 'react-i18next';
 import API from '../../services/API';
 
 const useStyles = makeStyles((theme) => ({
@@ -36,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
 const Events = () => {
   const [events, setEvents] = useState();
   const [value, onChange] = useState(new Date());
+  const { t } = useTranslation();
 
   let mark = [];
 
@@ -94,7 +96,7 @@ const Events = () => {
           onClick={() => getAllEvents()}
           className={useStyles().btn}
         >
-          Réinitialiser
+          {t('Events.bouton2')}
         </Button>
       </div>
       <div className="cardOfEvents">
@@ -147,7 +149,7 @@ const Events = () => {
                       </div>
                       <Link to={`/events/${event.id}`}>
                         <button className="reserver" type="button">
-                          Voir Details ➔
+                          {t('Events.bouton1')}
                         </button>
                       </Link>
                     </div>
