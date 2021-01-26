@@ -15,6 +15,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { BasketContext } from '../Contexts/BasketContext';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
@@ -36,6 +37,7 @@ const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const { basket, changeQuantity } = useContext(BasketContext);
   const classes = useStyles();
+  const { t } = useTranslation();
 
   const handleStateChange = (state) => {
     setMenuOpen(state.isOpen);
@@ -63,14 +65,14 @@ const NavBar = () => {
       <div className="navbarLink">
         <ul>
           <NavLink exact to="/">
-            Accueil
+            {t('Navbar.lien1')}
           </NavLink>
           <SimpleMenu />
           <NavLink exact to="/aboutme">
-            A Propos
+            {t('Navbar.lien3')}
           </NavLink>
           <NavLink exact to="/contact">
-            Contact
+            {t('Navbar.lien4')}
           </NavLink>
         </ul>
       </div>

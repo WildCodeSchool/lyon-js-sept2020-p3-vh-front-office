@@ -9,6 +9,7 @@
   .calendar-container {
     display: flex;
     flex-direction: column;
+    margin-top: 60px;
     .highlight {
       font-weight: bold;
       font-size: 20px;
@@ -20,42 +21,57 @@
     }
     .eventCard {
       width: 100%;
+      margin-bottom: 40px;
       .eventDetail {
-        height: 170px;
+        height: 100%;
         width: 100%;
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
         align-items: center;
-        background-color: $primary-color;
-        color: white;
+        background-color: white;
+        color: black;
         border-radius: 10px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: lightgrey;
         img {
-          width: 70px;
-          height: 95px;
+          width: 100%;
+          height: 250px;
         }
         .eventDescription {
-          width: 60%;
+          width: 100%;
           height: 100%;
           display: flex;
           flex-direction: column;
           justify-content: space-around;
-          h3 {
-            color: white;
-            margin-bottom: 0;
+          .reserver {
+            font-size: 30px;
+            color: $primary-color;
+          }
+
+          h2 {
+            color: black;
+            margin: 20px;
           }
           p {
-            font-size: 12px;
+            font-size: 15px;
+            margin: 20px;
           }
           button {
             height: 35px;
-            background-color: $secondary-color;
+            background-color: transparent;
             color: white;
             border-radius: 5px;
+            outline: none;
+            color: black;
+            border: none;
             cursor: pointer;
           }
           .button {
             display: flex;
             justify-content: space-between;
+            margin: 30px;
+            margin-bottom: 30px;
             .share {
               .facebook {
                 margin-right: 10px;
@@ -64,21 +80,21 @@
           }
         }
       }
+
       .underCard {
-        margin: 15px 0 100px;
+        margin: 15px 0 10px;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        align-items: center;
         p {
           display: flex;
           width: 25%;
           height: 25px;
           justify-content: center;
           align-items: center;
-          background-color: $primary-color;
-          color: white;
+          background-color: white;
+          color: black;
           border-radius: 20px;
-          font-size: 12px;
         }
       }
     }
@@ -93,8 +109,9 @@
       display: flex;
       align-self: flex-start;
       padding: 40px;
-      margin-top: 35px;
+      margin-top: 60px;
     }
+
     .cardOfEvents {
       display: flex;
       flex-direction: column;
@@ -108,12 +125,15 @@
           width: 100%;
           padding: 7px;
           img {
-            width: 140px;
-            height: 140px;
+            width: 100%;
+            max-width: 2500px;
+            height: 250px;
           }
           .eventDescription {
             .reserver {
               width: 100%;
+              font-size: 25px;
+              color: $primary-color;
             }
           }
         }
