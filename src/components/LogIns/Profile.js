@@ -5,11 +5,8 @@ import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 import './Profile.scss';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import PersonIcon from '@material-ui/icons/Person';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
+import { User, Info, HelpCircle } from 'react-feather';
 import { makeStyles } from '@material-ui/core/styles';
 import ProfileInformation from './ProfileInformation';
 import ProfileEvents from './ProfileEvents';
@@ -25,6 +22,9 @@ export default function Profile() {
   const { userLogged, setUserLogged } = useContext(LoginContext);
   const history = useHistory();
   const { addToast } = useToasts();
+  const [clickedProfileInfo, setClickedProfileInfo] = useState(false);
+  const [clickedMyEvents, setClickedMyEvents] = useState(false);
+  const [clickedHelp, setClickedHelp] = useState(false);
 
   const useStyles = makeStyles({
     root: {
@@ -76,33 +76,50 @@ export default function Profile() {
     fill: '#8c0226',
   };
 
+  const navigateToInformation = () => {
+    setClickedProfileInfo(true);
+  };
+
+  const navigateToMyEvents = () => {
+    setClickedMyEvents(true);
+  };
+
+  const navigateToHelp = () => {
+    setClickedHelp(true);
+  };
+
   return fetchedUser.length !== 0 ? (
     <main className="profile">
       <h1>Bienvenue {userLogged.firstname} !</h1>
-
-      <BottomNavigation
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-        showLabels
-        className={classes.root}
-      >
-        <BottomNavigationAction
-          label="Mes informations"
-          icon={<PersonIcon style={buttonStyle} />}
-        />
-        <BottomNavigationAction
-          label="Mes événements"
-          icon={<VisibilityIcon style={buttonStyle} />}
-        />
-        <BottomNavigationAction
-          label="Me déconnecter"
-          icon={<ExitToAppIcon style={buttonStyle} />}
-        />
-      </BottomNavigation>
-      <ProfileInformation />
-      <ProfileEvents />
+      <div className="profile-navigation">
+        {clickedProfileInfo ? (
+          <ProfileInformation />
+        ) : (
+          <div onClick={navigateToInformation} className="profile-section">
+            <Info />
+            <h3>My Information</h3>
+          </div>
+        )}
+        <hr />
+        {clickedMyEvents ? (
+          <ProfileEvents />
+        ) : (
+          <div onClick={navigateToMyEvents} className="profile-section">
+            <User />
+            <h3>My Events</h3>
+          </div>
+        )}
+        <hr />
+        {clickedHelp ? (
+          <h3>Help</h3>
+        ) : (
+          <div onClick={navigateToHelp} className="profile-section">
+            <HelpCircle />
+            <h3>Help</h3>
+          </div>
+        )}
+        <hr />
+      </div>
     </main>
   ) : (
     'Chargement'
