@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { LoginContext } from '../Contexts/LoginContext';
 import API from '../../services/API';
+import './Profile.scss';
 
 export default function ProfileInformation() {
   const { userLogged, setUserLogged } = useContext(LoginContext);
@@ -60,78 +61,78 @@ export default function ProfileInformation() {
   return (
     <div>
       {' '}
-      <div className="photo-fields">
-        <div>
-          {isClicked ? (
-            <div>
-              <div className="main-fields">
-                <div>
-                  Prénom:
-                  <input
-                    name="firstname"
-                    value={changeFirstname}
-                    onChange={changeFirstNameInput}
-                  />
-                </div>
-
-                <div>
-                  Nom:
-                  <input
-                    name="lastname"
-                    value={changeLastname}
-                    onChange={changeLastNameInput}
-                  />
-                </div>
-
-                <div>
-                  Teléphone:
-                  <input
-                    name="phone_number"
-                    value={changePhoneNumber}
-                    onChange={changePhoneNumberInput}
-                  />
-                </div>
-
-                <div>
-                  Email:
-                  <input
-                    name="email"
-                    value={changeEmail}
-                    onChange={changeEmailInput}
-                  />
-                </div>
-
-                {/* {fetchedUser.bio && (
-                <p className="bio">
-                  Ma présentation <br /> {fetchedUser.bio}
-                </p>
-              )} */}
-              </div>
+      <div className="myinfo-section">
+        <h3>My Information</h3>
+        {isClicked ? (
+          <div>
+            <div className="main-fields">
               <div>
-                <button
-                  className="button"
-                  type="submit"
-                  method="put"
-                  action="/me"
-                  onClick={clickToSave}
-                >
-                  Sauvegarder mes données
-                </button>
+                Prénom:
+                <input
+                  name="firstname"
+                  value={changeFirstname}
+                  onChange={changeFirstNameInput}
+                />
               </div>
-            </div>
-          ) : (
-            <div>
-              <div className="main-fields">
-                <p>Prénom : {changeFirstname}</p>
-                <p>Nom : {changeLastname}</p>
-                <p>Téléphone : {changePhoneNumber}</p>
-                <p>Email : {changeEmail}</p>
-                {/* {fetchedUser.bio && (
+
+              <div>
+                Nom:
+                <input
+                  name="lastname"
+                  value={changeLastname}
+                  onChange={changeLastNameInput}
+                />
+              </div>
+
+              <div>
+                Teléphone:
+                <input
+                  name="phone_number"
+                  value={changePhoneNumber}
+                  onChange={changePhoneNumberInput}
+                />
+              </div>
+
+              <div>
+                Email:
+                <input
+                  name="email"
+                  value={changeEmail}
+                  onChange={changeEmailInput}
+                />
+              </div>
+
+              {/* {fetchedUser.bio && (
                 <p className="bio">
                   Ma présentation <br /> {fetchedUser.bio}
                 </p>
               )} */}
-                {/* {userLogged.photo_url && (
+            </div>
+            <div>
+              <button
+                className="button"
+                type="submit"
+                method="put"
+                action="/me"
+                onClick={clickToSave}
+              >
+                Sauvegarder mes données
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <div className="main-fields">
+              <p>Prénom : {changeFirstname}</p>
+              <p>Nom : {changeLastname}</p>
+              <p>Téléphone : {changePhoneNumber}</p>
+              <p>Email : {changeEmail}</p>
+              {/* {fetchedUser.bio && (
+                <p className="bio">
+                  Ma présentation <br /> {fetchedUser.bio}
+                </p>
+              )} */}
+              {/* {userLogged.photo_url && (
           <img
             className="profile-image"
             src={userLogged.photo_url}
@@ -139,13 +140,12 @@ export default function ProfileInformation() {
             style={{ width: 'auto' }}
           />
         )} */}
-              </div>
-              <button className="button" type="submit" onClick={clickToEdit}>
-                Modifier mes données
-              </button>
             </div>
-          )}
-        </div>
+            <button className="button" type="submit" onClick={clickToEdit}>
+              Modifier mes données
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

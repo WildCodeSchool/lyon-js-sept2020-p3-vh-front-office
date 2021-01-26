@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useContext, useState } from 'react';
@@ -6,16 +5,16 @@ import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 import './Profile.scss';
 
-import { User, Info, HelpCircle } from 'react-feather';
-import { makeStyles } from '@material-ui/core/styles';
+import { Gift, Info, HelpCircle } from 'react-feather';
+// import { makeStyles } from '@material-ui/core/styles';
 import ProfileInformation from './ProfileInformation';
 import ProfileEvents from './ProfileEvents';
 
 import { LoginContext } from '../Contexts/LoginContext';
 import API from '../../services/API';
-import FacebookIcon from '../../files/facebook.png';
-import TwitterIcon from '../../files/twitter.png';
-import InstagramIcon from '../../files/instagram.png';
+// import FacebookIcon from '../../files/facebook.png';
+// import TwitterIcon from '../../files/twitter.png';
+// import InstagramIcon from '../../files/instagram.png';
 
 export default function Profile() {
   const [fetchedUser, setFetchedUser] = useState([]);
@@ -26,18 +25,18 @@ export default function Profile() {
   const [clickedMyEvents, setClickedMyEvents] = useState(false);
   const [clickedHelp, setClickedHelp] = useState(false);
 
-  const useStyles = makeStyles({
-    root: {
-      justifyContent: 'space-around',
-      width: '100%',
-      '& span': {
-        color: '#3c434c',
-      },
-    },
-  });
+  // const useStyles = makeStyles({
+  //   root: {
+  //     justifyContent: 'space-around',
+  //     width: '100%',
+  //     '& span': {
+  //       color: '#3c434c',
+  //     },
+  //   },
+  // });
 
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  // const classes = useStyles();
+  // const [value, setValue] = React.useState(0);
 
   const logout = async () => {
     try {
@@ -57,11 +56,11 @@ export default function Profile() {
     }
   };
 
-  useEffect(() => {
-    if (value === 2) {
-      logout();
-    }
-  }, [value]);
+  // useEffect(() => {
+  //   if (value === 2) {
+  //     logout();
+  //   }
+  // }, [value]);
 
   useEffect(() => {
     API.get('/me').then((res) => {
@@ -70,21 +69,24 @@ export default function Profile() {
     });
   }, []);
 
-  const buttonStyle = {
-    width: '4vw',
-    height: '100%',
-    fill: '#8c0226',
-  };
+  // const buttonStyle = {
+  //   width: '4vw',
+  //   height: '100%',
+  //   fill: '#8c0226',
+  // };
 
   const navigateToInformation = () => {
+    history.push('/profile/myinformation');
     setClickedProfileInfo(true);
   };
 
   const navigateToMyEvents = () => {
+    history.push('/profile/myevents');
     setClickedMyEvents(true);
   };
 
   const navigateToHelp = () => {
+    history.push('/faq');
     setClickedHelp(true);
   };
 
@@ -93,7 +95,11 @@ export default function Profile() {
       <h1>Bienvenue {userLogged.firstname} !</h1>
       <div className="profile-navigation">
         {clickedProfileInfo ? (
-          <ProfileInformation />
+          <div>
+            <h3>My Information</h3>
+
+            <ProfileInformation />
+          </div>
         ) : (
           <div onClick={navigateToInformation} className="profile-section">
             <Info />
@@ -102,16 +108,22 @@ export default function Profile() {
         )}
         <hr />
         {clickedMyEvents ? (
-          <ProfileEvents />
+          <div>
+            <h3>My Events</h3>
+
+            <ProfileEvents />
+          </div>
         ) : (
           <div onClick={navigateToMyEvents} className="profile-section">
-            <User />
+            <Gift />
             <h3>My Events</h3>
           </div>
         )}
         <hr />
         {clickedHelp ? (
-          <h3>Help</h3>
+          <div>
+            <h3>Help</h3>
+          </div>
         ) : (
           <div onClick={navigateToHelp} className="profile-section">
             <HelpCircle />
@@ -119,6 +131,7 @@ export default function Profile() {
           </div>
         )}
         <hr />
+        <div onClick={logout}>Log out</div>
       </div>
     </main>
   ) : (

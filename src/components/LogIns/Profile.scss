@@ -121,13 +121,16 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        margin: auto;
       }
+
       margin: 3vw 30vw;
 
       .profile-image {
         width: 20vw;
         margin-bottom: 0;
       }
+
       .social-networks {
         img {
           border-radius: 0;

@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { LoginContext } from '../Contexts/LoginContext';
+import './Profile.scss';
 import API from '../../services/API';
 
 export default function ProfileEvents() {
@@ -9,13 +10,13 @@ export default function ProfileEvents() {
   useEffect(() => {
     API.get(`/order/user/${userLogged.id}`).then((res) => {
       setFetchEvents(res.data);
-      console.log(res);
     });
   }, []);
 
   return (
     <>
       <div>
+        <h3>My Events</h3>
         <div className="event-columns">
           <div className="upcoming-events">
             <h3>Événements à venir</h3>
