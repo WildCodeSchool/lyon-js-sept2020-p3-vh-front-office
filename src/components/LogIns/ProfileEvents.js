@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { CornerDownLeft } from 'react-feather';
 import moment from 'moment';
 import { LoginContext } from '../Contexts/LoginContext';
+import ReviewModal from './ReviewModal';
 
 import './Profile.scss';
 import API from '../../services/API';
@@ -18,27 +19,11 @@ export default function ProfileEvents() {
   const [goToRatings, setGoToRatings] = useState(false);
   const [rateEvent, setRateEvent] = useState([]);
   const [writeComment, setWriteComment] = useState('');
-  const [saveReview, setSaveReview] = useState(false);
+
+  const [modal, setModal] = useState({ show: false });
 
   const leaveReview = (e) => {
     setWriteComment(e.target.value);
-  };
-
-  const sendReviewToDB = () => {
-    API.post('/reviews/', {
-      comment: writeComment,
-      rating: 3,
-      event_id: 1,
-      user_id: 2,
-      id: 3,
-    }).then((res) => {
-      setRateEvent(res.data);
-    });
-  };
-
-  const clickToSaveReview = () => {
-    setSaveReview(true);
-    sendReviewToDB();
   };
 
   useEffect(() => {
@@ -47,12 +32,36 @@ export default function ProfileEvents() {
     });
   }, []);
 
+  const sendReviewToDB = () => {
+    API.post('/reviews/', {
+      comment: writeComment,
+      rating: 3,
+      event_id: fetchEvents[0].event_id,
+      user_id: userLogged.id,
+    }).then((res) => {
+      setRateEvent(res.data);
+    });
+  };
+
+  // const clickToSaveReview = () => {
+  //   setSaveReview(true);
+  //   sendReviewToDB();
+  // };
+
   const backToProfile = () => {
     history.push('/profile');
   };
 
-  const selectToRate = () => {
-    setGoToRatings(true);
+  // const selectToRate = () => {
+  //   setOpenReviewModal(true);
+  // };
+
+  const showModal = () => {
+    setModal({ show: true });
+  };
+
+  const hideModal = () => {
+    setModal({ show: false });
   };
 
   return (
@@ -79,29 +88,21 @@ export default function ProfileEvents() {
                 return (
                   <div className="myevent-details">
                     <p key={futureOrder.order_id}>{futureOrder.title}</p>
-                    <p>{moment(futureOrder.date).format('MMM Do YY')}</p>
+                    <p key={futureOrder.event_id}>
+                      {moment(futureOrder.date).format('MMM Do YY')}
+                    </p>
+                    <p>{futureOrder.event_id}</p>
+
+                    <ReviewModal show={modal.show} handleClose={hideModal} />
+
+                    <button type="button" onClick={showModal}>
+                      Rate this event
+                    </button>
                   </div>
                 );
               })}
           </div>
-          <div onClick={selectToRate}>Évaluez cet événement</div>
-          {goToRatings ? (
-            <div>
-              <div>Donne une etoile yo</div>
-              <textarea
-                name="comment"
-                value={writeComment}
-                onChange={leaveReview}
-              >
-                commentaire
-              </textarea>
-              <button onClick={clickToSaveReview} type="submit">
-                click to leave review
-              </button>
-            </div>
-          ) : (
-            ''
-          )}
+
           <div>
             <span className="vertical-line" />
           </div>
@@ -113,11 +114,11 @@ export default function ProfileEvents() {
                 (fetchEvent) =>
                   Date.parse(fetchEvent.date) < Date.parse(new Date())
               )
-              .map((futureOrder) => {
+              .map((pastOrder) => {
                 return (
                   <div>
-                    <p key={futureOrder.order_id}>{futureOrder.title}</p>
-                    <p>{moment(futureOrder.date).format('MMM Do YY')}</p>
+                    <p key={pastOrder.order_id}>{pastOrder.title}</p>
+                    <p>{moment(pastOrder.date).format('MMM Do YY')}</p>
                   </div>
                 );
               })}

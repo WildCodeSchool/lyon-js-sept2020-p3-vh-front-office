@@ -204,4 +204,33 @@
       margin: 10px 20px 20px 20px;
     }
   }
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+
+    .modal-main {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      position: fixed;
+      background: white;
+      border: 1px solid #eee;
+      top: 30%;
+      left: 50%;
+      padding: 100px;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .display-block {
+    display: block;
+  }
+
+  .display-none {
+    display: none;
+  }
 }
