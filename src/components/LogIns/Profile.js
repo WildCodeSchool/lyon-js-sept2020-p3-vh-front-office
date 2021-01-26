@@ -6,11 +6,11 @@ import { useToasts } from 'react-toast-notifications';
 import './Profile.scss';
 
 import { Gift, Info, HelpCircle } from 'react-feather';
-// import { makeStyles } from '@material-ui/core/styles';
 import ProfileInformation from './ProfileInformation';
 import ProfileEvents from './ProfileEvents';
 
 import { LoginContext } from '../Contexts/LoginContext';
+
 import API from '../../services/API';
 // import FacebookIcon from '../../files/facebook.png';
 // import TwitterIcon from '../../files/twitter.png';
@@ -24,19 +24,6 @@ export default function Profile() {
   const [clickedProfileInfo, setClickedProfileInfo] = useState(false);
   const [clickedMyEvents, setClickedMyEvents] = useState(false);
   const [clickedHelp, setClickedHelp] = useState(false);
-
-  // const useStyles = makeStyles({
-  //   root: {
-  //     justifyContent: 'space-around',
-  //     width: '100%',
-  //     '& span': {
-  //       color: '#3c434c',
-  //     },
-  //   },
-  // });
-
-  // const classes = useStyles();
-  // const [value, setValue] = React.useState(0);
 
   const logout = async () => {
     try {
@@ -56,24 +43,12 @@ export default function Profile() {
     }
   };
 
-  // useEffect(() => {
-  //   if (value === 2) {
-  //     logout();
-  //   }
-  // }, [value]);
-
   useEffect(() => {
     API.get('/me').then((res) => {
       setUserLogged(res.data);
       setFetchedUser(res.data);
     });
   }, []);
-
-  // const buttonStyle = {
-  //   width: '4vw',
-  //   height: '100%',
-  //   fill: '#8c0226',
-  // };
 
   const navigateToInformation = () => {
     history.push('/profile/myinformation');
@@ -96,8 +71,6 @@ export default function Profile() {
       <div className="profile-navigation">
         {clickedProfileInfo ? (
           <div>
-            <h3>My Information</h3>
-
             <ProfileInformation />
           </div>
         ) : (
@@ -109,8 +82,6 @@ export default function Profile() {
         <hr />
         {clickedMyEvents ? (
           <div>
-            <h3>My Events</h3>
-
             <ProfileEvents />
           </div>
         ) : (

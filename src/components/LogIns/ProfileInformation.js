@@ -1,11 +1,14 @@
+/* eslint-disable react/button-has-type */
 import React, { useEffect, useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { CornerDownLeft } from 'react-feather';
 import { LoginContext } from '../Contexts/LoginContext';
 import API from '../../services/API';
 import './Profile.scss';
 
 export default function ProfileInformation() {
   const { userLogged, setUserLogged } = useContext(LoginContext);
-
+  const history = useHistory();
   const [isClicked, setIsClicked] = useState(false);
   const [changeFirstname, setChangeFirstname] = useState('');
   const [changeLastname, setChangeLastname] = useState('');
@@ -13,7 +16,7 @@ export default function ProfileInformation() {
   const [changeEmail, setChangeEmail] = useState('');
 
   useEffect(() => {
-    if (userLogged.length !== 0) {
+    if (userLogged) {
       setChangeFirstname(userLogged.firstname);
 
       setChangeLastname(userLogged.lastname);
@@ -58,11 +61,23 @@ export default function ProfileInformation() {
     handleUpdatedInformation();
   };
 
+  const backToProfile = () => {
+    history.push('/profile');
+  };
+
   return (
     <div>
-      {' '}
+      <div>
+        <CornerDownLeft
+          onClick={backToProfile}
+          className="backToProfile-button"
+        >
+          Retour au profil
+        </CornerDownLeft>
+      </div>
       <div className="myinfo-section">
         <h3>My Information</h3>
+
         {isClicked ? (
           <div>
             <div className="main-fields">
@@ -123,10 +138,10 @@ export default function ProfileInformation() {
         ) : (
           <div>
             <div className="main-fields">
-              <p>Prénom : {changeFirstname}</p>
-              <p>Nom : {changeLastname}</p>
-              <p>Téléphone : {changePhoneNumber}</p>
-              <p>Email : {changeEmail}</p>
+              <p>Prénom: {changeFirstname}</p>
+              <p>Nom: {changeLastname}</p>
+              <p>Téléphone: {changePhoneNumber}</p>
+              <p>Email: {changeEmail}</p>
               {/* {fetchedUser.bio && (
                 <p className="bio">
                   Ma présentation <br /> {fetchedUser.bio}
