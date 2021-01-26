@@ -18,6 +18,17 @@ const useStyles = makeStyles(() => ({
       backgroundColor: '#6d071a',
     },
   },
+  input: {
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#6d071a',
+    },
+    '& .MuiOutlinedInput-input': {
+      color: '#6d071a',
+    },
+    '& .MuiInputLabel-outlined.Mui-focused': {
+      color: '#6d071a',
+    },
+  },
 }));
 
 const Footer = () => {

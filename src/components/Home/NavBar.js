@@ -5,7 +5,6 @@ import './NavBar.scss';
 import { slide as Menu } from 'react-burger-menu';
 import logo from '../pictures/hypnose_vins_logo.png';
 import cross from '../pictures/cross.png';
-import calendar from '../pictures/calendar.svg';
 import SimpleMenu from './MenuNavBar.js';
 import Translation from './Translation.js';
 import useLocalStorage from '../../services/useLocalStorage';
@@ -15,6 +14,7 @@ import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { BasketContext } from '../Contexts/BasketContext';
+import { makeStyles } from '@material-ui/core/styles';
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
@@ -25,10 +25,18 @@ const StyledBadge = withStyles((theme) => ({
   },
 }))(Badge);
 
+const useStyles = makeStyles({
+  basket: {
+    color:'#8c0226',
+  },
+});
+
+
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const { basket, changeQuantity } = useContext(BasketContext);
+  const classes = useStyles();
 
   const handleStateChange = (state) => {
     setMenuOpen(state.isOpen);
@@ -71,13 +79,10 @@ const NavBar = () => {
         <div className="navbarTranslation">
           <Translation />
         </div>
-        {/*         <NavLink exact to="/basket">
-          <img src={calendar} alt="calendar basket" />
-        </NavLink> */}
         <NavLink exact to="/basket">
           <IconButton aria-label="cart">
-            <StyledBadge badgeContent={basket.length} color="secondary">
-              <ShoppingCartIcon />
+            <StyledBadge className={classes.basket} badgeContent={basket.length} color="secondary">
+              <ShoppingCartIcon className={classes.basket} />
             </StyledBadge>
           </IconButton>
         </NavLink>
