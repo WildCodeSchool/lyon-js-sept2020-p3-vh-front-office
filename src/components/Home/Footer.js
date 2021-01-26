@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import logo from '../pictures/hypnose_vins_logo_web.png';
+import Translation from './Translation';
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -78,9 +79,27 @@ const Footer = () => {
         <div className="footerSmallLink">
           <div className="footerSocialMedia">
             <h2>Social</h2>
-            <p>Facebook</p>
-            <p>Instagram</p>
-            <p>Morgane Pardo Hypnose</p>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://fr-fr.facebook.com/hypnose.villeurbanne/"
+            >
+              Facebook
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://fr-fr.facebook.com/hypnose.villeurbanne/"
+            >
+              Instagram
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.morgane-pardo-hypnose.com/"
+            >
+              Morgane Pardo Hypnose
+            </a>
           </div>
           <div className="footerLink">
             <h2>Hypnose & Vins</h2>
@@ -91,15 +110,13 @@ const Footer = () => {
               <p>Ils ont tenté l'expérience</p>
             </Link>
             <Link to="/mentions-legales">
-              <p>Mentions Légales</p>
+              <p>Mentions Légales CGV</p>
             </Link>
           </div>
           <div className="footerLanguage">
             <h2>Langue</h2>
             <div className="langue">
-              {' '}
-              <p>FR | </p>
-              <p>EN</p>
+              <Translation />
             </div>
           </div>
           <div className="footerLogo">
