@@ -76,7 +76,7 @@ export default function ProfileInformation() {
         </CornerDownLeft>
       </div>
       <div className="myinfo-section">
-        <h3>My Information</h3>
+        <h2>My Information</h2>
 
         {isClicked ? (
           <div>
@@ -138,10 +138,23 @@ export default function ProfileInformation() {
         ) : (
           <div>
             <div className="main-fields">
-              <p>Prénom: {changeFirstname}</p>
-              <p>Nom: {changeLastname}</p>
-              <p>Téléphone: {changePhoneNumber}</p>
-              <p>Email: {changeEmail}</p>
+              <p>
+                <b>Prénom: </b>
+                {changeFirstname}
+              </p>
+              <p>
+                {' '}
+                <b>Nom: </b>
+                {changeLastname}
+              </p>
+              <p>
+                <b>Téléphone: </b>
+                {changePhoneNumber}
+              </p>
+              <p>
+                <b>Email: </b>
+                {changeEmail}
+              </p>
               {/* {fetchedUser.bio && (
                 <p className="bio">
                   Ma présentation <br /> {fetchedUser.bio}
@@ -155,10 +168,10 @@ export default function ProfileInformation() {
             style={{ width: 'auto' }}
           />
         )} */}
+              <button className="button" type="submit" onClick={clickToEdit}>
+                Modifier
+              </button>
             </div>
-            <button className="button" type="submit" onClick={clickToEdit}>
-              Modifier mes données
-            </button>
           </div>
         )}
       </div>

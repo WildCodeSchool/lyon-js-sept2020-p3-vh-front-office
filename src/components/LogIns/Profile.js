@@ -12,9 +12,9 @@ import ProfileEvents from './ProfileEvents';
 import { LoginContext } from '../Contexts/LoginContext';
 
 import API from '../../services/API';
-// import FacebookIcon from '../../files/facebook.png';
-// import TwitterIcon from '../../files/twitter.png';
-// import InstagramIcon from '../../files/instagram.png';
+import FacebookIcon from '../../files/facebook.png';
+import TwitterIcon from '../../files/twitter.png';
+import InstagramIcon from '../../files/instagram.png';
 
 export default function Profile() {
   const [fetchedUser, setFetchedUser] = useState([]);
@@ -103,6 +103,30 @@ export default function Profile() {
         )}
         <hr />
         <div onClick={logout}>Log out</div>
+        {fetchedUser.instagram_url ||
+        fetchedUser.twitter_url ||
+        fetchedUser.facebook_url
+          ? fetchedUser.facebook_url && (
+              // eslint-disable-next-line react/jsx-indent
+              <section className="social-networks">
+                {fetchedUser.instagram_url && (
+                  <a href={fetchedUser.instagram_url} target="blank">
+                    <img src={InstagramIcon} alt="Instagram" />
+                  </a>
+                )}
+                {fetchedUser.twitter_url && (
+                  <a href={fetchedUser.twitter_url} target="blank">
+                    <img src={TwitterIcon} alt="Twitter" />
+                  </a>
+                )}
+                {fetchedUser.facebook_url && (
+                  <a href={fetchedUser.facebook_url} target="blank">
+                    <img src={FacebookIcon} alt="Facebook" />
+                  </a>
+                )}
+              </section>
+            )
+          : null}
       </div>
     </main>
   ) : (

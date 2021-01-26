@@ -103,9 +103,9 @@ export default function ProfileEvents() {
               })}
           </div>
 
-          <div>
+          {/* <div>
             <span className="vertical-line" />
-          </div>
+          </div> */}
 
           <div className="past-events">
             <h3>Passés</h3>
