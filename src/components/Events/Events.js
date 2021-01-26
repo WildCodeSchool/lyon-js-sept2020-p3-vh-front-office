@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
+import queryString from 'query-string';
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -38,7 +39,7 @@ const Events = () => {
   const [events, setEvents] = useState();
   const [value, onChange] = useState(new Date());
   const { t } = useTranslation();
-
+  const history = useHistory();
   let mark = [];
 
   useEffect(() => {
@@ -66,11 +67,15 @@ const Events = () => {
 
   useEffect(() => {
     if (value.length === 2) {
-      return API.get(
-        `/events?after=${moment(value[0]).format('YYYY-MM-DD')}&before=${moment(
-          value[1]
-        ).format('YYYY-MM-DD')}`
-      ).then((res) => setEvents(res.data));
+      const parsedDates = value.map((date) =>
+        moment(date).format('YYYY-MM-DD')
+      );
+      const queryParams = { after: parsedDates[0], before: parsedDates[1] };
+      const clientQueryParams = queryString.stringify(queryParams);
+      history.push(`/events?${clientQueryParams}`);
+      return API.get(`/events${window.location.search}`).then((res) =>
+        setEvents(res.data)
+      );
     }
     return API.get('/events').then((res) => {
       setEvents(res.data);
@@ -93,7 +98,10 @@ const Events = () => {
         />
         <Button
           type="button"
-          onClick={() => getAllEvents()}
+          onClick={() => {
+            getAllEvents();
+            history.push(`/events`);
+          }}
           className={useStyles().btn}
         >
           {t('Events.bouton2')}
