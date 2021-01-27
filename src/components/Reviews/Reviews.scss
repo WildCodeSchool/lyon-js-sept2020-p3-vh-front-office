@@ -8,7 +8,8 @@
   h1 {
     color: $primary-color;
     font-family: $primary-font-family;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    margin-top: 50px;
   }
   .cards-container {
     display: flex;
@@ -17,7 +18,6 @@
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: 100vh;
     margin-bottom: 100px;
     margin-top: 50px;
     .cards{
@@ -29,19 +29,6 @@
       margin: 15px;
       margin-bottom: 50px;
       border-radius: 5px;
-      background-color: lightyellow;
-
-      .fb-icons-reviews{
-        display: flex;
-        justify-content: flex-end;
-      }
-      img{
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        margin-top: -50px;
-      }
       .content-card{
         margin: 20px;
         h3{
@@ -58,10 +45,19 @@
           margin-bottom: 60px;
           font-family: $secondary-font-family;
         }
-        .rating-reviews{
-
-        }
       }
     }
   }
+}
+
+
+@media screen and (max-width: 1024px) {
+.container-page-reviews .cards-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.container-page-reviews .cards-container .cards{
+  width: 80%;
+}
 }

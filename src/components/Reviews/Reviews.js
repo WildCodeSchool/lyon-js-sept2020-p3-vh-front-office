@@ -4,10 +4,9 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
+import moment from 'moment';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
-import FacebookIcon from '@material-ui/icons/Facebook';
 import Box from '@material-ui/core/Box';
 import './Reviews.scss';
 import API from '../../services/API';
@@ -15,17 +14,12 @@ import API from '../../services/API';
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   const { t } = useTranslation();
-  const history = useHistory();
 
   useEffect(() => {
     API.get('/reviews').then((res) => {
       setReviews(res.data);
     });
   }, []);
-
-  function handleClick() {
-    history.push(`${reviews.facebook_url}`);
-  }
 
   return (
     <div className="container-page-reviews">
@@ -39,15 +33,13 @@ export default function Reviews() {
           reviews.map((review) => {
             return (
               <div className="cards" key={review.id}>
-                <img src={review.photo_url} alt={review.firstname} />
-                <div className="fb-icons-reviews" onClick={handleClick}>
-                  <FacebookIcon style={{ color: '#8c0226' }} />
-                </div>
                 <div className="content-card">
                   <h3>
                     {review.firstname} {review.lastname}
                   </h3>
-                  <p className="date-reviews">{review.created_at}</p>
+                  <p className="date-reviews">
+                    {moment(review.created_at).format('DD-MM-YYYY')}
+                  </p>
                   <p className="comment-reviews">{review.comment}</p>
                   <Box component="fieldset" mb={3} borderColor="transparent">
                     <Typography component="legend" />
