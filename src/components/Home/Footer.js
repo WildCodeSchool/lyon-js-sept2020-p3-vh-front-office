@@ -37,7 +37,7 @@ const Footer = () => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const { register, handleSubmit, errors, formState } = useForm({
+  const { handleSubmit, errors, formState } = useForm({
     mode: 'onBlur',
   });
 
@@ -58,11 +58,6 @@ const Footer = () => {
               label="Email"
               name="email"
               variant="outlined"
-              inputRef={register({
-                required: 'Champ obligatoire',
-                pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                message: 'Email invalide',
-              })}
             />
             <div>{errors.email && <span>{errors.email.message}</span>}</div>
             <Button
