@@ -21,6 +21,7 @@ import {
   FacebookIcon,
   TwitterIcon,
 } from 'react-share';
+import { useTranslation } from 'react-i18next';
 import SpinnerLoader from '../../services/Loader';
 import { BasketContext } from '../Contexts/BasketContext';
 import API from '../../services/API';
@@ -43,6 +44,7 @@ const EventDetails = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [userData, setUserData] = useState();
   const { addToast } = useToasts();
+  const { t } = useTranslation();
   // eslint-disable-next-line no-unused-vars
   const { basket, setBasket } = useContext(BasketContext);
 
@@ -158,17 +160,24 @@ const EventDetails = (props) => {
             </TwitterShareButton>
           </div>
           {eventData.availabilities ? (
-            <p className="places">
-              {' '}
-              {eventData.availabilities} places disponibles
+            <p>
+              {eventData.availabilities} {t('EventsDetails.p')}
             </p>
           ) : (
-            <p style={{ color: 'red' }}>
-              Malheureusement, l'évènement n'est plus disponible
-            </p>
+            <p style={{ color: 'red' }}>{t('EventsDetails.pWithoutPlace')}</p>
           )}
           {!!eventData.availabilities && ( // need to use this expression, because React return a 0 with eventData.availabilities &&
             <div className="quantity-book">
+              <Button
+                // eslint-disable-next-line react/jsx-boolean-value
+                onClick={(event) => handleClick(event)}
+                className={classes.btn}
+                type="button"
+                variant="contained"
+                color="primary"
+              >
+                {t('EventsDetails.button')}
+              </Button>
               <TextField
                 className={classes.input}
                 id="standard-number"
