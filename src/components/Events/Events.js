@@ -17,6 +17,7 @@ import {
 } from 'react-share';
 import { GoLocation, GoPerson } from 'react-icons/go';
 import { GiWineGlass } from 'react-icons/gi';
+import { BiTimeFive } from 'react-icons/bi';
 import { BsPerson } from 'react-icons/bs';
 import './Events.scss';
 import { useTranslation } from 'react-i18next';
@@ -142,16 +143,24 @@ const Events = () => {
                     <div className="underCard">
                       <p>
                         <GoLocation size={25} color="#8c0226" />
+                        &nbsp;
                         {event.city}
                       </p>
 
                       <p>
-                        <BsPerson size={25} color="#8c0226" /> {event.firstname}
-                        {event.lastname}
+                        <BsPerson size={25} color="#8c0226" />
+                        &nbsp;
+                        {event.firstname}&nbsp;{event.lastname}
                       </p>
                       <p>
                         <GiWineGlass size={25} color="#8c0226" />
+                        &nbsp;
                         {event.name}
+                      </p>
+                      <p>
+                        <BiTimeFive size={25} color="#8c0226" />
+                        &nbsp;
+                        {moment(event.date).format('DD-MM-YYYY')}
                       </p>
                     </div>
                     <div className="button">
