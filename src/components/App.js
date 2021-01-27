@@ -15,7 +15,6 @@ import Products from './Products/Products';
 import Reviews from './Reviews/Reviews';
 import Login from './LogIns/Login';
 import Register from './LogIns/Register';
-import Sponsors from './Sponsors/Sponsors';
 import Basket from './Basket/Basket';
 import OrderConfirmation from './Basket/OrderConfirmation';
 import Disclaimer from './Basket/Disclaimer';
@@ -51,7 +50,6 @@ function App() {
                   <Route exact path="/reviews" component={Reviews} />
                   <Route exact path="/basket" component={Basket} />
                   <Route exact path="/products" component={Products} />
-                  <Route exact path="/sponsors" component={Sponsors} />
                   <Route exact path="/register" component={Register} />
                   <Route
                     exact

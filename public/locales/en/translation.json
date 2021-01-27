@@ -1,5 +1,140 @@
 {
-  "content": {
-    "title": "wines and hypnosis"
+  "Accueil": {
+    "titre": "Welcome to Hypnosis & Wines",
+    "reviews": "They tried the experience",
+    "partenaires": "Our Suppliers"
+  },
+  "Navbar": {
+    "lien1": "Home",
+    "lien2": "Concept",
+    "souslien1": "Events",
+    "souslien2": "Facilitators",
+    "souslien3": "Wines & Spirits",
+    "lien3": "About",
+    "lien4": "Contact",
+    "lien5": "Signup"
+  },
+  "Footer": {
+    "email": "Sign up to our comming events",
+    "bouton": "Send",
+    "link1": "Our facilitators",
+    "link2": "Reviews",
+    "link3": "Legal Mentions",
+    "link4": "ABOUT",
+    "titre": "Hypnosis & Wines"
+  },
+  "Events": {
+    "bouton1": "Details",
+    "bouton2": "Reset filters"
+  },
+  "Animators": {
+    "titre": "Facilitators"
+  },
+  "Wines": {
+    "h1": "Tasted Wines",
+    "h2": "Find the wines tasted during the events !"
+  },
+  "About": {
+    "h1": "About",
+    "h2": "Who Am I?",
+    "content1": "Originally from Lyon, I first studied medicine, then molecular biology, keen to unravel the cellular mysteries of human beings.After health concerns that forced me to reconsider my career choices, I studied law and human resources management. I then worked in various professions within SMEs and Key Accounts. However, I quickly realize that this job puts me in conflict with some of my values. In search of a more authentic path and more in keeping with my identity, I naturally turn to alternative medicine, psychology and Ericksonian hypnosis. A lucid and hypersensitive dreamer since childhood, I have long searched for answers in books in order to channel my sensitivity and empathy. However, it was only by encountering hypnosis that I was able to put words into my altered nocturnal state of consciousness. And then there were also my hands, those hands that heal when I put them on a sensitive area of ​​the other's body.",
+    "content2": "Prenant conscience du sens de mon existence, je me forme alors à diverses médecines douces corporelles : magnétisme, Reiki et Tui Na, par exemple.Mais également en psychologie sociale, en psychopathologie, au niveau praticien en hypnose éricksonienne avec Kévin FINEL, en PNL (Programmation Neuro – Linguistique) et en RITMO® (combinaison de l’hypnose et de l’EMDR) avec Lili RUGGIERI. Ma curiosité de l’être humain me pousse à me former en continu afin de toujours mieux appréhender et comprendre l’autre pour mieux l’accompagner dans sa quête de sens, de bonheur, de mieux-être. Le tout dans une volonté constante d’amélioration et d’évolution de mon approche. J’adhère également au Syndicat Des Métiers de l’Hypnose dans le but de garantir à mes clients un cadre déontologique, éthique et professionnel sûr. Ayant été chahutée par la vie, d’autre m’ont accompagnée afin que je trouve ma voie, c’est à mon tour de vous éclairer le chemin pendant quelques temps afin que vous trouviez votre propre lumière.",
+    "h3": "Join me !"
+  },
+  "Contact": {
+    "h1": "Contact us",
+    "button": "Send",
+    "label1": "Name",
+    "label2": "Firstname",
+    "label3": "Email",
+    "label4": "Message",
+    "select": "Select a topic",
+    "subject1": "Question / Participation Event",
+    "subject2": "To become partner",
+    "subject3": "Host an event"
+  },
+  "Inscription": {
+    "h1": "Sign Up",
+    "button": "Sign up",
+    "link": "Already signed up ?",
+    "label1": "Firstname",
+    "label2": "Lastname",
+    "label3": "Email",
+    "label4": "Phone",
+    "label5": "Password",
+    "label6": "Confirm password"
+  },
+  "Connection": {
+    "h1": "Login",
+    "checkbox": "Remember me",
+    "link1": "Forgot password ?",
+    "link2": "Sign Up",
+    "button": "Log In",
+    "label2": "Password"
+  },
+  "Reviews": {
+    "h1": "Testimonials"
+  },
+  "Mentions": {
+    "h1": "Legal Notice",
+    "h3_1": "Main activities",
+    "p_1": "Morgane PARDO HYPNOSIS: practice of hypnosis, brief therapies, reiki, magnetism, training and coaching.",
+    "h3_2": "The head office",
+    "p_2": "Postal address: 1-3 rue de Milan - 69100 VILLEURBANNE",
+    "h3_3": "Contact",
+    "p_3": "By phone: 06 76 82 95 27",
+    "p_3_2": "By email: morgane.pardo@yahoo.com",
+    "h3_4": "RCS",
+    "p_4": "Microenterprise Registered with RCS Lyon 845 258 284",
+    "p_4_2": "SIRET 845 258 284 00015",
+    "p_4_3": "APE : 9609Z",
+    "p_4_4": "VAT not applicable, art. 293 B of the CGI.",
+    "h3_5": "Personal data",
+    "p_5": "In accordance with article 34 of the Law of January 6, 1978, you have an individual right of access to modify, rectify and delete personal information concerning you, a right which may be exercised by sending an e-mail to organe .pardo @ yahoo.com",
+    "h3_6": "Editing / publication",
+    "p_6": "The site http://morgane-pardo-hypnose.com is the property of Madame Morgane PARDO - 1-3 rue de Milan - 69100 VILLEURBANNE",
+    "h3_7": "Director of publication",
+    "p_7": "Madame Morgane PARDO",
+    "h3_8": "Accommodation",
+    "p_8": "Hetzner Online GmbH - Industriestr. 25, 91710 Gunzenhausen - Germany",
+    "h3_9": "Software",
+    "p_9": "This site is produced and powered by HTTP5000.",
+    "h3_10": "Personal data",
+    "p_10": "No personal data is collected on this site.",
+    "h3_11": "Copyright",
+    "p_11": "The elements appearing on this site are subject to French and international legislation and are protected by intellectual property law. No full or partial representation or reproduction or any use may be made without having obtained the prior consent of their respective owners.",
+    "h3_12": "Hypertext links",
+    "p_12": "The hypertext links offered on this site to other existing resources on the internet do not engage the responsibility of the owner (s) of this site. For any link insertion or link exchange, contact us by mail at the above address. Photo credits: Pexels.com / Unsplash.com / Morgane Pardo"
+  },
+  "FAQ": {
+    "h1": "Frequently Asked Questions"
+  },
+  "EventsDetails": {
+    "p": "Available seats",
+    "pWithoutPlace": "Unfortunately, the event is no longer available",
+    "button": "Reserve"
+  },
+  "basket": {
+    "title": "Your basket",
+    "button1": "Back to events",
+    "button2": "Reserve",
+    "button3": "Empty my basket",
+    "button4": "Delete",
+    "champ1": "Event",
+    "champ2": "Date",
+    "champ3": "Reserved places",
+    "champ4": "Unit price",
+    "champ5": "Total price",
+    "champ6": "Delete the event"
+  },
+  "WinesModals": {
+    "title": "Cuvée",
+    "p1": "Winemaker",
+    "p2": "Grape variety (s)",
+    "p3": "Sommelier",
+    "p4": "Grape variety (s)",
+    "p5": "Aroma (s)",
+    "p6": "Indicated price",
+    "button": "Go to the producer's website"
   }
 }

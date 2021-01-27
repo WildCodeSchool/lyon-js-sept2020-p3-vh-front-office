@@ -25,7 +25,7 @@ const Translation = () => {
   };
 
   return (
-    <div>
+    <section className="translation-button-wrapper">
       <div className="container-btn-trad">
         <ButtonGroup
           className="btn-trad"
@@ -48,7 +48,7 @@ const Translation = () => {
         </ButtonGroup>
       </div>
       <h1 className="title-test-trad">{t('content.title')}</h1>
-    </div>
+    </section>
   );
 };
 

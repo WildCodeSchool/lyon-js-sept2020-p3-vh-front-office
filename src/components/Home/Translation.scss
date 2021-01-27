@@ -1,12 +1,16 @@
-.container-btn-trad {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
+@import '../variablesCSS';
 
-.title-test-trad {
-  display: none;
-  justify-content: center;
+.translation-button-wrapper {
+  .container-btn-trad {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .title-test-trad {
+    display: none;
+    justify-content: center;
+  }
 }

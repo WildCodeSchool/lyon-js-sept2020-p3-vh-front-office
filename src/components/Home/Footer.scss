@@ -1,11 +1,5 @@
 @import '../variablesCSS';
 
-* {
-/*   font-weight: bold; */
-  margin: 0;
-  padding: 0;
-}
-
 .footerBody {
   border-top: solid 2px $primary-color;
   display: flex;
@@ -15,12 +9,10 @@
   .MuiFormControl-root {
     padding-bottom: 10px !important;
   }
-
   .MuiInputBase-input {
     height: 0.05em !important;
     padding-right: 10px !important;
   }
-
   .MuiInputLabel-formControl {
     top: -7px !important;
   }
@@ -163,9 +155,6 @@
     margin: 0 25px;
   }
 
-  .MuiFormControl-root {
-    margin-right: 20px !important;
-  }
 }
 
 @media screen and (min-width: 768px) {

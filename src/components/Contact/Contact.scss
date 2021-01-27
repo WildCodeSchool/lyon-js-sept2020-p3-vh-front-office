@@ -1,11 +1,13 @@
+@import '../variablesCSS';
+
 .container-contact-form {
-  .contactForm{
-    width:70%
+  .contactForm {
+    width: 70%;
   }
   display: flex;
   justify-content: center;
   text-align: center;
-  h1{
+  h1 {
     margin-bottom: 2rem;
   }
   form {
@@ -20,10 +22,10 @@
   }
 }
 
-  @media screen and (min-width: 1024px) {
-    .container-contact-form {
-      .contactForm{
-        width:30%
-      }
+@media screen and (min-width: 1024px) {
+  .container-contact-form {
+    .contactForm {
+      width: 30%;
     }
   }
+}

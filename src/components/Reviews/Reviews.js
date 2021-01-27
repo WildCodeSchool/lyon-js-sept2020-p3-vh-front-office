@@ -1,12 +1,14 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
 
-import './Reviews.css';
+import './Reviews.scss';
 import API from '../../services/API';
 
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     API.get('/reviews').then((res) => {
@@ -15,11 +17,11 @@ export default function Reviews() {
   }, []);
 
   return (
-    <>
+    <section className="reviews">
       <Helmet>
         <title>Témoignages</title>
       </Helmet>
-      <h1>Témoignages</h1>
+      <h1>{t('Reviews.h1')}</h1>
 
       <div>
         {reviews.map((review) => {
@@ -52,6 +54,6 @@ export default function Reviews() {
           );
         })}
       </div>
-    </>
+    </section>
   );
 }

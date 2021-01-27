@@ -1,0 +1,27 @@
+@import '../variablesCSS';
+
+.faq-container {
+  width: 70%;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  .styles_faq-row-wrapper__3vA1D h2 {
+    display: none;
+  }
+  .faq-title {
+    text-align: center;
+    color: #8c0226;
+  }
+
+  .styles_faq-row-wrapper__3vA1D .styles_faq-row__2YF3c {
+    padding: 15px 0px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .faq-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
