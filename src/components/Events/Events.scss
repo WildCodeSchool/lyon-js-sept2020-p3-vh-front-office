@@ -11,8 +11,14 @@
     flex-direction: column;
     margin-top: 60px;
     .highlight {
-      font-weight: bold;
-      font-size: 20px;
+      font-weight: 1000;
+      color: $primary-color;
+    }
+    .react-calendar__tile--active {
+      background: rgb(193, 194, 196);
+    }
+    .react-calendar__tile--now {
+      background: rgb(231, 224, 224);
     }
   }
   .cardOfEvents {
@@ -35,8 +41,7 @@
         border-width: 1px;
         border-color: lightgrey;
         img {
-          width: 100%;
-          height: 250px;
+          width: 400px;
         }
         .eventDescription {
           width: 100%;
@@ -50,33 +55,19 @@
           }
 
           h2 {
+            text-align: center;
             color: black;
             margin: 20px;
           }
           p {
+            text-align: center;
             font-size: 15px;
             margin: 20px;
           }
-          button {
-            height: 35px;
-            background-color: transparent;
-            color: white;
-            border-radius: 5px;
-            outline: none;
-            color: black;
-            border: none;
-            cursor: pointer;
-          }
           .button {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             margin: 30px;
-            margin-bottom: 30px;
-            .share {
-              .facebook {
-                margin-right: 10px;
-              }
-            }
           }
         }
       }
@@ -108,6 +99,8 @@
     .calendar-container {
       display: flex;
       align-self: flex-start;
+      position: sticky;
+      top: 0;
       padding: 40px;
       margin-top: 60px;
     }
@@ -125,9 +118,7 @@
           width: 100%;
           padding: 7px;
           img {
-            width: 100%;
-            max-width: 2500px;
-            height: 250px;
+            width: 400px;
           }
           .eventDescription {
             .reserver {
