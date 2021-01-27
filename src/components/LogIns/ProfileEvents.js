@@ -17,14 +17,10 @@ export default function ProfileEvents() {
   const [fetchEvents, setFetchEvents] = useState([]);
   const history = useHistory();
   const [goToRatings, setGoToRatings] = useState(false);
-  const [rateEvent, setRateEvent] = useState([]);
+
   const [writeComment, setWriteComment] = useState('');
 
   const [modal, setModal] = useState({ show: false });
-
-  const leaveReview = (e) => {
-    setWriteComment(e.target.value);
-  };
 
   useEffect(() => {
     API.get(`/order/user/${userLogged.id}`).then((res) => {
@@ -32,32 +28,12 @@ export default function ProfileEvents() {
     });
   }, []);
 
-  const sendReviewToDB = () => {
-    API.post('/reviews/', {
-      comment: writeComment,
-      rating: 3,
-      event_id: fetchEvents[0].event_id,
-      user_id: userLogged.id,
-    }).then((res) => {
-      setRateEvent(res.data);
-    });
-  };
-
-  // const clickToSaveReview = () => {
-  //   setSaveReview(true);
-  //   sendReviewToDB();
-  // };
-
   const backToProfile = () => {
     history.push('/profile');
   };
 
-  // const selectToRate = () => {
-  //   setOpenReviewModal(true);
-  // };
-
-  const showModal = () => {
-    setModal({ show: true });
+  const showModal = (eventId) => {
+    setModal({ show: eventId });
   };
 
   const hideModal = () => {
@@ -93,9 +69,16 @@ export default function ProfileEvents() {
                     </p>
                     <p>{futureOrder.event_id}</p>
 
-                    <ReviewModal show={modal.show} handleClose={hideModal} />
+                    <ReviewModal
+                      show={modal.show === futureOrder.event_id}
+                      event={futureOrder}
+                      handleClose={hideModal}
+                    />
 
-                    <button type="button" onClick={showModal}>
+                    <button
+                      type="button"
+                      onClick={() => showModal(futureOrder.event_id)}
+                    >
                       Rate this event
                     </button>
                   </div>
