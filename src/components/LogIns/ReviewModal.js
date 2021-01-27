@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-unused-vars */
@@ -13,7 +14,9 @@ export default function ReviewModal({ event, handleClose, show, children }) {
   const [writeComment, setWriteComment] = useState('');
   const [rateEvent, setRateEvent] = useState([]);
   const [reviewIsSaved, setReviewIsSaved] = useState(false);
-  const [starsSelected, isStarsSelected] = useState(false);
+  const [rating, setRating] = useState(0);
+  const maxRatings = [1, 2, 3, 4, 5];
+  const range = [...Array(maxRatings + 1).keys()].slice(1);
 
   const sendReviewToDB = () => {
     API.post('/reviews/', {
@@ -46,18 +49,28 @@ export default function ReviewModal({ event, handleClose, show, children }) {
         Comment:
         <textarea name="comment" value={writeComment} onChange={leaveReview} />
         <p>Rating</p>
-        <div>
-          <span
-            className={starsSelected ? 'is-favorite' : ''}
-            onClick={() => {
-              const newFavorite = !starsSelected;
-              isStarsSelected({ favorite: newFavorite });
-            }}
-          >
-            &#9733; &#9733; &#9733; &#9733; &#9733; &#9733;
-          </span>
+        <div className="ratings">
+          <div className="star-filled">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          {range.map((value) => (
+            <div
+              className={`star ${rating >= value ? 'star-filled' : ''}`}
+              onClick={() => {
+                if (rating === value) {
+                  setRating(0);
+                } else {
+                  setRating(maxRatings);
+                }
+              }}
+            />
+          ))}
         </div>
-        <button onClick={clickToSaveReview} type="submit">
+        <button
+          onClick={() => {
+            clickToSaveReview();
+            handleClose();
+          }}
+          type="submit"
+        >
           Save Review
         </button>
       </section>

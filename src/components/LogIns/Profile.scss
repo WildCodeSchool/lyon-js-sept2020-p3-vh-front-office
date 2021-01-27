@@ -407,13 +407,16 @@
       padding: 10px;
       transform: translate(-50%, -50%);
 
-      span {
-        color: #eee;
-      }
-
-      span.is-favorite {
-        color: #ecc94b;
-        cursor: pointer;
+      .ratings {
+        padding: 10px;
+        .star {
+          color: #eee;
+          cursor: pointer;
+        }
+        .star-filled {
+          color: #ecc94b;
+          cursor: pointer;
+        }
       }
     }
     textarea {
