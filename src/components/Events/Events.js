@@ -138,7 +138,10 @@ const Events = () => {
             return (
               <div className="eventCard" key={event.id}>
                 <div className="eventDetail">
-                  <img src={event.main_picture_url} alt={event.title} />
+                  <img
+                    src={`${process.env.REACT_APP_API_BASE_URL}/${event.main_picture_url}`}
+                    alt={event.title}
+                  />
                   <div className="eventDescription">
                     <h2>{event.title}</h2>
                     <p>{event.description}</p>

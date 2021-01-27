@@ -124,7 +124,7 @@ const EventDetails = (props) => {
         <div className="left_part">
           <img
             className="image_event"
-            src={eventData.main_picture_url}
+            src={`${process.env.REACT_APP_API_BASE_URL}/${eventData.main_picture_url}`}
             alt="secondTest"
           />
           <IconContext.Provider value={{ size: 40 }}>
