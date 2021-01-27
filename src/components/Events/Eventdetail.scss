@@ -1,90 +1,95 @@
 @import '../variablesCSS';
-
 .event-details-container {
-  background-color: snow;
-  hr {
-    border-top: 1px solid black;
-  }
-  h2 {
-    width: 100%;
-    text-align: center;
-    margin-top: 100px;
-  }
-  .map {
-    margin: 50px 20px 50px 20px;
-    align-content: center;
-  }
+  margin-top: 50px;
+  margin-bottom: 50px;
   .title {
+    color: $primary-color;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    padding-top: 20px;
   }
-  .main-page {
-    width: 80%;
+  .line {
+    color: $primary-color;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .event-details {
     margin: auto;
-    -webkit-box-shadow: 0px 2px 10px 0px grey;
-    -moz-box-shadow: 0px 2px 10px 0px grey;
-    box-shadow: 0px 2px 10px 0px grey;
-    background-color: white;
-    padding-bottom: 20px;
-    border-radius: 5px;
-    margin-bottom: 50px;
-  } .top-part {
-    display: flex;
-    justify-content: space-around;
-    img {
-      margin-top: 20px;
-      width: 15%;
-      clip-path: circle(37%);
-    }
-  } .middle-part {
-    display: flex;
-    justify-content: space-around;
-    p {
-      width: 50%;
-      margin-left: 40px;
-    }
-  } .bottom-part {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    .facebook {
-      margin-right: 5px;
-    }
-    .logo-event {
-      width: 43%;
-      margin-top: 20px;
-      margin-bottom: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 5px 5px 5px 5px;
-    } .places {
-      font-weight: bold;
-    }
-  }
-
-@media screen and (max-width: 768px) {
-  .top-part {
-    img {
-      margin-top: 20px;
-      width: 20%;
-    }
-  } .bottom-part {
     display: flex;
     flex-direction: column;
-    p {
-      margin-top: 20px;
+    align-items: center;
+    .map {
+      padding: 50px;
+      width: 80%;
+      .leaflet-container {
+        height: 400px !important;
+      }
     }
-    .quantity-book {
-      margin-top: 20px;
-    } .logo-event {
-      margin-top: 10px;
-    }
-    button {
-      margin-top: 30px;
+    .main-page {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+      width: 60%;
+      -webkit-box-shadow: 0px 2px 10px 0px grey;
+      -moz-box-shadow: 0px 2px 10px 0px grey;
+      box-shadow: 0px 2px 10px 0px grey;
+      p {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .logo-event {
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+      }
+      img {
+        margin-bottom: 20px;
+        width: 250px;
+        -webkit-box-shadow: 0px 2px 10px 0px grey;
+        -moz-box-shadow: 0px 2px 10px 0px grey;
+        box-shadow: 0px 2px 10px 0px grey;
+      }
+      .availabilities-price-duration {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+      .quantity-book {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
     }
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .event-details-container {
+    .title {
+      font-size: 2vw;
+    }
+    .event-details {
+      flex-direction: row;
+      .map {
+        width: 50%;
+        .leaflet-container {
+          height: 550px !important;
+        }
+      }
+      .main-page {
+        margin-left: 50px;
+        width: 50%;
+        .logo-event {
+          width: 17%;
+        }
+        .quantity-book {
+          width: 30%;
+        }
+      }
+    }
+  }
 }

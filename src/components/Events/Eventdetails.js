@@ -5,7 +5,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { MdShare } from 'react-icons/md';
+import { MdShare, MdEventAvailable } from 'react-icons/md';
 import './Eventdetail.scss';
 import Button from '@material-ui/core/Button';
 import { IconContext } from 'react-icons/lib';
@@ -22,6 +22,10 @@ import {
   TwitterIcon,
 } from 'react-share';
 import { useTranslation } from 'react-i18next';
+import { GiWineGlass } from 'react-icons/gi';
+import { GoLocation } from 'react-icons/go';
+import { BsPerson } from 'react-icons/bs';
+import { BiMoney, BiHourglass } from 'react-icons/bi';
 import SpinnerLoader from '../../services/Loader';
 import { BasketContext } from '../Contexts/BasketContext';
 import API from '../../services/API';
@@ -128,49 +132,75 @@ const EventDetails = (props) => {
 
   return eventCoordinate ? (
     <section className="event-details-container">
-      <Helmet>
-        <title>{eventData.title}</title>
-      </Helmet>
-
       <h1 className="title">{eventData.title}</h1>
-      <div className="main-page">
-        <div className="top-part">
-          <img src={userData.photo_url} alt="animator_image" />
-          <img src={eventData.main_picture_url} alt="event_image" />
-        </div>
-        <div className="middle-part">
-          <p>{userData.bio}</p>
+      <p className="line">________________________</p>
+      <div className="event-details">
+        <Helmet>
+          <title>{eventData.title}</title>
+        </Helmet>
+
+        <div className="main-page">
+          <img
+            src={`${process.env.REACT_APP_API_BASE_URL}/${eventData.main_picture_url}`}
+            alt="event_image"
+          />
           <p>{eventData.description}</p>
-        </div>
-        <div className="bottom-part">
+          <p>
+            <GoLocation size={25} color="#8c0226" />
+            &nbsp;
+            {eventData.street}&nbsp;{eventData.zipcode}&nbsp;{eventData.city}
+          </p>
+          <p>
+            <BsPerson size={25} color="#8c0226" />
+            &nbsp; {eventData.firstname}&nbsp;
+            {eventData.lastname}
+          </p>
+          <p>
+            <GiWineGlass size={25} color="#8c0226" />
+            &nbsp; &nbsp;
+            {eventData.name}&nbsp;-&nbsp;{eventData.producteur}
+          </p>
           <div className="logo-event">
             <FacebookShareButton
               className="facebook"
-              url="https://www.youtube.com/"
+              url={window.location.href}
             >
               <FacebookIcon size={30} borderRadius={50}>
                 Facebook
               </FacebookIcon>
             </FacebookShareButton>
 
-            <TwitterShareButton className="twitter" url="https://twitter.com/">
+            <TwitterShareButton className="twitter" url={window.location.href}>
               <TwitterIcon size={30} borderRadius={50}>
                 Twitter
               </TwitterIcon>
             </TwitterShareButton>
           </div>
-          {eventData.availabilities ? (
+          <div className="availabilities-price-duration">
+            {eventData.availabilities ? (
+              <p>
+                <MdEventAvailable size={25} color="#8c0226" />
+                &nbsp;
+                {eventData.availabilities} {t('EventsDetails.p')}
+              </p>
+            ) : (
+              <p style={{ color: 'red' }}>
+                <MdEventAvailable size={25} color="#8c0226" />
+                &nbsp;
+                {t('EventsDetails.pWithoutPlace')}
+              </p>
+            )}
             <p>
-              {eventData.availabilities} {t('EventsDetails.p')}
+              <BiMoney size={25} color="#8c0226" />
+              &nbsp;
+              {eventData.price} €
             </p>
-          ) : (
-            <p style={{ color: 'red' }}>{t('EventsDetails.pWithoutPlace')}</p>
-          )}
-          <p>
-            {eventData.price} €/u
-            <br />
-            {eventData.duration_seconds} secondes
-          </p>
+            <p>
+              <BiHourglass size={25} color="#8c0226" />
+              &nbsp;
+              {eventData.duration_seconds} minutes
+            </p>
+          </div>
           {!!eventData.availabilities && ( // need to use this expression, because React return a 0 with eventData.availabilities &&
             <div className="quantity-book">
               <TextField
@@ -186,41 +216,44 @@ const EventDetails = (props) => {
                   setQuantity(e.target.value);
                 }}
               />
+              <Button
+                // eslint-disable-next-line react/jsx-boolean-value
+                onClick={(event) => handleClick(event)}
+                className={classes.btn}
+                type="button"
+                variant="contained"
+                color="primary"
+              >
+                {t('EventsDetails.button')}
+              </Button>
             </div>
           )}
-          <Button
-            // eslint-disable-next-line react/jsx-boolean-value
-            onClick={(event) => handleClick(event)}
-            className={classes.btn}
-            type="button"
-            variant="contained"
-            color="primary"
-          >
-            {t('EventsDetails.button')}
-          </Button>
         </div>
-      </div>
-      <hr />
-      <h2>Lieu de l'évènement</h2>
-      <div className="map">
-        <MapContainer
-          center={eventCoordinate}
-          zoom={13}
-          style={{ height: '351px', width: '80%', zIndex: '0', margin: 'auto' }}
-        >
-          <TileLayer
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <Marker
-            position={eventCoordinate}
-            icon={new Icon({ iconUrl: markerIconPng })}
+        <div className="map">
+          <MapContainer
+            center={eventCoordinate}
+            zoom={13}
+            style={{
+              height: '620px',
+              zIndex: '0',
+            }}
           >
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
-        </MapContainer>
+            <TileLayer
+              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker
+              position={eventCoordinate}
+              icon={new Icon({ iconUrl: markerIconPng })}
+            >
+              <Popup>
+                {eventData.street}&nbsp;
+                {eventData.zipcode}&nbsp;
+                {eventData.city}
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </div>
       </div>
     </section>
   ) : (
