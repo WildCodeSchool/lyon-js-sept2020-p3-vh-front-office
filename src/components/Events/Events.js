@@ -25,9 +25,7 @@ import API from '../../services/API';
 
 const useStyles = makeStyles((theme) => ({
   btn: {
-    marginTop: '30px',
     width: '50%',
-    margin: 'auto',
     color: 'white',
     backgroundColor: '#8C0226',
     textTransform: 'none',
@@ -44,6 +42,8 @@ const Events = () => {
   const [listOfEventsDates, setListOfEventsDates] = useState();
   const { t } = useTranslation();
   const history = useHistory();
+
+  const classes = useStyles();
 
   useEffect(() => {
     if (initialEvents.length !== 0) {
@@ -117,12 +117,13 @@ const Events = () => {
           />
         )}
         <Button
+          style={{ margin: 'auto', marginTop: '30px' }}
           type="button"
           onClick={() => {
             getAllEvents();
             history.push(`/events`);
           }}
-          className={useStyles().btn}
+          className={classes.btn}
         >
           {t('Events.bouton2')}
         </Button>
@@ -164,30 +165,14 @@ const Events = () => {
                       </p>
                     </div>
                     <div className="button">
-                      <div className="share">
-                        <FacebookShareButton
-                          className="facebook"
-                          url="https://www.youtube.com/"
-                        >
-                          <FacebookIcon size={35} borderRadius={50}>
-                            Facebook
-                          </FacebookIcon>
-                        </FacebookShareButton>
-
-                        <TwitterShareButton
-                          className="twitter"
-                          url="https://twitter.com/"
-                        >
-                          <TwitterIcon size={35} borderRadius={50}>
-                            Twitter
-                          </TwitterIcon>
-                        </TwitterShareButton>
-                      </div>
-                      <Link to={`/events/${event.id}`}>
-                        <button className="reserver" type="button">
-                          {t('Events.bouton1')}
-                        </button>
-                      </Link>
+                      <Button
+                        style={{ width: '20%' }}
+                        type="button"
+                        onClick={() => history.push(`/events/${event.id}`)}
+                        className={classes.btn}
+                      >
+                        {t('Events.bouton1')}
+                      </Button>
                     </div>
                   </div>
                 </div>
