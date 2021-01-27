@@ -66,17 +66,11 @@ export default function ProfileInformation() {
 
   return (
     <div>
-      <div>
-        <CornerDownLeft
-          onClick={backToProfile}
-          className="backToProfile-button"
-        >
-          Retour au profil
-        </CornerDownLeft>
+      <div className="backToProfile-button">
+        <CornerDownLeft onClick={backToProfile} />
+        <h1>My Information</h1>
       </div>
       <div className="myinfo-section">
-        <h2>My Information</h2>
-
         {isClicked ? (
           <div>
             <div className="main-fields">

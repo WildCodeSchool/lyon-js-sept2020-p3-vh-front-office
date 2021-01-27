@@ -16,10 +16,8 @@ export default function ProfileEvents() {
   const { userLogged } = useContext(LoginContext);
   const [fetchEvents, setFetchEvents] = useState([]);
   const history = useHistory();
-  const [goToRatings, setGoToRatings] = useState(false);
-
-  const [writeComment, setWriteComment] = useState('');
-
+  const [showUpcomingEvents, setShowUpcomingEvents] = useState(false);
+  const [showPastEvents, setShowPastEvents] = useState(false);
   const [modal, setModal] = useState({ show: false });
 
   useEffect(() => {
@@ -40,21 +38,31 @@ export default function ProfileEvents() {
     setModal({ show: false });
   };
 
+  const handleShowUpcomingEvents = () => {
+    setShowUpcomingEvents(true);
+  };
+
+  const handleShowPastEvents = () => {
+    setShowPastEvents(true);
+  };
+
   return (
     <>
       <div>
-        <div>
-          <CornerDownLeft
-            onClick={backToProfile}
-            className="backToProfile-button"
-          >
-            Retour au profil
-          </CornerDownLeft>
+        <div className="backToProfile-button">
+          <CornerDownLeft onClick={backToProfile} />
+          <h1>My Events</h1>
         </div>
-        <h1>My Events</h1>
-        <div className="myEvents">
+
+        <div
+          onClick={handleShowUpcomingEvents}
+          type="option"
+          className="showUpcomingEvents-button"
+        >
+          <h3> À venir</h3>
+        </div>
+        <div className="all-events">
           <div className="upcoming-events">
-            <h3>À venir</h3>
             {fetchEvents
               .filter(
                 (fetchEvent) =>
@@ -67,7 +75,6 @@ export default function ProfileEvents() {
                     <p key={futureOrder.event_id}>
                       {moment(futureOrder.date).format('MMM Do YY')}
                     </p>
-                    <p>{futureOrder.event_id}</p>
 
                     <ReviewModal
                       show={modal.show === futureOrder.event_id}
@@ -86,25 +93,31 @@ export default function ProfileEvents() {
               })}
           </div>
 
-          {/* <div>
-            <span className="vertical-line" />
-          </div> */}
-
-          <div className="past-events">
-            <h3>Passés</h3>
-            {fetchEvents
-              .filter(
-                (fetchEvent) =>
-                  Date.parse(fetchEvent.date) < Date.parse(new Date())
-              )
-              .map((pastOrder) => {
-                return (
-                  <div>
-                    <p key={pastOrder.order_id}>{pastOrder.title}</p>
-                    <p>{moment(pastOrder.date).format('MMM Do YY')}</p>
-                  </div>
-                );
-              })}
+          <div>
+            <div
+              onClick={handleShowPastEvents}
+              type="option"
+              className="showPastEvents-button"
+            >
+              <h3>Passés</h3>
+            </div>
+            <div className="past-events">
+              {fetchEvents
+                .filter(
+                  (fetchEvent) =>
+                    Date.parse(fetchEvent.date) < Date.parse(new Date())
+                )
+                .map((pastOrder) => {
+                  return (
+                    <div>
+                      <p key={pastOrder.order_id}>
+                        <b>{pastOrder.title}</b>
+                      </p>
+                      <p>{moment(pastOrder.date).format('MMM Do YY')}</p>
+                    </div>
+                  );
+                })}
+            </div>
           </div>
         </div>
       </div>

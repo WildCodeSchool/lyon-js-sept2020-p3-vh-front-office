@@ -1,6 +1,9 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react';
 import './Profile.scss';
+import { XCircle } from 'react-feather';
 import API from '../../services/API';
 import { LoginContext } from '../Contexts/LoginContext';
 
@@ -35,13 +38,16 @@ export default function ReviewModal({ event, handleClose, show, children }) {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
+        <div onClick={handleClose} type="button">
+          <XCircle />
+        </div>
         {children}
         Comment:
-        <input name="comment" value={writeComment} onChange={leaveReview} />
+        <textarea name="comment" value={writeComment} onChange={leaveReview} />
         <p>Rating</p>
-        <button onClick={handleClose} type="button">
-          Close
-        </button>
+        <div>
+          <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        </div>
         <button onClick={clickToSaveReview} type="submit">
           Save Review
         </button>
