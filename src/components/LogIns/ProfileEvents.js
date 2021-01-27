@@ -16,8 +16,7 @@ export default function ProfileEvents() {
   const { userLogged } = useContext(LoginContext);
   const [fetchEvents, setFetchEvents] = useState([]);
   const history = useHistory();
-  const [showUpcomingEvents, setShowUpcomingEvents] = useState(false);
-  const [showPastEvents, setShowPastEvents] = useState(false);
+  const [tab, setTab] = useState('first');
   const [modal, setModal] = useState({ show: false });
 
   useEffect(() => {
@@ -38,14 +37,6 @@ export default function ProfileEvents() {
     setModal({ show: false });
   };
 
-  const handleShowUpcomingEvents = () => {
-    setShowUpcomingEvents(true);
-  };
-
-  const handleShowPastEvents = () => {
-    setShowPastEvents(true);
-  };
-
   return (
     <>
       <div>
@@ -53,15 +44,29 @@ export default function ProfileEvents() {
           <CornerDownLeft onClick={backToProfile} />
           <h1>My Events</h1>
         </div>
-
-        <div
-          onClick={handleShowUpcomingEvents}
-          type="option"
-          className="showUpcomingEvents-button"
-        >
-          <h3> À venir</h3>
+        <div className="switch-tabs-buttons">
+          <button
+            className={`tab ${tab === 'first' ? 'tab-active' : ''}`}
+            type="button"
+            onClick={() => {
+              setTab('first');
+            }}
+          >
+            À venir
+          </button>
+          <button
+            className={`tab ${tab === 'second' ? 'tab-active' : ''}`}
+            type="button"
+            onClick={() => {
+              setTab('second');
+            }}
+          >
+            Passés
+          </button>
         </div>
-        <div className="all-events">
+      </div>
+      <div className="all-events">
+        {tab === 'first' ? (
           <div className="upcoming-events">
             {fetchEvents
               .filter(
@@ -92,34 +97,28 @@ export default function ProfileEvents() {
                 );
               })}
           </div>
-
-          <div>
-            <div
-              onClick={handleShowPastEvents}
-              type="option"
-              className="showPastEvents-button"
-            >
-              <h3>Passés</h3>
-            </div>
-            <div className="past-events">
-              {fetchEvents
-                .filter(
-                  (fetchEvent) =>
-                    Date.parse(fetchEvent.date) < Date.parse(new Date())
-                )
-                .map((pastOrder) => {
-                  return (
-                    <div>
-                      <p key={pastOrder.order_id}>
-                        <b>{pastOrder.title}</b>
-                      </p>
-                      <p>{moment(pastOrder.date).format('MMM Do YY')}</p>
-                    </div>
-                  );
-                })}
-            </div>
+        ) : (
+          'null'
+        )}
+        {tab === 'second' ? (
+          <div className="past-events">
+            {fetchEvents
+              .filter(
+                (fetchEvent) =>
+                  Date.parse(fetchEvent.date) < Date.parse(new Date())
+              )
+              .map((pastOrder) => {
+                return (
+                  <div>
+                    <p key={pastOrder.order_id}>
+                      <b>{pastOrder.title}</b>
+                    </p>
+                    <p>{moment(pastOrder.date).format('MMM Do YY')}</p>
+                  </div>
+                );
+              })}
           </div>
-        </div>
+        ) : null}
       </div>
     </>
   );

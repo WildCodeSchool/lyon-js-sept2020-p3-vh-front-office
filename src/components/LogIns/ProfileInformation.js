@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
 import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CornerDownLeft } from 'react-feather';
+import { useToasts } from 'react-toast-notifications';
 import { LoginContext } from '../Contexts/LoginContext';
 import API from '../../services/API';
 import './Profile.scss';
@@ -13,6 +16,7 @@ export default function ProfileInformation() {
   const [changeLastname, setChangeLastname] = useState('');
   const [changePhoneNumber, setChangePhoneNumber] = useState('');
   const [changeEmail, setChangeEmail] = useState('');
+  const { addToast } = useToasts();
 
   useEffect(() => {
     if (userLogged) {
@@ -72,50 +76,43 @@ export default function ProfileInformation() {
       </div>
       <div className="myinfo-section">
         {isClicked ? (
-          <div>
-            <div className="main-fields">
-              <div>
-                Prénom:
-                <input
-                  name="firstname"
-                  value={changeFirstname}
-                  onChange={changeFirstNameInput}
-                />
-              </div>
-
-              <div>
-                Nom:
-                <input
-                  name="lastname"
-                  value={changeLastname}
-                  onChange={changeLastNameInput}
-                />
-              </div>
-
-              <div>
-                Teléphone:
-                <input
-                  name="phone_number"
-                  value={changePhoneNumber}
-                  onChange={changePhoneNumberInput}
-                />
-              </div>
-
-              <div>
-                Email:
-                <input
-                  name="email"
-                  value={changeEmail}
-                  onChange={changeEmailInput}
-                />
-              </div>
-
-              {/* {fetchedUser.bio && (
-                <p className="bio">
-                  Ma présentation <br /> {fetchedUser.bio}
-                </p>
-              )} */}
+          <div className="change-main-fields">
+            <div className="change-info">
+              <b>Prénom: </b>
+              <input
+                name="firstname"
+                value={changeFirstname}
+                onChange={changeFirstNameInput}
+              />
             </div>
+
+            <div className="change-info">
+              <b>Nom: </b>
+              <input
+                name="lastname"
+                value={changeLastname}
+                onChange={changeLastNameInput}
+              />
+            </div>
+
+            <div className="change-info">
+              <b>Teléphone: </b>
+              <input
+                name="phone_number"
+                value={changePhoneNumber}
+                onChange={changePhoneNumberInput}
+              />
+            </div>
+
+            <div className="change-info">
+              <b>Email: </b>
+              <input
+                name="email"
+                value={changeEmail}
+                onChange={changeEmailInput}
+              />
+            </div>
+
             <div>
               <button
                 className="button"
@@ -148,19 +145,7 @@ export default function ProfileInformation() {
                 <b>Email: </b>
                 {changeEmail}
               </p>
-              {/* {fetchedUser.bio && (
-                <p className="bio">
-                  Ma présentation <br /> {fetchedUser.bio}
-                </p>
-              )} */}
-              {/* {userLogged.photo_url && (
-          <img
-            className="profile-image"
-            src={userLogged.photo_url}
-            alt={userLogged.lastname}
-            style={{ width: 'auto' }}
-          />
-        )} */}
+
               <button className="button" type="submit" onClick={clickToEdit}>
                 Modifier
               </button>

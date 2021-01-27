@@ -13,6 +13,7 @@ export default function ReviewModal({ event, handleClose, show, children }) {
   const [writeComment, setWriteComment] = useState('');
   const [rateEvent, setRateEvent] = useState([]);
   const [reviewIsSaved, setReviewIsSaved] = useState(false);
+  const [starsSelected, isStarsSelected] = useState(false);
 
   const sendReviewToDB = () => {
     API.post('/reviews/', {
@@ -46,7 +47,15 @@ export default function ReviewModal({ event, handleClose, show, children }) {
         <textarea name="comment" value={writeComment} onChange={leaveReview} />
         <p>Rating</p>
         <div>
-          <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <span
+            className={starsSelected ? 'is-favorite' : ''}
+            onClick={() => {
+              const newFavorite = !starsSelected;
+              isStarsSelected({ favorite: newFavorite });
+            }}
+          >
+            &#9733; &#9733; &#9733; &#9733; &#9733; &#9733;
+          </span>
         </div>
         <button onClick={clickToSaveReview} type="submit">
           Save Review
