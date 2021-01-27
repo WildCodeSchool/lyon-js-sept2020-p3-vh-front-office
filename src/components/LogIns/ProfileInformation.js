@@ -44,24 +44,43 @@ export default function ProfileInformation() {
     setChangeEmail(e.target.value);
   };
 
-  const handleUpdatedInformation = () => {
-    API.put(`/users/${userLogged.id}`, {
-      firstname: changeFirstname,
-      lastname: changeLastname,
-      phone_number: changePhoneNumber,
-      email: changeEmail,
-    }).then((res) => {
-      setUserLogged(res.data);
-    });
-  };
-
   const clickToEdit = () => {
     setIsClicked(true);
   };
 
-  const clickToSave = () => {
-    setIsClicked(false);
-    handleUpdatedInformation();
+  const clickToSave = async () => {
+    try {
+      const res = await API.put(`/users/${userLogged.id}`, {
+        firstname: changeFirstname,
+        lastname: changeLastname,
+        phone_number: changePhoneNumber,
+        email: changeEmail,
+      });
+
+      setUserLogged(res.data);
+      setIsClicked(false);
+      addToast('Votre compte a été modifié', {
+        appearance: 'success',
+        autoDismiss: true,
+      });
+    } catch (err) {
+      if (err.response.status === 500) {
+        addToast(
+          'Erreur lors de la modification, veuillez rééssayer plus tard',
+          {
+            appearance: 'error',
+            autoDismiss: true,
+          }
+        );
+      } else {
+        err.response.data.errorsByField[0].message.map((things) => {
+          return addToast(things, {
+            appearance: 'error',
+            autoDismiss: true,
+          });
+        });
+      }
+    }
   };
 
   const backToProfile = () => {
