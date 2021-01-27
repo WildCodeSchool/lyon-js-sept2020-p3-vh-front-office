@@ -168,16 +168,6 @@ const EventDetails = (props) => {
           )}
           {!!eventData.availabilities && ( // need to use this expression, because React return a 0 with eventData.availabilities &&
             <div className="quantity-book">
-              <Button
-                // eslint-disable-next-line react/jsx-boolean-value
-                onClick={(event) => handleClick(event)}
-                className={classes.btn}
-                type="button"
-                variant="contained"
-                color="primary"
-              >
-                {t('EventsDetails.button')}
-              </Button>
               <TextField
                 className={classes.input}
                 id="standard-number"
@@ -201,7 +191,7 @@ const EventDetails = (props) => {
             variant="contained"
             color="primary"
           >
-            Réserver
+            {t('EventsDetails.button')}
           </Button>
         </div>
       </div>
