@@ -54,7 +54,8 @@ const Events = () => {
   }, [initialEvents]);
 
   const getAllEvents = () => {
-    return API.get('/events').then((res) => {
+    const today = moment().format('YYYY-MM-DD');
+    return API.get(`/events?after=${today}&before=2150-01-16`).then((res) => {
       setEvents(res.data);
       setInitialEvents(res.data);
     });
