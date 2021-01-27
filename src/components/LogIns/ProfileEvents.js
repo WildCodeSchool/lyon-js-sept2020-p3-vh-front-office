@@ -17,7 +17,6 @@ export default function ProfileEvents() {
   const [fetchEvents, setFetchEvents] = useState([]);
   const history = useHistory();
   const [tab, setTab] = useState('first');
-  const [modal, setModal] = useState({ show: false });
 
   useEffect(() => {
     API.get(`/order/user/${userLogged.id}`).then((res) => {
@@ -27,14 +26,6 @@ export default function ProfileEvents() {
 
   const backToProfile = () => {
     history.push('/profile');
-  };
-
-  const showModal = (eventId) => {
-    setModal({ show: eventId });
-  };
-
-  const hideModal = () => {
-    setModal({ show: false });
   };
 
   return (
@@ -66,58 +57,63 @@ export default function ProfileEvents() {
         </div>
       </div>
       <div className="all-events">
-        {tab === 'first' ? (
-          <div className="events-list upcoming-events">
-            {fetchEvents
-              .filter(
-                (fetchEvent) =>
-                  Date.parse(fetchEvent.date) > Date.parse(new Date())
-              )
-              .map((futureOrder) => {
-                return (
-                  <div className="myevent-details">
-                    <p key={futureOrder.order_id}>{futureOrder.title}</p>
-                    <p key={futureOrder.event_id}>
-                      {moment(futureOrder.date).format('MMM Do YY')}
-                    </p>
-                  </div>
-                );
-              })}
-          </div>
-        ) : null}
-        {tab === 'second' ? (
-          <div className="events-list past-events">
-            {fetchEvents
-              .filter(
-                (fetchEvent) =>
-                  Date.parse(fetchEvent.date) < Date.parse(new Date())
-              )
-              .map((pastOrder) => {
-                return (
-                  <div className="myevent-details">
-                    <p key={pastOrder.order_id}>{pastOrder.title}</p>
-                    <p key={pastOrder.event_id}>
-                      {moment(pastOrder.date).format('MMM Do YY')}
-                    </p>
-
-                    <ReviewModal
-                      show={modal.show === pastOrder.event_id}
-                      event={pastOrder}
-                      handleClose={hideModal}
-                    />
-
-                    <button
-                      type="button"
-                      onClick={() => showModal(pastOrder.event_id)}
-                    >
-                      Rate this event
-                    </button>
-                  </div>
-                );
-              })}
-          </div>
-        ) : null}
+        <div className="events-list upcoming-events">
+          {fetchEvents
+            .filter((fetchEvent) => {
+              if (tab === 'first') {
+                return Date.parse(fetchEvent.date) > Date.parse(new Date());
+              }
+              return Date.parse(fetchEvent.date) <= Date.parse(new Date());
+            })
+            .map((event) => {
+              return (
+                <MyEvent
+                  key={event.order_id}
+                  event={event}
+                  isPast={tab === 'second'}
+                />
+              );
+            })}
+        </div>
       </div>
     </>
+  );
+}
+
+function MyEvent({ event, isPast }) {
+  const { userLogged } = useContext(LoginContext);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    if (!userLogged) {
+      return;
+    }
+
+    API.get(`/reviews/user/${userLogged.id}/event/${event.event_id}`).then(
+      (res) => {
+        setReviews(res.data);
+      }
+    );
+  }, [event.event_id, userLogged]);
+
+  const handleClose = (reviewCreated) => {
+    setReviews(reviewCreated);
+    setModalOpen(false);
+  };
+
+  return (
+    <div className="myevent-details">
+      <p key={event.order_id}>{event.title}</p>
+      <p key={event.event_id}>{moment(event.date).format('MMM Do YY')}</p>
+
+      <ReviewModal show={modalOpen} event={event} handleClose={handleClose} />
+
+      {isPast && reviews.length === 0 ? (
+        <button type="button" onClick={() => setModalOpen(true)}>
+          Rate this event
+        </button>
+      ) : null}
+    </div>
   );
 }

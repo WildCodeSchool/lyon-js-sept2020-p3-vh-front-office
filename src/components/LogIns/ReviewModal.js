@@ -12,8 +12,6 @@ export default function ReviewModal({ event, handleClose, show, children }) {
   const showHideClassName = show ? 'modal display-block' : 'modal display-none';
   const { userLogged } = useContext(LoginContext);
   const [writeComment, setWriteComment] = useState('');
-  const [rateEvent, setRateEvent] = useState([]);
-  const [reviewIsSaved, setReviewIsSaved] = useState(false);
   const maxRatings = 5;
   const [rating, setRating] = useState(maxRatings);
   const range = [...Array(maxRatings + 1).keys()].slice(1);
@@ -25,7 +23,7 @@ export default function ReviewModal({ event, handleClose, show, children }) {
       event_id: event.event_id,
       user_id: userLogged.id,
     }).then((res) => {
-      setRateEvent(res.data);
+      handleClose(res.data);
     });
   };
 
@@ -34,14 +32,13 @@ export default function ReviewModal({ event, handleClose, show, children }) {
   };
 
   const clickToSaveReview = () => {
-    setReviewIsSaved(true);
     sendReviewToDB();
   };
 
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <div onClick={handleClose} type="button">
+        <div onClick={() => handleClose()} type="button">
           <XCircle />
         </div>
         {children}
@@ -63,7 +60,6 @@ export default function ReviewModal({ event, handleClose, show, children }) {
         <button
           onClick={() => {
             clickToSaveReview();
-            handleClose();
           }}
           type="submit"
         >
