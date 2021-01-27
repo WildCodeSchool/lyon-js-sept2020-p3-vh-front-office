@@ -7,12 +7,6 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-  FacebookIcon,
-  TwitterIcon,
-} from 'react-share';
 import './Events.scss';
 import API from '../../services/API';
 
@@ -108,25 +102,6 @@ const Events = () => {
                     <h3>{event.title}</h3>
                     <p>{event.description}</p>
                     <div className="button">
-                      <div className="share">
-                        <FacebookShareButton
-                          className="facebook"
-                          url="https://www.youtube.com/"
-                        >
-                          <FacebookIcon size={30} borderRadius={50}>
-                            Facebook
-                          </FacebookIcon>
-                        </FacebookShareButton>
-
-                        <TwitterShareButton
-                          className="twitter"
-                          url="https://twitter.com/"
-                        >
-                          <TwitterIcon size={30} borderRadius={50}>
-                            Twitter
-                          </TwitterIcon>
-                        </TwitterShareButton>
-                      </div>
                       <Link to={`/events/${event.id}`}>
                         <button className="reserver" type="button">
                           Réserver

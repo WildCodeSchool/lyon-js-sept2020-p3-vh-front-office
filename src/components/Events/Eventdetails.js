@@ -15,6 +15,12 @@ import { Icon } from 'leaflet';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { useToasts } from 'react-toast-notifications';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  TwitterIcon,
+} from 'react-share';
 import SpinnerLoader from '../../services/Loader';
 import { BasketContext } from '../Contexts/BasketContext';
 import API from '../../services/API';
@@ -35,15 +41,21 @@ const EventDetails = (props) => {
   const [eventData, setEventData] = useState();
   const [eventCoordinate, setEventCoordinate] = useState();
   const [quantity, setQuantity] = useState(1);
+  const [userData, setUserData] = useState();
   const { addToast } = useToasts();
   // eslint-disable-next-line no-unused-vars
   const { basket, setBasket } = useContext(BasketContext);
 
   const { match } = props;
   const eventId = match.params.id;
+  const userId = match.params.id;
 
   useEffect(() => {
     API.get(`/events/${eventId}`).then((res) => setEventData(res.data));
+  }, []);
+
+  useEffect(() => {
+    API.get(`/users/${userId}`).then((res) => setUserData(res.data));
   }, []);
 
   useEffect(() => {
@@ -65,6 +77,7 @@ const EventDetails = (props) => {
 
   const useStyles = makeStyles(() => ({
     btn: {
+      height: '50%',
       backgroundColor: '#6d071a',
       textTransform: 'none',
       '&:hover': {
@@ -118,21 +131,37 @@ const EventDetails = (props) => {
       </Helmet>
 
       <h1 className="title">{eventData.title}</h1>
-      <div className="description">
-        <div className="left_part">
-          <img
-            className="image_event"
-            src={eventData.main_picture_url}
-            alt="secondTest"
-          />
-          <IconContext.Provider value={{ size: 40 }}>
-            <MdShare />
-          </IconContext.Provider>
+      <div className="main-page">
+        <div className="top-part">
+          <img src={userData.photo_url} alt="animator_image" />
+          <img src={eventData.main_picture_url} alt="event_image" />
         </div>
-        <div className="right_part">
+        <div className="middle-part">
+          <p>{userData.bio}</p>
           <p>{eventData.description}</p>
+        </div>
+        <div className="bottom-part">
+          <div className="logo-event">
+            <FacebookShareButton
+              className="facebook"
+              url="https://www.youtube.com/"
+            >
+              <FacebookIcon size={30} borderRadius={50}>
+                Facebook
+              </FacebookIcon>
+            </FacebookShareButton>
+
+            <TwitterShareButton className="twitter" url="https://twitter.com/">
+              <TwitterIcon size={30} borderRadius={50}>
+                Twitter
+              </TwitterIcon>
+            </TwitterShareButton>
+          </div>
           {eventData.availabilities ? (
-            <p>{eventData.availabilities} places disponibles</p>
+            <p className="places">
+              {' '}
+              {eventData.availabilities} places disponibles
+            </p>
           ) : (
             <p style={{ color: 'red' }}>
               Malheureusement, l'évènement n'est plus disponible
@@ -140,16 +169,6 @@ const EventDetails = (props) => {
           )}
           {!!eventData.availabilities && ( // need to use this expression, because React return a 0 with eventData.availabilities &&
             <div className="quantity-book">
-              <Button
-                // eslint-disable-next-line react/jsx-boolean-value
-                onClick={(event) => handleClick(event)}
-                className={classes.btn}
-                type="button"
-                variant="contained"
-                color="primary"
-              >
-                Réserver
-              </Button>
               <TextField
                 className={classes.input}
                 id="standard-number"
@@ -165,13 +184,25 @@ const EventDetails = (props) => {
               />
             </div>
           )}
+          <Button
+            // eslint-disable-next-line react/jsx-boolean-value
+            onClick={(event) => handleClick(event)}
+            className={classes.btn}
+            type="button"
+            variant="contained"
+            color="primary"
+          >
+            Réserver
+          </Button>
         </div>
       </div>
+      <hr />
+      <h2>Lieu de l'évènement</h2>
       <div className="map">
         <MapContainer
           center={eventCoordinate}
           zoom={13}
-          style={{ height: '351px', width: '100%', zIndex: '0' }}
+          style={{ height: '351px', width: '80%', zIndex: '0', margin: 'auto' }}
         >
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
