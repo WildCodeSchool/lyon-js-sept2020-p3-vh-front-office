@@ -8,7 +8,7 @@ import { XCircle } from 'react-feather';
 import API from '../../services/API';
 import { LoginContext } from '../Contexts/LoginContext';
 
-export default function ReviewModal({ event, handleClose, show, children }) {
+export default function ReviewModal({ event, handleClose, show }) {
   const showHideClassName = show ? 'modal display-block' : 'modal display-none';
   const { userLogged } = useContext(LoginContext);
   const [writeComment, setWriteComment] = useState('');
@@ -41,13 +41,13 @@ export default function ReviewModal({ event, handleClose, show, children }) {
         <div onClick={() => handleClose()} type="button">
           <XCircle />
         </div>
-        {children}
         Comment:
         <textarea name="comment" value={writeComment} onChange={leaveReview} />
         <p>Rating</p>
         <div className="ratings">
           {range.map((value) => (
             <div
+              key={value}
               className={`star ${rating >= value ? 'star-filled' : ''}`}
               onClick={() => {
                 setRating(value);
