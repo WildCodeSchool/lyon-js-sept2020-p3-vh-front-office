@@ -5,16 +5,38 @@ import './NavBar.scss';
 import { slide as Menu } from 'react-burger-menu';
 import logo from '../pictures/hypnose_vins_logo.png';
 import cross from '../pictures/cross.png';
-import calendar from '../pictures/calendar.svg';
 import SimpleMenu from './MenuNavBar.js';
 import Translation from './Translation.js';
 import useLocalStorage from '../../services/useLocalStorage';
 import { LoginContext } from '../Contexts/LoginContext';
+import Badge from '@material-ui/core/Badge';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { BasketContext } from '../Contexts/BasketContext';
+import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
+
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}))(Badge);
+
+const useStyles = makeStyles({
+  basket: {
+    color: '#8c0226',
+  },
+});
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const { basket, changeQuantity } = useContext(BasketContext);
+  const classes = useStyles();
   const { t } = useTranslation();
 
   const handleStateChange = (state) => {
@@ -59,7 +81,15 @@ const NavBar = () => {
           <Translation />
         </div>
         <NavLink exact to="/basket">
-          <img src={calendar} alt="calendar basket" />
+          <IconButton aria-label="cart">
+            <StyledBadge
+              className={classes.basket}
+              badgeContent={basket.length}
+              color="secondary"
+            >
+              <ShoppingCartIcon className={classes.basket} />
+            </StyledBadge>
+          </IconButton>
         </NavLink>
         {userLogged ? (
           <NavLink
@@ -70,8 +100,8 @@ const NavBar = () => {
             Bienvenue {userLogged.firstname}
           </NavLink>
         ) : (
-          <NavLink exact to="/register">
-            {t('Navbar.lien5')}
+          <NavLink exact to="/login">
+            Se connecter
           </NavLink>
         )}
       </div>
