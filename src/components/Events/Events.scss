@@ -11,8 +11,14 @@
     flex-direction: column;
     margin-top: 60px;
     .highlight {
-      font-weight: bold;
-      font-size: 20px;
+      font-weight: 1000;
+      color: $primary-color;
+    }
+    .react-calendar__tile--active {
+      background: rgb(193, 194, 196);
+    }
+    .react-calendar__tile--now {
+      background: rgb(231, 224, 224);
     }
   }
   .cardOfEvents {
@@ -108,6 +114,8 @@
     .calendar-container {
       display: flex;
       align-self: flex-start;
+      position: sticky;
+      top: 0;
       padding: 40px;
       margin-top: 60px;
     }

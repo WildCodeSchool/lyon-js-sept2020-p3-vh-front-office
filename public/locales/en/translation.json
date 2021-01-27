@@ -25,7 +25,7 @@
   },
   "Events": {
     "bouton1": "Select",
-    "bouton2": "Reset"
+    "bouton2": "Reset filters"
   },
   "Animators": {
     "titre": "Facilitators"

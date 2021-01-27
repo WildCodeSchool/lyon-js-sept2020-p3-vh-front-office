@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
@@ -37,65 +38,83 @@ const useStyles = makeStyles((theme) => ({
 
 const Events = () => {
   const [events, setEvents] = useState();
-  const [value, onChange] = useState(new Date());
+  const [initialEvents, setInitialEvents] = useState([]);
+  const [selectedDates, setSelectedDates] = useState();
+  const [listOfEventsDates, setListOfEventsDates] = useState();
   const { t } = useTranslation();
   const history = useHistory();
-  let mark = [];
 
   useEffect(() => {
-    mark = events
-      ? events.map((event) => moment(event.date).format('DD-MM-YYYY'))
-      : [];
-  }, [events]);
+    if (initialEvents.length !== 0) {
+      setListOfEventsDates(
+        initialEvents.map((event) => moment(event.date).format('DD-MM-YYYY'))
+      );
+    }
+  }, [initialEvents]);
 
   const getAllEvents = () => {
     return API.get('/events').then((res) => {
       setEvents(res.data);
-      onChange(new Date(res.data[0].date));
+      setInitialEvents(res.data);
     });
   };
+
+  useEffect(() => {
+    return events && events.length
+      ? setSelectedDates(new Date(events[0].date))
+      : new Date();
+  }, []);
 
   useEffect(() => {
     getAllEvents();
   }, []);
 
   useEffect(() => {
-    return events && events.length
-      ? onChange(new Date(events[0].date))
-      : new Date();
-  }, []);
-
-  useEffect(() => {
-    if (value.length === 2) {
-      const parsedDates = value.map((date) =>
+    if (selectedDates && selectedDates.length) {
+      const parsedDates = selectedDates.map((date) =>
         moment(date).format('YYYY-MM-DD')
       );
       const queryParams = { after: parsedDates[0], before: parsedDates[1] };
       const clientQueryParams = queryString.stringify(queryParams);
       history.push(`/events?${clientQueryParams}`);
-      return API.get(`/events${window.location.search}`).then((res) =>
+      return API.get(`/events?${clientQueryParams}`).then((res) =>
         setEvents(res.data)
       );
     }
-    return API.get('/events').then((res) => {
-      setEvents(res.data);
-    });
-  }, [value]);
+    return null;
+  }, [selectedDates]);
+
+  useEffect(() => {
+    return events && events.length
+      ? setSelectedDates(new Date(events[0].date))
+      : setSelectedDates(new Date());
+  }, [initialEvents]);
 
   return (
     <div className="eventBody">
       <div className="calendar-container">
-        <Calendar
-          onChange={onChange}
-          value={value}
-          selectRange
-          tileClassName={({ date }) => {
-            if (mark.find((x) => x === moment(date).format('DD-MM-YYYY'))) {
-              return 'highlight';
-            }
-            return null;
-          }}
-        />
+        {listOfEventsDates && (
+          <Calendar
+            onClickDay={(value, event) => {
+              // eslint-disable-next-line no-underscore-dangle
+              setSelectedDates([
+                moment(value).startOf('isoWeek')._d,
+                moment(value).endOf('isoWeek')._d,
+              ]);
+            }}
+            value={selectedDates}
+            tileClassName={({ date }) => {
+              if (
+                listOfEventsDates.find(
+                  (item) => item === moment(date).format('DD-MM-YYYY')
+                )
+              ) {
+                return 'highlight';
+              }
+              return null;
+            }}
+          />
+        )}
         <Button
           type="button"
           onClick={() => {
