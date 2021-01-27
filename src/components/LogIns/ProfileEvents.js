@@ -67,7 +67,7 @@ export default function ProfileEvents() {
       </div>
       <div className="all-events">
         {tab === 'first' ? (
-          <div className="upcoming-events">
+          <div className="events-list upcoming-events">
             {fetchEvents
               .filter(
                 (fetchEvent) =>
@@ -80,28 +80,13 @@ export default function ProfileEvents() {
                     <p key={futureOrder.event_id}>
                       {moment(futureOrder.date).format('MMM Do YY')}
                     </p>
-
-                    <ReviewModal
-                      show={modal.show === futureOrder.event_id}
-                      event={futureOrder}
-                      handleClose={hideModal}
-                    />
-
-                    <button
-                      type="button"
-                      onClick={() => showModal(futureOrder.event_id)}
-                    >
-                      Rate this event
-                    </button>
                   </div>
                 );
               })}
           </div>
-        ) : (
-          'null'
-        )}
+        ) : null}
         {tab === 'second' ? (
-          <div className="past-events">
+          <div className="events-list past-events">
             {fetchEvents
               .filter(
                 (fetchEvent) =>
@@ -109,11 +94,24 @@ export default function ProfileEvents() {
               )
               .map((pastOrder) => {
                 return (
-                  <div>
-                    <p key={pastOrder.order_id}>
-                      <b>{pastOrder.title}</b>
+                  <div className="myevent-details">
+                    <p key={pastOrder.order_id}>{pastOrder.title}</p>
+                    <p key={pastOrder.event_id}>
+                      {moment(pastOrder.date).format('MMM Do YY')}
                     </p>
-                    <p>{moment(pastOrder.date).format('MMM Do YY')}</p>
+
+                    <ReviewModal
+                      show={modal.show === pastOrder.event_id}
+                      event={pastOrder}
+                      handleClose={hideModal}
+                    />
+
+                    <button
+                      type="button"
+                      onClick={() => showModal(pastOrder.event_id)}
+                    >
+                      Rate this event
+                    </button>
                   </div>
                 );
               })}

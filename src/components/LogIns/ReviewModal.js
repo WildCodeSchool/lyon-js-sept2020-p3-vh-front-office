@@ -14,17 +14,16 @@ export default function ReviewModal({ event, handleClose, show, children }) {
   const [writeComment, setWriteComment] = useState('');
   const [rateEvent, setRateEvent] = useState([]);
   const [reviewIsSaved, setReviewIsSaved] = useState(false);
-  const [rating, setRating] = useState(0);
-  const maxRatings = [1, 2, 3, 4, 5];
+  const maxRatings = 5;
+  const [rating, setRating] = useState(maxRatings);
   const range = [...Array(maxRatings + 1).keys()].slice(1);
 
   const sendReviewToDB = () => {
     API.post('/reviews/', {
       comment: writeComment,
-      rating: 3,
+      rating,
       event_id: event.event_id,
       user_id: userLogged.id,
-      id: 1,
     }).then((res) => {
       setRateEvent(res.data);
     });
@@ -50,18 +49,15 @@ export default function ReviewModal({ event, handleClose, show, children }) {
         <textarea name="comment" value={writeComment} onChange={leaveReview} />
         <p>Rating</p>
         <div className="ratings">
-          <div className="star-filled">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           {range.map((value) => (
             <div
               className={`star ${rating >= value ? 'star-filled' : ''}`}
               onClick={() => {
-                if (rating === value) {
-                  setRating(0);
-                } else {
-                  setRating(maxRatings);
-                }
+                setRating(value);
               }}
-            />
+            >
+              &#9733;
+            </div>
           ))}
         </div>
         <button
