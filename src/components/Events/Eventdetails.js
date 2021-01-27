@@ -166,6 +166,11 @@ const EventDetails = (props) => {
           ) : (
             <p style={{ color: 'red' }}>{t('EventsDetails.pWithoutPlace')}</p>
           )}
+          <p>
+            {eventData.price} €/u
+            <br />
+            {eventData.duration_seconds} secondes
+          </p>
           {!!eventData.availabilities && ( // need to use this expression, because React return a 0 with eventData.availabilities &&
             <div className="quantity-book">
               <TextField
