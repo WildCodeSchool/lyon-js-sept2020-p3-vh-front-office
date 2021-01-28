@@ -17,6 +17,7 @@ export default function AboutMorgane() {
         <title>{t('About.helmet')}</title>
       </Helmet>
       <h1 className="titleAbout"> {t('About.h1')}</h1>
+      <p className="line">________________________</p>
       <div className="squareAboutGrey">
         <div className="imageText">
           <img

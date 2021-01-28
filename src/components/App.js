@@ -25,6 +25,8 @@ import NavBar from './Home/NavBar';
 import MentionLegale from './MentionLegale/MentionLegale';
 import LoginProvider from './Contexts/LoginContext';
 import BasketProvider from './Contexts/BasketContext';
+import ProfileInformation from './LogIns/ProfileInformation';
+import ProfileEvents from './LogIns/ProfileEvents';
 
 function App() {
   return (
@@ -60,6 +62,11 @@ function App() {
                   <Route exact path="/contact" component={Contact} />
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/profile" component={Profile} />
+                  <Route
+                    path="/profile/myinformation"
+                    component={ProfileInformation}
+                  />
+                  <Route path="/profile/myevents" component={ProfileEvents} />
                   <Route
                     exact
                     path="/mentions-legales"

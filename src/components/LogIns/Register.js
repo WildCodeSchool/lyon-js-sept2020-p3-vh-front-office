@@ -92,7 +92,8 @@ const Register = () => {
         <title>Inscription</title>
       </Helmet>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h2> {t('Inscription.h1')}</h2>
+        <h1> {t('Inscription.h1')}</h1>
+        <p className="line">________________________</p>
         <div className="input-register-form">
           <TextField
             className={classes.input}

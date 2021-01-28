@@ -91,6 +91,7 @@ const NavBar = () => {
             </StyledBadge>
           </IconButton>
         </NavLink>
+
         {userLogged ? (
           <NavLink
             exact

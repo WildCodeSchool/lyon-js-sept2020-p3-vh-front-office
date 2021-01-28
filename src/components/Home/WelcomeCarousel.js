@@ -26,7 +26,10 @@ const WelcomeCarousel = () => {
         >
           {slides.map((slide) => (
             <div key={slide.image}>
-              <img src={slide.image} alt={slide.description} />
+              <img
+                src={`${process.env.REACT_APP_API_BASE_URL}/${slide.image}`}
+                alt={slide.description}
+              />
               <p className="legend">{slide.description}</p>
             </div>
           ))}

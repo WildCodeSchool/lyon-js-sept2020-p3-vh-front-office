@@ -81,6 +81,7 @@ function Login() {
         </Helmet>
         <div>
           <h1 className="login">{t('Connection.h1')}</h1>
+          <p className="line">________________________</p>
         </div>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div>

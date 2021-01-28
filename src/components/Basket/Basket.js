@@ -109,6 +109,7 @@ export default function Basket(props) {
     <>
       <div className="basket">
         <h1>{t('basket.title')}</h1>{' '}
+        <p className="line">________________________</p>
         <Button
           className={`button ${classes.button}`}
           onClick={() => props.history.push('/events')}

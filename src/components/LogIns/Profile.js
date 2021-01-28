@@ -1,36 +1,26 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 import './Profile.scss';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import PersonIcon from '@material-ui/icons/Person';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
+import { Gift, Info, HelpCircle, LogOut } from 'react-feather';
+import ProfileInformation from './ProfileInformation';
+import ProfileEvents from './ProfileEvents';
 import { LoginContext } from '../Contexts/LoginContext';
+
 import API from '../../services/API';
-import FacebookIcon from '../../files/facebook.png';
-import TwitterIcon from '../../files/twitter.png';
-import InstagramIcon from '../../files/instagram.png';
 
 export default function Profile() {
   const [fetchedUser, setFetchedUser] = useState([]);
   const { userLogged, setUserLogged } = useContext(LoginContext);
   const history = useHistory();
   const { addToast } = useToasts();
-  const useStyles = makeStyles({
-    root: {
-      justifyContent: 'space-around',
-      width: '100%',
-      '& span': {
-        color: '#3c434c',
-      },
-    },
-  });
-
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [clickedProfileInfo, setClickedProfileInfo] = useState(false);
+  const [clickedMyEvents, setClickedMyEvents] = useState(false);
+  const [clickedHelp, setClickedHelp] = useState(false);
+  const { t } = useTranslation();
 
   const logout = async () => {
     try {
@@ -51,104 +41,75 @@ export default function Profile() {
   };
 
   useEffect(() => {
-    if (value === 2) {
-      logout();
-    }
-  }, [value]);
-
-  useEffect(() => {
     API.get('/me').then((res) => {
       setUserLogged(res.data);
       setFetchedUser(res.data);
     });
   }, []);
 
-  const buttonStyle = {
-    width: '4vw',
-    height: '100%',
-    fill: '#8c0226',
+  const navigateToInformation = () => {
+    history.push('/profile/myinformation');
+    setClickedProfileInfo(true);
+  };
+
+  const navigateToMyEvents = () => {
+    history.push('/profile/myevents');
+    setClickedMyEvents(true);
+  };
+
+  const navigateToHelp = () => {
+    history.push('/faq');
+    setClickedHelp(true);
   };
 
   return fetchedUser.length !== 0 ? (
     <main className="profile">
-      <BottomNavigation
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-        showLabels
-        className={classes.root}
-      >
-        <BottomNavigationAction
-          label="Mes informations"
-          icon={<PersonIcon style={buttonStyle} />}
-        />
-        <BottomNavigationAction
-          label="Mes événements"
-          icon={<VisibilityIcon style={buttonStyle} />}
-        />
-        <BottomNavigationAction
-          label="Me déconnecter"
-          icon={<ExitToAppIcon style={buttonStyle} />}
-        />
-      </BottomNavigation>
-      {value === 0 ? (
-        <>
-          <h1>Bienvenue {userLogged.firstname} !</h1>
-          <div className="photo-fields">
-            {fetchedUser.photo_url && (
-              <img
-                className="profile-image"
-                src={fetchedUser.photo_url}
-                alt={fetchedUser.lastname}
-              />
-            )}
-            <div className="main-fields">
-              {fetchedUser.firstname && <p>Prénom : {fetchedUser.firstname}</p>}
-              {fetchedUser.lastname && <p>Nom : {fetchedUser.lastname}</p>}
-              {fetchedUser.phone_number && (
-                <p>Mon numéro de téléphone : {fetchedUser.phone_number}</p>
-              )}
-              {fetchedUser.email && (
-                <p>Mon adresse mail : {fetchedUser.email}</p>
-              )}
-              {fetchedUser.bio && (
-                <p className="bio">
-                  Ma présentation <br /> {fetchedUser.bio}
-                </p>
-              )}
-            </div>
+      <h1>
+        {t('Profile.h1')} {userLogged.firstname} !
+        <hr />
+      </h1>
+      <div className="profile-navigation">
+        {clickedProfileInfo ? (
+          <div>
+            <ProfileInformation />
           </div>
-          {fetchedUser.instagram_url ||
-          fetchedUser.twitter_url ||
-          fetchedUser.facebook_url
-            ? fetchedUser.facebook_url && (
-                // eslint-disable-next-line react/jsx-indent
-                <section className="social-networks">
-                  {fetchedUser.instagram_url && (
-                    <a href={fetchedUser.instagram_url} target="blank">
-                      <img src={InstagramIcon} alt="Instagram" />
-                    </a>
-                  )}
-                  {fetchedUser.twitter_url && (
-                    <a href={fetchedUser.twitter_url} target="blank">
-                      <img src={TwitterIcon} alt="Twitter" />
-                    </a>
-                  )}
-                  {fetchedUser.facebook_url && (
-                    <a href={fetchedUser.facebook_url} target="blank">
-                      <img src={FacebookIcon} alt="Facebook" />
-                    </a>
-                  )}
-                </section>
-              )
-            : null}
-        </>
-      ) : (
-        <h1>Mes événements</h1>
-      )}
+        ) : (
+          <div onClick={navigateToInformation} className="profile-section">
+            <Info />
+            <h3>{t('Profile.h3_1')}</h3>
+          </div>
+        )}
+        <hr />
+        {clickedMyEvents ? (
+          <div>
+            <ProfileEvents />
+          </div>
+        ) : (
+          <div onClick={navigateToMyEvents} className="profile-section">
+            <Gift />
+            <h3>{t('Profile.h3_2')}</h3>
+          </div>
+        )}
+        <hr />
+        {clickedHelp ? (
+          <div>
+            <h3>{t('Profile.h3_3')}</h3>
+          </div>
+        ) : (
+          <div onClick={navigateToHelp} className="profile-section">
+            <HelpCircle />
+            <h3>{t('Profile.h3_3')}</h3>
+          </div>
+        )}
+      </div>
+      <div className="logout" onClick={logout}>
+        <div className="logout-icon">
+          <LogOut />
+        </div>
+        {t('Profile.button')}
+      </div>
     </main>
   ) : (
-    'Chargement ...'
+    'Chargement'
   );
 }
