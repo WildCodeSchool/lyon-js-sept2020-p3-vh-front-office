@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useToasts } from 'react-toast-notifications';
 import './Footer.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -8,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import { useTranslation } from 'react-i18next';
 import logo from '../pictures/hypnose_vins_logo_web.png';
 import Translation from './Translation';
+import API from '../../services/API';
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -37,13 +39,33 @@ const Footer = () => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const { handleSubmit, errors, formState } = useForm({
+  const { addToast } = useToasts();
+  const { handleSubmit, register, errors, formState } = useForm({
     mode: 'onBlur',
   });
 
   const { isSubmitting } = formState;
   const onSubmit = async (data, e) => {
-    e.target.reset();
+    console.log(data);
+    try {
+      await API.post('/contact/newsletter', data);
+      addToast(
+        "Votre demande d'ajout à la newsletter à bien été pris en compte",
+        {
+          appearance: 'success',
+          autoDismiss: true,
+        }
+      );
+      e.target.reset();
+    } catch (err) {
+      addToast(
+        "Erreur lors de l'envoi de votre email, veuillez rééssayer plus tard",
+        {
+          appearance: 'error',
+          autoDismiss: true,
+        }
+      );
+    }
   };
 
   return (
@@ -58,6 +80,9 @@ const Footer = () => {
               label="Email"
               name="email"
               variant="outlined"
+              inputRef={register({
+                required: "Merci d'indiquer votre BOUBOUuuuuuuuuuuuuuuu",
+              })}
             />
             <div>{errors.email && <span>{errors.email.message}</span>}</div>
             <Button
