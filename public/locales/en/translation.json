@@ -42,9 +42,13 @@
   "Animators": {
     "titre": "Facilitators"
   },
+  "Products": {
+    "helmet": "Wines"
+  },
   "Wines": {
     "h1": "Tasted Wines",
-    "h2": "Find the wines tasted during our events !"
+    "h2": "Find the wines tasted during our events !",
+    "alert": "No wines available"
   },
   "About": {
     "helmet": "Who Am I?",

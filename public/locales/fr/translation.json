@@ -42,9 +42,13 @@
   "Animators": {
     "titre": "Animateurs"
   },
+  "Products": {
+    "helmet": "Vins"
+  },
   "Wines": {
     "h1": "Les vins dégustés",
-    "h2": "Retrouvez les vins dégustés lors des événements !"
+    "h2": "Retrouvez les vins dégustés lors des événements !",
+    "alert": "Aucun vin disponible"
   },
   "About": {
     "helmet": "Qui suis je?",
