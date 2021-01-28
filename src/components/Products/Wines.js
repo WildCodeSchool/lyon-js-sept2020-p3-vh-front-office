@@ -34,6 +34,7 @@ const Wines = () => {
         {winesCollection.length !== 0 ? (
           <>
             <h1> {t('Wines.h1')}</h1>
+            <p className="line">________________________</p>
 
             <CarrouselWrapper
               winesList={winesCollection}
@@ -57,7 +58,7 @@ const CarrouselWrapper = React.memo(({ handleClick, winesList }) => {
         <>
           <img
             role="presentation"
-            src={wine.image}
+            src={`${process.env.REACT_APP_API_BASE_URL}/${wine.image}`}
             alt={wine.image}
             onClick={() => handleClick(wine.id)}
             onKeyDown={() => handleClick(wine.id)}

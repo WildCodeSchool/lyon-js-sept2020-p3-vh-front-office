@@ -50,7 +50,7 @@ const Disclaimer = () => {
     <div className="disclaimer-wrapper">
       <div className="h1-hr">
         <h1>Engagements</h1>
-        <p>_______</p>
+        <p className="line">________________________</p>
       </div>
       <p>
         Elit do id commodo reprehenderit duis adipisicing voluptate sit velit

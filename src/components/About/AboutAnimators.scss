@@ -1,29 +1,32 @@
 @import '../variablesCSS';
 
 .container-all-cards-animators {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
   .header-page-animators {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    h2 {
-      margin-top: 40px;
-      margin-bottom: 40px;
-      font-family: $primary-font-family;
+    h1 {
+      color: $primary-color;
+    }
+    .line {
+      margin-bottom: 50px;
       color: $primary-color;
     }
     p {
       width: 50%;
       margin-bottom: 40px;
-      font-family: $secondary-font-family;
       text-align: center;
       line-height: 30px;
     }
   }
   .page-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -32,17 +35,15 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      width: 40%;
-      height: 300px;
+      width: 100%;
+      margin-bottom: 25px;
       .image-animator {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 40%;
-        height: 200px;
         img {
-          border-radius: 50%;
-          width: 70%;
+          margin-right: 15px;
+          width: 150px;
         }
       }
       .name-bio-logo {
@@ -50,8 +51,11 @@
         flex-direction: column;
         width: 40%;
         height: 200px;
+        p {
+          overflow: hidden;
+        }
         .logo-animateurs {
-          display: flex;
+          display: none;
           justify-content: flex-start;
           .reseaux-sociaux {
             margin-right: 7px;
@@ -59,12 +63,10 @@
           }
         }
         h3 {
-          font-family: $primary-font-family;
           color: $primary-color;
           margin-bottom: 15px;
         }
         p {
-          font-family: $secondary-font-family;
           margin-bottom: 15px;
           text-align: justify;
         }
@@ -73,27 +75,35 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
-    .page-container{
-        display: flex;
-        flex-direction: column;
-    }
-    .container-all-cards-animators .page-container .cards-container{
-        width: 100%;
-    }
-    .container-all-cards-animators .header-page-animators p{
-        width: 80%;
-    }
-    .container-all-cards-animators .page-container .cards-container .image-animator img{
-        width: 100%;
-    }
-    .container-all-cards-animators .page-container .cards-container .name-bio-logo p{
-        text-align: left;
-    }
-    .container-all-cards-animators .page-container{
-        margin-bottom: 30px;
-    }
-    .container-all-cards-animators .page-container .cards-container .image-animator img{
-        margin-right: 15px;
-    }
+@media screen and (min-width: 1024px) {
+  .page-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .container-all-cards-animators .page-container .cards-container {
+    width: 100%;
+  }
+  .container-all-cards-animators .header-page-animators p {
+    width: 80%;
+  }
+  .container-all-cards-animators .header-page-animators h1 {
+    font-size: 2.5vw;
+  }
+  .container-all-cards-animators
+    .page-container
+    .cards-container
+    .image-animator
+    img {
+    width: 100%;
+  }
+  .container-all-cards-animators
+    .page-container
+    .cards-container
+    .name-bio-logo
+    p {
+    text-align: left;
+  }
+  .container-all-cards-animators .page-container {
+    margin-bottom: 30px;
+  }
 }

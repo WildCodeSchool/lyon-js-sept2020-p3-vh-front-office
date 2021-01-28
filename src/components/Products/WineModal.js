@@ -119,7 +119,10 @@ export default function WineModal(props) {
                 )}
                 {t('WinesModals.p6')} : {price} € <br />
               </p>
-              <img src={image} alt={producteur} />
+              <img
+                src={`${process.env.REACT_APP_API_BASE_URL}/${image}`}
+                alt={producteur}
+              />
             </div>
             <Button
               variant="contained"

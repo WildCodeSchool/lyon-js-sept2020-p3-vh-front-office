@@ -46,7 +46,6 @@ const Footer = () => {
 
   const { isSubmitting } = formState;
   const onSubmit = async (data, e) => {
-    console.log(data);
     try {
       await API.post('/contact/newsletter', data);
       addToast(

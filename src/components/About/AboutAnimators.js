@@ -25,7 +25,8 @@ const AboutAnimators = () => {
         <title>Animateurs</title>
       </Helmet>
       <div className="header-page-animators">
-        <h2>Nos Animateurs</h2>
+        <h1>Nos Animateurs</h1>
+        <p className="line">________________________</p>
         <p>
           Lorem Ipsum has been the industry's standard dummy text ever since the
           1500s, when an unknown printer took a galley of type and scrambled it
@@ -38,7 +39,10 @@ const AboutAnimators = () => {
             return (
               <div key={animator.id} className="cards-container">
                 <div className="image-animator">
-                  <img src={animator.photo_url} alt={animator.firstname} />
+                  <img
+                    src={`${process.env.REACT_APP_API_BASE_URL}/${animator.photo_url}`}
+                    alt={animator.firstname}
+                  />
                 </div>
                 <div className="name-bio-logo">
                   <h3>
