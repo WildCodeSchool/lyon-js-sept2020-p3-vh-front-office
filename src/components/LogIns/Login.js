@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Link, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
 import './Login.scss';
 import { useToasts } from 'react-toast-notifications';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -39,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Login() {
   const { addToast } = useToasts();
+  const { t } = useTranslation();
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
   });
@@ -78,7 +80,8 @@ function Login() {
           <title>Login</title>
         </Helmet>
         <div>
-          <h1 className="login">Login</h1>
+          <h1 className="login">{t('Connection.h1')}</h1>
+          <p className="line">________________________</p>
         </div>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div>
@@ -106,7 +109,7 @@ function Login() {
                 },
               })}
               id="outlined-basic"
-              label="Password"
+              label={t('Connection.label2')}
               variant="outlined"
               type="password"
             />
@@ -120,12 +123,12 @@ function Login() {
                 inputRef={register}
               />
             }
-            label="Rester connecté ?"
+            label={t('Connection.checkbox')}
           />
           <div className="register-password">
-            <p>Mot de passe oublié ?</p>
+            <p>{t('Connection.link1')}</p>
             <Link to="/register">
-              <p>Inscription</p>
+              <p>{t('Connection.link2')}</p>
             </Link>
           </div>
 

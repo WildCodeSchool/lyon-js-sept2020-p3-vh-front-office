@@ -5,15 +5,40 @@ import './NavBar.scss';
 import { slide as Menu } from 'react-burger-menu';
 import logo from '../pictures/hypnose_vins_logo.png';
 import cross from '../pictures/cross.png';
-import calendar from '../pictures/calendar.svg';
 import SimpleMenu from './MenuNavBar.js';
 import Translation from './Translation.js';
 import useLocalStorage from '../../services/useLocalStorage';
 import { LoginContext } from '../Contexts/LoginContext';
+import Badge from '@material-ui/core/Badge';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { BasketContext } from '../Contexts/BasketContext';
+import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
+
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}))(Badge);
+
+const useStyles = makeStyles({
+  basket: {
+    color: '#8c0226',
+    margin: '0 20px',
+  },
+});
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const { basket, changeQuantity } = useContext(BasketContext);
+  const classes = useStyles();
+  const { t } = useTranslation();
 
   const handleStateChange = (state) => {
     setMenuOpen(state.isOpen);
@@ -41,14 +66,14 @@ const NavBar = () => {
       <div className="navbarLink">
         <ul>
           <NavLink exact to="/">
-            Accueil
+            {t('Navbar.lien1')}
           </NavLink>
           <SimpleMenu />
           <NavLink exact to="/aboutme">
-            A Propos
+            {t('Navbar.lien3')}
           </NavLink>
           <NavLink exact to="/contact">
-            Contact
+            {t('Navbar.lien4')}
           </NavLink>
         </ul>
       </div>
@@ -57,19 +82,28 @@ const NavBar = () => {
           <Translation />
         </div>
         <NavLink exact to="/basket">
-          <img src={calendar} alt="calendar basket" />
+          <IconButton aria-label="cart">
+            <StyledBadge
+              className={classes.basket}
+              badgeContent={basket.length}
+              color="secondary"
+            >
+              <ShoppingCartIcon className={classes.basket} />
+            </StyledBadge>
+          </IconButton>
         </NavLink>
+
         {userLogged ? (
           <NavLink
             exact
             to="/profile"
             style={{ fontSize: '18px', width: '150px' }}
           >
-            Bienvenue {userLogged.firstname}
+            {t('Navbar.lien6')} {userLogged.firstname}
           </NavLink>
         ) : (
-          <NavLink exact to="/register">
-            S'inscrire
+          <NavLink exact to="/login">
+            {t('Navbar.lien7')}
           </NavLink>
         )}
       </div>
@@ -87,26 +121,26 @@ const NavBar = () => {
           <img className="burgerLogo" src={logo} alt="logo burger" />
         </Link>
         <Link to="/" onClick={closeMenu}>
-          Accueil
+          {t('Navbar.lien8')}
         </Link>
         <Link to="/events" onClick={closeMenu}>
-          Evènements
+          {t('Navbar.lien9')}
         </Link>
         <Link to="/animators" onClick={closeMenu}>
-          Animateurs
+          {t('Navbar.lien10')}
         </Link>
         <Link to="/products" onClick={closeMenu}>
-          Vins & Spiritueux
+          {t('Navbar.lien11')}
         </Link>
         <Link to="/aboutme" onClick={closeMenu}>
-          A Propos
+          {t('Navbar.lien12')}
         </Link>
         <Link to="/contact" onClick={closeMenu}>
-          Contact
+          {t('Navbar.lien13')}
         </Link>
         {userLogged ? (
           <Link to="/profile" onClick={closeMenu}>
-            Bienvenue {userLogged.firstname} !
+            {t('Navbar.lien14')} {userLogged.firstname} !
           </Link>
         ) : (
           <Link to="/contact" onClick={closeMenu}>

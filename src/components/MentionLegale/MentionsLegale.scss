@@ -6,12 +6,16 @@
   align-items: center;
   .container-mentions-legales {
     width: 70%;
-    .h1-hr {
-      margin-bottom: 80px;
-    }
+    margin-bottom: 100px;
     h1 {
       color: $primary-color;
-      margin-top: 80px;
+      margin-top: 50px;
+      text-align: center;
+    }
+    .line {
+      margin-bottom: 50px;
+      text-align: center;
+      color: $primary-color;
     }
     h3 {
       color: $primary-color;
@@ -20,6 +24,16 @@
     p {
       color: $secondary-color;
       margin-bottom: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .page-mentions-légales {
+    .container-mentions-legales {
+      h1 {
+        font-size: 2.5vw;
+      }
     }
   }
 }

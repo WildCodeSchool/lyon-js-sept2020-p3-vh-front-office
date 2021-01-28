@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import './App.scss';
 import React from 'react';
 import { Helmet } from 'react-helmet';
@@ -16,6 +15,7 @@ import Reviews from './Reviews/Reviews';
 import Login from './LogIns/Login';
 import Register from './LogIns/Register';
 import Basket from './Basket/Basket';
+import ScrollButton from './Home/ScrollButton';
 import OrderConfirmation from './Basket/OrderConfirmation';
 import Disclaimer from './Basket/Disclaimer';
 import Footer from './Home/Footer';
@@ -24,6 +24,8 @@ import NavBar from './Home/NavBar';
 import MentionLegale from './MentionLegale/MentionLegale';
 import LoginProvider from './Contexts/LoginContext';
 import BasketProvider from './Contexts/BasketContext';
+import ProfileInformation from './LogIns/ProfileInformation';
+import ProfileEvents from './LogIns/ProfileEvents';
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
                 <title>Hypnose & Vins</title>
               </Helmet>
               <NavBar />
+              <ScrollButton />
               <div className="main-div">
                 <Switch>
                   <Route exact path="/" component={Home} />
@@ -58,6 +61,11 @@ function App() {
                   <Route exact path="/contact" component={Contact} />
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/profile" component={Profile} />
+                  <Route
+                    path="/profile/myinformation"
+                    component={ProfileInformation}
+                  />
+                  <Route path="/profile/myevents" component={ProfileEvents} />
                   <Route
                     exact
                     path="/mentions-legales"

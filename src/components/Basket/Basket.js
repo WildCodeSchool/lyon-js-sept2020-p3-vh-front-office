@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import { useTranslation } from 'react-i18next';
 import './Basket.scss';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
@@ -21,6 +22,7 @@ export default function Basket(props) {
   const { basket, setBasket } = useContext(BasketContext);
   const [basketDetails, setBasketDetails] = useState([]);
   const { userLogged } = useContext(LoginContext);
+  const { t } = useTranslation();
 
   useEffect(() => {
     basket.forEach((event) =>
@@ -106,25 +108,26 @@ export default function Basket(props) {
   return (
     <>
       <div className="basket">
-        <h1>Votre panier</h1>{' '}
+        <h1>{t('basket.title')}</h1>{' '}
+        <p className="line">________________________</p>
         <Button
           className={`button ${classes.button}`}
           onClick={() => props.history.push('/events')}
           variant="contained"
           type="button"
         >
-          Retour aux événéments
+          {t('basket.button1')}
         </Button>
         <TableContainer component={Paper}>
           <Table aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell align="center">Evénement</TableCell>
-                <TableCell align="center">Date</TableCell>
-                <TableCell align="center">Places réservées</TableCell>
-                <TableCell align="center">Prix unitaire</TableCell>
-                <TableCell align="center">Prix total</TableCell>
-                <TableCell align="center">Supprimer l'événément</TableCell>
+                <TableCell align="center">{t('basket.champ1')}</TableCell>
+                <TableCell align="center">{t('basket.champ2')}</TableCell>
+                <TableCell align="center">{t('basket.champ3')}</TableCell>
+                <TableCell align="center">{t('basket.champ4')}</TableCell>
+                <TableCell align="center">{t('basket.champ5')}</TableCell>
+                <TableCell align="center">{t('basket.champ6')}</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -135,7 +138,7 @@ export default function Basket(props) {
                       {event.title}
                     </TableCell>
                     <TableCell align="center">
-                      {moment(event.date).format('DD-MM-YYYY')}
+                      {moment(event.date).format('DD-MMMM-YYYY')}
                     </TableCell>
                     <TableCell align="center">
                       <TextField
@@ -175,7 +178,7 @@ export default function Basket(props) {
                         variant="contained"
                         type="button"
                       >
-                        Supprimer
+                        {t('basket.button4')}
                       </Button>
                     </TableCell>
                   </TableRow>
@@ -194,7 +197,7 @@ export default function Basket(props) {
             type="button"
             disabled={basketDetails.length === 0}
           >
-            Réserver
+            {t('basket.button2')}
           </Button>
           <Button
             className={classes.button}
@@ -205,7 +208,7 @@ export default function Basket(props) {
             type="button"
             disabled={basketDetails.length === 0}
           >
-            Vider mon panier
+            {t('basket.button3')}
           </Button>
         </div>
       </div>

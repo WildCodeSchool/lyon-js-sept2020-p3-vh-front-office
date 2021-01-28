@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getCollection } from '../../services/API';
 import './Sponsors.scss';
 
 const Sponsors = () => {
   const [sponsors, setSponsors] = useState();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const request = getCollection('sponsors').then((data) => setSponsors(data));
@@ -14,7 +16,7 @@ const Sponsors = () => {
 
   return (
     <div className="sponsors-main">
-      <h1>Nos partenaires</h1>
+      <h1>{t('Accueil.partenaires')}</h1>
       <p>________________________</p>
       <div className="cards">
         {sponsors && sponsors.length !== 0 ? (
@@ -29,7 +31,7 @@ const Sponsors = () => {
             );
           })
         ) : (
-          <p className="empty-sponsors">Pas de partenaire disponibles</p>
+          <p className="empty-sponsors">{t('Accueil.alert')}</p>
         )}
       </div>
     </div>

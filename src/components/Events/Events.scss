@@ -1,124 +1,150 @@
 @import '../variablesCSS';
-
-.eventBody {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  .calendar-container {
+.event-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  h1 {
+    color: $primary-color;
+    text-align: center;
+  }
+  .line {
+    color: $primary-color;
+    text-align: center;
+  }
+  .eventBody {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    .highlight {
-      font-weight: bold;
-      font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    .calendar-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 60px;
+      .highlight {
+        font-weight: 1000;
+        color: $primary-color;
+      }
+      .react-calendar__tile--active {
+        background: rgb(193, 194, 196);
+      }
+      .react-calendar__tile--now {
+        background: rgb(231, 224, 224);
+      }
     }
-  }
-  .cardOfEvents {
-    .eventCard:first-child {
-      margin-top: 100px;
-    }
-    .eventCard {
-      width: 100%;
-      .eventDetail {
-        height: 170px;
+    .cardOfEvents {
+      .eventCard:first-child {
+        margin-top: 100px;
+      }
+      .eventCard {
         width: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        background-color: $primary-color;
-        color: white;
-        border-radius: 10px;
-        img {
-          width: 70px;
-          height: 95px;
-        }
-        .eventDescription {
-          width: 60%;
+        margin-bottom: 40px;
+        .eventDetail {
           height: 100%;
+          width: 100%;
           display: flex;
           flex-direction: column;
-          justify-content: space-around;
-          h3 {
-            color: white;
-            margin-bottom: 0;
+          align-items: center;
+          background-color: white;
+          color: black;
+          border-radius: 10px;
+          border-style: solid;
+          border-width: 1px;
+          border-color: lightgrey;
+          img {
+            width: 400px;
           }
-          p {
-            font-size: 12px;
-          }
-          button {
-            height: 35px;
-            background-color: $secondary-color;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-          }
-          .button {
+          .eventDescription {
+            width: 100%;
+            height: 100%;
             display: flex;
-            justify-content: space-between;
-            .share {
-              .facebook {
-                margin-right: 10px;
-              }
+            flex-direction: column;
+            justify-content: space-around;
+            .reserver {
+              font-size: 30px;
+              color: $primary-color;
+            }
+
+            h2 {
+              text-align: center;
+              color: black;
+              margin: 20px;
+            }
+            p {
+              text-align: center;
+              font-size: 15px;
+              margin: 20px;
+            }
+            .button {
+              display: flex;
+              justify-content: space-around;
+              margin: 30px;
             }
           }
         }
-      }
-      .underCard {
-        margin: 15px 0 100px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        p {
+
+        .underCard {
+          margin: 15px 0 10px;
           display: flex;
-          width: 25%;
-          height: 25px;
-          justify-content: center;
+          flex-direction: row;
           align-items: center;
-          background-color: $primary-color;
-          color: white;
-          border-radius: 20px;
-          font-size: 12px;
+          p {
+            display: flex;
+            width: 25%;
+            height: 25px;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            color: black;
+            border-radius: 20px;
+          }
         }
       }
     }
   }
 }
-
 @media screen and (min-width: 1024px) {
-  .eventBody {
-    display: flex;
-    flex-direction: row-reverse;
-    .calendar-container {
-      display: flex;
-      align-self: flex-start;
-      padding: 40px;
-      margin-top: 35px;
+  .event-container {
+    h1 {
+      font-size: 2.5vw;
     }
-    .cardOfEvents {
+    .eventBody {
       display: flex;
-      flex-direction: column;
-      width: 100%;
-      .eventCard {
+      flex-direction: row-reverse;
+      .calendar-container {
+        display: flex;
+        align-self: flex-start;
+        position: sticky;
+        top: 0;
+        padding: 40px;
+        margin-top: 60px;
+      }
+
+      .cardOfEvents {
         display: flex;
         flex-direction: column;
-        width: 90%;
-        margin-left: 5%;
-        .eventDetail {
-          width: 100%;
-          padding: 7px;
-          img {
-            width: 140px;
-            height: 140px;
-          }
-          .eventDescription {
-            .reserver {
-              width: 100%;
+        width: 100%;
+        .eventCard {
+          display: flex;
+          flex-direction: column;
+          width: 90%;
+          margin-left: 5%;
+          .eventDetail {
+            width: 100%;
+            padding: 7px;
+            img {
+              width: 400px;
+            }
+            .eventDescription {
+              .reserver {
+                width: 100%;
+                font-size: 25px;
+                color: $primary-color;
+              }
             }
           }
-        }
-        .underCard {
-          width: 100%;
+          .underCard {
+            width: 100%;
+          }
         }
       }
     }

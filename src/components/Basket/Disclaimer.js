@@ -4,10 +4,12 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Disclaimer = () => {
   const [isChecked, setIsChecked] = useState(false);
   const history = useHistory();
+  const { t } = useTranslation();
 
   const handleChange = (value) => {
     setIsChecked(value);
@@ -49,7 +51,7 @@ const Disclaimer = () => {
   return (
     <div className="disclaimer-wrapper">
       <div className="h1-hr">
-        <h1>Engagements</h1>
+        <h1>{t('Disclaimer.title')}</h1>
         <p>_______</p>
       </div>
       <p>
@@ -73,7 +75,7 @@ const Disclaimer = () => {
           onChange={(event) => handleChange(event.target.checked)}
           name="validDisclaimer"
         />
-        <p>Je m'engage à honorer ma réservation</p>
+        <p>{t('Disclaimer.button')}</p>
       </div>
       <Button
         className={classes.button}
@@ -84,7 +86,7 @@ const Disclaimer = () => {
         type="button"
         disabled={isChecked === false}
       >
-        Valider ma réservation
+        {t('Disclaimer.button2')}
       </Button>
     </div>
   );

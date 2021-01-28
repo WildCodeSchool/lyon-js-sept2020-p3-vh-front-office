@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import {
-  AiOutlineMail,
-  AiFillFacebook,
-  AiOutlineTwitter,
-  AiOutlineInstagram,
-} from 'react-icons/ai';
 import './AboutAnimators.scss';
-import photo from '../pictures/login.png';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import MailIcon from '@material-ui/icons/Mail';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import { useTranslation } from 'react-i18next';
+import TwitterIcon from '@material-ui/icons/Twitter';
 import { getCollection } from '../../services/API';
 
 const AboutAnimators = () => {
+  const { t } = useTranslation();
   const [animators, setAnimators] = useState();
 
   useEffect(() => {
@@ -25,60 +24,44 @@ const AboutAnimators = () => {
   return (
     <div className="container-all-cards-animators">
       <Helmet>
-        <title>Animateurs</title>
+        <title>{t('Animator.title')}</title>
       </Helmet>
-      <h1>Animateurs</h1>
-      {animators &&
-        animators.map((animator) => {
-          return (
-            <div key={animator.id} className="cards-animators">
-              <div className="nom-image-paragraph-animator">
-                <div className="nom-image-animator">
-                  <h2>
+      <div className="header-page-animators">
+        <h1>{t('Animator.title')}</h1>
+        <p className="line">________________________</p>
+        <p>
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it
+          to make a type specimen book.
+        </p>
+      </div>
+      <div className="page-container">
+        {animators &&
+          animators.map((animator) => {
+            return (
+              <div key={animator.id} className="cards-container">
+                <div className="image-animator">
+                  <img
+                    src={`${process.env.REACT_APP_API_BASE_URL}/${animator.photo_url}`}
+                    alt={animator.firstname}
+                  />
+                </div>
+                <div className="name-bio-logo">
+                  <h3>
                     {animator.firstname} {animator.lastname}
-                  </h2>
-                  <img src={photo} alt={animator.firstname} />
-                  {/* src={animator.photo_url} */}
-                </div>
-                <div className="biography-animators">
+                  </h3>
                   <p>{animator.bio}</p>
+                  <div className="logo-animateurs">
+                    <FacebookIcon className="reseaux-sociaux" />
+                    <MailIcon className="reseaux-sociaux" />
+                    <InstagramIcon className="reseaux-sociaux" />
+                    <TwitterIcon className="reseaux-sociaux" />
+                  </div>
                 </div>
               </div>
-              <div className="socialMedia-animators">
-                <ul className="icon-bar-animators">
-                  <div>
-                    <li className="list">
-                      <a href="http://www.google.com">
-                        <AiOutlineMail size={26} color="white" />
-                      </a>
-                    </li>
-                  </div>
-                  <div>
-                    <li className="list">
-                      <a href="http://www.google.com">
-                        <AiFillFacebook size={26} color="white" />
-                      </a>
-                    </li>
-                  </div>
-                  <div>
-                    <li className="list">
-                      <a href="http://www.google.com">
-                        <AiOutlineTwitter size={26} color="white" />
-                      </a>
-                    </li>
-                  </div>
-                  <div>
-                    <li className="list">
-                      <a href="http://www.google.com">
-                        <AiOutlineInstagram size={26} color="white" />
-                      </a>
-                    </li>
-                  </div>
-                </ul>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+      </div>
     </div>
   );
 };

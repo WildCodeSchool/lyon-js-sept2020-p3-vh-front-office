@@ -5,6 +5,7 @@ import './Contact.scss';
 import { useToasts } from 'react-toast-notifications';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { useTranslation } from 'react-i18next';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -43,6 +44,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Contact = () => {
+  const { t } = useTranslation();
   const classes = useStyles();
 
   const { register, handleSubmit, formState, errors, control } = useForm({
@@ -98,12 +100,13 @@ const Contact = () => {
         <title>Contact</title>
       </Helmet>
       <form className="contactForm" onSubmit={handleSubmit(onSubmit)}>
-        <h1>Contactez-nous</h1>
+        <h1>{t('Contact.h1')}</h1>
+        <p className="line">________________________</p>
         <div className="input-contact-form">
           <TextField
             className={classes.input}
             id="outlined-basic"
-            label="Nom"
+            label={t('Contact.label1')}
             name="lastname"
             variant="outlined"
             inputRef={register({
@@ -116,7 +119,7 @@ const Contact = () => {
           <TextField
             className={classes.input}
             id="outlined-basic"
-            label="Prénom"
+            label={t('Contact.label2')}
             name="firstname"
             variant="outlined"
             inputRef={register({
@@ -129,7 +132,7 @@ const Contact = () => {
           <TextField
             className={classes.input}
             id="outlined-basic"
-            label="Email"
+            label={t('Contact.label3')}
             name="email"
             variant="outlined"
             inputRef={register({
@@ -139,7 +142,7 @@ const Contact = () => {
         </div>
 
         <div className="input-contact-form">
-          <InputLabel>Choisissez un sujet</InputLabel>
+          <InputLabel>{t('Contact.select')}</InputLabel>
           <Controller
             as={
               // eslint-disable-next-line react/jsx-wrap-multilines
@@ -149,13 +152,13 @@ const Contact = () => {
                 })}
               >
                 <MenuItem value="J'ai une question">
-                  Question/Participation Evènement
+                  {t('Contact.subject1')}
                 </MenuItem>
                 <MenuItem value="Je souhaite devenir partenaire">
-                  Devenir partenaire
+                  {t('Contact.subject2')}
                 </MenuItem>
                 <MenuItem value="Je souhaite devenir animateur">
-                  Animer un événement
+                  {t('Contact.subject3')}
                 </MenuItem>
               </Select>
             }
@@ -170,7 +173,7 @@ const Contact = () => {
           <TextField
             id="outlined-multiline-static"
             className={classes.input}
-            label="Message"
+            label={t('Contact.label4')}
             placeholder="Message"
             multiline
             rows={10}
@@ -190,7 +193,7 @@ const Contact = () => {
             variant="contained"
             color="primary"
           >
-            Envoyer
+            {t('Contact.button')}
           </Button>
         </div>
       </form>

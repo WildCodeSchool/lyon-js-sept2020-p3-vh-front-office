@@ -3,6 +3,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
+import { useTranslation } from 'react-i18next';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import { getCollection } from '../../services/API';
@@ -15,6 +16,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Review = () => {
+  const { t } = useTranslation();
   const classes = useStyles();
   const [reviews, setReviews] = useState([]);
 
@@ -26,7 +28,7 @@ const Review = () => {
   }, []);
   return (
     <section className="reviews-carousel-wrapper">
-      <h1>Ils ont tenté l'expérience</h1>
+      <h1>{t('Accueil.reviews')}</h1>
       <p>________________________</p>
       <div className="carrousel-reviews">
         {reviews && reviews.length !== 0 ? (
@@ -64,7 +66,7 @@ const Review = () => {
         ) : (
           <Carousel showThumbs={false} showStatus={false} showArrows={false}>
             <div className="slide-reviews">
-              <h3>Pas d'avis disponible</h3>
+              <h3>{t('Reviewhome.alert')} </h3>
             </div>
           </Carousel>
         )}

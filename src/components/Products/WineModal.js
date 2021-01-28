@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -63,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function WineModal(props) {
   const classes = useStyles();
+  const { t } = useTranslation();
   const { show, onHide } = props;
   const { winedata } = props;
   const {
@@ -96,28 +98,31 @@ export default function WineModal(props) {
           <div className={classes.paper}>
             <div className={classes.modalHeader}>
               <h1 id="transition-modal-title" className={classes.title}>
-                {producteur} - Cuvée {name}
+                {producteur} - {t('WinesModals.title')} {name}
               </h1>
               <CloseIcon className={classes.closeIcon} onClick={onHide} />
             </div>
 
             <div className={classes.modalBody}>
               <p id="transition-modal-description">
-                Vigneron : {vigneron} <br />
-                Cépages(s) : {cepage} <br />
+                {t('WinesModals.p1')} : {vigneron} <br />
+                {t('WinesModals.p2')} : {cepage} <br />
                 {sommelier && `Sommelier : ${sommelier} `}
                 <br />
-                Cépages(s) : {cepage} <br />
-                Arôme(s) : {arome} <br />
+                {t('WinesModals.p4')} : {cepage} <br />
+                {t('WinesModals.p5')} : {arome} <br />
                 {specificities && (
                   <>
-                    Spécificités : {specificities}
+                    {t('WinesModals.p6')} : {specificities}
                     <br />
                   </>
                 )}
-                Prix indicatif : {price} € <br />
+                {t('WinesModals.p6')} : {price} € <br />
               </p>
-              <img src={image} alt={producteur} />
+              <img
+                src={`${process.env.REACT_APP_API_BASE_URL}/${image}`}
+                alt={producteur}
+              />
             </div>
             <Button
               variant="contained"
@@ -126,7 +131,7 @@ export default function WineModal(props) {
               onClick={onHide}
               href={website}
             >
-              Me rendre sur le site du producteur
+              {t('WinesModals.button')}
             </Button>
           </div>
         </Fade>

@@ -5,7 +5,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { MdShare } from 'react-icons/md';
+import { MdShare, MdEventAvailable } from 'react-icons/md';
 import './Eventdetail.scss';
 import Button from '@material-ui/core/Button';
 import { IconContext } from 'react-icons/lib';
@@ -15,6 +15,17 @@ import { Icon } from 'leaflet';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { useToasts } from 'react-toast-notifications';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  TwitterIcon,
+} from 'react-share';
+import { useTranslation } from 'react-i18next';
+import { GiWineGlass } from 'react-icons/gi';
+import { GoLocation } from 'react-icons/go';
+import { BsPerson } from 'react-icons/bs';
+import { BiMoney, BiHourglass } from 'react-icons/bi';
 import SpinnerLoader from '../../services/Loader';
 import { BasketContext } from '../Contexts/BasketContext';
 import API from '../../services/API';
@@ -35,15 +46,22 @@ const EventDetails = (props) => {
   const [eventData, setEventData] = useState();
   const [eventCoordinate, setEventCoordinate] = useState();
   const [quantity, setQuantity] = useState(1);
+  const [userData, setUserData] = useState();
   const { addToast } = useToasts();
+  const { t } = useTranslation();
   // eslint-disable-next-line no-unused-vars
   const { basket, setBasket } = useContext(BasketContext);
 
   const { match } = props;
   const eventId = match.params.id;
+  const userId = match.params.id;
 
   useEffect(() => {
     API.get(`/events/${eventId}`).then((res) => setEventData(res.data));
+  }, []);
+
+  useEffect(() => {
+    API.get(`/users/${userId}`).then((res) => setUserData(res.data));
   }, []);
 
   useEffect(() => {
@@ -65,6 +83,7 @@ const EventDetails = (props) => {
 
   const useStyles = makeStyles(() => ({
     btn: {
+      height: '50%',
       backgroundColor: '#6d071a',
       textTransform: 'none',
       '&:hover': {
@@ -113,43 +132,53 @@ const EventDetails = (props) => {
 
   return eventCoordinate ? (
     <section className="event-details-container">
-      <Helmet>
-        <title>{eventData.title}</title>
-      </Helmet>
-
       <h1 className="title">{eventData.title}</h1>
-      <div className="description">
-        <div className="left_part">
+      <p className="line">________________________</p>
+      <div className="event-details">
+        <Helmet>
+          <title>{eventData.title}</title>
+        </Helmet>
+
+        <div className="main-page">
           <img
-            className="image_event"
-            src={eventData.main_picture_url}
-            alt="secondTest"
+            src={`${process.env.REACT_APP_API_BASE_URL}/${eventData.main_picture_url}`}
+            alt="event_image"
           />
-          <IconContext.Provider value={{ size: 40 }}>
-            <MdShare />
-          </IconContext.Provider>
-        </div>
-        <div className="right_part">
           <p>{eventData.description}</p>
-          {eventData.availabilities ? (
-            <p>{eventData.availabilities} places disponibles</p>
-          ) : (
-            <p style={{ color: 'red' }}>
-              Malheureusement, l'évènement n'est plus disponible
-            </p>
-          )}
+
+          <p>
+            <BsPerson size={25} color="#8c0226" />
+            &nbsp; {eventData.firstname}&nbsp;
+            {eventData.lastname}
+          </p>
+          <p>
+            <GiWineGlass size={25} color="#8c0226" />
+            &nbsp; &nbsp;
+            {eventData.name}&nbsp;-&nbsp;{eventData.producteur}
+          </p>
+          <div className="logo-event">
+            <FacebookShareButton
+              className="facebook"
+              url={window.location.href}
+            >
+              <FacebookIcon size={30} borderRadius={50}>
+                Facebook
+              </FacebookIcon>
+            </FacebookShareButton>
+
+            <TwitterShareButton className="twitter" url={window.location.href}>
+              <TwitterIcon size={30} borderRadius={50}>
+                Twitter
+              </TwitterIcon>
+            </TwitterShareButton>
+          </div>
           {!!eventData.availabilities && ( // need to use this expression, because React return a 0 with eventData.availabilities &&
             <div className="quantity-book">
-              <Button
-                // eslint-disable-next-line react/jsx-boolean-value
-                onClick={(event) => handleClick(event)}
-                className={classes.btn}
-                type="button"
-                variant="contained"
-                color="primary"
-              >
-                Réserver
-              </Button>
+              <p>
+                <BiMoney size={25} color="#8c0226" />
+                &nbsp;
+                {eventData.price} €
+              </p>
               <TextField
                 className={classes.input}
                 id="standard-number"
@@ -163,29 +192,69 @@ const EventDetails = (props) => {
                   setQuantity(e.target.value);
                 }}
               />
+              <Button
+                // eslint-disable-next-line react/jsx-boolean-value
+                onClick={(event) => handleClick(event)}
+                className={classes.btn}
+                type="button"
+                variant="contained"
+                color="primary"
+              >
+                {t('EventsDetails.button')}
+              </Button>
             </div>
           )}
+          <div className="availabilities-price-duration">
+            {eventData.availabilities ? (
+              <p>
+                <MdEventAvailable size={25} color="#8c0226" />
+                &nbsp;
+                {eventData.availabilities} {t('EventsDetails.p')}
+              </p>
+            ) : (
+              <p style={{ color: 'red' }}>
+                <MdEventAvailable size={25} color="#8c0226" />
+                &nbsp;
+                {t('EventsDetails.pWithoutPlace')}
+              </p>
+            )}
+            <p>
+              <GoLocation size={25} color="#8c0226" />
+              &nbsp;
+              {eventData.street}&nbsp;{eventData.zipcode}&nbsp;{eventData.city}
+            </p>
+            <p>
+              <BiHourglass size={25} color="#8c0226" />
+              &nbsp;
+              {eventData.duration_seconds} minutes
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="map">
-        <MapContainer
-          center={eventCoordinate}
-          zoom={13}
-          style={{ height: '351px', width: '100%', zIndex: '0' }}
-        >
-          <TileLayer
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <Marker
-            position={eventCoordinate}
-            icon={new Icon({ iconUrl: markerIconPng })}
+        <div className="map">
+          <MapContainer
+            center={eventCoordinate}
+            zoom={13}
+            style={{
+              height: '620px',
+              zIndex: '0',
+            }}
           >
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
-        </MapContainer>
+            <TileLayer
+              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker
+              position={eventCoordinate}
+              icon={new Icon({ iconUrl: markerIconPng })}
+            >
+              <Popup>
+                {eventData.street}&nbsp;
+                {eventData.zipcode}&nbsp;
+                {eventData.city}
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </div>
       </div>
     </section>
   ) : (
