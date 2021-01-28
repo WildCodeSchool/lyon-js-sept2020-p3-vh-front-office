@@ -116,7 +116,7 @@ const EventDetails = (props) => {
   return eventCoordinate ? (
     <section className="event-details-container">
       <Helmet>
-        <title>{eventData.title}</title>
+        <title>{eventData.title} </title>
       </Helmet>
 
       <h1 className="title">{eventData.title}</h1>
