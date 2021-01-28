@@ -112,7 +112,7 @@
   "EventsDetails": {
     "p": "places disponibles",
     "pWithoutPlace": "Evénement indisponible",
-    "button": "Réserver"
+    "button": "Ajouter au panier"
   },
   "basket": {
     "title": "Votre panier",

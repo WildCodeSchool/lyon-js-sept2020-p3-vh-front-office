@@ -25,6 +25,7 @@
     }
     .main-page {
       padding: 50px;
+      padding-bottom: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -53,15 +54,28 @@
         box-shadow: 0px 2px 10px 0px grey;
       }
       .availabilities-price-duration {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-      }
-      .quantity-book {
+        flex-direction: column;
         width: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;
+        p {
+          margin-bottom: 10px;
+        }
+      }
+      .quantity-book {
+        flex-wrap: wrap;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 50px;
+        p {
+          margin-bottom: 0;
+        }
+        button {
+          margin-top: 20px;
+        }
       }
     }
   }
@@ -86,8 +100,15 @@
         .logo-event {
           width: 17%;
         }
+        .availabilities-price-duration {
+          flex-direction: row;
+          width: 100%;
+        }
         .quantity-book {
-          width: 30%;
+          width: 80%;
+          button {
+            margin-top: 0;
+          }
         }
       }
     }

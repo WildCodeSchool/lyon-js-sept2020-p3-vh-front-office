@@ -145,11 +145,7 @@ const EventDetails = (props) => {
             alt="event_image"
           />
           <p>{eventData.description}</p>
-          <p>
-            <GoLocation size={25} color="#8c0226" />
-            &nbsp;
-            {eventData.street}&nbsp;{eventData.zipcode}&nbsp;{eventData.city}
-          </p>
+
           <p>
             <BsPerson size={25} color="#8c0226" />
             &nbsp; {eventData.firstname}&nbsp;
@@ -176,33 +172,13 @@ const EventDetails = (props) => {
               </TwitterIcon>
             </TwitterShareButton>
           </div>
-          <div className="availabilities-price-duration">
-            {eventData.availabilities ? (
-              <p>
-                <MdEventAvailable size={25} color="#8c0226" />
-                &nbsp;
-                {eventData.availabilities} {t('EventsDetails.p')}
-              </p>
-            ) : (
-              <p style={{ color: 'red' }}>
-                <MdEventAvailable size={25} color="#8c0226" />
-                &nbsp;
-                {t('EventsDetails.pWithoutPlace')}
-              </p>
-            )}
-            <p>
-              <BiMoney size={25} color="#8c0226" />
-              &nbsp;
-              {eventData.price} €
-            </p>
-            <p>
-              <BiHourglass size={25} color="#8c0226" />
-              &nbsp;
-              {eventData.duration_seconds} minutes
-            </p>
-          </div>
           {!!eventData.availabilities && ( // need to use this expression, because React return a 0 with eventData.availabilities &&
             <div className="quantity-book">
+              <p>
+                <BiMoney size={25} color="#8c0226" />
+                &nbsp;
+                {eventData.price} €
+              </p>
               <TextField
                 className={classes.input}
                 id="standard-number"
@@ -228,6 +204,31 @@ const EventDetails = (props) => {
               </Button>
             </div>
           )}
+          <div className="availabilities-price-duration">
+            {eventData.availabilities ? (
+              <p>
+                <MdEventAvailable size={25} color="#8c0226" />
+                &nbsp;
+                {eventData.availabilities} {t('EventsDetails.p')}
+              </p>
+            ) : (
+              <p style={{ color: 'red' }}>
+                <MdEventAvailable size={25} color="#8c0226" />
+                &nbsp;
+                {t('EventsDetails.pWithoutPlace')}
+              </p>
+            )}
+            <p>
+              <GoLocation size={25} color="#8c0226" />
+              &nbsp;
+              {eventData.street}&nbsp;{eventData.zipcode}&nbsp;{eventData.city}
+            </p>
+            <p>
+              <BiHourglass size={25} color="#8c0226" />
+              &nbsp;
+              {eventData.duration_seconds} minutes
+            </p>
+          </div>
         </div>
         <div className="map">
           <MapContainer

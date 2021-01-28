@@ -112,7 +112,7 @@
   "EventsDetails": {
     "p": "Available seats",
     "pWithoutPlace": "Unavailable event",
-    "button": "Reserve"
+    "button": "Add to basket"
   },
   "basket": {
     "title": "Your basket",
