@@ -98,10 +98,9 @@ export default function Profile() {
             <h3>Help</h3>
           </div>
         )}
-        <hr />
-        <div className="logout" onClick={logout}>
-          Log out
-        </div>
+      </div>
+      <div className="logout" onClick={logout}>
+        Log out
       </div>
     </main>
   ) : (
