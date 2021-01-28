@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 import './Profile.scss';
 import { useTranslation } from 'react-i18next';
-import { Gift, Info, HelpCircle } from 'react-feather';
+import { Gift, Info, HelpCircle, LogOut } from 'react-feather';
 import ProfileInformation from './ProfileInformation';
 import ProfileEvents from './ProfileEvents';
 import { LoginContext } from '../Contexts/LoginContext';
@@ -103,6 +103,9 @@ export default function Profile() {
         )}
       </div>
       <div className="logout" onClick={logout}>
+        <div className="logout-icon">
+          <LogOut />
+        </div>
         {t('Profile.button')}
       </div>
     </main>

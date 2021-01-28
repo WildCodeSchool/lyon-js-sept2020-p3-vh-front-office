@@ -36,10 +36,19 @@
   }
 
   .logout {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     margin-top: 20px;
     text-decoration: underline;
-    margin-right: 200px;
+
     font-size: 15px;
+
+    .logout-icon {
+      margin-right: 5px;
+      display: flex;
+      align-items: center;
+    }
   }
   .profile-navigation {
     display: flex;
@@ -271,13 +280,6 @@
         width: 100%;
       }
     }
-
-    .logout {
-      margin-top: 30px;
-      text-decoration: underline;
-      margin-right: 450px;
-      font-size: 15px;
-    }
   }
   .myinfo-section {
     h2 {
@@ -304,11 +306,6 @@
   @media screen and (min-width: 1024px) {
     .profile {
       margin: 3vw 30vw;
-
-      .logout {
-        margin-top: 10px;
-        margin-right: 250px;
-      }
 
       .profile-navigation {
         display: flex;
