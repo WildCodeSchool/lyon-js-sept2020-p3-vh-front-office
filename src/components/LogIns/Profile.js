@@ -99,7 +99,7 @@ export default function Profile() {
             {fetchedUser.photo_url && (
               <img
                 className="profile-image"
-                src={fetchedUser.photo_url}
+                src={`${process.env.REACT_APP_API_BASE_URL}/${fetchedUser.photo_url}`}
                 alt={fetchedUser.lastname}
               />
             )}

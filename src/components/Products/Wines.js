@@ -58,7 +58,7 @@ const CarrouselWrapper = React.memo(({ handleClick, winesList }) => {
         <>
           <img
             role="presentation"
-            src={wine.image}
+            src={`${process.env.REACT_APP_API_BASE_URL}/${wine.image}`}
             alt={wine.image}
             onClick={() => handleClick(wine.id)}
             onKeyDown={() => handleClick(wine.id)}

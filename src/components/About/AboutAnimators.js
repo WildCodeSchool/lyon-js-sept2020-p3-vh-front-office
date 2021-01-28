@@ -39,7 +39,10 @@ const AboutAnimators = () => {
             return (
               <div key={animator.id} className="cards-container">
                 <div className="image-animator">
-                  <img src={animator.photo_url} alt={animator.firstname} />
+                  <img
+                    src={`${process.env.REACT_APP_API_BASE_URL}/${animator.photo_url}`}
+                    alt={animator.firstname}
+                  />
                 </div>
                 <div className="name-bio-logo">
                   <h3>
