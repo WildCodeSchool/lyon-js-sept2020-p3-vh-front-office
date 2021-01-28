@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import './App.scss';
 import React from 'react';
 import { Helmet } from 'react-helmet';

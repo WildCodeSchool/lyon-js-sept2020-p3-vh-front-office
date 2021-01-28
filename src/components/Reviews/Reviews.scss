@@ -1,54 +1,72 @@
 @import '../variablesCSS';
 
-.reviews {
+.container-page-reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   h1 {
-    margin-top: 20px;
-    text-align: center;
+    color: $primary-color;
+    font-family: $primary-font-family;
+    margin-bottom: 20px;
+    margin-top: 50px;
   }
-
-  .cards {
+  .cards-container {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    border: 1px solid #eee;
-    padding: 10px;
-    margin: 10px 20px 20px 20px;
-    .wrapper {
-      text-align: end;
-      .ratings-comments {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .title {
-          font-weight: bold;
-          color: $secondary-color;
-        }
-        .comments {
-          text-align: justify;
-          margin-bottom: 10px;
-          color: $secondary-color;
-        }
-        .ratings p {
-          color: #ffcc00;
-        }
+    width: 80%;
+    margin-bottom: 100px;
+    margin-top: 50px;
+    .cards {
+      box-shadow: 0 5px 20px -10px;
+      display: flex;
+      margin: 10px;
+      padding: 25px 20px 15px;
+      border-radius: 6px;
+      text-align: left;
+      margin-bottom: 50px;
+      transition: all 0.25s ease-in-out;
+      max-width: none;
+      .date-reviews {
+        padding-top: 90px;
       }
-      .firstname {
-        margin-left: 200px;
-        color: $secondary-color;
+
+      .MuiBox-root {
+        margin: 0;
+      }
+      .content-card {
+        .title-rating {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+        h3 {
+          color: $primary-color;
+          font-weight: bolder;
+          margin-right: 5px;
+        }
+
+        .comment-reviews {
+          margin-top: 10px;
+        }
       }
     }
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .reviews {
-    .cards {
-      display: flex;
-      justify-content: center;
-      margin: auto;
-      margin-bottom: 20px;
-      margin-top: 30px;
-      width: 20%;
+@media screen and (max-width: 1024px) {
+  .container-page-reviews .cards-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .container-page-reviews .cards-container .cards {
+    width: 80%;
+    .date-reviews {
+      padding-top: 90px;
     }
   }
 }
