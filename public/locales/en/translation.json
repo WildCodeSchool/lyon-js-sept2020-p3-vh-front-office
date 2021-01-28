@@ -180,5 +180,32 @@
   },
   "Animator": {
     "title": "Our facilitators"
+  },
+  "Profile": {
+    "h1": "Welcome",
+    "h3_1": "My information",
+    "h3_2": "My events",
+    "h3_3": "Help",
+    "button": "Log out"
+  },
+  "ProfileInfo": {
+    "h1": "My information",
+    "b_1": "First name",
+    "b_2": "Last name",
+    "b_3": "Phone number",
+    "b_4": "Email",
+    "button_1": "Save",
+    "button_2": "Edit"
+  },
+  "ProfileEvents": {
+    "h1": "My events",
+    "button_1": "Upcoming",
+    "button_2": "Past",
+    "button_3": "Rate event"
+  },
+  "ReviewModal": {
+    "p_1": "Comment",
+    "p_2": "Rating",
+    "button": "Send"
   }
 }

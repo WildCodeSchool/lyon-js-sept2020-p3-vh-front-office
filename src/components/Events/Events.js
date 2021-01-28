@@ -93,99 +93,102 @@ const Events = () => {
   }, [initialEvents]);
 
   return (
-    <div className="eventBody">
-      <div className="calendar-container">
-        {listOfEventsDates && (
-          <Calendar
-            onClickDay={(value, event) => {
-              // eslint-disable-next-line no-underscore-dangle
-              setSelectedDates([
-                moment(value).startOf('isoWeek')._d,
-                moment(value).endOf('isoWeek')._d,
-              ]);
+    <section className="event-container">
+      <h1>Les évènements à venir</h1>
+      <p className="line">________________________</p>
+      <div className="eventBody">
+        <div className="calendar-container">
+          {listOfEventsDates && (
+            <Calendar
+              onClickDay={(value, event) => {
+                // eslint-disable-next-line no-underscore-dangle
+                setSelectedDates([
+                  moment(value).startOf('isoWeek')._d,
+                  moment(value).endOf('isoWeek')._d,
+                ]);
+              }}
+              value={selectedDates}
+              tileClassName={({ date }) => {
+                if (
+                  listOfEventsDates.find(
+                    (item) => item === moment(date).format('DD-MM-YYYY')
+                  )
+                ) {
+                  return 'highlight';
+                }
+                return null;
+              }}
+            />
+          )}
+          <Button
+            style={{ margin: 'auto', marginTop: '30px' }}
+            type="button"
+            onClick={() => {
+              getAllEvents();
+              history.push(`/events`);
             }}
-            value={selectedDates}
-            tileClassName={({ date }) => {
-              if (
-                listOfEventsDates.find(
-                  (item) => item === moment(date).format('DD-MM-YYYY')
-                )
-              ) {
-                return 'highlight';
-              }
-              return null;
-            }}
-          />
-        )}
-        <Button
-          style={{ margin: 'auto', marginTop: '30px' }}
-          type="button"
-          onClick={() => {
-            getAllEvents();
-            history.push(`/events`);
-          }}
-          className={classes.btn}
-        >
-          {t('Events.bouton2')}
-        </Button>
-      </div>
-      <div className="cardOfEvents">
-        <Helmet>
-          <title> {t('Events.helmet')}</title>
-        </Helmet>
-        {events &&
-          events.map((event) => {
-            return (
-              <div className="eventCard" key={event.id}>
-                <div className="eventDetail">
-                  <img
-                    src={`${process.env.REACT_APP_API_BASE_URL}/${event.main_picture_url}`}
-                    alt={event.title}
-                  />
-                  <div className="eventDescription">
-                    <h2>{event.title}</h2>
-                    <p>{event.description}</p>
-                    <div className="underCard">
-                      <p>
-                        <GoLocation size={25} color="#8c0226" />
-                        &nbsp;
-                        {event.city}
-                      </p>
+            className={classes.btn}
+          >
+            {t('Events.bouton2')}
+          </Button>
+        </div>
+        <div className="cardOfEvents">
+          <Helmet>
+            <title>Événements</title>
+          </Helmet>
+          {events &&
+            events.map((event) => {
+              return (
+                <div className="eventCard" key={event.id}>
+                  <div className="eventDetail">
+                    <img
+                      src={`${process.env.REACT_APP_API_BASE_URL}/${event.main_picture_url}`}
+                      alt={event.title}
+                    />
+                    <div className="eventDescription">
+                      <h2>{event.title}</h2>
+                      <p>{event.description}</p>
+                      <div className="underCard">
+                        <p>
+                          <GoLocation size={25} color="#8c0226" />
+                          &nbsp;
+                          {event.city}
+                        </p>
 
-                      <p>
-                        <BsPerson size={25} color="#8c0226" />
-                        &nbsp;
-                        {event.firstname}&nbsp;{event.lastname}
-                      </p>
-                      <p>
-                        <GiWineGlass size={25} color="#8c0226" />
-                        &nbsp;
-                        {event.name}
-                      </p>
-                      <p>
-                        <BiTimeFive size={25} color="#8c0226" />
-                        &nbsp;
-                        {moment(event.date).format('DD-MMMM-YYYY')}
-                      </p>
-                    </div>
-                    <div className="button">
-                      <Button
-                        style={{ width: '20%' }}
-                        type="button"
-                        onClick={() => history.push(`/events/${event.id}`)}
-                        className={classes.btn}
-                      >
-                        {t('Events.bouton1')}
-                      </Button>
+                        <p>
+                          <BsPerson size={25} color="#8c0226" />
+                          &nbsp;
+                          {event.firstname}&nbsp;{event.lastname}
+                        </p>
+                        <p>
+                          <GiWineGlass size={25} color="#8c0226" />
+                          &nbsp;
+                          {event.name}
+                        </p>
+                        <p>
+                          <BiTimeFive size={25} color="#8c0226" />
+                          &nbsp;
+                          {moment(event.date).format('DD-MM-YYYY')}
+                        </p>
+                      </div>
+                      <div className="button">
+                        <Button
+                          style={{ width: '20%' }}
+                          type="button"
+                          onClick={() => history.push(`/events/${event.id}`)}
+                          className={classes.btn}
+                        >
+                          {t('Events.bouton1')}
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
-
 export default Events;
