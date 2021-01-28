@@ -8,7 +8,11 @@
   justify-content: center;
   text-align: center;
   h1 {
-    margin-bottom: 2rem;
+    color: $primary-color;
+  }
+  .line {
+    margin-bottom: 50px;
+    color: $primary-color;
   }
   form {
     margin-top: 50px;
@@ -26,6 +30,9 @@
   .container-contact-form {
     .contactForm {
       width: 30%;
+    }
+    h1 {
+      font-size: 2.5vw;
     }
   }
 }

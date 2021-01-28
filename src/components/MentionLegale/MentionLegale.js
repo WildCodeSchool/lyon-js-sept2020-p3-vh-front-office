@@ -13,7 +13,7 @@ const MentionLegale = () => {
       <div className="container-mentions-legales">
         <div className="h1-hr">
           <h1 className="titre-mentions-legales">{t('Mentions.h1')}</h1>
-          <p>_______</p>
+          <p className="line">________________________</p>
         </div>
         <h3 className="catégories-mentions-légales">{t('Mentions.h3_1')}</h3>
         <p className="paragraphes-mentions-légales">{t('Mentions.p_1')}</p>

@@ -1,6 +1,7 @@
 @import '../variablesCSS';
 
 .container-all-cards-animators {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   .header-page-animators {
@@ -8,16 +9,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    h2 {
-      margin-top: 40px;
-      margin-bottom: 40px;
-      font-family: $primary-font-family;
+    h1 {
+      color: $primary-color;
+    }
+    .line {
+      margin-bottom: 50px;
       color: $primary-color;
     }
     p {
       width: 50%;
       margin-bottom: 40px;
-      font-family: $secondary-font-family;
       text-align: center;
       line-height: 30px;
     }
@@ -73,27 +74,42 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
-    .page-container{
-        display: flex;
-        flex-direction: column;
-    }
-    .container-all-cards-animators .page-container .cards-container{
-        width: 100%;
-    }
-    .container-all-cards-animators .header-page-animators p{
-        width: 80%;
-    }
-    .container-all-cards-animators .page-container .cards-container .image-animator img{
-        width: 100%;
-    }
-    .container-all-cards-animators .page-container .cards-container .name-bio-logo p{
-        text-align: left;
-    }
-    .container-all-cards-animators .page-container{
-        margin-bottom: 30px;
-    }
-    .container-all-cards-animators .page-container .cards-container .image-animator img{
-        margin-right: 15px;
-    }
+@media screen and (min-width: 1024px) {
+  .page-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .container-all-cards-animators .page-container .cards-container {
+    width: 100%;
+  }
+  .container-all-cards-animators .header-page-animators p {
+    width: 80%;
+  }
+  .container-all-cards-animators .header-page-animators h1 {
+    font-size: 2.5vw;
+  }
+  .container-all-cards-animators
+    .page-container
+    .cards-container
+    .image-animator
+    img {
+    width: 100%;
+  }
+  .container-all-cards-animators
+    .page-container
+    .cards-container
+    .name-bio-logo
+    p {
+    text-align: left;
+  }
+  .container-all-cards-animators .page-container {
+    margin-bottom: 30px;
+  }
+  .container-all-cards-animators
+    .page-container
+    .cards-container
+    .image-animator
+    img {
+    margin-right: 15px;
+  }
 }

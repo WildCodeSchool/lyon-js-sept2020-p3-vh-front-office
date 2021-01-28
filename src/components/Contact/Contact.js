@@ -101,6 +101,7 @@ const Contact = () => {
       </Helmet>
       <form className="contactForm" onSubmit={handleSubmit(onSubmit)}>
         <h1>{t('Contact.h1')}</h1>
+        <p className="line">________________________</p>
         <div className="input-contact-form">
           <TextField
             className={classes.input}

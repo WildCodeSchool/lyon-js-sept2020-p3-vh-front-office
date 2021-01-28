@@ -8,9 +8,13 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 80px;
+  margin-top: 50px;
   h1 {
     color: $primary-color;
-    margin-top: 80px;
+  }
+  .line {
+    color: $primary-color;
+    margin-bottom: 50px;
   }
   h3 {
     color: $primary-color;
@@ -20,7 +24,15 @@
     color: $secondary-color;
     margin-bottom: 20px;
   }
-  .p-orderconfirmation{
+  .p-orderconfirmation {
     line-height: 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .orderconfirmation-wrapper {
+    h1 {
+      font-size: 2.5vw;
+    }
   }
 }

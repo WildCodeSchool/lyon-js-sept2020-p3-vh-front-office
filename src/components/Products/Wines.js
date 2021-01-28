@@ -34,6 +34,7 @@ const Wines = () => {
         {winesCollection.length !== 0 ? (
           <>
             <h1> {t('Wines.h1')}</h1>
+            <p className="line">________________________</p>
 
             <CarrouselWrapper
               winesList={winesCollection}

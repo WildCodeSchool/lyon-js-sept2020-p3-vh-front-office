@@ -24,7 +24,7 @@ const OrderConfirmation = () => {
     <div className="orderconfirmation-wrapper">
       <div className="h1-hr">
         <h1>Votre commande est confirmée !</h1>
-        <p>_______</p>
+        <p className="line">________________________</p>
       </div>
       <p className="p-orderconfirmation">
         Merci de votre confiance, vous recevrez un mail de confirmation.
