@@ -186,8 +186,9 @@
       a {
         text-decoration: none;
         :hover {
-          font-weight: bolder;
-          font-size: 17px;
+          background-color: white;
+          transition-duration: 0.3s;
+          transform: scale(1.15);
         }
       }
     }
