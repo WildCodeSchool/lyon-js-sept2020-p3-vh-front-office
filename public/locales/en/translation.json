@@ -24,8 +24,8 @@
     "titre": "Hypnosis & Wines"
   },
   "Events": {
-    "bouton1": "Select",
-    "bouton2": "Reset"
+    "bouton1": "Details",
+    "bouton2": "Reset filters"
   },
   "Animators": {
     "titre": "Facilitators"
@@ -111,8 +111,8 @@
   },
   "EventsDetails": {
     "p": "Available seats",
-    "pWithoutPlace": "Unfortunately, the event is no longer available",
-    "button": "Reserve"
+    "pWithoutPlace": "Unavailable event",
+    "button": "Add to basket"
   },
   "basket": {
     "title": "Your basket",

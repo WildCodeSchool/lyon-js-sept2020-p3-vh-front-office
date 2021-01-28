@@ -24,8 +24,8 @@
     "titre": "Hypnose & Vins"
   },
   "Events": {
-    "bouton1": "Réserver",
-    "bouton2": "Réinitialiser"
+    "bouton1": "Détails",
+    "bouton2": "Réinitialiser les filtres"
   },
   "Animators": {
     "titre": "Animateurs"
@@ -111,8 +111,8 @@
   },
   "EventsDetails": {
     "p": "places disponibles",
-    "pWithoutPlace": "Malheureusement, l'évènement n'est plus disponible",
-    "button": "Réserver"
+    "pWithoutPlace": "Evénement indisponible",
+    "button": "Ajouter au panier"
   },
   "basket": {
     "title": "Votre panier",
