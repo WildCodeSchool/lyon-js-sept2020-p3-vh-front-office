@@ -71,7 +71,7 @@ const Footer = () => {
     <footer className="footerBody">
       <div className="footerTop">
         <div className="footerSignUp">
-          <h2>Inscrivez-vous aux évènements à venir</h2>
+          <h2>{t('Footer.link9')}</h2>
           <form className="footerForm" onSubmit={handleSubmit(onSubmit)}>
             <TextField
               className={classes.input}
