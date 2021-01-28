@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { useTranslation } from 'react-i18next';
 import { Carousel } from 'react-responsive-carousel';
 import './WelcomeCarrousel.scss';
 import API from '../../services/API';
 
 const WelcomeCarousel = () => {
+  const { t } = useTranslation();
   const [slides, setSlides] = useState();
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const WelcomeCarousel = () => {
       ) : (
         <Carousel showThumbs={false} showStatus={false} showArrows={false}>
           <div>
-            <p className="legend">Pas d'actualité disponible</p>
+            <p className="legend"> {t('Slide.alert')} </p>
           </div>
         </Carousel>
       )}

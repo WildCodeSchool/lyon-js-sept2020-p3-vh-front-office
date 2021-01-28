@@ -19,6 +19,17 @@ const useStyles = makeStyles(() => ({
       backgroundColor: '#6d071a',
     },
   },
+  input: {
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#6d071a',
+    },
+    '& .MuiOutlinedInput-input': {
+      color: '#6d071a',
+    },
+    '& .MuiInputLabel-outlined.Mui-focused': {
+      color: '#6d071a',
+    },
+  },
 }));
 
 const Footer = () => {
@@ -94,9 +105,8 @@ const Footer = () => {
             </Link>
           </div>
           <div className="footerLanguage">
-            <h2>Langue</h2>
+            <h2> {t('Footer.link5')} </h2>
             <div className="langue">
-              {' '}
               <p>FR|</p>
               <p>EN</p>
             </div>

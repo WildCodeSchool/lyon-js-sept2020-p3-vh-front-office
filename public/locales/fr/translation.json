@@ -2,7 +2,8 @@
   "Accueil": {
     "titre": "Bienvenue sur Hypnose & Vins",
     "reviews": "Ils ont tenté l'expérience",
-    "partenaires": "Nos partenaires"
+    "partenaires": "Nos partenaires",
+    "alert": "Pas de partenaires disponibles"
   },
   "Navbar": {
     "lien1": "Accueil",
@@ -12,7 +13,8 @@
     "souslien3": "Vins & Spiritueux",
     "lien3": "A propos",
     "lien4": "Contact",
-    "lien5": "S'inscrire"
+    "lien5": "S'inscrire",
+    "lien6": "Bienvenue"
   },
   "Footer": {
     "email": "Inscrivez-vous aux évènements à venir",
@@ -21,11 +23,12 @@
     "link2": "Ils ont tenté l'expérience",
     "link3": "Mentions Légales",
     "link4": "A PROPOS",
-    "titre": "Hypnose & Vins"
+    "titre": "Hypnose & Vins",
+    "link5": "Langue"
   },
   "Events": {
-    "bouton1": "Réserver",
-    "bouton2": "Réinitialiser"
+    "bouton1": "Détails",
+    "bouton2": "Réinitialiser les filtres"
   },
   "Animators": {
     "titre": "Animateurs"
@@ -111,8 +114,8 @@
   },
   "EventsDetails": {
     "p": "places disponibles",
-    "pWithoutPlace": "Malheureusement, l'évènement n'est plus disponible",
-    "button": "Réserver"
+    "pWithoutPlace": "Evénement indisponible",
+    "button": "Ajouter au panier"
   },
   "basket": {
     "title": "Votre panier",
@@ -136,5 +139,27 @@
     "p5": "Arôme(s)",
     "p6": "Prix indicatif",
     "button": "Me rendre sur le site du producteur"
+  },
+  "Disclaimer": {
+    "title": "Engagements",
+    "button": "Je m'engage à honorer ma réservation",
+    "button2": "Valider ma réservation"
+  },
+  "Reservation": {
+    "title": "Prêt à réserver ?",
+    "button": " Voir nos évéments"
+  },
+  "Reviewhome": {
+    "alert": "Pas d'avis disponible"
+  },
+  "Confirmation": {
+    "title": "Votre commande est confirmée !",
+    "sentence1": "Merci de votre confiance, vous recevrez un mail de confirmation.",
+    "sentence2": "Vous allez être redirigé vers la page d'accueil dans 5 secondes.",
+    "sentence3": "Si vous ne souhaitez pas attendre",
+    "click": "Cliquez ici."
+  },
+  "Slide": {
+    "alert": "Pas d'actualité disponible"
   }
 }

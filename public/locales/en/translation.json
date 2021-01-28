@@ -1,8 +1,9 @@
 {
   "Accueil": {
-    "titre": "Welcome to Hypnosis & Wines",
+    "titre": "Welcome to Hypnose & Vins",
     "reviews": "See what others are saying!",
-    "partenaires": "Our Partners"
+    "partenaires": "Our Partners",
+    "alert": "No partners available"
   },
   "Navbar": {
     "lien1": "Home",
@@ -12,20 +13,22 @@
     "souslien3": "Wines & Spirits",
     "lien3": "About",
     "lien4": "Contact",
-    "lien5": "Sign up"
+    "lien5": "Sign up",
+    "lien6": "Welcome"
   },
   "Footer": {
-    "email": "Sign up for our comming events",
+    "email": "Sign up for our coming events",
     "bouton": "Send",
     "link1": "Our facilitators",
     "link2": "Reviews",
     "link3": "Legal Mentions",
-    "link4": "About",
-    "titre": "Hypnosis & Wines"
+    "link4": "ABOUT",
+    "titre": "Hypnose & Vins",
+    "link5": "Language"
   },
   "Events": {
-    "bouton1": "Select",
-    "bouton2": "Reset"
+    "bouton1": "Details",
+    "bouton2": "Reset filters"
   },
   "Animators": {
     "titre": "Facilitators"
@@ -39,7 +42,7 @@
     "h2": "Who Am I?",
     "content1": "Originally from Lyon, I first studied medicine, then molecular biology, keen to unravel the cellular mysteries of human beings. After health concerns that forced me to reconsider my career choices, I studied law and human resources management. I then worked in various professions within SMEs and Key Accounts. However, I quickly realize that this job puts me in conflict with some of my values. In search of a more authentic path and more in keeping with my identity, I naturally turn to alternative medicine, psychology and Ericksonian hypnosis. A lucid and hypersensitive dreamer since childhood, I have long searched for answers in books in order to channel my sensitivity and empathy. However, it was only by encountering hypnosis that I was able to put words into my altered nocturnal state of consciousness. And then there were also my hands, those hands that heal when I put them on a sensitive area of ​​the other's body.",
     "content2": "Prenant conscience du sens de mon existence, je me forme alors à diverses médecines douces corporelles : magnétisme, Reiki et Tui Na, par exemple.Mais également en psychologie sociale, en psychopathologie, au niveau praticien en hypnose éricksonienne avec Kévin FINEL, en PNL (Programmation Neuro – Linguistique) et en RITMO® (combinaison de l’hypnose et de l’EMDR) avec Lili RUGGIERI. Ma curiosité de l’être humain me pousse à me former en continu afin de toujours mieux appréhender et comprendre l’autre pour mieux l’accompagner dans sa quête de sens, de bonheur, de mieux-être. Le tout dans une volonté constante d’amélioration et d’évolution de mon approche. J’adhère également au Syndicat Des Métiers de l’Hypnose dans le but de garantir à mes clients un cadre déontologique, éthique et professionnel sûr. Ayant été chahutée par la vie, d’autre m’ont accompagnée afin que je trouve ma voie, c’est à mon tour de vous éclairer le chemin pendant quelques temps afin que vous trouviez votre propre lumière.",
-    "h3": "Join me!"
+    "h3": "Contact me!"
   },
   "Contact": {
     "h1": "Contact us",
@@ -56,7 +59,7 @@
   "Inscription": {
     "h1": "Sign up",
     "button": "Sign up",
-    "link": "Already signed up ?",
+    "link": "Already signed up?",
     "label1": "First name",
     "label2": "Last name",
     "label3": "E-mail",
@@ -67,7 +70,7 @@
   "Connection": {
     "h1": "Log in",
     "checkbox": "Remember me",
-    "link1": "Forgot password ?",
+    "link1": "Forgot password?",
     "link2": "Sign up",
     "button": "Log In",
     "label2": "Password"
@@ -112,29 +115,51 @@
   "EventsDetails": {
     "p": "Spots Available",
     "pWithoutPlace": "Unfortunately, this event is fully booked",
-    "button": "Add to cart"
+    "button": "Add to basket"
   },
   "basket": {
     "title": "Your basket",
     "button1": "Back to events",
-    "button2": "Reserve",
+    "button2": "Book",
     "button3": "Empty my basket",
-    "button4": "Delete",
+    "button4": "Remove",
     "champ1": "Event",
     "champ2": "Date",
     "champ3": "Reserved places",
     "champ4": "Unit price",
     "champ5": "Total price",
-    "champ6": "Delete the event"
+    "champ6": "Remove the event"
   },
   "WinesModals": {
     "title": "Cuvée",
     "p1": "Winemaker",
-    "p2": "Grape variety (s)",
+    "p2": "Grape variety (ies)",
     "p3": "Sommelier",
-    "p4": "Grape variety (s)",
+    "p4": "Grape variety (ies)",
     "p5": "Aroma (s)",
-    "p6": "Indicated price",
+    "p6": "Indicative price",
     "button": "Go to the producer's website"
+  },
+  "Disclaimer": {
+    "title": "Disclaimer",
+    "button": "I agree",
+    "button2": "Confirm my booking"
+  },
+  "Reservation": {
+    "title": "Ready to book ?",
+    "button": "See all events"
+  },
+  "Reviewhome": {
+    "alert": "No reviews available"
+  },
+  "Confirmation": {
+    "title": "Your order is confirmed!",
+    "sentence1": "Thank you for your trust, you will receive a confirmation email.",
+    "sentence2": "You will be redirected to the home page in 5 seconds.",
+    "sentence3": "If you don't want to wait,",
+    "click": "Click here."
+  },
+  "Slide": {
+    "alert": "No news available"
   }
 }
