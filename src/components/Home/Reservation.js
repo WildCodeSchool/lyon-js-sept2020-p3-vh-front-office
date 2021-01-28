@@ -24,7 +24,6 @@ const Reservation = () => {
   return (
     <div className="reservation">
       <h1> Prêt à réserver ? </h1>
-
       <p>
         Consectetur culpa duis labore dolore fugiat nostrud excepteur amet ad
         sunt ex nostrud. Nulla commodo elit do proident ea minim voluptate
