@@ -34,18 +34,20 @@ export default function Reviews() {
             return (
               <div className="cards" key={review.id}>
                 <div className="content-card">
-                  <h3>
-                    {review.firstname} {review.lastname}
-                  </h3>
-                  <p className="date-reviews">
-                    {moment(review.created_at).format('DD-MM-YYYY')}
-                  </p>
-                  <p className="comment-reviews">{review.comment}</p>
-                  <Box component="fieldset" mb={3} borderColor="transparent">
-                    <Typography component="legend" />
-                    <Rating name="read-only" value={review.rating} readOnly />
-                  </Box>
+                  <div className="title-rating">
+                    <h3>{review.title}</h3>
+                    <Box component="fieldset" mb={3} borderColor="transparent">
+                      <Typography component="legend" />
+                      <Rating name="read-only" value={review.rating} readOnly />
+                    </Box>
+                  </div>
+
+                  <p className="comment-reviews">“{review.comment}”</p>
                 </div>
+                <p className="date-reviews">
+                  {moment(review.created_at).format('DD-MM-YYYY')}
+                  <p>{review.firstname}</p>
+                </p>
               </div>
             );
           })}

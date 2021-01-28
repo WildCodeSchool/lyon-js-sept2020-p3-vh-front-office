@@ -20,44 +20,50 @@
     width: 80%;
     margin-bottom: 100px;
     margin-top: 50px;
-    .cards{
+    .cards {
+      box-shadow: 0 5px 20px -10px;
       display: flex;
-      flex-direction: column;
-      width: 25%;
-      height: 350px;
-      border: 1px solid black;
-      margin: 15px;
+      margin: 10px;
+      padding: 25px 20px 15px;
+      border-radius: 6px;
+      text-align: left;
       margin-bottom: 50px;
-      border-radius: 5px;
-      .content-card{
-        margin: 20px;
-        h3{
-          margin-bottom: 5px;
-          color:$primary-color ;
-          font-family: $primary-font-family;
-          margin-top: 30px;
+      transition: all 0.25s ease-in-out;
+      max-width: none;
+      .date-reviews {
+        padding-top: 90px;
+      }
+
+      .MuiBox-root {
+        margin: 0;
+      }
+      .content-card {
+        .title-rating {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
         }
-        .date-reviews{
-          margin-bottom: 25px;
-          font-family: $secondary-font-family;
+        h3 {
+          color: $primary-color;
+          font-weight: bolder;
+          margin-right: 5px;
         }
-        .comment-reviews{
-          margin-bottom: 60px;
-          font-family: $secondary-font-family;
+
+        .comment-reviews {
+          margin-top: 10px;
         }
       }
     }
   }
 }
 
-
 @media screen and (max-width: 1024px) {
-.container-page-reviews .cards-container{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-.container-page-reviews .cards-container .cards{
-  width: 80%;
-}
+  .container-page-reviews .cards-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .container-page-reviews .cards-container .cards {
+    width: 80%;
+  }
 }
