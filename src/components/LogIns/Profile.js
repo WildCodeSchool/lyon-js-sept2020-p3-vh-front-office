@@ -4,11 +4,10 @@ import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 import './Profile.scss';
-
+import { useTranslation } from 'react-i18next';
 import { Gift, Info, HelpCircle } from 'react-feather';
 import ProfileInformation from './ProfileInformation';
 import ProfileEvents from './ProfileEvents';
-
 import { LoginContext } from '../Contexts/LoginContext';
 
 import API from '../../services/API';
@@ -21,6 +20,7 @@ export default function Profile() {
   const [clickedProfileInfo, setClickedProfileInfo] = useState(false);
   const [clickedMyEvents, setClickedMyEvents] = useState(false);
   const [clickedHelp, setClickedHelp] = useState(false);
+  const { t } = useTranslation();
 
   const logout = async () => {
     try {
@@ -64,7 +64,9 @@ export default function Profile() {
 
   return fetchedUser.length !== 0 ? (
     <main className="profile">
-      <h1>Bienvenue {userLogged.firstname} !</h1>
+      <h1>
+        {t('Profile.h1')} {userLogged.firstname} !
+      </h1>
       <div className="profile-navigation">
         {clickedProfileInfo ? (
           <div>
@@ -73,7 +75,7 @@ export default function Profile() {
         ) : (
           <div onClick={navigateToInformation} className="profile-section">
             <Info />
-            <h3>My Information</h3>
+            <h3>{t('Profile.h3_1')}</h3>
           </div>
         )}
         <hr />
@@ -84,23 +86,23 @@ export default function Profile() {
         ) : (
           <div onClick={navigateToMyEvents} className="profile-section">
             <Gift />
-            <h3>My Events</h3>
+            <h3>{t('Profile.h3_2')}</h3>
           </div>
         )}
         <hr />
         {clickedHelp ? (
           <div>
-            <h3>Help</h3>
+            <h3>{t('Profile.h3_3')}</h3>
           </div>
         ) : (
           <div onClick={navigateToHelp} className="profile-section">
             <HelpCircle />
-            <h3>Help</h3>
+            <h3>{t('Profile.h3_3')}</h3>
           </div>
         )}
       </div>
       <div className="logout" onClick={logout}>
-        Log out
+        {t('Profile.button')}
       </div>
     </main>
   ) : (

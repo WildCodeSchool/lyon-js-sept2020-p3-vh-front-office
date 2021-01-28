@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
 import React, { useEffect, useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { CornerDownLeft } from 'react-feather';
 import moment from 'moment';
@@ -17,6 +18,7 @@ export default function ProfileEvents() {
   const [fetchEvents, setFetchEvents] = useState([]);
   const history = useHistory();
   const [tab, setTab] = useState('first');
+  const { t } = useTranslation();
 
   useEffect(() => {
     API.get(`/order/user/${userLogged.id}`).then((res) => {
@@ -33,7 +35,7 @@ export default function ProfileEvents() {
       <div>
         <div className="backToProfile-button">
           <CornerDownLeft onClick={backToProfile} />
-          <h1>My Events</h1>
+          <h1>{t('ProfileEvents.h1')}</h1>
         </div>
         <div className="switch-tabs-buttons">
           <button
@@ -43,7 +45,7 @@ export default function ProfileEvents() {
               setTab('first');
             }}
           >
-            À venir
+            {t('ProfileEvents.button_1')}
           </button>
           <button
             className={`tab ${tab === 'second' ? 'tab-active' : ''}`}
@@ -52,7 +54,7 @@ export default function ProfileEvents() {
               setTab('second');
             }}
           >
-            Passés
+            {t('ProfileEvents.button_2')}
           </button>
         </div>
       </div>
@@ -84,6 +86,7 @@ function MyEvent({ event, isPast }) {
   const { userLogged } = useContext(LoginContext);
   const [modalOpen, setModalOpen] = useState(false);
   const [reviews, setReviews] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!userLogged) {
@@ -111,7 +114,7 @@ function MyEvent({ event, isPast }) {
 
       {isPast && reviews.length === 0 ? (
         <button type="button" onClick={() => setModalOpen(true)}>
-          Rate this event
+          {t('ProfileEvents.button_3')}
         </button>
       ) : null}
     </div>

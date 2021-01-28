@@ -4,6 +4,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react';
 import './Profile.scss';
+import { useTranslation } from 'react-i18next';
 import { XCircle } from 'react-feather';
 import API from '../../services/API';
 import { LoginContext } from '../Contexts/LoginContext';
@@ -15,6 +16,7 @@ export default function ReviewModal({ event, handleClose, show }) {
   const maxRatings = 5;
   const [rating, setRating] = useState(maxRatings);
   const range = [...Array(maxRatings + 1).keys()].slice(1);
+  const { t } = useTranslation();
 
   const sendReviewToDB = () => {
     API.post('/reviews/', {
@@ -41,9 +43,9 @@ export default function ReviewModal({ event, handleClose, show }) {
         <div onClick={() => handleClose()} type="button">
           <XCircle />
         </div>
-        Comment:
+        {t('ReviewModal.p_1')}:
         <textarea name="comment" value={writeComment} onChange={leaveReview} />
-        <p>Rating</p>
+        <p>{t('ReviewModal.p_2')}</p>
         <div className="ratings">
           {range.map((value) => (
             <div
@@ -63,7 +65,7 @@ export default function ReviewModal({ event, handleClose, show }) {
           }}
           type="submit"
         >
-          Save Review
+          {t('ReviewModal.button')}
         </button>
       </section>
     </div>

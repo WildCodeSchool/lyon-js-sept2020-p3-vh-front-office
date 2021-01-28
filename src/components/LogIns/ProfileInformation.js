@@ -3,6 +3,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CornerDownLeft } from 'react-feather';
+import { useTranslation } from 'react-i18next';
 import { useToasts } from 'react-toast-notifications';
 import { LoginContext } from '../Contexts/LoginContext';
 import API from '../../services/API';
@@ -17,6 +18,7 @@ export default function ProfileInformation() {
   const [changePhoneNumber, setChangePhoneNumber] = useState('');
   const [changeEmail, setChangeEmail] = useState('');
   const { addToast } = useToasts();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (userLogged) {
@@ -91,13 +93,13 @@ export default function ProfileInformation() {
     <div>
       <div className="backToProfile-button">
         <CornerDownLeft onClick={backToProfile} />
-        <h1>My Information</h1>
+        <h1>{t('ProfileInfo.h1')}</h1>
       </div>
       <div className="myinfo-section">
         {isClicked ? (
           <div className="change-main-fields">
             <div className="change-info">
-              <b>Prénom: </b>
+              <b>{t('ProfileInfo.b_1')}: </b>
               <input
                 name="firstname"
                 value={changeFirstname}
@@ -106,7 +108,7 @@ export default function ProfileInformation() {
             </div>
 
             <div className="change-info">
-              <b>Nom: </b>
+              <b>{t('ProfileInfo.b_2')}: </b>
               <input
                 name="lastname"
                 value={changeLastname}
@@ -115,7 +117,7 @@ export default function ProfileInformation() {
             </div>
 
             <div className="change-info">
-              <b>Teléphone: </b>
+              <b>{t('ProfileInfo.b_3')}: </b>
               <input
                 name="phone_number"
                 value={changePhoneNumber}
@@ -124,7 +126,7 @@ export default function ProfileInformation() {
             </div>
 
             <div className="change-info">
-              <b>Email: </b>
+              <b>{t('ProfileInfo.b_4')}: </b>
               <input
                 name="email"
                 value={changeEmail}
@@ -140,7 +142,7 @@ export default function ProfileInformation() {
                 action="/me"
                 onClick={clickToSave}
               >
-                Sauvegarder mes données
+                {t('ProfileInfo.button_1')}
               </button>
             </div>
           </div>
@@ -148,25 +150,25 @@ export default function ProfileInformation() {
           <div>
             <div className="main-fields">
               <p>
-                <b>Prénom: </b>
+                <b>{t('ProfileInfo.b_1')}: </b>
                 {changeFirstname}
               </p>
               <p>
                 {' '}
-                <b>Nom: </b>
+                <b>{t('ProfileInfo.b_2')}: </b>
                 {changeLastname}
               </p>
               <p>
-                <b>Téléphone: </b>
+                <b>{t('ProfileInfo.b_3')}: </b>
                 {changePhoneNumber}
               </p>
               <p>
-                <b>Email: </b>
+                <b>{t('ProfileInfo.b_4')}: </b>
                 {changeEmail}
               </p>
 
               <button className="button" type="submit" onClick={clickToEdit}>
-                Modifier
+                {t('ProfileInfo.button_2')}
               </button>
             </div>
           </div>
