@@ -1,81 +1,115 @@
 @import '../variablesCSS';
-
 .event-details-container {
-  .map {
-    margin: 50px 20px 50px 20px;
-    align-content: center;
-  }
+  margin-top: 50px;
+  margin-bottom: 50px;
   .title {
+    color: $primary-color;
     text-align: center;
-    margin-top: 30px;
   }
-  .description {
+  .line {
+    color: $primary-color;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .event-details {
+    margin: auto;
     display: flex;
-    justify-content: center;
-    margin: 50px 30px 50px 30px;
-    border: solid;
-    .left_part {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      margin-right: 10px;
-      margin-left: 5px;
-      padding: 5px 5px 5px 5px;
-      img {
-        height: 120px;
-        width: 100px;
+    flex-direction: column;
+    align-items: center;
+    .map {
+      padding: 50px;
+      width: 80%;
+      .leaflet-container {
+        height: 400px !important;
       }
     }
-    .right_part {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      padding: 5px 5px 5px 5px;
+    .main-page {
+      padding: 50px;
+      padding-bottom: 20px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       flex-direction: column;
-    }
-    p {
-      font-size: smaller;
-    }
-    .quantity-book {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
       align-items: center;
-      button {
-        margin-right: 30px;
+      margin: auto;
+      width: 60%;
+      -webkit-box-shadow: 0px 2px 10px 0px grey;
+      -moz-box-shadow: 0px 2px 10px 0px grey;
+      box-shadow: 0px 2px 10px 0px grey;
+      p {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .logo-event {
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+      }
+      img {
+        margin-bottom: 20px;
+        width: 250px;
+        -webkit-box-shadow: 0px 2px 10px 0px grey;
+        -moz-box-shadow: 0px 2px 10px 0px grey;
+        box-shadow: 0px 2px 10px 0px grey;
+      }
+      .availabilities-price-duration {
+        flex-direction: column;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        p {
+          margin-bottom: 10px;
+        }
+      }
+      .quantity-book {
+        flex-wrap: wrap;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 50px;
+        p {
+          margin-bottom: 0;
+        }
+        button {
+          margin-top: 20px;
+        }
       }
     }
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .event-details-container {
-    .description {
-      justify-content: space-around;
+    .title {
+      font-size: 2vw;
     }
-    .right_part {
-      justify-content: space-around;
-      width: 50%;
-      p {
-        font-size: large;
+    .event-details {
+      flex-direction: row;
+      .map {
+        width: 50%;
+        .leaflet-container {
+          height: 550px !important;
+        }
       }
-      button {
-        align-items: center;
-        height: 40px;
-        width: 150px;
-      }
-    }
-    .left_part {
-      width: 30%;
-      height: 400px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      img {
-        height: 200px;
-        width: 150px;
+      .main-page {
+        margin-left: 50px;
+        width: 50%;
+        .logo-event {
+          width: 17%;
+        }
+        .availabilities-price-duration {
+          flex-direction: row;
+          width: 100%;
+        }
+        .quantity-book {
+          width: 80%;
+          button {
+            margin-top: 0;
+          }
+        }
       }
     }
   }

@@ -111,8 +111,8 @@
   },
   "EventsDetails": {
     "p": "Available seats",
-    "pWithoutPlace": "Unfortunately, the event is no longer available",
-    "button": "Reserve"
+    "pWithoutPlace": "Unavailable event",
+    "button": "Add to basket"
   },
   "basket": {
     "title": "Your basket",
