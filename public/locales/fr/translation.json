@@ -14,7 +14,8 @@
     "lien3": "A propos",
     "lien4": "Contact",
     "lien5": "S'inscrire",
-    "lien6": "Bienvenue"
+    "lien6": "Bienvenue",
+    "lien7": "Se connecter"
   },
   "Footer": {
     "email": "Inscrivez-vous aux évènements à venir",
@@ -28,7 +29,8 @@
   },
   "Events": {
     "bouton1": "Détails",
-    "bouton2": "Réinitialiser les filtres"
+    "bouton2": "Réinitialiser les filtres",
+    "helmet": "Événements"
   },
   "Animators": {
     "titre": "Animateurs"
@@ -38,6 +40,7 @@
     "h2": "Retrouvez les vins dégustés lors des événements !"
   },
   "About": {
+    "helmet": "Qui suis je?",
     "h1": "A Propos",
     "h2": "Qui suis je?",
     "content1": "Originaire de Lyon, dans un premier temps je suis des études de médecine, puis de biologie moléculaire, ayant à cœur de percer les mystères cellulaires de l’être humain.Après des soucis de santé qui m’obligent à reconsidérer mes choix de carrière, j’effectue des études de droit et de management des ressources humaines. J’occupe alors divers métiers aux seins de PME et de Grands Comptes. Cependant, je réalise rapidement que ce métier me met en conflit avec certaines de mes valeurs. En recherche d’une voie plus authentique et plus en accord avec mon identité, je me tourne naturellement vers les médecines non conventionnelles, la psychologie et l’hypnose ericksonienne. Rêveuse lucide et hypersensible depuis l’enfance, j’ai longtemps cherché des réponses dans les livres afin de canaliser ma sensibilité et mon empathie. En revanche, ce n’est qu’en rencontrant l’hypnose que j’ai pu mettre des mots sur mon état de conscience modifié nocturne. Et puis il y avait aussi mes mains, ces mains qui soignent lorsque je les appose sur une zone sensible du corps de l’autre.",
@@ -161,5 +164,8 @@
   },
   "Slide": {
     "alert": "Pas d'actualité disponible"
+  },
+  "Animator": {
+    "title": "Nos Animateurs"
   }
 }

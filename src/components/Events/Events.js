@@ -131,7 +131,7 @@ const Events = () => {
       </div>
       <div className="cardOfEvents">
         <Helmet>
-          <title>Événements</title>
+          <title> {t('Events.helmet')}</title>
         </Helmet>
         {events &&
           events.map((event) => {

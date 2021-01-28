@@ -101,7 +101,7 @@ const NavBar = () => {
           </NavLink>
         ) : (
           <NavLink exact to="/login">
-            Se connecter
+            {t('Navbar.lien7')}
           </NavLink>
         )}
       </div>

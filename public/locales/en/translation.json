@@ -14,7 +14,8 @@
     "lien3": "About",
     "lien4": "Contact",
     "lien5": "Sign up",
-    "lien6": "Welcome"
+    "lien6": "Welcome",
+    "lien7": "Log In"
   },
   "Footer": {
     "email": "Sign up for our coming events",
@@ -28,7 +29,8 @@
   },
   "Events": {
     "bouton1": "Details",
-    "bouton2": "Reset filters"
+    "bouton2": "Reset filters",
+    "helmet": "Events"
   },
   "Animators": {
     "titre": "Facilitators"
@@ -38,6 +40,7 @@
     "h2": "Find the wines tasted during our events !"
   },
   "About": {
+    "helmet": "Who Am I?",
     "h1": "About",
     "h2": "Who Am I?",
     "content1": "Originally from Lyon, I first studied medicine, then molecular biology, keen to unravel the cellular mysteries of human beings. After health concerns that forced me to reconsider my career choices, I studied law and human resources management. I then worked in various professions within SMEs and Key Accounts. However, I quickly realize that this job puts me in conflict with some of my values. In search of a more authentic path and more in keeping with my identity, I naturally turn to alternative medicine, psychology and Ericksonian hypnosis. A lucid and hypersensitive dreamer since childhood, I have long searched for answers in books in order to channel my sensitivity and empathy. However, it was only by encountering hypnosis that I was able to put words into my altered nocturnal state of consciousness. And then there were also my hands, those hands that heal when I put them on a sensitive area of ​​the other's body.",
@@ -161,5 +164,8 @@
   },
   "Slide": {
     "alert": "No news available"
+  },
+  "Animator": {
+    "title": "Our facilitators"
   }
 }
