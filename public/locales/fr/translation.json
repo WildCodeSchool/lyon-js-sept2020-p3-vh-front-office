@@ -24,8 +24,8 @@
     "titre": "Hypnose & Vins"
   },
   "Events": {
-    "bouton1": "Réserver",
-    "bouton2": "Réinitialiser"
+    "bouton1": "Détails",
+    "bouton2": "Réinitialiser les filtres"
   },
   "Animators": {
     "titre": "Animateurs"
