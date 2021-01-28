@@ -16,6 +16,7 @@ import Reviews from './Reviews/Reviews';
 import Login from './LogIns/Login';
 import Register from './LogIns/Register';
 import Basket from './Basket/Basket';
+import ScrollButton from './Home/ScrollButton';
 import OrderConfirmation from './Basket/OrderConfirmation';
 import Disclaimer from './Basket/Disclaimer';
 import Footer from './Home/Footer';
@@ -39,6 +40,7 @@ function App() {
                 <title>Hypnose & Vins</title>
               </Helmet>
               <NavBar />
+              <ScrollButton />
               <div className="main-div">
                 <Switch>
                   <Route exact path="/" component={Home} />
