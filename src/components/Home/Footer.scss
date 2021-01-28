@@ -70,7 +70,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex start;
+    justify-content: flex-start;
     margin-top: 40px;
     h2 {
       font-size: 15px;
@@ -91,7 +91,7 @@
       }
     }
     .footerLink {
-      margin: 0 25px;
+      margin: 0 -5px;
       a {
         font-size: 12px;
         text-decoration: none;
@@ -130,6 +130,16 @@
   margin-top: 45px;
   img {
     width: 180px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .footerBottom {
+    .footerSmallLink {
+      .footerLink {
+        margin: 0 25px;
+      }
+    }
   }
 }
 
@@ -193,11 +203,16 @@
       p {
         font-size: 13px;
       }
+      .footerLink {
+        margin: 0 132px;
+      }
     }
   }
 
   .footerLogo {
-    width: 35%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     img {
       width: 250px;
     }
@@ -241,6 +256,7 @@
   .footerBottom {
     .footerSmallLink {
       padding-bottom: 0;
+      flex-wrap: nowrap;
       .footerSocialMedia {
         margin-left: 150px;
         margin-right: 50px;
@@ -265,5 +281,6 @@
 
   .footerLogo {
     width: 40%;
+    margin-left: 90px;
   }
 }

@@ -80,9 +80,7 @@ const Footer = () => {
               label="Email"
               name="email"
               variant="outlined"
-              inputRef={register({
-                required: "Merci d'indiquer votre BOUBOUuuuuuuuuuuuuuuu",
-              })}
+              inputRef={register()}
             />
             <div>{errors.email && <span>{errors.email.message}</span>}</div>
             <Button
