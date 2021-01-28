@@ -35,7 +35,9 @@ export default function ProfileEvents() {
       <div>
         <div className="backToProfile-button">
           <CornerDownLeft onClick={backToProfile} />
-          <h1>{t('ProfileEvents.h1')}</h1>
+          <h1>
+            {t('ProfileEvents.h1')} <hr />
+          </h1>
         </div>
         <div className="switch-tabs-buttons">
           <button

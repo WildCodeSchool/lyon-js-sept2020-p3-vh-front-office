@@ -93,7 +93,9 @@ export default function ProfileInformation() {
     <div>
       <div className="backToProfile-button">
         <CornerDownLeft onClick={backToProfile} />
-        <h1>{t('ProfileInfo.h1')}</h1>
+        <h1>
+          {t('ProfileInfo.h1')} <hr />
+        </h1>
       </div>
       <div className="myinfo-section">
         {isClicked ? (

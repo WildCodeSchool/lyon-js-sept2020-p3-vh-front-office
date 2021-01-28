@@ -66,6 +66,7 @@ export default function Profile() {
     <main className="profile">
       <h1>
         {t('Profile.h1')} {userLogged.firstname} !
+        <hr />
       </h1>
       <div className="profile-navigation">
         {clickedProfileInfo ? (

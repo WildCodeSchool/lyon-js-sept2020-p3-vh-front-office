@@ -8,6 +8,17 @@
   text-align: center;
   margin: 5vw 5vw;
 
+  h1 {
+    text-align: center;
+    color: $primary-color;
+    hr {
+      line-height: 2;
+      text-align: center;
+      border: solid 1px $primary-color;
+      margin-bottom: 50px;
+    }
+  }
+
   .logout {
     margin-top: 20px;
     text-decoration: underline;
@@ -40,11 +51,6 @@
       margin: 20px;
     }
   }
-  h1 {
-    margin: 1vw;
-    margin-bottom: 30px;
-    margin-top: 10px;
-  }
 
   .myinfo-section {
     .main-fields {
@@ -71,6 +77,13 @@
 .backToProfile-button {
   h1 {
     text-align: center;
+    color: $primary-color;
+  }
+  hr {
+    line-height: 2;
+    text-align: center;
+    border: solid 1px $primary-color;
+    margin-top: 10px;
   }
 }
 .change-main-fields {
@@ -234,7 +247,9 @@
   .profile {
     h1 {
       margin-bottom: 20px;
+      font-size: 3vw;
     }
+
     .profile-navigation {
       hr {
         width: 100%;
@@ -364,6 +379,7 @@
     align-items: center;
 
     h1 {
+      font-size: 3vw;
       margin-top: 30px;
       margin-bottom: 20px;
     }

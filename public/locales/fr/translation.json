@@ -137,7 +137,7 @@
     "p6": "Prix indicatif",
     "button": "Me rendre sur le site du producteur"
   },
-  
+
   "Profile": {
     "h1": "Bienvenue",
     "h3_1": "Mes informations",
@@ -159,7 +159,6 @@
     "button_1": "À venir",
     "button_2": "Passés",
     "button_3": "Noter l'événement"
-    
   },
   "ReviewModal": {
     "p_1": "Commentaire",
