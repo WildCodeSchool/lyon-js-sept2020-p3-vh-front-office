@@ -44,7 +44,7 @@ const Wines = () => {
             <h2>{t('Wines.h2')}</h2>
           </>
         ) : (
-          <h2 className="empty-wines-array">Aucun vin disponible</h2>
+          <h2 className="empty-wines-array"> {t('Wines.alert')}</h2>
         )}
       </main>
     </>
