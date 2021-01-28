@@ -136,5 +136,33 @@
     "p5": "Arôme(s)",
     "p6": "Prix indicatif",
     "button": "Me rendre sur le site du producteur"
+  },
+
+  "Profile": {
+    "h1": "Bienvenue",
+    "h3_1": "Mes informations",
+    "h3_2": "Mes événements",
+    "h3_3": "Aide",
+    "button": "Déconnexion"
+  },
+  "ProfileInfo": {
+    "h1": "Mes informations",
+    "b_1": "Prénom",
+    "b_2": "Nom",
+    "b_3": "Téléphone",
+    "b_4": "Email",
+    "button_1": "Sauvegarder",
+    "button_2": "Modifier"
+  },
+  "ProfileEvents": {
+    "h1": "Mes événements",
+    "button_1": "À venir",
+    "button_2": "Passés",
+    "button_3": "Noter l'événement"
+  },
+  "ReviewModal": {
+    "p_1": "Commentaire",
+    "p_2": "Note",
+    "button": "Envoyer"
   }
 }
