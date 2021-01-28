@@ -91,13 +91,14 @@ const NavBar = () => {
             </StyledBadge>
           </IconButton>
         </NavLink>
+
         {userLogged ? (
           <NavLink
             exact
             to="/profile"
             style={{ fontSize: '18px', width: '150px' }}
           >
-            Bienvenue {userLogged.firstname}
+            Bienvenue {userLogged.firstname}{' '}
           </NavLink>
         ) : (
           <NavLink exact to="/login">
