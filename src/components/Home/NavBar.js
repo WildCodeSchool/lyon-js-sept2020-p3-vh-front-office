@@ -29,6 +29,7 @@ const StyledBadge = withStyles((theme) => ({
 const useStyles = makeStyles({
   basket: {
     color: '#8c0226',
+    margin: '0 20px',
   },
 });
 
