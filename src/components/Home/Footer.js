@@ -71,7 +71,7 @@ const Footer = () => {
     <footer className="footerBody">
       <div className="footerTop">
         <div className="footerSignUp">
-          <h2>Inscrivez-vous aux évènements à venir</h2>
+          <h2>{t('Footer.link9')}</h2>
           <form className="footerForm" onSubmit={handleSubmit(onSubmit)}>
             <TextField
               className={classes.input}
@@ -141,11 +141,11 @@ const Footer = () => {
               <p>{t('Footer.link2')}</p>
             </Link>
             <Link to="/mentions-legales">
-              <p>Mentions Légales CGV</p>
+              <p>{t('Footer.link10')}</p>
             </Link>
           </div>
           <div className="footerLanguage">
-            <h2>Langue</h2>
+            <h2> {t('Footer.link5')} </h2>
             <div className="langue">
               <Translation />
             </div>

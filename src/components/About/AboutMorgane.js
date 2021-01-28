@@ -14,7 +14,7 @@ export default function AboutMorgane() {
   return (
     <div className="presentationContainer">
       <Helmet>
-        <title>Qui suis-je</title>
+        <title>{t('About.helmet')}</title>
       </Helmet>
       <h1 className="titleAbout"> {t('About.h1')}</h1>
       <p className="line">________________________</p>
