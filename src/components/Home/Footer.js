@@ -141,7 +141,7 @@ const Footer = () => {
               <p>{t('Footer.link2')}</p>
             </Link>
             <Link to="/mentions-legales">
-              <p>Mentions Légales CGV</p>
+              <p>{t('Footer.link10')}</p>
             </Link>
           </div>
           <div className="footerLanguage">
