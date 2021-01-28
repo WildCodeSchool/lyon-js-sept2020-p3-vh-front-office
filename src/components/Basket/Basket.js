@@ -137,7 +137,7 @@ export default function Basket(props) {
                       {event.title}
                     </TableCell>
                     <TableCell align="center">
-                      {moment(event.date).format('DD-MM-YYYY')}
+                      {moment(event.date).format('DD-MMMM-YYYY')}
                     </TableCell>
                     <TableCell align="center">
                       <TextField

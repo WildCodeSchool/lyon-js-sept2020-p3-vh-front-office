@@ -165,7 +165,7 @@ const Events = () => {
                       <p>
                         <BiTimeFive size={25} color="#8c0226" />
                         &nbsp;
-                        {moment(event.date).format('DD-MMM-YYYY')}
+                        {moment(event.date).format('DD-MMMM-YYYY')}
                       </p>
                     </div>
                     <div className="button">
