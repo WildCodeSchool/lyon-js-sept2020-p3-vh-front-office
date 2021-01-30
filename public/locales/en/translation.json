@@ -83,6 +83,12 @@
     "label5": "Password",
     "label6": "Confirm password"
   },
+  "NewPassword": {
+    "h1": "Reset your password",
+    "label1": "Password",
+    "label2": "Confirm password",
+    "button": "Reset"
+  },
   "Connection": {
     "h1": "Log in",
     "checkbox": "Remember me",

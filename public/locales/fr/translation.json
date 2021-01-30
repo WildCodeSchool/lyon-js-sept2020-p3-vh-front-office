@@ -83,6 +83,12 @@
     "label5": "Mot de passe",
     "label6": "Confirmation mot de passe"
   },
+  "NewPassword": {
+    "h1": "Réinitialisez votre mot de passe",
+    "label1": "Mot de passe",
+    "label2": "Confirmation mot de passe",
+    "button": "Réinitialiser"
+  },
   "Connection": {
     "h1": "Se connecter",
     "checkbox": "Rester connecté ?",
