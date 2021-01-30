@@ -61,10 +61,15 @@ const NewPassword = (props) => {
   const history = useHistory();
 
   const onSubmit = async (data) => {
-    const { newPassword } = data;
+    const { newPassword, newPasswordConfirmation } = data;
     const { token, userId } = props.match.params;
     try {
-      await API.post('users/store-password', { newPassword, token, userId });
+      await API.post('users/store-password', {
+        newPassword,
+        newPasswordConfirmation,
+        token,
+        userId,
+      });
       history.push('/login');
       addToast('Votre mot de passe a bien été modifié !', {
         appearance: 'success',
@@ -80,10 +85,20 @@ const NewPassword = (props) => {
           }
         );
       }
-      return addToast(err.response.data.collection, {
-        appearance: 'error',
-        autoDismiss: true,
-      });
+      if (err.response.status === 422) {
+        err.response.data.errorsByField[0].message.map((things) => {
+          return addToast(things, {
+            appearance: 'error',
+            autoDismiss: true,
+          });
+        });
+      }
+      if (err.response.status === 404) {
+        return addToast(err.response.data.collection, {
+          appearance: 'error',
+          autoDismiss: true,
+        });
+      }
     }
     return null;
   };
