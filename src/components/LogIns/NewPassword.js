@@ -56,7 +56,7 @@ const NewPassword = (props) => {
   }, [errors]);
 
   const password = useRef({});
-  password.current = watch('password', '');
+  password.current = watch('newPassword', '');
 
   const history = useHistory();
 
@@ -71,7 +71,6 @@ const NewPassword = (props) => {
         autoDismiss: true,
       });
     } catch (err) {
-      console.log(err);
       // if (err.response.status === 500) {
       //   addToast(
       //     'Erreur lors de votre inscription, veuillez rééssayer plus tard',
