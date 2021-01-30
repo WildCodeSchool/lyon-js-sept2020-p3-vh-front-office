@@ -66,27 +66,26 @@ const NewPassword = (props) => {
     try {
       await API.post('users/store-password', { newPassword, token, userId });
       history.push('/login');
-      addToast('Votre compte a été creé, vous pouvez vous connecter', {
+      addToast('Votre mot de passe a bien été modifié !', {
         appearance: 'success',
         autoDismiss: true,
       });
     } catch (err) {
-      // if (err.response.status === 500) {
-      //   addToast(
-      //     'Erreur lors de votre inscription, veuillez rééssayer plus tard',
-      //     {
-      //       appearance: 'error',
-      //       autoDismiss: true,
-      //     }
-      //   );
-      // } else
-      //   err.response.data.errorsByField[0].message.map((things) => {
-      //     return addToast(things, {
-      //       appearance: 'error',
-      //       autoDismiss: true,
-      //     });
-      //   });
+      if (err.response.status === 500) {
+        addToast(
+          'Erreur lors du changement de mot de passe, veuillez rééssayer plus tard',
+          {
+            appearance: 'error',
+            autoDismiss: true,
+          }
+        );
+      }
+      return addToast(err.response.data.collection, {
+        appearance: 'error',
+        autoDismiss: true,
+      });
     }
+    return null;
   };
 
   return (
