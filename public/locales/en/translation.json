@@ -89,6 +89,11 @@
     "label2": "Confirm password",
     "button": "Reset"
   },
+  "ForgotPassword": {
+    "h1": "Ask for a new password",
+    "label1": "Enter your email",
+    "button": "Send"
+  },
   "Connection": {
     "h1": "Log in",
     "checkbox": "Remember me",

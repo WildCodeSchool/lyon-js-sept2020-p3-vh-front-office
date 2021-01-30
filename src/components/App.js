@@ -21,6 +21,7 @@ import OrderConfirmation from './Basket/OrderConfirmation';
 import Disclaimer from './Basket/Disclaimer';
 import Footer from './Home/Footer';
 import Profile from './LogIns/Profile';
+import ForgotPassword from './LogIns/ForgotPassword';
 import NavBar from './Home/NavBar';
 import MentionLegale from './MentionLegale/MentionLegale';
 import LoginProvider from './Contexts/LoginContext';
@@ -65,6 +66,11 @@ function App() {
                     exact
                     path="/reset/:userId/:token"
                     component={NewPassword}
+                  />
+                  <Route
+                    exact
+                    path="/forgot-password"
+                    component={ForgotPassword}
                   />
                   <Route exact path="/profile" component={Profile} />
                   <Route
