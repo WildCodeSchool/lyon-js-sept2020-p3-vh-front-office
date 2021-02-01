@@ -21,6 +21,7 @@ import { BiTimeFive } from 'react-icons/bi';
 import { BsPerson } from 'react-icons/bs';
 import './Events.scss';
 import { useTranslation } from 'react-i18next';
+import ReactHtmlParser from 'react-html-parser';
 import API from '../../services/API';
 
 const useStyles = makeStyles((theme) => ({
@@ -147,7 +148,7 @@ const Events = () => {
                     />
                     <div className="eventDescription">
                       <h2>{event.title}</h2>
-                      <p>{event.description}</p>
+                      <p>{ReactHtmlParser(event.description)}</p>
                       <div className="underCard">
                         <p>
                           <GoLocation size={25} color="#8c0226" />
