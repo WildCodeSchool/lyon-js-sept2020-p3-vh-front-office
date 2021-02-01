@@ -27,7 +27,8 @@ const AboutAnimators = () => {
         <title>{t('Animator.title')}</title>
       </Helmet>
       <div className="header-page-animators">
-        <h2>{t('Animator.title')}</h2>
+        <h1>{t('Animator.title')}</h1>
+        <p className="line">________________________</p>
         <p>
           Lorem Ipsum has been the industry's standard dummy text ever since the
           1500s, when an unknown printer took a galley of type and scrambled it

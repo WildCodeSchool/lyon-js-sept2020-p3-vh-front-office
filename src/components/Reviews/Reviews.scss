@@ -7,9 +7,11 @@
   align-items: center;
   h1 {
     color: $primary-color;
-    font-family: $primary-font-family;
-    margin-bottom: 20px;
     margin-top: 50px;
+  }
+  .line {
+    color: $primary-color;
+    margin-bottom: 50px;
   }
   .cards-container {
     display: flex;
@@ -58,6 +60,12 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .container-page-reviews {
+    h1 {
+      font-size: 2.5vw;
+    }
+  }
+
   .container-page-reviews .cards-container {
     display: flex;
     flex-direction: column;
