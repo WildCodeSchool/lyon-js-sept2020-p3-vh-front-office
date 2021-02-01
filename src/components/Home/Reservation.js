@@ -10,12 +10,10 @@ const useStyles = makeStyles(() => ({
     marginTop: '30px',
     width: '20%',
     margin: 'auto',
+    padding: '0 50px',
     color: 'white',
     backgroundColor: '#8C0226',
     textTransform: 'none',
-    '&:hover': {
-      backgroundColor: '#6d071a',
-    },
   },
 }));
 
