@@ -29,7 +29,7 @@ const SimpleMenu = () => {
   return (
     <div>
       <p aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Concept
+        Accueil
       </p>
       <Menu
         id="simple-menu"
