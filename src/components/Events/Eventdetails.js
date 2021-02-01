@@ -225,8 +225,13 @@ const EventDetails = (props) => {
             </p>
             <p>
               <BiHourglass size={25} color="#8c0226" />
-              &nbsp;
-              {eventData.duration_seconds} minutes
+              &nbsp; {Math.floor(eventData.duration_seconds / 60)}&nbsp;h&nbsp;
+              {Math.floor(
+                (eventData.duration_seconds / 60 -
+                  Math.floor(eventData.duration_seconds / 60)) *
+                  60
+              )}{' '}
+              m
             </p>
           </div>
         </div>
