@@ -188,7 +188,8 @@
         text-decoration: none;
         :hover {
           font-weight: bolder;
-          font-size: 17px;
+          transition-duration: 0.3s;
+          transform: scale(1.1);
         }
       }
     }
