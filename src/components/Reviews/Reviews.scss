@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // background-color: #e9e7e3;
   h1 {
     color: $primary-color;
     font-family: $primary-font-family;
@@ -30,6 +31,7 @@
       margin-bottom: 50px;
       transition: all 0.25s ease-in-out;
       max-width: none;
+      background-color: white;
       .date-reviews {
         padding-top: 90px;
       }
