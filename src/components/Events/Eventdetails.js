@@ -145,17 +145,6 @@ const EventDetails = (props) => {
             alt="event_image"
           />
           <p>{eventData.description}</p>
-
-          <p>
-            <BsPerson size={25} color="#8c0226" />
-            &nbsp; {eventData.firstname}&nbsp;
-            {eventData.lastname}
-          </p>
-          <p>
-            <GiWineGlass size={25} color="#8c0226" />
-            &nbsp; &nbsp;
-            {eventData.name}&nbsp;-&nbsp;{eventData.producteur}
-          </p>
           <div className="logo-event">
             <FacebookShareButton
               className="facebook"
@@ -204,31 +193,41 @@ const EventDetails = (props) => {
               </Button>
             </div>
           )}
-          <div className="availabilities-price-duration">
-            {eventData.availabilities ? (
-              <p>
-                <MdEventAvailable size={25} color="#8c0226" />
-                &nbsp;
-                {eventData.availabilities} {t('EventsDetails.p')}
-              </p>
-            ) : (
-              <p style={{ color: 'red' }}>
-                <MdEventAvailable size={25} color="#8c0226" />
-                &nbsp;
-                {t('EventsDetails.pWithoutPlace')}
-              </p>
-            )}
+        </div>
+        <div className="event-information">
+          {eventData.availabilities ? (
             <p>
-              <GoLocation size={25} color="#8c0226" />
+              <MdEventAvailable size={25} color="#8c0226" />
               &nbsp;
-              {eventData.street}&nbsp;{eventData.zipcode}&nbsp;{eventData.city}
+              {eventData.availabilities} {t('EventsDetails.p')}
             </p>
-            <p>
-              <BiHourglass size={25} color="#8c0226" />
+          ) : (
+            <p style={{ color: 'red' }}>
+              <MdEventAvailable size={25} color="#8c0226" />
               &nbsp;
-              {eventData.duration_seconds} minutes
+              {t('EventsDetails.pWithoutPlace')}
             </p>
-          </div>
+          )}
+          <p>
+            <GoLocation size={25} color="#8c0226" />
+            &nbsp;
+            {eventData.street}&nbsp;{eventData.zipcode}&nbsp;{eventData.city}
+          </p>
+          <p>
+            <BiHourglass size={25} color="#8c0226" />
+            &nbsp;
+            {eventData.duration_seconds} minutes
+          </p>
+          <p>
+            <BsPerson size={25} color="#8c0226" />
+            &nbsp; {eventData.firstname}&nbsp;
+            {eventData.lastname}
+          </p>
+          <p>
+            <GiWineGlass size={25} color="#8c0226" />
+            &nbsp; &nbsp;
+            {eventData.name}&nbsp;-&nbsp;{eventData.producteur}
+          </p>
         </div>
         <div className="map">
           <MapContainer
