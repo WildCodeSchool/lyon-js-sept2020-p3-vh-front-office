@@ -6,6 +6,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import { useTranslation } from 'react-i18next';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import ReactHtmlParser from 'react-html-parser';
 import { getCollection } from '../../services/API';
 
 const AboutAnimators = () => {
@@ -50,7 +51,7 @@ const AboutAnimators = () => {
                   <h3>
                     {animator.firstname} {animator.lastname}
                   </h3>
-                  <p>{animator.bio}</p>
+                  {ReactHtmlParser(animator.bio)}
                   <div className="logo-animateurs">
                     <FacebookIcon className="reseaux-sociaux" />
                     <MailIcon className="reseaux-sociaux" />
