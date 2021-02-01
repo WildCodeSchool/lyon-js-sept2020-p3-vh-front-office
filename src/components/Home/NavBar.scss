@@ -54,7 +54,7 @@
   height: 50px;
   width: 50px;
   top: -25px;
-  right: 15px;
+  right: 29px;
 }
 #react-burger-cross-btn {
   position: absolute !important;
@@ -112,7 +112,7 @@
 
 @media screen and (min-width: 768px) {
   .bm-burger-button {
-    display: none;
+    display: block;
   }
 
   .navbarLink {
@@ -187,8 +187,9 @@
       a {
         text-decoration: none;
         :hover {
-          font-weight: bolder;
-          font-size: 17px;
+          background-color: white;
+          transition-duration: 0.3s;
+          transform: scale(1.15);
         }
       }
     }
@@ -217,7 +218,10 @@
       height: 35px;
       color: $primary-color;
       text-decoration: none;
-      width: 120px;
+      width: 85px;
+      &:nth-child(2n) {
+        margin: 0 20px;
+      }
       cursor: pointer;
       &:hover {
         border-bottom: 2px solid $primary-color;
@@ -232,6 +236,10 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .bm-burger-button {
+    display: none;
+  }
+
   .navbarBody {
     .navbarLogo {
       padding-left: 30px;

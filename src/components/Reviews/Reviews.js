@@ -27,7 +27,7 @@ export default function Reviews() {
         <title>Témoignages</title>
       </Helmet>
       <h1>{t('Reviews.h1')}</h1>
-
+      <p className="line">________________________</p>
       <div className="cards-container">
         {reviews &&
           reviews.map((review) => {
