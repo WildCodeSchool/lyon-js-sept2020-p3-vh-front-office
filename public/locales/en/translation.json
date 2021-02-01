@@ -37,8 +37,9 @@
     "link10": "Legal Notice and Terms of Use"
   },
   "Events": {
+    "title": "All Upcoming Events",
     "bouton1": "Details",
-    "bouton2": "Reset filters",
+    "bouton2": "Reset",
     "helmet": "Events"
   },
   "Animators": {
