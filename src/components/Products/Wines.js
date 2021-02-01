@@ -55,7 +55,7 @@ const Wines = () => {
       <main className="wines">
         <h1> {t('Wines.h1')}</h1>
         <p className="line">________________________</p>
-        <div style={{ width: '80%', height: '350px', margin: '0 auto' }}>
+        <div className="carousel-wrapper">
           <Carousel slides={slides} offsetRadius={1} showNavigation />
         </div>
         <h2>{t('Wines.h2')}</h2>
