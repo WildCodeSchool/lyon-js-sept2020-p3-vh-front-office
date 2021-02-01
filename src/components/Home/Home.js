@@ -11,8 +11,8 @@ const Home = () => {
       <Banner />
       <WelcomeCarousel />
       <Review />
-      <Sponsors />
       <Reservation />
+      <Sponsors />
     </div>
   );
 };

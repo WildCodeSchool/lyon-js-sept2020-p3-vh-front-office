@@ -9,10 +9,14 @@ const useStyles = makeStyles(() => ({
   btn: {
     backgroundColor: '#6d071a',
     textTransform: 'none',
-    width: '40px',
+    fontSize: '10px',
+    height: '20px',
     '&:hover': {
       backgroundColor: '#6d071a',
     },
+  },
+  '& .MuiButtonGroup-groupedContainedPrimary:not(:last-child)': {
+    width: '10px',
   },
 }));
 

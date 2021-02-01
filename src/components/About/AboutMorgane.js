@@ -77,28 +77,28 @@ export default function AboutMorgane() {
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiOutlineMail size={40} color="black" />
+                  <AiOutlineMail size={40} color="#8c0226" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiFillFacebook size={40} color="black" />
+                  <AiFillFacebook size={40} color="#8c0226" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiOutlineTwitter size={40} color="black" />
+                  <AiOutlineTwitter size={40} color="#8c0226" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
                 <a href="http://www.google.com">
-                  <AiOutlineInstagram size={40} color="black" />
+                  <AiOutlineInstagram size={40} color="#8c0226" />
                 </a>
               </li>
             </div>
