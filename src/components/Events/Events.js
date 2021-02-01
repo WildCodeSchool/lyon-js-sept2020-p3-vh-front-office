@@ -94,7 +94,7 @@ const Events = () => {
 
   return (
     <section className="event-container">
-      <h1>Les évènements à venir</h1>
+      <h1>{t('Events.h1')}</h1>
       <p className="line">________________________</p>
       <div className="eventBody">
         <div className="calendar-container">
@@ -148,6 +148,7 @@ const Events = () => {
                     <div className="eventDescription">
                       <h2>{event.title}</h2>
                       <p>{event.description}</p>
+
                       <div className="underCard">
                         <p>
                           <GoLocation size={25} color="#8c0226" />

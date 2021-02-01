@@ -35,7 +35,7 @@ const useStyles = makeStyles({
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const { basket, changeQuantity } = useContext(BasketContext);
+  const { basket } = useContext(BasketContext);
   const classes = useStyles();
   const { t } = useTranslation();
 

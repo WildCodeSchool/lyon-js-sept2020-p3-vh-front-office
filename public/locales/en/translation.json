@@ -37,8 +37,9 @@
     "link10": "Legal Mentions"
   },
   "Events": {
+    "h1":"Upcoming events",
     "bouton1": "Details",
-    "bouton2": "Reset filters",
+    "bouton2": "upcoming events",
     "helmet": "Events"
   },
   "Animators": {
@@ -131,7 +132,7 @@
   "EventsDetails": {
     "p": "Places Available",
     "pWithoutPlace": "Unfortunately, this event is fully booked",
-    "button": "Add to basket"
+    "button": "Book"
   },
   "basket": {
     "title": "Your basket",
