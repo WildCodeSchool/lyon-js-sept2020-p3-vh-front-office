@@ -46,7 +46,7 @@ export default function FaqPage() {
       </Helmet>
       <h1 className="faq-title">{t('FAQ.h1')}</h1>
       <p className="line">________________________</p>
-      <Faq data={questions} styles={styles} config={config} />
+      <Faq data={questions} styles={styles} config={config} className="faq" />
     </div>
   );
 }
