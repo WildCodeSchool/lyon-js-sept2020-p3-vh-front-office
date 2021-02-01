@@ -54,7 +54,7 @@
   height: 50px;
   width: 50px;
   top: -25px;
-  right: 29px;
+  right: 15px;
 }
 #react-burger-cross-btn {
   position: absolute !important;
@@ -221,6 +221,14 @@
       width: 85px;
       &:nth-child(2n) {
         margin: 0 20px;
+        &:hover {
+          button {
+            background-color: transparent;
+          }
+        }
+      }
+      &:nth-child(3n) {
+        width: 150px;
       }
       cursor: pointer;
       &:hover {
@@ -273,6 +281,7 @@
 
     .userLink {
       display: flex;
+      justify-content: flex-end;
       width: 40%;
       padding-right: 30px;
       img {
