@@ -1,13 +1,15 @@
 @import '../variablesCSS';
 
-.makeStyles-modalBody-3 {
+.makeStyles-modalBody-13 {
   img {
+    margin-left: 50px;
     display: none;
+    max-width: 200px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .makeStyles-modalBody-3 {
+  .makeStyles-modalBody-13 {
     img {
       display: block;
     }

@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { Carousel } from '3d-react-carousal';
+import React, { useState, useEffect } from 'react';
+import Carousel from 'react-spring-3d-carousel';
 import { useTranslation } from 'react-i18next';
 import WineModal from './WineModal';
 import './Wines.scss';
@@ -9,15 +9,37 @@ const Wines = () => {
   const { t } = useTranslation();
   const [wineClicked, setWineClicked] = useState('');
   const [modalShow, setModalShow] = useState(false);
+  const [slides, setSlides] = useState([]);
   const [winesCollection, setWinesCollection] = useState([]);
+
+  const handleClick = (wineId) => {
+    setModalShow(true);
+    setWineClicked(wineId);
+  };
+
   useEffect(() => {
     API.get('/products').then((res) => setWinesCollection(res.data));
   }, []);
 
-  const handleClick = useCallback((wineId) => {
-    setModalShow(true);
-    setWineClicked(wineId);
-  }, []);
+  useEffect(() => {
+    winesCollection.forEach((wine) =>
+      setSlides((prevState) => [
+        ...prevState,
+        {
+          content: (
+            <img
+              src={`${process.env.REACT_APP_API_BASE_URL}/${wine.image}`}
+              alt="1"
+            />
+          ),
+          key: wine.image,
+          onClick: () => {
+            handleClick(wine.id);
+          },
+        },
+      ])
+    );
+  }, [winesCollection]);
 
   return (
     <>
@@ -31,44 +53,15 @@ const Wines = () => {
         />
       )}
       <main className="wines">
-        {winesCollection.length !== 0 ? (
-          <>
-            <h1> {t('Wines.h1')}</h1>
-            <p className="line">________________________</p>
-
-            <CarrouselWrapper
-              winesList={winesCollection}
-              handleClick={handleClick}
-            />
-
-            <h2>{t('Wines.h2')}</h2>
-          </>
-        ) : (
-          <h2 className="empty-wines-array"> {t('Wines.alert')}</h2>
-        )}
+        <h1> {t('Wines.h1')}</h1>
+        <p className="line">________________________</p>
+        <div style={{ width: '80%', height: '350px', margin: '0 auto' }}>
+          <Carousel slides={slides} offsetRadius={1} showNavigation />
+        </div>
+        <h2>{t('Wines.h2')}</h2>
       </main>
     </>
   );
 };
-
-const CarrouselWrapper = React.memo(({ handleClick, winesList }) => {
-  return (
-    <Carousel
-      slides={winesList.map((wine) => (
-        <>
-          <img
-            role="presentation"
-            src={`${process.env.REACT_APP_API_BASE_URL}/${wine.image}`}
-            alt={wine.image}
-            onClick={() => handleClick(wine.id)}
-            onKeyDown={() => handleClick(wine.id)}
-          />
-          <p>{wine.winery}</p>
-        </>
-      ))}
-      autoplay={false}
-    />
-  );
-});
 
 export default Wines;
