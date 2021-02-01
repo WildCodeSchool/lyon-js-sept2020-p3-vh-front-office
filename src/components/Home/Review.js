@@ -16,9 +16,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Review = () => {
+  const { t } = useTranslation();
   const classes = useStyles();
   const [reviews, setReviews] = useState([]);
-  const { t } = useTranslation();
 
   useEffect(() => {
     const request = getCollection('reviews').then((data) => setReviews(data));
@@ -66,7 +66,7 @@ const Review = () => {
         ) : (
           <Carousel showThumbs={false} showStatus={false} showArrows={false}>
             <div className="slide-reviews">
-              <h3>Pas d'avis disponible</h3>
+              <h3>{t('Reviewhome.alert')} </h3>
             </div>
           </Carousel>
         )}

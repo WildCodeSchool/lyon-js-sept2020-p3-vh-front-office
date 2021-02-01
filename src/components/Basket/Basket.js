@@ -109,6 +109,7 @@ export default function Basket(props) {
     <>
       <div className="basket">
         <h1>{t('basket.title')}</h1>{' '}
+        <p className="line">________________________</p>
         <Button
           className={`button ${classes.button}`}
           onClick={() => props.history.push('/events')}
@@ -137,7 +138,7 @@ export default function Basket(props) {
                       {event.title}
                     </TableCell>
                     <TableCell align="center">
-                      {moment(event.date).format('DD-MM-YYYY')}
+                      {moment(event.date).format('DD-MMMM-YYYY')}
                     </TableCell>
                     <TableCell align="center">
                       <TextField

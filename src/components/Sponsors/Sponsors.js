@@ -31,7 +31,7 @@ const Sponsors = () => {
             );
           })
         ) : (
-          <p className="empty-sponsors">Pas de partenaire disponibles</p>
+          <p className="empty-sponsors">{t('Accueil.alert')}</p>
         )}
       </div>
     </div>

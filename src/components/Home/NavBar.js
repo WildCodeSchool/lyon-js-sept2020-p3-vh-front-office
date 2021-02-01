@@ -29,6 +29,7 @@ const StyledBadge = withStyles((theme) => ({
 const useStyles = makeStyles({
   basket: {
     color: '#8c0226',
+    margin: '0 20px',
   },
 });
 
@@ -91,17 +92,18 @@ const NavBar = () => {
             </StyledBadge>
           </IconButton>
         </NavLink>
+
         {userLogged ? (
           <NavLink
             exact
             to="/profile"
             style={{ fontSize: '18px', width: '150px' }}
           >
-            Bienvenue {userLogged.firstname}
+            {t('Navbar.lien6')} {userLogged.firstname}
           </NavLink>
         ) : (
           <NavLink exact to="/login">
-            Se connecter
+            {t('Navbar.lien7')}
           </NavLink>
         )}
       </div>
@@ -119,26 +121,26 @@ const NavBar = () => {
           <img className="burgerLogo" src={logo} alt="logo burger" />
         </Link>
         <Link to="/" onClick={closeMenu}>
-          Accueil
+          {t('Navbar.lien8')}
         </Link>
         <Link to="/events" onClick={closeMenu}>
-          Evènements
+          {t('Navbar.lien9')}
         </Link>
         <Link to="/animators" onClick={closeMenu}>
-          Animateurs
+          {t('Navbar.lien10')}
         </Link>
         <Link to="/products" onClick={closeMenu}>
-          Vins & Spiritueux
+          {t('Navbar.lien11')}
         </Link>
         <Link to="/aboutme" onClick={closeMenu}>
-          A Propos
+          {t('Navbar.lien12')}
         </Link>
         <Link to="/contact" onClick={closeMenu}>
-          Contact
+          {t('Navbar.lien13')}
         </Link>
         {userLogged ? (
           <Link to="/profile" onClick={closeMenu}>
-            Bienvenue {userLogged.firstname} !
+            {t('Navbar.lien14')} {userLogged.firstname} !
           </Link>
         ) : (
           <Link to="/contact" onClick={closeMenu}>

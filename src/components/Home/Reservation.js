@@ -3,7 +3,7 @@ import './Reservation.scss';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -18,10 +18,10 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Reservation = () => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className="reservation">
-      <h1> Prêt à réserver ? </h1>
+      <h1> {t('Reservation.title')}</h1>
       <p>
         Consectetur culpa duis labore dolore fugiat nostrud excepteur amet ad
         sunt ex nostrud. Nulla commodo elit do proident ea minim voluptate
@@ -31,7 +31,7 @@ const Reservation = () => {
 
       <Button type="button" className={useStyles().btn}>
         <Link to="/events" Continuer>
-          Voir nos événements
+          {t('Reservation.button')}
         </Link>
       </Button>
     </div>

@@ -4,10 +4,12 @@ import './AboutAnimators.scss';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import MailIcon from '@material-ui/icons/Mail';
 import InstagramIcon from '@material-ui/icons/Instagram';
+import { useTranslation } from 'react-i18next';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { getCollection } from '../../services/API';
 
 const AboutAnimators = () => {
+  const { t } = useTranslation();
   const [animators, setAnimators] = useState();
 
   useEffect(() => {
@@ -22,10 +24,11 @@ const AboutAnimators = () => {
   return (
     <div className="container-all-cards-animators">
       <Helmet>
-        <title>Animateurs</title>
+        <title>{t('Animator.title')}</title>
       </Helmet>
       <div className="header-page-animators">
-        <h2>Nos Animateurs</h2>
+        <h1>{t('Animator.title')}</h1>
+        <p className="line">________________________</p>
         <p>
           Lorem Ipsum has been the industry's standard dummy text ever since the
           1500s, when an unknown printer took a galley of type and scrambled it
@@ -38,7 +41,10 @@ const AboutAnimators = () => {
             return (
               <div key={animator.id} className="cards-container">
                 <div className="image-animator">
-                  <img src={animator.photo_url} alt={animator.firstname} />
+                  <img
+                    src={`${process.env.REACT_APP_API_BASE_URL}/${animator.photo_url}`}
+                    alt={animator.firstname}
+                  />
                 </div>
                 <div className="name-bio-logo">
                   <h3>

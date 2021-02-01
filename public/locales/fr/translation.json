@@ -2,7 +2,8 @@
   "Accueil": {
     "titre": "Bienvenue sur Hypnose & Vins",
     "reviews": "Ils ont tenté l'expérience",
-    "partenaires": "Nos partenaires"
+    "partenaires": "Nos partenaires",
+    "alert": "Pas de partenaires disponibles"
   },
   "Navbar": {
     "lien1": "Accueil",
@@ -12,7 +13,16 @@
     "souslien3": "Vins & Spiritueux",
     "lien3": "A propos",
     "lien4": "Contact",
-    "lien5": "S'inscrire"
+    "lien5": "S'inscrire",
+    "lien6": "Bienvenue",
+    "lien7": "Se connecter",
+    "lien8": "Accueil",
+    "lien9": "Evènements",
+    "lien10": "Animateurs",
+    "lien11": "Vins & Spiritueux",
+    "lien12": "A Propos",
+    "lien13": "Contact",
+    "lien14": "Bienvenue"
   },
   "Footer": {
     "email": "Inscrivez-vous aux évènements à venir",
@@ -21,20 +31,29 @@
     "link2": "Ils ont tenté l'expérience",
     "link3": "Mentions Légales",
     "link4": "A PROPOS",
-    "titre": "Hypnose & Vins"
+    "titre": "Hypnose & Vins",
+    "link5": "Langue",
+    "link9": "Inscrivez-vous aux évènements à venir",
+    "link10": "Mentions Légales"
   },
   "Events": {
     "bouton1": "Détails",
-    "bouton2": "Réinitialiser les filtres"
+    "bouton2": "Réinitialiser les filtres",
+    "helmet": "Événements"
   },
   "Animators": {
     "titre": "Animateurs"
   },
+  "Products": {
+    "helmet": "Vins"
+  },
   "Wines": {
     "h1": "Les vins dégustés",
-    "h2": "Retrouvez les vins dégustés lors des événements !"
+    "h2": "Retrouvez les vins dégustés lors des événements !",
+    "alert": "Aucun vin disponible"
   },
   "About": {
+    "helmet": "Qui suis je?",
     "h1": "A Propos",
     "h2": "Qui suis je?",
     "content1": "Originaire de Lyon, dans un premier temps je suis des études de médecine, puis de biologie moléculaire, ayant à cœur de percer les mystères cellulaires de l’être humain.Après des soucis de santé qui m’obligent à reconsidérer mes choix de carrière, j’effectue des études de droit et de management des ressources humaines. J’occupe alors divers métiers aux seins de PME et de Grands Comptes. Cependant, je réalise rapidement que ce métier me met en conflit avec certaines de mes valeurs. En recherche d’une voie plus authentique et plus en accord avec mon identité, je me tourne naturellement vers les médecines non conventionnelles, la psychologie et l’hypnose ericksonienne. Rêveuse lucide et hypersensible depuis l’enfance, j’ai longtemps cherché des réponses dans les livres afin de canaliser ma sensibilité et mon empathie. En revanche, ce n’est qu’en rencontrant l’hypnose que j’ai pu mettre des mots sur mon état de conscience modifié nocturne. Et puis il y avait aussi mes mains, ces mains qui soignent lorsque je les appose sur une zone sensible du corps de l’autre.",
@@ -49,7 +68,7 @@
     "label3": "Email",
     "label4": "Message",
     "select": "Choisissez un sujet",
-    "subject1": "Question/Participation Evénement",
+    "subject1": "Question / Participation Evénement",
     "subject2": "Devenir partenaire",
     "subject3": "Animer un événement"
   },
@@ -136,5 +155,57 @@
     "p5": "Arôme(s)",
     "p6": "Prix indicatif",
     "button": "Me rendre sur le site du producteur"
+  },
+  "Disclaimer": {
+    "title": "Engagements",
+    "button": "Je m'engage à honorer ma réservation",
+    "button2": "Valider ma réservation"
+  },
+  "Reservation": {
+    "title": "Prêt à réserver ?",
+    "button": " Voir nos évéments"
+  },
+  "Reviewhome": {
+    "alert": "Pas d'avis disponible"
+  },
+  "Confirmation": {
+    "title": "Votre commande est confirmée !",
+    "sentence1": "Merci de votre confiance, vous recevrez un mail de confirmation.",
+    "sentence2": "Vous allez être redirigé vers la page d'accueil dans 5 secondes.",
+    "sentence3": "Si vous ne souhaitez pas attendre",
+    "click": "Cliquez ici."
+  },
+  "Slide": {
+    "alert": "Pas d'actualité disponible"
+  },
+  "Animator": {
+    "title": "Nos Animateurs"
+  },
+  "Profile": {
+    "h1": "Bienvenue",
+    "h3_1": "Mes informations",
+    "h3_2": "Mes événements",
+    "h3_3": "Aide",
+    "button": "Déconnexion"
+  },
+  "ProfileInfo": {
+    "h1": "Mes informations",
+    "b_1": "Prénom",
+    "b_2": "Nom",
+    "b_3": "Téléphone",
+    "b_4": "Email",
+    "button_1": "Sauvegarder",
+    "button_2": "Modifier"
+  },
+  "ProfileEvents": {
+    "h1": "Mes événements",
+    "button_1": "À venir",
+    "button_2": "Passés",
+    "button_3": "Noter l'événement"
+  },
+  "ReviewModal": {
+    "p_1": "Commentaire",
+    "p_2": "Note",
+    "button": "Envoyer"
   }
 }
