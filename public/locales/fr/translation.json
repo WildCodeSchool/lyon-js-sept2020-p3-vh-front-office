@@ -34,11 +34,12 @@
     "titre": "Hypnose & Vins",
     "link5": "Langue",
     "link9": "Inscrivez-vous aux évènements à venir",
-    "link10": "Mentions Légales"
+    "link10": "Mentions Légales et CGV"
   },
   "Events": {
+    "title": "Les évènements à venir",
     "bouton1": "Détails",
-    "bouton2": "Réinitialiser les filtres",
+    "bouton2": "Réinitialiser",
     "helmet": "Événements"
   },
   "Animators": {
@@ -163,7 +164,7 @@
   },
   "Reservation": {
     "title": "Prêt à réserver ?",
-    "button": " Voir nos évéments"
+    "button": " Voir nos événements"
   },
   "Reviewhome": {
     "alert": "Pas d'avis disponible"

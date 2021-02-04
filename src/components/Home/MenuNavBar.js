@@ -29,7 +29,7 @@ const SimpleMenu = () => {
   return (
     <div>
       <p aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Concept
+        {t('Navbar.lien1')}
       </p>
       <Menu
         id="simple-menu"

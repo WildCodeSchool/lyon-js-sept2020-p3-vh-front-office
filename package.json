@@ -55,6 +55,8 @@
     "react-scripts": "^4.0.1",
     "react-scroll-up-button": "^1.6.4",
     "react-share": "^4.3.1",
+    "react-spring": "^8.0.27",
+    "react-spring-3d-carousel": "^1.2.0",
     "react-textarea-autosize": "^8.3.0",
     "react-toast-notifications": "^2.4.0",
     "react-toastify": "^6.2.0",
