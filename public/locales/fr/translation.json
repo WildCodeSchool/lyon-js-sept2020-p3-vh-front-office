@@ -37,9 +37,9 @@
     "link10": "Mentions Légales et CGV"
   },
   "Events": {
-    "title": "Les évènements à venir",
+    "h1": "Les évènements à venir",
     "bouton1": "Détails",
-    "bouton2": "Réinitialiser",
+    "bouton2": "Evénements à venir",
     "helmet": "Événements"
   },
   "Animators": {
@@ -83,6 +83,17 @@
     "label4": "Téléphone",
     "label5": "Mot de passe",
     "label6": "Confirmation mot de passe"
+  },
+  "NewPassword": {
+    "h1": "Réinitialisez votre mot de passe",
+    "label1": "Mot de passe",
+    "label2": "Confirmation mot de passe",
+    "button": "Réinitialiser"
+  },
+  "ForgotPassword": {
+    "h1": "Demandez un nouveau mot de passe",
+    "label1": "Saisissez votre email",
+    "button": "Envoyer"
   },
   "Connection": {
     "h1": "Se connecter",
@@ -132,7 +143,7 @@
   "EventsDetails": {
     "p": "places disponibles",
     "pWithoutPlace": "Evénement indisponible",
-    "button": "Ajouter au panier"
+    "button": "Réserver"
   },
   "basket": {
     "title": "Votre panier",

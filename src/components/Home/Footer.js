@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
     marginLeft: '20px',
     width: '50px',
     height: '30px',
-    backgroundColor: '#6d071a',
+    backgroundColor: '#8C0226',
     textTransform: 'none',
     '&:hover': {
       backgroundColor: '#6d071a',

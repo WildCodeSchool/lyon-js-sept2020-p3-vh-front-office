@@ -1,29 +1,23 @@
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
 import queryString from 'query-string';
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-  FacebookIcon,
-  TwitterIcon,
-} from 'react-share';
-import { GoLocation, GoPerson } from 'react-icons/go';
+import { GoLocation } from 'react-icons/go';
 import { GiWineGlass } from 'react-icons/gi';
 import { BiTimeFive } from 'react-icons/bi';
 import { BsPerson } from 'react-icons/bs';
 import './Events.scss';
 import { useTranslation } from 'react-i18next';
+import ReactHtmlParser from 'react-html-parser';
 import API from '../../services/API';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   btn: {
     width: '50%',
     color: 'white',
@@ -94,13 +88,13 @@ const Events = () => {
 
   return (
     <section className="event-container">
-      <h1>{t('Events.title')}</h1>
+      <h1>{t('Events.h1')}</h1>
       <p className="line">________________________</p>
       <div className="eventBody">
         <div className="calendar-container">
           {listOfEventsDates && (
             <Calendar
-              onClickDay={(value, event) => {
+              onClickDay={(value) => {
                 // eslint-disable-next-line no-underscore-dangle
                 setSelectedDates([
                   moment(value).startOf('isoWeek')._d,
@@ -147,7 +141,7 @@ const Events = () => {
                     />
                     <div className="eventDescription">
                       <h2>{event.title}</h2>
-                      <p>{event.description}</p>
+                      <p>{ReactHtmlParser(event.description)}</p>
                       <div className="underCard">
                         <p>
                           <GoLocation size={25} color="#8c0226" />

@@ -76,29 +76,45 @@ export default function AboutMorgane() {
           <ul className="icon-bar">
             <div>
               <li className="list">
-                <a href="http://www.google.com">
-                  <AiOutlineMail size={40} color="black" />
+                <a
+                  href="https://www.google.com/intl/fr/gmail/about/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <AiOutlineMail size={40} color="#8c0226" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
-                <a href="http://www.google.com">
-                  <AiFillFacebook size={40} color="black" />
+                <a
+                  href="https://fr-fr.facebook.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <AiFillFacebook size={40} color="#8c0226" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
-                <a href="http://www.google.com">
-                  <AiOutlineTwitter size={40} color="black" />
+                <a
+                  href="https://twitter.com/?lang=fr"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <AiOutlineTwitter size={40} color="#8c0226" />
                 </a>
               </li>
             </div>
             <div>
               <li className="list">
-                <a href="http://www.google.com">
-                  <AiOutlineInstagram size={40} color="black" />
+                <a
+                  href="https://www.instagram.com/?hl=fr"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <AiOutlineInstagram size={40} color="#8c0226" />
                 </a>
               </li>
             </div>
