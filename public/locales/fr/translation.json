@@ -37,9 +37,9 @@
     "link10": "Mentions Légales et CGV"
   },
   "Events": {
-    "title": "Les évènements à venir",
+    "h1": "Les évènements à venir",
     "bouton1": "Détails",
-    "bouton2": "Réinitialiser",
+    "bouton2": "Evénements à venir",
     "helmet": "Événements"
   },
   "Animators": {
@@ -143,7 +143,7 @@
   "EventsDetails": {
     "p": "places disponibles",
     "pWithoutPlace": "Evénement indisponible",
-    "button": "Ajouter au panier"
+    "button": "Réserver"
   },
   "basket": {
     "title": "Votre panier",

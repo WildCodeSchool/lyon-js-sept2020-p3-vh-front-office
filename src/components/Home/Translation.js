@@ -7,12 +7,16 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   btn: {
-    backgroundColor: '#6d071a',
+    backgroundColor: '#8C0226',
     textTransform: 'none',
-    width: '40px',
+    fontSize: '10px',
+    height: '20px',
     '&:hover': {
       backgroundColor: '#6d071a',
     },
+  },
+  '& .MuiButtonGroup-groupedContainedPrimary:not(:last-child)': {
+    width: '10px',
   },
 }));
 

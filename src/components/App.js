@@ -3,6 +3,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Home from './Home/Home';
 import AboutMorgane from './About/AboutMorgane';
 import AboutAnimators from './About/AboutAnimators';
@@ -29,68 +30,78 @@ import BasketProvider from './Contexts/BasketContext';
 import ProfileInformation from './LogIns/ProfileInformation';
 import ProfileEvents from './LogIns/ProfileEvents';
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#8c0226',
+    },
+  },
+});
+
 function App() {
   return (
-    <ToastProvider placement="top-right">
-      <LoginProvider>
-        <BasketProvider>
-          <Router>
-            <div className="App">
-              <Helmet>
-                <meta charSet="utf-8" />
-                <title>Hypnose & Vins</title>
-              </Helmet>
-              <NavBar />
-              <ScrollButton />
-              <div className="main-div">
-                <Switch>
-                  <Route exact path="/" component={Home} />
-                  <Route exact path="/events" component={Events} />
-                  <Route exact path="/events/:id" component={EventDetails} />
-                  <Route exact path="/aboutme" component={AboutMorgane} />
-                  <Route exact path="/animators" component={AboutAnimators} />
-                  <Route exact path="/faq" component={Faq} />
-                  <Route exact path="/reviews" component={Reviews} />
-                  <Route exact path="/basket" component={Basket} />
-                  <Route exact path="/products" component={Products} />
-                  <Route exact path="/register" component={Register} />
-                  <Route
-                    exact
-                    path="/order-confirmation"
-                    component={OrderConfirmation}
-                  />
-                  <Route exact path="/disclaimer" component={Disclaimer} />
-                  <Route exact path="/contact" component={Contact} />
-                  <Route exact path="/login" component={Login} />
-                  <Route
-                    exact
-                    path="/reset/:userId/:token"
-                    component={NewPassword}
-                  />
-                  <Route
-                    exact
-                    path="/forgot-password"
-                    component={ForgotPassword}
-                  />
-                  <Route exact path="/profile" component={Profile} />
-                  <Route
-                    path="/profile/myinformation"
-                    component={ProfileInformation}
-                  />
-                  <Route path="/profile/myevents" component={ProfileEvents} />
-                  <Route
-                    exact
-                    path="/mentions-legales"
-                    component={MentionLegale}
-                  />
-                </Switch>
+    <ThemeProvider theme={theme}>
+      <ToastProvider placement="top-right">
+        <LoginProvider>
+          <BasketProvider>
+            <Router>
+              <div className="App">
+                <Helmet>
+                  <meta charSet="utf-8" />
+                  <title>Hypnose & Vins</title>
+                </Helmet>
+                <NavBar />
+                <ScrollButton />
+                <div className="main-div">
+                  <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/events" component={Events} />
+                    <Route exact path="/events/:id" component={EventDetails} />
+                    <Route exact path="/aboutme" component={AboutMorgane} />
+                    <Route exact path="/animators" component={AboutAnimators} />
+                    <Route exact path="/faq" component={Faq} />
+                    <Route exact path="/reviews" component={Reviews} />
+                    <Route exact path="/basket" component={Basket} />
+                    <Route exact path="/products" component={Products} />
+                    <Route exact path="/register" component={Register} />
+                    <Route
+                      exact
+                      path="/order-confirmation"
+                      component={OrderConfirmation}
+                    />
+                    <Route exact path="/disclaimer" component={Disclaimer} />
+                    <Route exact path="/contact" component={Contact} />
+                    <Route exact path="/login" component={Login} />
+                    <Route
+                      exact
+                      path="/reset/:userId/:token"
+                      component={NewPassword}
+                    />
+                    <Route
+                      exact
+                      path="/forgot-password"
+                      component={ForgotPassword}
+                    />
+                    <Route exact path="/profile" component={Profile} />
+                    <Route
+                      path="/profile/myinformation"
+                      component={ProfileInformation}
+                    />
+                    <Route path="/profile/myevents" component={ProfileEvents} />
+                    <Route
+                      exact
+                      path="/mentions-legales"
+                      component={MentionLegale}
+                    />
+                  </Switch>
+                </div>
+                <Footer />
               </div>
-              <Footer />
-            </div>
-          </Router>
-        </BasketProvider>
-      </LoginProvider>
-    </ToastProvider>
+            </Router>
+          </BasketProvider>
+        </LoginProvider>
+      </ToastProvider>
+    </ThemeProvider>
   );
 }
 

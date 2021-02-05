@@ -6,6 +6,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import { useTranslation } from 'react-i18next';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import { BrowserRouter as Link } from 'react-router-dom';
+// eslint-disable-next-line import/no-unresolved
 import ReactHtmlParser from 'react-html-parser';
 import { getCollection } from '../../services/API';
 
@@ -53,7 +55,9 @@ const AboutAnimators = () => {
                   </h3>
                   {ReactHtmlParser(animator.bio)}
                   <div className="logo-animateurs">
-                    <FacebookIcon className="reseaux-sociaux" />
+                    <Link to={animator.facebook_url}>
+                      <FacebookIcon className="reseaux-sociaux" />
+                    </Link>
                     <MailIcon className="reseaux-sociaux" />
                     <InstagramIcon className="reseaux-sociaux" />
                     <TwitterIcon className="reseaux-sociaux" />

@@ -88,7 +88,7 @@ const Events = () => {
 
   return (
     <section className="event-container">
-      <h1>{t('Events.title')}</h1>
+      <h1>{t('Events.h1')}</h1>
       <p className="line">________________________</p>
       <div className="eventBody">
         <div className="calendar-container">
