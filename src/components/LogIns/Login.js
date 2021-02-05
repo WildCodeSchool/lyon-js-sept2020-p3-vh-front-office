@@ -126,9 +126,11 @@ function Login() {
             label={t('Connection.checkbox')}
           />
           <div className="register-password">
-            <p>{t('Connection.link1')}</p>
-            <Link style={{ color: 'black' }} to="/register">
-              <p style={{ color: 'black' }}>{t('Connection.link2')}</p>
+            <Link to="/forgot-password">
+              <p>{t('Connection.link1')}</p>
+            </Link>
+            <Link to="/register">
+              <p>{t('Connection.link2')}</p>
             </Link>
           </div>
 

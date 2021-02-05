@@ -14,6 +14,7 @@ import EventDetails from './Events/Eventdetails';
 import Products from './Products/Products';
 import Reviews from './Reviews/Reviews';
 import Login from './LogIns/Login';
+import NewPassword from './LogIns/NewPassword';
 import Register from './LogIns/Register';
 import Basket from './Basket/Basket';
 import ScrollButton from './Home/ScrollButton';
@@ -21,6 +22,7 @@ import OrderConfirmation from './Basket/OrderConfirmation';
 import Disclaimer from './Basket/Disclaimer';
 import Footer from './Home/Footer';
 import Profile from './LogIns/Profile';
+import ForgotPassword from './LogIns/ForgotPassword';
 import NavBar from './Home/NavBar';
 import MentionLegale from './MentionLegale/MentionLegale';
 import LoginProvider from './Contexts/LoginContext';
@@ -70,6 +72,16 @@ function App() {
                     <Route exact path="/disclaimer" component={Disclaimer} />
                     <Route exact path="/contact" component={Contact} />
                     <Route exact path="/login" component={Login} />
+                    <Route
+                      exact
+                      path="/reset/:userId/:token"
+                      component={NewPassword}
+                    />
+                    <Route
+                      exact
+                      path="/forgot-password"
+                      component={ForgotPassword}
+                    />
                     <Route exact path="/profile" component={Profile} />
                     <Route
                       path="/profile/myinformation"
