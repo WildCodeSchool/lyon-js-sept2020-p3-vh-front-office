@@ -34,11 +34,12 @@
     "titre": "Hypnose & Vins",
     "link5": "Langue",
     "link9": "Inscrivez-vous aux évènements à venir",
-    "link10": "Mentions Légales"
+    "link10": "Mentions Légales et CGV"
   },
   "Events": {
+    "h1": "Les évènements à venir",
     "bouton1": "Détails",
-    "bouton2": "Réinitialiser les filtres",
+    "bouton2": "Evénements à venir",
     "helmet": "Événements"
   },
   "Animators": {
@@ -82,6 +83,17 @@
     "label4": "Téléphone",
     "label5": "Mot de passe",
     "label6": "Confirmation mot de passe"
+  },
+  "NewPassword": {
+    "h1": "Réinitialisez votre mot de passe",
+    "label1": "Mot de passe",
+    "label2": "Confirmation mot de passe",
+    "button": "Réinitialiser"
+  },
+  "ForgotPassword": {
+    "h1": "Demandez un nouveau mot de passe",
+    "label1": "Saisissez votre email",
+    "button": "Envoyer"
   },
   "Connection": {
     "h1": "Se connecter",
@@ -131,7 +143,7 @@
   "EventsDetails": {
     "p": "places disponibles",
     "pWithoutPlace": "Evénement indisponible",
-    "button": "Ajouter au panier"
+    "button": "Réserver"
   },
   "basket": {
     "title": "Votre panier",
@@ -163,7 +175,7 @@
   },
   "Reservation": {
     "title": "Prêt à réserver ?",
-    "button": " Voir nos évéments"
+    "button": " Voir nos événements"
   },
   "Reviewhome": {
     "alert": "Pas d'avis disponible"

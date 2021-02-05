@@ -29,14 +29,13 @@ const StyledBadge = withStyles((theme) => ({
 const useStyles = makeStyles({
   basket: {
     color: '#8c0226',
-    margin: '0 20px',
   },
 });
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const { basket, changeQuantity } = useContext(BasketContext);
+  const { basket } = useContext(BasketContext);
   const classes = useStyles();
   const { t } = useTranslation();
 
@@ -65,9 +64,6 @@ const NavBar = () => {
       </Link>
       <div className="navbarLink">
         <ul>
-          <NavLink exact to="/">
-            {t('Navbar.lien1')}
-          </NavLink>
           <SimpleMenu />
           <NavLink exact to="/aboutme">
             {t('Navbar.lien3')}

@@ -50,10 +50,6 @@
         display: flex;
         flex-direction: column;
         width: 40%;
-        height: 200px;
-        p {
-          overflow: hidden;
-        }
         .logo-animateurs {
           display: none;
           justify-content: flex-start;
@@ -82,6 +78,7 @@
   }
   .container-all-cards-animators .page-container .cards-container {
     width: 100%;
+    margin-bottom: 50px;
   }
   .container-all-cards-animators .header-page-animators p {
     width: 80%;
