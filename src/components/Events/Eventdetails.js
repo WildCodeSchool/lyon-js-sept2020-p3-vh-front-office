@@ -103,6 +103,13 @@ const EventDetails = (props) => {
           10
         );
         setBasket(currentBasket);
+        addToast(
+          `Evénement déjà présent dans votre panier, le nombre de places a été mis à jour`,
+          {
+            appearance: 'success',
+            autoDismiss: true,
+          }
+        );
       } else {
         addToast(
           `Votre réservation dépasse le nombre de places disponibles (déjà ${currentBasket[isEventExistingInBasket].quantity} places dans votre panier)`,
@@ -120,6 +127,10 @@ const EventDetails = (props) => {
       };
       const newBasket = [newEvent, ...currentBasket];
       setBasket(newBasket);
+      addToast(`Evénement ajouté à votre panier`, {
+        appearance: 'success',
+        autoDismiss: true,
+      });
     }
   };
 
