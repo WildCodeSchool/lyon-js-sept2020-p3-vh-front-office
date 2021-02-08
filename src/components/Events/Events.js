@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Events = () => {
-  const [events, setEvents] = useState();
+  const [events, setEvents] = useState([]);
   const [initialEvents, setInitialEvents] = useState([]);
   const [selectedDates, setSelectedDates] = useState();
   const [listOfEventsDates, setListOfEventsDates] = useState();
@@ -135,11 +135,11 @@ const Events = () => {
               return (
                 <div className="eventCard" key={event.id}>
                   <div className="eventDetail">
-                    <img
-                      src={`${process.env.REACT_APP_API_BASE_URL}/${event.main_picture_url}`}
-                      alt={event.title}
-                    />
                     <div className="eventDescription">
+                      <img
+                        src={`${process.env.REACT_APP_API_BASE_URL}/${event.main_picture_url}`}
+                        alt={event.title}
+                      />
                       <h2>{event.title}</h2>
                       <p>{ReactHtmlParser(event.description)}</p>
                       <div className="underCard">
@@ -181,6 +181,9 @@ const Events = () => {
               );
             })}
         </div>
+        {events.length === 0 && (
+          <div className="no-event">Pas d'évènements cette semaine</div>
+        )}
       </div>
     </section>
   );

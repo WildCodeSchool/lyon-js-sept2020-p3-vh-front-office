@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import {
   AiOutlineMail,
   AiFillFacebook,
-  AiOutlineTwitter,
   AiOutlineInstagram,
 } from 'react-icons/ai';
 import './AboutMorgane.scss';
@@ -77,7 +76,7 @@ export default function AboutMorgane() {
             <div>
               <li className="list">
                 <a
-                  href="https://www.google.com/intl/fr/gmail/about/"
+                  href="mailto:morgane.pardo@yahoo.com"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -88,7 +87,7 @@ export default function AboutMorgane() {
             <div>
               <li className="list">
                 <a
-                  href="https://fr-fr.facebook.com/"
+                  href="https://fr-fr.facebook.com/hypnose.villeurbanne/"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -99,18 +98,7 @@ export default function AboutMorgane() {
             <div>
               <li className="list">
                 <a
-                  href="https://twitter.com/?lang=fr"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <AiOutlineTwitter size={40} color="#8c0226" />
-                </a>
-              </li>
-            </div>
-            <div>
-              <li className="list">
-                <a
-                  href="https://www.instagram.com/?hl=fr"
+                  href="https://www.instagram.com/hypnose.et.vin/"
                   target="_blank"
                   rel="noreferrer"
                 >

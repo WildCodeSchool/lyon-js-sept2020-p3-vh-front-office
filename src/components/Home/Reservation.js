@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 const useStyles = makeStyles(() => ({
   btn: {
     marginTop: '30px',
-    width: '20%',
     margin: 'auto',
     color: 'white',
     backgroundColor: '#8C0226',

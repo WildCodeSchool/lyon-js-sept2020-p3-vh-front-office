@@ -15,16 +15,19 @@ const Banner = () => {
         cillum reprehenderit aute excepteur nostrud cillum minim eu minim eu.
         Consectetur culpa duis labore dolore fugiat nostrud excepteur amet ad
         sunt ex nostrud. Nulla commodo elit do proident ea minim voluptate
-        deserunt elit proident anim dolor. Ullamco quis exercitation fugiat aute
-        cillum reprehenderit aute excepteur nostrud cillum minim eu minim eu.
-        Consectetur culpa duis labore dolore fugiat nostrud excepteur amet ad
-        sunt ex nostrud. Nulla commodo elit do proident ea minim voluptate
-        deserunt elit proident anim dolor. Ullamco quis exercitation fugiat aute
-        cillum reprehenderit aute excepteur nostrud cillum minim eu minim eu.
-        Consectetur culpa duis labore dolore fugiat nostrud excepteur amet ad
-        sunt ex nostrud. Nulla commodo elit do proident ea minim voluptate
-        deserunt elit proident anim dolor. Ullamco quis exercitation fugiat aute
-        cillum reprehenderit aute excepteur nostrud cillum minim eu minim eu.
+        deserunt elit proident anim dolor.{' '}
+        <span className="Welcome-message-home-page">
+          Ullamco quis exercitation fugiat aute cillum reprehenderit aute
+          excepteur nostrud cillum minim eu minim eu. Consectetur culpa duis
+          labore dolore fugiat nostrud excepteur amet ad sunt ex nostrud. Nulla
+          commodo elit do proident ea minim voluptate deserunt elit proident
+          anim dolor. Ullamco quis exercitation fugiat aute cillum reprehenderit
+          aute excepteur nostrud cillum minim eu minim eu. Consectetur culpa
+          duis labore dolore fugiat nostrud excepteur amet ad sunt ex nostrud.
+          Nulla commodo elit do proident ea minim voluptate deserunt elit
+          proident anim dolor. Ullamco quis exercitation fugiat aute cillum
+          reprehenderit aute excepteur nostrud cillum minim eu minim eu.
+        </span>
       </p>
     </div>
   );

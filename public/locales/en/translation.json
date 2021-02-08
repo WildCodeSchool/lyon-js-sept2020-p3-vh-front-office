@@ -104,10 +104,11 @@
     "label2": "Password"
   },
   "Reviews": {
-    "h1": "Ratings"
+    "h1": "Reviews"
   },
   "Mentions": {
-    "h1": "Legal Notice",
+    "title": "",
+    "h1": "Legal Notice and Terms of Use",
     "h3_1": "Main activities",
     "p_1": "Morgane PARDO HYPNOSIS: practice of hypnosis, brief therapies, reiki, magnetism, training and coaching.",
     "h3_2": "The head office",
@@ -143,7 +144,8 @@
   "EventsDetails": {
     "p": "Places Available",
     "pWithoutPlace": "Unfortunately, this event is fully booked",
-    "button": "Book"
+    "button": "Book",
+    "button2": "Back"
   },
   "basket": {
     "title": "Your basket",

@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import './NavBar.scss';
 import { slide as Menu } from 'react-burger-menu';
 import logo from '../pictures/hypnose_vins_logo.png';
-import cross from '../pictures/cross.png';
+import cross from '../pictures/red-cross.png';
 import SimpleMenu from './MenuNavBar.js';
 import Translation from './Translation.js';
 import useLocalStorage from '../../services/useLocalStorage';
@@ -64,6 +64,9 @@ const NavBar = () => {
       </Link>
       <div className="navbarLink">
         <ul>
+          <NavLink exact to="/">
+            {t('Navbar.lien1')}
+          </NavLink>
           <SimpleMenu />
           <NavLink exact to="/aboutme">
             {t('Navbar.lien3')}
@@ -139,7 +142,7 @@ const NavBar = () => {
             {t('Navbar.lien14')} {userLogged.firstname} !
           </Link>
         ) : (
-          <Link to="/contact" onClick={closeMenu}>
+          <Link to="/login" onClick={closeMenu}>
             S'inscrire | Se Connecter
           </Link>
         )}
