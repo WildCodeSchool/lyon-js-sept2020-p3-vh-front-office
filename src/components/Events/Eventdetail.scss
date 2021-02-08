@@ -6,6 +6,19 @@
     color: $primary-color;
     text-align: center;
   }
+  .event-information {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: auto;
+    margin-bottom: 30px;
+    p {
+      margin-bottom: 10px;
+    }
+  }
   .line {
     color: $primary-color;
     margin-bottom: 50px;
@@ -38,13 +51,15 @@
         text-align: center;
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
       }
       .logo-event {
         width: 40%;
         display: flex;
         justify-content: space-around;
-        margin-bottom: 20px;
+        a {
+          text-decoration: none;
+        }
       }
       img {
         margin-bottom: 20px;
@@ -60,25 +75,10 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-bottom: 50px;
-        p {
-          margin-bottom: 0;
-        }
         button {
           margin-top: 20px;
+          margin-bottom: 20px;
         }
-      }
-    }
-    .event-information {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      width: 60%;
-      justify-content: space-around;
-      align-items: center;
-      margin: auto;
-      p {
-        margin-bottom: 10px;
       }
     }
   }
