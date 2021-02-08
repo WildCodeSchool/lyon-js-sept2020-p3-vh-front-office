@@ -8,10 +8,9 @@ import './Faq.scss';
 const styles = {
   bgColor: 'white',
   rowTitleColor: '#3c434c',
-  rowContentTextSize: 'small',
+  rowContentTextSize: 'medium',
   rowContentColor: 'grey',
   rowTitleTextSize: 'large',
-
   rowContentPaddingTop: '10px',
 };
 
