@@ -142,7 +142,7 @@ const NavBar = () => {
             {t('Navbar.lien14')} {userLogged.firstname} !
           </Link>
         ) : (
-          <Link to="/contact" onClick={closeMenu}>
+          <Link to="/login" onClick={closeMenu}>
             S'inscrire | Se Connecter
           </Link>
         )}
