@@ -64,6 +64,9 @@ const NavBar = () => {
       </Link>
       <div className="navbarLink">
         <ul>
+          <NavLink exact to="/">
+            {t('Navbar.lien1')}
+          </NavLink>
           <SimpleMenu />
           <NavLink exact to="/aboutme">
             {t('Navbar.lien3')}
@@ -139,7 +142,7 @@ const NavBar = () => {
             {t('Navbar.lien14')} {userLogged.firstname} !
           </Link>
         ) : (
-          <Link to="/contact" onClick={closeMenu}>
+          <Link to="/login" onClick={closeMenu}>
             S'inscrire | Se Connecter
           </Link>
         )}

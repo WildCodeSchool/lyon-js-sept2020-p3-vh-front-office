@@ -127,10 +127,10 @@ function Login() {
           />
           <div className="register-password">
             <Link to="/forgot-password">
-              <p>{t('Connection.link1')}</p>
+              <p style={{ color: 'black' }}>{t('Connection.link1')}</p>
             </Link>
             <Link to="/register">
-              <p>{t('Connection.link2')}</p>
+              <p style={{ color: 'black' }}>{t('Connection.link2')}</p>
             </Link>
           </div>
 
