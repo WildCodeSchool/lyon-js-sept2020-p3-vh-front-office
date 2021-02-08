@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import './NavBar.scss';
 import { slide as Menu } from 'react-burger-menu';
 import logo from '../pictures/hypnose_vins_logo.png';
-import cross from '../pictures/cross.png';
+import cross from '../pictures/red-cross.png';
 import SimpleMenu from './MenuNavBar.js';
 import Translation from './Translation.js';
 import useLocalStorage from '../../services/useLocalStorage';

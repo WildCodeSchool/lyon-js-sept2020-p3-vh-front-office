@@ -1,5 +1,6 @@
 /* eslint-disable global-require */
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
@@ -136,13 +137,49 @@ const EventDetails = (props) => {
 
   return eventCoordinate ? (
     <section className="event-details-container">
+      <Helmet>
+        <title>{eventData.title}</title>
+      </Helmet>
       <h1 className="title">{eventData.title}</h1>
       <p className="line">________________________</p>
-      <div className="event-details">
-        <Helmet>
-          <title>{eventData.title}</title>
-        </Helmet>
+      <div className="event-information">
+        <p>
+          <BiHourglass size={25} color="#8c0226" />
+          &nbsp;
+          {eventData.duration_seconds} minutes
+        </p>
+        <p>
+          <BsPerson size={25} color="#8c0226" />
+          &nbsp; {eventData.firstname}&nbsp;
+          {eventData.lastname}
+        </p>
 
+        <p>
+          <GiWineGlass size={25} color="#8c0226" />
+          &nbsp; &nbsp;
+          {eventData.name}&nbsp;-&nbsp;{eventData.producteur}
+        </p>
+
+        <p>
+          <GoLocation size={25} color="#8c0226" />
+          &nbsp;
+          {eventData.street}&nbsp;{eventData.zipcode}&nbsp;{eventData.city}
+        </p>
+        {eventData.availabilities ? (
+          <p>
+            <MdEventAvailable size={25} color="#8c0226" />
+            &nbsp;
+            {eventData.availabilities} {t('EventsDetails.p')}
+          </p>
+        ) : (
+          <p style={{ color: 'red' }}>
+            <MdEventAvailable size={25} color="#8c0226" />
+            &nbsp;
+            {t('EventsDetails.pWithoutPlace')}
+          </p>
+        )}
+      </div>
+      <div className="event-details">
         <div className="main-page">
           <img
             src={`${process.env.REACT_APP_API_BASE_URL}/${eventData.main_picture_url}`}
@@ -150,32 +187,6 @@ const EventDetails = (props) => {
           />
           {ReactHtmlParser(eventData.description)}
 
-          <p>
-            <BsPerson size={25} color="#8c0226" />
-            &nbsp; {eventData.firstname}&nbsp;
-            {eventData.lastname}
-          </p>
-          <p>
-            <GiWineGlass size={25} color="#8c0226" />
-            &nbsp; &nbsp;
-            {eventData.name}&nbsp;-&nbsp;{eventData.producteur}
-          </p>
-          <div className="logo-event">
-            <FacebookShareButton
-              className="facebook"
-              url={window.location.href}
-            >
-              <FacebookIcon size={30} borderRadius={50}>
-                Facebook
-              </FacebookIcon>
-            </FacebookShareButton>
-
-            <TwitterShareButton className="twitter" url={window.location.href}>
-              <TwitterIcon size={30} borderRadius={50}>
-                Twitter
-              </TwitterIcon>
-            </TwitterShareButton>
-          </div>
           {!!eventData.availabilities && ( // need to use this expression, because React return a 0 with eventData.availabilities &&
             <div className="quantity-book">
               <p>
@@ -206,38 +217,38 @@ const EventDetails = (props) => {
               >
                 {t('EventsDetails.button')}
               </Button>
+              <div className="logo-event">
+                <FacebookShareButton
+                  className="facebook"
+                  url={window.location.href}
+                >
+                  <FacebookIcon size={30} borderRadius={50}>
+                    Facebook
+                  </FacebookIcon>
+                </FacebookShareButton>
+
+                <TwitterShareButton
+                  className="twitter"
+                  url={window.location.href}
+                >
+                  <TwitterIcon size={30} borderRadius={50}>
+                    Twitter
+                  </TwitterIcon>
+                </TwitterShareButton>
+                <Link to="/events">
+                  <Button
+                    // eslint-disable-next-line react/jsx-boolean-value
+                    className={classes.btn}
+                    type="button"
+                    variant="contained"
+                    color="primary"
+                  >
+                    {t('EventsDetails.button2')}
+                  </Button>
+                </Link>
+              </div>
             </div>
           )}
-          <div className="availabilities-price-duration">
-            {eventData.availabilities ? (
-              <p>
-                <MdEventAvailable size={25} color="#8c0226" />
-                &nbsp;
-                {eventData.availabilities} {t('EventsDetails.p')}
-              </p>
-            ) : (
-              <p style={{ color: 'red' }}>
-                <MdEventAvailable size={25} color="#8c0226" />
-                &nbsp;
-                {t('EventsDetails.pWithoutPlace')}
-              </p>
-            )}
-            <p>
-              <GoLocation size={25} color="#8c0226" />
-              &nbsp;
-              {eventData.street}&nbsp;{eventData.zipcode}&nbsp;{eventData.city}
-            </p>
-            <p>
-              <BiHourglass size={25} color="#8c0226" />
-              &nbsp; {Math.floor(eventData.duration_seconds / 60)}&nbsp;h&nbsp;
-              {Math.floor(
-                (eventData.duration_seconds / 60 -
-                  Math.floor(eventData.duration_seconds / 60)) *
-                  60
-              )}{' '}
-              m
-            </p>
-          </div>
         </div>
         <div className="map">
           <MapContainer

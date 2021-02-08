@@ -143,7 +143,8 @@
   "EventsDetails": {
     "p": "Places Available",
     "pWithoutPlace": "Unfortunately, this event is fully booked",
-    "button": "Book"
+    "button": "Book",
+    "button2": "Back"
   },
   "basket": {
     "title": "Your basket",
