@@ -120,7 +120,7 @@ const Footer = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://fr-fr.facebook.com/hypnose.villeurbanne/"
+              href="https://www.instagram.com/hypnose.et.vin/"
             >
               Instagram
             </a>

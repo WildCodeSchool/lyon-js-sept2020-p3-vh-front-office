@@ -98,7 +98,7 @@ export default function AboutMorgane() {
             <div>
               <li className="list">
                 <a
-                  href="https://www.instagram.com/?hl=fr"
+                  href="https://www.instagram.com/hypnose.et.vin/"
                   target="_blank"
                   rel="noreferrer"
                 >
