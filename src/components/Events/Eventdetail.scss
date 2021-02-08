@@ -90,6 +90,10 @@
     .title {
       font-size: 2.5vw;
     }
+    .event-information {
+      display: flex;
+      flex-direction: row;
+    }
     .event-details {
       flex-direction: row;
       .map {
@@ -102,7 +106,8 @@
         margin-left: 50px;
         width: 50%;
         .logo-event {
-          width: 17%;
+          width: 80%;
+          margin-top: 30px;
         }
         .availabilities-price-duration {
           flex-direction: row;
