@@ -64,6 +64,9 @@ const NavBar = () => {
       </Link>
       <div className="navbarLink">
         <ul>
+          <NavLink exact to="/">
+            {t('Navbar.lien1')}
+          </NavLink>
           <SimpleMenu />
           <NavLink exact to="/aboutme">
             {t('Navbar.lien3')}
