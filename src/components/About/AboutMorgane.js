@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import {
   AiOutlineMail,
   AiFillFacebook,
-  AiOutlineTwitter,
   AiOutlineInstagram,
 } from 'react-icons/ai';
 import './AboutMorgane.scss';
@@ -93,17 +92,6 @@ export default function AboutMorgane() {
                   rel="noreferrer"
                 >
                   <AiFillFacebook size={40} color="#8c0226" />
-                </a>
-              </li>
-            </div>
-            <div>
-              <li className="list">
-                <a
-                  href="https://twitter.com/?lang=fr"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <AiOutlineTwitter size={40} color="#8c0226" />
                 </a>
               </li>
             </div>
