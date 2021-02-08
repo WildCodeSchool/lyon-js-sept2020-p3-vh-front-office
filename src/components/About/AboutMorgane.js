@@ -76,7 +76,7 @@ export default function AboutMorgane() {
             <div>
               <li className="list">
                 <a
-                  href="https://www.google.com/intl/fr/gmail/about/"
+                  href="mailto:morgane.pardo@yahoo.com"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -87,7 +87,7 @@ export default function AboutMorgane() {
             <div>
               <li className="list">
                 <a
-                  href="https://fr-fr.facebook.com/"
+                  href="https://fr-fr.facebook.com/hypnose.villeurbanne/"
                   target="_blank"
                   rel="noreferrer"
                 >
