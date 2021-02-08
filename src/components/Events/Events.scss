@@ -17,6 +17,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    .no-event {
+      height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        color: black;
+        margin-top: 20px;
+        font-size: large;
+    }
     .calendar-container {
       display: flex;
       flex-direction: column;
@@ -31,17 +42,6 @@
       .react-calendar__tile--now {
         background: rgb(231, 224, 224);
       }
-    }
-    .no-event {
-      height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: white;
-        color: black;
-        margin-top: 20px;
-        font-size: large;
     }
     .cardOfEvents {
       .eventCard:first-child {
