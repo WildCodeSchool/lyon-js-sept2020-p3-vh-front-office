@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Events = () => {
-  const [events, setEvents] = useState();
+  const [events, setEvents] = useState([]);
   const [initialEvents, setInitialEvents] = useState([]);
   const [selectedDates, setSelectedDates] = useState();
   const [listOfEventsDates, setListOfEventsDates] = useState();
@@ -181,6 +181,9 @@ const Events = () => {
               );
             })}
         </div>
+        {events.length === 0 && (
+          <div className="no-event">Pas d'évènements cette semaine</div>
+        )}
       </div>
     </section>
   );
