@@ -34,11 +34,12 @@
     "titre": "Hypnose & Vins",
     "link5": "Language",
     "link9": "Subcribe to our upcoming events ",
-    "link10": "Legal Mentions"
+    "link10": "Legal Notice and Terms of Use"
   },
   "Events": {
+    "h1": "Upcoming events",
     "bouton1": "Details",
-    "bouton2": "Reset filters",
+    "bouton2": "upcoming events",
     "helmet": "Events"
   },
   "Animators": {
@@ -82,6 +83,17 @@
     "label4": "Phone",
     "label5": "Password",
     "label6": "Confirm password"
+  },
+  "NewPassword": {
+    "h1": "Reset your password",
+    "label1": "Password",
+    "label2": "Confirm password",
+    "button": "Reset"
+  },
+  "ForgotPassword": {
+    "h1": "Ask for a new password",
+    "label1": "Enter your email",
+    "button": "Send"
   },
   "Connection": {
     "h1": "Log in",
@@ -131,7 +143,7 @@
   "EventsDetails": {
     "p": "Places Available",
     "pWithoutPlace": "Unfortunately, this event is fully booked",
-    "button": "Add to basket"
+    "button": "Book"
   },
   "basket": {
     "title": "Your basket",

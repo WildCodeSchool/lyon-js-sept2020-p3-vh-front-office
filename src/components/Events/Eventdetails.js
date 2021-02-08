@@ -1,15 +1,12 @@
 /* eslint-disable global-require */
-/* eslint-disable no-unused-vars */
-/* eslint no-underscore-dangle: 0 */
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { MdShare, MdEventAvailable } from 'react-icons/md';
+import { MdEventAvailable } from 'react-icons/md';
 import './Eventdetail.scss';
 import Button from '@material-ui/core/Button';
-import { IconContext } from 'react-icons/lib';
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { Icon } from 'leaflet';
@@ -27,12 +24,14 @@ import { GiWineGlass } from 'react-icons/gi';
 import { GoLocation } from 'react-icons/go';
 import { BsPerson } from 'react-icons/bs';
 import { BiMoney, BiHourglass } from 'react-icons/bi';
+import ReactHtmlParser from 'react-html-parser';
 import SpinnerLoader from '../../services/Loader';
 import { BasketContext } from '../Contexts/BasketContext';
 import API from '../../services/API';
 
 const L = require('leaflet');
 
+// eslint-disable-next-line no-underscore-dangle
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.imagePath = 'node_modules/leaflet';
@@ -47,7 +46,6 @@ const EventDetails = (props) => {
   const [eventData, setEventData] = useState();
   const [eventCoordinate, setEventCoordinate] = useState();
   const [quantity, setQuantity] = useState(1);
-  const [userData, setUserData] = useState();
   const { addToast } = useToasts();
   const { t } = useTranslation();
   // eslint-disable-next-line no-unused-vars
@@ -55,14 +53,9 @@ const EventDetails = (props) => {
 
   const { match } = props;
   const eventId = match.params.id;
-  const userId = match.params.id;
 
   useEffect(() => {
     API.get(`/events/${eventId}`).then((res) => setEventData(res.data));
-  }, []);
-
-  useEffect(() => {
-    API.get(`/users/${userId}`).then((res) => setUserData(res.data));
   }, []);
 
   useEffect(() => {
@@ -111,6 +104,13 @@ const EventDetails = (props) => {
           10
         );
         setBasket(currentBasket);
+        addToast(
+          `Evénement déjà présent dans votre panier, le nombre de places a été mis à jour`,
+          {
+            appearance: 'success',
+            autoDismiss: true,
+          }
+        );
       } else {
         addToast(
           `Votre réservation dépasse le nombre de places disponibles (déjà ${currentBasket[isEventExistingInBasket].quantity} places dans votre panier)`,
@@ -128,6 +128,10 @@ const EventDetails = (props) => {
       };
       const newBasket = [newEvent, ...currentBasket];
       setBasket(newBasket);
+      addToast(`Evénement ajouté à votre panier`, {
+        appearance: 'success',
+        autoDismiss: true,
+      });
     }
   };
 
@@ -181,7 +185,8 @@ const EventDetails = (props) => {
             src={`${process.env.REACT_APP_API_BASE_URL}/${eventData.main_picture_url}`}
             alt="event_image"
           />
-          <p>{eventData.description}</p>
+          {ReactHtmlParser(eventData.description)}
+
           {!!eventData.availabilities && ( // need to use this expression, because React return a 0 with eventData.availabilities &&
             <div className="quantity-book">
               <p>

@@ -47,6 +47,14 @@
   max-height: 5px;
 }
 
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  right: 15px !important;
+  &:focus {
+    outline: 0;
+  }
+}
+
 /* Color/shape of close button cross */
 .bm-cross {
   position: absolute;
@@ -54,12 +62,10 @@
   height: 50px;
   width: 50px;
   top: -25px;
-  right: 29px;
 }
 #react-burger-cross-btn {
   position: absolute !important;
   top: -25px !important;
-  right: 15px !important;
 }
 /*
   Sidebar wrapper styles
@@ -221,6 +227,14 @@
       width: 85px;
       &:nth-child(2n) {
         margin: 0 20px;
+        &:hover {
+          button {
+            background-color: transparent;
+          }
+        }
+      }
+      &:nth-child(3n) {
+        width: 150px;
       }
       cursor: pointer;
       &:hover {
@@ -273,6 +287,7 @@
 
     .userLink {
       display: flex;
+      justify-content: flex-end;
       width: 40%;
       padding-right: 30px;
       img {

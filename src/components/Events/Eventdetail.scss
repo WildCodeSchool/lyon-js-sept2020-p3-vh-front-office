@@ -71,11 +71,11 @@
 
       .quantity-book {
         flex-wrap: wrap;
-        width: 100%;
+        width: 90%;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-top: 5px;
+        margin-top: 20px;
         button {
           margin-top: 20px;
           margin-bottom: 20px;
@@ -114,6 +114,7 @@
           width: 100%;
         }
         .quantity-book {
+          margin-top: 50px;
           width: 80%;
           button {
             margin-top: 0;
