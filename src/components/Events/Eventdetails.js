@@ -243,7 +243,7 @@ const EventDetails = (props) => {
                     variant="contained"
                     color="primary"
                   >
-                    Retour
+                    {t('EventsDetails.button2')}
                   </Button>
                 </Link>
               </div>
